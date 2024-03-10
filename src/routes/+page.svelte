@@ -23,9 +23,9 @@
 </script>
 
 <style>
-    h1 {
+    /* h1 {
         color: red;
-    }
+    } */
     p {
         color: goldenrod;
     }
@@ -33,11 +33,16 @@
         background-color: lightblue;
         color: black;
     }
+    .centered {
+        display: flex;
+        justify-content: center;
+    }
 </style>
 
-<p>It's time to finally get started on this site</p>
-<p>Welcome to {name.toUpperCase()}'s site!</p>
-<AboutMe />
+<!-- centered div -->
+<div class="centered">
+    <AboutMe/>
+</div>
 
 <div on:pointermove={handleMove}>Your mouse is at ({m.x}, {m.y})</div>
 <!-- pointermove only works inside the bounds of the div -->
@@ -47,4 +52,4 @@
 </button>
 
 <p>{warning}</p>
-<a href="/blog">Blog</a>
+<!-- <a href="/blog">Blog</a> -->
