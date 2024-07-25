@@ -1,7 +1,8 @@
 import adapter from '@sveltejs/adapter-static';
 //import adapter from 'svelte-adapter-github';
 //import adapter from '@sveltejs/adapter-vercel';
-import { vitePreprocess } from '@sveltejs/kit/vite';
+//import { vitePreprocess } from '@sveltejs/kit/vite';
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
