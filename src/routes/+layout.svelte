@@ -1,33 +1,29 @@
-<script>
+<script lang="ts">
+  import { onMount } from 'svelte';
+  import { theme } from '$lib/stores/theme';
+  import '../lib/styles/layout.css';
+  import Navbar from '../lib/components/Navbar.svelte';
+  import Footer from '../lib/components/Footer.svelte';
+
+  onMount(() => {
+    const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' || 'light';
+    theme.set(savedTheme);
+    document.body.setAttribute('data-theme', savedTheme);
+  });
+
+  theme.subscribe((value: string) => {
+    if (typeof document !== 'undefined') {
+      document.body.setAttribute('data-theme', value);
+    }
+  });
 </script>
 
-<style>
-    nav {
-        display: flex;
-        justify-content: space-around;
-        background-color: lightblue;
-        padding: 1em;
-        margin: 0;
-    }
-    a {
-        text-decoration: none;
-        color: black;
-        border: 1px solid black;
-        padding: 0.5em 1em;
-        border-radius: 8px;
-        /* on hover change background color */
-        background-color: lightgray;
-    }
-    a:hover {
-        background-color: lightgreen;
-    }
-</style>
-
-<nav>
-    <a href="/">Home</a>
-    <a href='/photos'>Photos</a>
-    <a href="/blog">Blog</a>
-    <!-- <a href="/contact">Contact</a> -->
-</nav>
-
-<slot></slot>
+<div>
+  <Navbar />
+  <div class="container">
+    <main>
+      <slot />
+    </main>
+  </div>
+  <Footer />
+</div>

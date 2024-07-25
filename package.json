@@ -21,6 +21,7 @@
 	"type": "module",
 	"dependencies": {
 		"fs": "^0.0.1-security",
+		"lucide-svelte": "^0.414.0",
 		"path": "^0.12.7",
 		"url": "^0.11.3"
 	}
