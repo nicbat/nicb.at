@@ -15,6 +15,7 @@
     </div>
     <ul class="nav-links">
       <li><a href="/photos">Photos</a></li>
+      <li><a href="/projects">Projects</a></li>
       <li><a href="/blog">Blog</a></li>
       <li>
         <a href="https://github.com/nicbat" target="_blank" rel="noopener noreferrer">
