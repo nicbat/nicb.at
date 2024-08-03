@@ -27,7 +27,13 @@ const config = {
 		adapter: adapter({
       runtime: 'nodejs20.x', // TODO update this? - required for vercel
     }),
-    outDir: 'build'
+    outDir: 'build',
+
+    alias: {
+      $components: './src/lib/components',
+      $lib: './src/lib',
+      $assets: './src/assets',
+    },
 	},
 
 };

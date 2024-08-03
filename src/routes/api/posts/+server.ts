@@ -10,7 +10,3 @@ export const GET = async () => {
 
 	return json(sortedPosts);
 };
-
-//export const GET = () => {
-//  return new Response('Welcome to my API');
-//}
