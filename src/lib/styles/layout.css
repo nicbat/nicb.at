@@ -52,8 +52,9 @@ p {
 }
 
 a {
-  color: var(--text-color);
-  text-decoration: none;
+  /*color: var(--text-color);*/
+  color: #408e5d;
+  /*text-decoration: none;*/
 }
 
 a:hover {
