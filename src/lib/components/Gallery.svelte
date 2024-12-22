@@ -24,7 +24,7 @@
   items={images}
   idKey="src"
   let:item
-  minColWidth={100}
+  minColWidth={300}
   gap={12}
 >
   <div class="gallery-item" on:click={() => openLightbox(item)}>
