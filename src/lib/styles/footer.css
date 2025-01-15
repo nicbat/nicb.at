@@ -1,6 +1,7 @@
 footer {
   /*background-color: #f0f0f0;*/
-  /*padding: 10px;*/
+  padding: 10px;
   text-align: center;
-  /*border-top: 1px solid var(--nav-border-color);*/
+  border-top: 1px solid var(--nav-border-color);
+  background-color: var(--nav-bg-color);
 }
