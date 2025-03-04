@@ -14,8 +14,9 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
+    margin: 5%;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .logo a {
