@@ -22,4 +22,4 @@ function conda() {
 }
 ```
 
-> Just replace the default `conda` initialization in your `.bashrc/.zshrc` with the above code. Enjoy :)
+Just replace the default `conda` initialization in your `.bashrc/.zshrc` with the above code. Enjoy :)
