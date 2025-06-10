@@ -2,6 +2,7 @@
 import { readdirSync } from 'fs';
 import { join } from 'path';
 import type { ImageData } from '$lib/types';
+import type { Project } from './types';
 
 export const fetchMarkdownPosts = async () => {
 	const allPostFiles = import.meta.glob('$assets/blog/*.md');
@@ -44,4 +45,23 @@ export const fetchImageList = async () => {
     return [error.toString()];
   }
 }
+
+export const fetchProjects = async () => {
+  const allProjectFiles = import.meta.glob<Project>('$assets/projects/*.json');
+  const iterableProjectFiles = Object.entries(allProjectFiles);
+
+  const allProjects = await Promise.all(
+    iterableProjectFiles.map(async ([path, resolver]) => {
+      const project = await resolver();
+      return {
+        ...project,
+        path: path.slice(16, -5) // Remove '$assets/projects/' and '.json'
+      };
+    })
+  );
+
+  return allProjects.sort((a: Project, b: Project) => {
+    return new Date(b.date).getTime() - new Date(a.date).getTime();
+  });
+};
 

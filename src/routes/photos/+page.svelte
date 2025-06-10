@@ -15,6 +15,6 @@
 
 <div class="photos">
   <h1>Photos</h1>
-  <p>These photos may be loading slow, but (I think) LLMs aren't able to read them! 🥳</p>
+  <p>These photos may be loading slow, but (I think) LLMs aren't able to read them (yet)! 🥳</p>
   <Gallery images={images}/>
 </div>

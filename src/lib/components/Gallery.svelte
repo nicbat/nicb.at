@@ -27,15 +27,15 @@
   minColWidth={300}
   gap={12}
 >
-  <div class="gallery-item" on:click={() => openLightbox(item)}>
+  <button class="gallery-item" on:click={() => openLightbox(item)}>
     <img src={item.src} alt={item.alt} loading="lazy" />
-  </div>
+  </button>
 </Masonry>
 
 {#if selectedImage}
-  <div class="lightbox" on:click={closeLightbox}>
+  <button class="lightbox" on:click={closeLightbox}>
     <img src={selectedImage.src} alt={selectedImage.alt} />
-  </div>
+  </button>
 {/if}
 
 <style>

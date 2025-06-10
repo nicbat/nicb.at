@@ -1,0 +1,13 @@
+{
+  "title": "Personal Website",
+  "date": "",
+  "tags": ["Product"],
+  "links": [
+    {
+      "text": "View Source",
+      "url": "https://github.com/nicbat/personal-site"
+    }
+  ],
+  "image": "",
+  "description": "You're looking at it! I built this with SvelteKit."
+} 

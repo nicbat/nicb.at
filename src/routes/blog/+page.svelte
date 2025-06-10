@@ -12,4 +12,5 @@
         </a>
     </h2>
     <!-- Published {post.meta.date} -->
+    {post.meta.description}
 {/each}

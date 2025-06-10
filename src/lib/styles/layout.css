@@ -3,6 +3,7 @@
     --text-color: #333333;
     --nav-bg-color: #ffffff;
     --nav-border-color: #e0e0e0;
+    --inline-code-color: #0066cc;
 }
 
 [data-theme="dark"] {
@@ -10,6 +11,7 @@
     --text-color: #ffffff;
     --nav-bg-color: #2a2a2a;
     --nav-border-color: #3a3a3a;
+    --inline-code-color: #66b3ff;
 }
 
 body {
@@ -41,6 +43,8 @@ pre {
     white-space: -o-pre-wrap;    /* Opera 7 */
     word-wrap: break-word;       /* Internet Explorer 5.5+ */
     margin: 0 10% 0 10%;
+    border-radius: 8px;
+    padding: 8px;
 }
 
 main {
@@ -102,7 +106,16 @@ a:hover {
     text-decoration: underline;
 }
 
-pre {
-    border-radius: 8px;
-    padding: 8px;
+/* Inline code styling */
+:not(pre) > code {
+    color: var(--inline-code-color);
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    padding: 0.2em 0.4em;
+    font-size: 0.9em;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 3px;
+}
+
+[data-theme="dark"] :not(pre) > code {
+    background-color: rgba(255, 255, 255, 0.1);
 }
