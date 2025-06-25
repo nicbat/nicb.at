@@ -5,9 +5,9 @@ nav {
     background-color: var(--nav-bg-color);
     border-bottom: 1px solid var(--nav-border-color);
     padding: 0.5rem 1rem;
-    transition:
+    /* transition:
         background-color 0.3s ease,
-        border-color 0.3s ease;
+        border-color 0.3s ease; */
 }
 
 .nav-content {
@@ -25,9 +25,9 @@ nav {
     color: var(--text-color);
     text-decoration: none;
     /*transition: background-color 0.3s ease, border-color 0.3s ease;*/
-    transition:
+    /* transition:
         background-color 0.3s ease,
-        color 0.3s ease;
+        color 0.3s ease; */
 }
 
 .nav-links {

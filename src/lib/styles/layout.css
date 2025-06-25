@@ -1,3 +1,7 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
     --bg-color: #ffffff;
     --text-color: #333333;
@@ -20,9 +24,9 @@ body {
     line-height: 1.5;
     color: var(--text-color);
     background-color: var(--bg-color);
-    transition:
-        background-color 0.3s ease,
-        color 0.3s ease;
+    /* transition: */
+        /* background-color 0.3s ease,
+        color 0.3s ease; */
     margin: 0;
     padding: 0;
 }

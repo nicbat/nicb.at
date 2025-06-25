@@ -23,7 +23,8 @@
         </a>
       </li>
       <li>
-        <button on:click={toggleTheme} aria-label="Toggle dark mode">
+        <!-- TODO make this button same height as rest of row, it's slightly too tall -->
+        <button on:click={toggleTheme} aria-label="Toggle dark mode" class="m-0 p-0">
           {#if $theme === 'dark'}
             <Sun size={24} />
           {:else}

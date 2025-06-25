@@ -1,6 +1,4 @@
 // place files you want to import through the `$lib` alias in this folder.
-import { readdirSync } from 'fs';
-import { join } from 'path';
 import type { ImageData } from '$lib/types';
 import type { Project } from './types';
 
@@ -10,7 +8,7 @@ export const fetchMarkdownPosts = async () => {
 
 	const allPosts = await Promise.all(
 		iterablePostFiles.map(async ([path, resolver]) => {
-			const { metadata } = await resolver();
+			const { metadata } = await (resolver as () => Promise<{ metadata: any }>)();
 			const postPath = '/blog' + path.slice(16, -3);
 
 			return {
@@ -23,26 +21,43 @@ export const fetchMarkdownPosts = async () => {
 	return allPosts;
 };
 
-
 export const fetchImageList = async () => {
   try {
+    // Read the photos.json file to get descriptions
+    let photoDescriptions: Record<string, string> = {};
+    try {
+      const photosJson = await import('$assets/photos.json');
+      photoDescriptions = photosJson.default.reduce((acc: Record<string, string>, photo: { filename: string; description: string }) => {
+        if (photo.description.trim()) {
+          acc[photo.filename] = photo.description;
+        }
+        return acc;
+      }, {});
+    } catch (error) {
+      console.warn('Could not load photos.json, using filenames as alt text');
+    }
+
     const allImageFiles = import.meta.glob('$assets/photos/*.{jpg,jpeg,png,gif}');
     const iterableImageFiles = Object.entries(allImageFiles);
 
     const allImages = await Promise.all(
       iterableImageFiles.map(async ([path, resolver]) => {
-        const { default: src } = await resolver();
-        //return metadata;
+        const { default: src } = await (resolver as () => Promise<{ default: string }>)();
+        const filename = path.split('/').pop() || '';
+        
+        // Use description from JSON if available, otherwise use filename
+        const alt = photoDescriptions[filename] || filename.split('.')[0];
+        
         return {
           src: `${src}`,
-          alt: src.split('.')[0], // Use filename as alt text
+          alt: alt,
         };
       })
     );
     return allImages;
   } catch (error) {
     console.error('Error reading image directory:', error);
-    return [error.toString()];
+    return [{ src: 'error', alt: (error as Error).toString() }];
   }
 }
 
@@ -52,7 +67,7 @@ export const fetchProjects = async () => {
 
   const allProjects = await Promise.all(
     iterableProjectFiles.map(async ([path, resolver]) => {
-      const project = await resolver();
+      const project = await (resolver as () => Promise<Project>)();
       return {
         ...project,
         path: path.slice(16, -5) // Remove '$assets/projects/' and '.json'
