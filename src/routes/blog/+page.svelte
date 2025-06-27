@@ -3,14 +3,16 @@
     export let data;
 </script>
 
-<h1>Blog</h1>
+<div class="prose dark:prose-invert max-w-none">
+  <h1>Blog</h1>
 
-{#each data.posts as post}
-    <h2>
-        <a href={post.path}>
-            {post.meta.title}
-        </a>
-    </h2>
-    <!-- Published {post.meta.date} -->
-    {post.meta.description}
-{/each}
+  {#each data.posts as post}
+      <h2>
+          <a href={post.path}>
+              {post.meta.title}
+          </a>
+      </h2>
+      <!-- Published {post.meta.date} -->
+      {post.meta.description}
+  {/each}
+</div>

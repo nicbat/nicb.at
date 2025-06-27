@@ -2,124 +2,53 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-:root {
-    --bg-color: #ffffff;
-    --text-color: #333333;
-    --nav-bg-color: #ffffff;
-    --nav-border-color: #e0e0e0;
-    --inline-code-color: #0066cc;
+/* Global styles that can't be easily handled by Tailwind */
+
+/* Typography base styles */
+h1, h2, h3, h4, h5, h6 {
+  @apply font-bold mb-2;
 }
 
-[data-theme="dark"] {
-    --bg-color: #1a1a1a;
-    --text-color: #ffffff;
-    --nav-bg-color: #2a2a2a;
-    --nav-border-color: #3a3a3a;
-    --inline-code-color: #66b3ff;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-    line-height: 1.5;
-    color: var(--text-color);
-    background-color: var(--bg-color);
-    /* transition: */
-        /* background-color 0.3s ease,
-        color 0.3s ease; */
-    margin: 0;
-    padding: 0;
-}
-
-.container {
-    /* max-width: 1200px; */
-    /* margin: 0 auto; */
-    margin: 5%;
-    margin-top: 0;
-    margin-bottom: 0;
-    padding: 0 20px;
-}
-
-pre {
-    white-space: pre-wrap;       /* Since CSS 2.1 */
-    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
-    white-space: -pre-wrap;      /* Opera 4-6 */
-    white-space: -o-pre-wrap;    /* Opera 7 */
-    word-wrap: break-word;       /* Internet Explorer 5.5+ */
-    margin: 0 10% 0 10%;
-    border-radius: 8px;
-    padding: 8px;
-}
-
-main {
-    min-height: calc(
-        100vh - 50px
-    ); /* Adjust based on your navbar and footer height */
-    padding: 20px 0;
-}
-
-/* Typography */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    margin-bottom: 0.5em;
-    font-weight: bold;
-}
-
-h1 {
-    font-size: 2.5em;
-}
-h2 {
-    font-size: 2em;
-}
-h3 {
-    font-size: 1.75em;
-}
-h4 {
-    font-size: 1.5em;
-}
-h5 {
-    font-size: 1.25em;
-}
-h6 {
-    font-size: 1em;
-}
+h1 { @apply text-4xl; }
+h2 { @apply text-3xl; }
+h3 { @apply text-2xl; }
+h4 { @apply text-xl; }
+h5 { @apply text-lg; }
+h6 { @apply text-base; }
 
 p {
-    margin-bottom: 1em;
+  @apply mb-4;
 }
 
+/* Link styles */
 a {
-    /* I want the style of <a> tags to be surrounded by square brackets. For example - "google" will appear as [google] */
-    color: #408e5d;
-    text-decoration: none;
+  @apply text-green-600 dark:text-green-400 no-underline;
 }
-
-/* a::before {
-    content: "[";
-}
-
-a::after {
-    content: "]";
-} */
 
 a:hover {
-    text-decoration: underline;
+  @apply underline;
+}
+
+nav a {
+  @apply text-gray-900 dark:text-white hover:text-gray-700 dark:hover:text-gray-300 transition-colors;
+}
+
+nav a:hover {
+  @apply text-green-600 dark:text-green-400;
+  text-decoration: none;
 }
 
 /* Inline code styling */
 :not(pre) > code {
-    color: var(--inline-code-color);
-    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
-    padding: 0.2em 0.4em;
-    font-size: 0.9em;
-    background-color: rgba(0, 0, 0, 0.05);
-    border-radius: 3px;
+  @apply text-blue-600 dark:text-blue-400 font-mono px-2 py-1 text-sm bg-gray-100 dark:bg-gray-800 rounded;
 }
 
-[data-theme="dark"] :not(pre) > code {
-    background-color: rgba(255, 255, 255, 0.1);
+/* Pre/code block styling */
+pre {
+  @apply whitespace-pre-wrap break-words mx-[10%] rounded-lg p-2;
 }
+
+/* Theme transition for smooth dark/light mode switching */
+/* body {
+  @apply transition-colors duration-300;
+} */
