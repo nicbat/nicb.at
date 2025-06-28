@@ -7,10 +7,10 @@
   }
 </script>
 
-<nav class="sticky top-0 z-50 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-4 py-2">
+<nav class="sticky top-0 z-50 bg-surface border-b border-primary px-4 py-2">
   <div class="max-w-7xl mx-auto flex justify-between items-center">
     <div class="logo">
-      <a href="/" class="text-2xl font-bold text-gray-900 dark:text-white hover:text-gray-700 dark:hover:text-gray-300 transition-colors">
+      <a href="/" class="text-2xl font-bold text-primary-text hover:text-secondary-text transition-colors">
         nicbat
       </a>
     </div>
@@ -39,7 +39,7 @@
         <button 
           on:click={toggleTheme} 
           aria-label="Toggle dark mode" 
-          class="text-sm"
+          class="text-sm cursor-pointer"
         >
           {#if $theme === 'dark'}
             <Sun size={24} />

@@ -15,6 +15,6 @@
 
 <div class="mx-[5%]">
   <h1 class="mb-4">Photos</h1>
-  <p class="mb-6 text-gray-600 dark:text-gray-400">These photos may be loading slow, but (I think) LLMs aren't able to read them (yet)! 🥳</p>
+  <p class="mb-6 text-secondary-text">These photos may be loading slow, but (I think) LLMs aren't able to read them (yet)! 🥳</p>
   <Gallery images={images}/>
 </div>

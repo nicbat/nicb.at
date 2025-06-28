@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./colors.css";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -22,7 +23,8 @@ p {
 
 /* Link styles */
 a {
-  @apply text-green-600 dark:text-green-400 no-underline;
+  color: var(--color-primary);
+  @apply no-underline;
 }
 
 a:hover {
@@ -30,17 +32,19 @@ a:hover {
 }
 
 nav a {
-  @apply text-gray-900 dark:text-white hover:text-gray-700 dark:hover:text-gray-300 transition-colors;
+  color: var(--color-text-primary);
 }
 
 nav a:hover {
-  @apply text-green-600 dark:text-green-400;
+  color: var(--color-primary);
   text-decoration: none;
 }
 
 /* Inline code styling */
 :not(pre) > code {
-  @apply text-blue-600 dark:text-blue-400 font-mono px-2 py-1 text-sm bg-gray-100 dark:bg-gray-800 rounded;
+  color: var(--color-secondary);
+  background-color: var(--color-bg-overlay);
+  @apply font-mono px-2 py-1 text-sm rounded;
 }
 
 /* Pre/code block styling */

@@ -18,7 +18,7 @@
   });
 </script>
 
-<div class="min-h-screen flex flex-col bg-white dark:bg-gray-900 text-gray-900 dark:text-white font-sans">
+<div class="min-h-screen flex flex-col bg-main text-primary-text font-sans">
   <Navbar />
   <div class="flex-1 max-w-7xl mx-auto w-full px-5 flex flex-col">
     <main class="flex-1 min-h-0 py-5">

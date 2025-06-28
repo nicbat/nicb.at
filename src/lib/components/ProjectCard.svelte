@@ -11,7 +11,7 @@
   }
 </script>
 
-<div class="border border-gray-200 dark:border-neutral-700 rounded-lg p-4 bg-white dark:bg-neutral-800 shadow-sm">
+<div class="border border-primary rounded-lg p-4 bg-elevated shadow-sm">
   {#if project.image !== ""}
     <img src={project.image} alt={project.title} />
   {/if}
@@ -20,17 +20,17 @@
       <div class="flex flex-row justify-between float-right">
         {#each project.tags as tag}
           {#if tag == "Publication"}
-            <span class="bg-emerald-700/25 rounded-full p-2 text-xs font-bold uppercase text-emerald-700 dark:text-emerald-300">{tag}</span>
+            <span class="bg-tag-primary/25 rounded-full p-2 text-xs font-bold uppercase text-tag-primary">{tag}</span>
             <!-- <span class="bg-yellow-700/25 rounded-full p-2 text-xs font-bold uppercase text-yellow-700 dark:text-yellow-300">{tag}</span> -->
           {:else}
-            <span class="bg-cyan-700/25 rounded-full p-2 text-xs font-bold uppercase text-cyan-700 dark:text-cyan-300">{tag}</span>
+            <span class="bg-tag-secondary/25 rounded-full p-2 text-xs font-bold uppercase text-tag-secondary">{tag}</span>
           {/if}
         {/each}
       </div>
       <p class="text-lg font-bold">{@html formatMarkdown(project.title)}</p>
     </article>
     {#if project.date !== ""}
-      <span class="text-gray-500 text-sm">{new Date(project.date).toLocaleDateString()}</span>
+      <span class="text-muted text-sm">{new Date(project.date).toLocaleDateString()}</span>
     {/if}
     <p class="description">{@html formatMarkdown(project.description)}</p>
     <div class="links">
