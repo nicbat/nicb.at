@@ -42,8 +42,8 @@ nav a:hover {
 
 /* Inline code styling */
 :not(pre) > code {
-  color: var(--color-secondary);
-  background-color: var(--color-bg-overlay);
+  color: var(--color-primary);
+  background-color: var(--color-bg-surface);
   @apply font-mono px-2 py-1 text-sm rounded;
 }
 

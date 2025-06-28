@@ -29,7 +29,10 @@ unset __conda_setup
 # <<< conda initialize <<<
 ```
 
+<br/>
+<p>
 Great. Now copy all of the code inside the else branch, and create the following function in your `.rc` file:
+</p>
 
 ```bash
 # source: ChatGPT
@@ -46,4 +49,5 @@ function conda() {
 }
 ```
 
+<br/>
 Just comment out the old conda initialization code and you should be good to go! Enjoy :)

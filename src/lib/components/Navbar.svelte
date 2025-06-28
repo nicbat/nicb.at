@@ -5,12 +5,14 @@
   function toggleTheme(): void {
     theme.update(t => t === 'light' ? 'dark' : 'light');
   }
+
+  let isHovered = false;
 </script>
 
 <nav class="sticky top-0 z-50 bg-surface border-b border-primary px-4 py-2">
   <div class="max-w-7xl mx-auto flex justify-between items-center">
     <div class="logo">
-      <a href="/" class="text-2xl font-bold text-primary-text hover:text-secondary-text transition-colors">
+      <a href="/" class="text-2xl font-bold text-primary-text hover:text-secondary-text">
         nicbat
       </a>
     </div>
@@ -35,19 +37,21 @@
           <Github size={24} />
         </a>
       </li>
-      <li>
-        <button 
+      <button 
           on:click={toggleTheme} 
           aria-label="Toggle dark mode" 
           class="text-sm cursor-pointer"
+          on:mouseenter={() => {
+            isHovered = true;
+          }}
+          on:mouseleave={() => isHovered = false}
         >
           {#if $theme === 'dark'}
-            <Sun size={24} />
+            <Sun size={24} class="group-hover:text-primary" color={isHovered ? "var(--color-primary)" : "var(--color-text-primary)"}/>
           {:else}
-            <Moon size={24} />
+            <Moon size={24} class="group-hover:text-primary" color={isHovered ? "var(--color-primary)" : "var(--color-text-primary)"}/>
           {/if}
-        </button>
-      </li>
+      </button>
     </ul>
   </div>
 </nav>

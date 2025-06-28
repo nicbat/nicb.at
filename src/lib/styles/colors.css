@@ -57,8 +57,8 @@
   --color-tag-secondary-light: #B4BEFE; /* Light blue variant */
   
   /* ===== OVERLAY COLORS ===== */
-  --color-overlay: rgba(100, 73, 65, 0.7); /* Image overlays */
-  --color-overlay-light: rgba(100, 73, 65, 0.8); /* Lightbox overlays */
+  --color-overlay: rgba(242, 238, 232, 0.9); /* Light background with dark text for light mode */
+  --color-overlay-light: rgba(242, 238, 232, 0.95); /* Lighter background for lightbox */
 }
 
 /* ===== DARK MODE COLORS ===== */
