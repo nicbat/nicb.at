@@ -51,10 +51,10 @@
   --color-border-secondary: #D9CECB; /* Secondary borders */
   
   /* ===== PROJECT TAG COLORS ===== */
-  --color-tag-primary: #7DD3C7; /* Darker teal for better contrast - Publication tags */
-  --color-tag-primary-light: #94E2D5; /* Original teal for light variant */
-  --color-tag-secondary: #89B4FA; /* Catppuccin Blue - Other project tags */
-  --color-tag-secondary-light: #B4BEFE; /* Light blue variant */
+  --color-tag-primary: #2e6d64; /* Darker teal for better contrast - Publication tags */
+  --color-tag-primary-light: #2e6d64; /* Original teal for light variant */
+  --color-tag-secondary: #334df1; /* Catppuccin Blue - Other project tags */
+  --color-tag-secondary-light: #334df1; /* Light blue variant */
   
   /* ===== OVERLAY COLORS ===== */
   --color-overlay: rgba(242, 238, 232, 0.9); /* Light background with dark text for light mode */
