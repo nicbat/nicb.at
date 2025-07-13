@@ -11,7 +11,7 @@
              <!-- and <a href="https://jedels.github.io/" target="_blank">Jacob Lee Edelson</a> -->
               under <a href="https://homes.cs.washington.edu/~gshyam/" target="_blank"
             >Shyam Gollakota</a>. 
-        This summer I'm also interning at <a href="https://careers.roblox.com/" target="_blank">Roblox</a>!
+        I'm also interning at <a href="https://careers.roblox.com/" target="_blank">Roblox</a> this summer!
         <br/><br/>
         Outside of programming, I love studying languages, tinkering with my computer, and exploring the west coast.
         <br/><br/>

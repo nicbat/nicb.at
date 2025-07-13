@@ -23,14 +23,16 @@ export const fetchMarkdownPosts = async () => {
 
 export const fetchImageList = async () => {
   try {
-    // Read the photos.json file to get descriptions
-    let photoDescriptions: Record<string, string> = {};
+    // Read the photos.json file to get image metadata
+    let photoMetadata: Record<string, string> = {};
     try {
       const photosJson = await import('$assets/photos.json');
-      photoDescriptions = photosJson.default.reduce((acc: Record<string, string>, photo: { filename: string; description: string }) => {
-        if (photo.description.trim()) {
-          acc[photo.filename] = photo.description;
-        }
+      photoMetadata = photosJson.default.images.reduce((acc: Record<string, string>, photo: { file_name: string; image_name: string; Location: string; Year: string }) => {
+        // Create alt text in format: "image_name, Location Year"
+        const location = photo.Location || '';
+        const year = photo.Year || '';
+        const altText = `${photo.image_name}${location ? ', ' + location : ''}${year ? ' ' + year : ''}`;
+        acc[photo.file_name] = altText;
         return acc;
       }, {});
     } catch (error) {
@@ -45,8 +47,8 @@ export const fetchImageList = async () => {
         const { default: src } = await (resolver as () => Promise<{ default: string }>)();
         const filename = path.split('/').pop() || '';
         
-        // Use description from JSON if available, otherwise use filename
-        const alt = photoDescriptions[filename] || filename.split('.')[0];
+        // Use metadata from JSON if available, otherwise use filename
+        const alt = photoMetadata[filename] || filename.split('.')[0];
         
         return {
           src: `${src}`,

@@ -52,9 +52,10 @@
 
 {#if selectedImage}
   <button 
-    class="fixed inset-0 bg-overlay-light flex justify-center items-center z-50" 
+    class="fixed inset-0 bg-overlay-light flex flex-col justify-center items-center z-50" 
     on:click={closeLightbox}
   >
     <img class="max-w-[90%] max-h-[90%] object-contain rounded-lg" src={selectedImage.src} alt={selectedImage.alt} />
+    <p class="text-primary-text text-lg mt-4">{selectedImage.alt}</p>
   </button>
 {/if}

@@ -130,8 +130,8 @@
   */
   
   /* ===== OVERLAY COLORS ===== */
-  --color-overlay: rgba(198, 208, 245, 0.7); /* Image overlays */
-  --color-overlay-light: rgba(198, 208, 245, 0.8); /* Lightbox overlays */
+  --color-overlay: #1e1e2eb3; /* Image overlays */
+  --color-overlay-light: #1e1e2eb3; /* Lightbox overlays */
   
   /* OLD COLORS (COMMENTED OUT):
   --color-overlay: rgba(0, 0, 0, 0.7); 
