@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { Project } from '$lib/types';
   
-  export let project: Project;
+  let { project }: { project: Project } = $props();
 
   function formatMarkdown(text: string): string {
     return text

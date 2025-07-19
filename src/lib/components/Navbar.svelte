@@ -6,7 +6,7 @@
     theme.update(t => t === 'light' ? 'dark' : 'light');
   }
 
-  let isHovered = false;
+  let isHovered = $state(false);
 </script>
 
 <nav class="sticky top-0 z-50 bg-surface border-b border-primary px-4 py-2">
@@ -38,13 +38,13 @@
         </a>
       </li>
       <button 
-          on:click={toggleTheme} 
+          onclick={toggleTheme} 
           aria-label="Toggle dark mode" 
           class="text-sm cursor-pointer"
-          on:mouseenter={() => {
+          onmouseenter={() => {
             isHovered = true;
           }}
-          on:mouseleave={() => isHovered = false}
+          onmouseleave={() => isHovered = false}
         >
           {#if $theme === 'dark'}
             <Sun size={24} class="group-hover:text-primary" color={isHovered ? "var(--color-primary)" : "var(--color-text-primary)"}/>

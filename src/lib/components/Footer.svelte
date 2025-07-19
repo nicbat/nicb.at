@@ -2,7 +2,7 @@
   // No imports needed - using Tailwind classes
   
   // Colophon component
-  let showColophon = false;
+  let showColophon = $state(false);
   let timeoutId: number | undefined;
   
   function handleMouseEnter() {
@@ -24,8 +24,8 @@
   <div class="relative inline-block">
     <button 
       class="text-primary hover:underline"
-      on:mouseenter={handleMouseEnter}
-      on:mouseleave={handleMouseLeave}
+      onmouseenter={handleMouseEnter}
+      onmouseleave={handleMouseLeave}
     >
       colophon
     </button>
@@ -34,8 +34,8 @@
       <div 
         class="absolute bottom-full left-1/2 transform -translate-x-1/2 mt-2 px-4 py-3 bg-surface border border-primary rounded-lg shadow-lg text-xs text-secondary-text whitespace-nowrap z-10"
         role="tooltip"
-        on:mouseenter={handleMouseEnter}
-        on:mouseleave={handleMouseLeave}
+        onmouseenter={handleMouseEnter}
+        onmouseleave={handleMouseLeave}
       >
         <div class="text-center">
           <div class="font-semibold mb-2 text-primary-text">Built with</div>

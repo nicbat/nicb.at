@@ -1,7 +1,7 @@
 <script>
-    let name = 'nicbat';
-    let age = 'young';
-    let birthday = 'secret';
+    let name = $state('nicbat');
+    let age = $state('young');
+    let birthday = $state('secret');
 </script>
 
 <!-- <p>My name is {name} and I am {age} years old. My birthday is {birthday}.</p> -->
