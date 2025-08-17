@@ -27,11 +27,17 @@ export const fetchImageList = async () => {
     let photoMetadata: Record<string, string> = {};
     try {
       const photosJson = await import('$assets/photos.json');
-      photoMetadata = photosJson.default.images.reduce((acc: Record<string, string>, photo: { file_name: string; image_name: string; Location: string; Year: string }) => {
+      photoMetadata = photosJson.default.images.reduce((acc: Record<string, string>, photo: { file_name: string; image_name: string; Location: string; Year: string; hidden: boolean }) => {
+        // skip hidden photos
+        // TODO this is super hacky, make skipping images a native feature of the site
+        if (photo.hidden) {
+          acc[photo.file_name] = "-SKIP-";
+          return acc;
+        }
         // Create alt text in format: "image_name, Location Year"
         const location = photo.Location || '';
         const year = photo.Year || '';
-        const altText = `${photo.image_name}${location ? ', ' + location : ''}${year ? ' ' + year : ''}`;
+        const altText = `${photo.image_name}${location ? '. ' + location : ''}${year ? ', ' + year : ''}`;
         acc[photo.file_name] = altText;
         return acc;
       }, {});
@@ -56,7 +62,10 @@ export const fetchImageList = async () => {
         };
       })
     );
-    return allImages;
+    const filteredImages = allImages.filter((val) => {
+      return (val.alt !== "-SKIP-")
+    })
+    return filteredImages;
   } catch (error) {
     console.error('Error reading image directory:', error);
     return [{ src: 'error', alt: (error as Error).toString() }];

@@ -1,0 +1,13 @@
+{
+  "title": "Echo Armor",
+  "date": "",
+  "tags": ["Product", "Internship"],
+  "links": [
+    {
+      "text": "Roblox Careers",
+      "url": "https://careers.roblox.com"
+    }
+  ],
+  "image": "",
+  "description": "Over the summer I built a service to analyze DDOS Replay Attacks against Roblox Experiences, strengthening Roblox's ability to counterract future attacks."
+} 

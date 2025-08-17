@@ -29,6 +29,11 @@
       "type": "string",
       "removable": true,
       "defaultValue": ""
+    },
+    "hidden": {
+      "type": "boolean",
+      "removable": true,
+      "defaultValue": false
     }
   }
 }

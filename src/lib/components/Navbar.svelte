@@ -29,7 +29,7 @@
       </li>
       <li>
         <a href="/blog">
-          Blog
+          Words
         </a>
       </li>
       <li>

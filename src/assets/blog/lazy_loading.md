@@ -31,7 +31,7 @@ unset __conda_setup
 
 <br/>
 <p>
-Great. Now copy all of the code inside the else branch, and create the following function in your `.rc` file:
+Great. Now copy all of the code inside the outer-most else branch, and create the following function in your `.rc` file:
 </p>
 
 ```bash
@@ -50,4 +50,9 @@ function conda() {
 ```
 
 <br/>
+
 Just comment out the old conda initialization code and you should be good to go! Enjoy :)
+
+#### Obsidian Plugins
+
+Obsidian (one of my favorite apps) has a Lazy Loading Plugin, to lazily load plugins... it's called "Lazy Plugin Loader" – yep.
