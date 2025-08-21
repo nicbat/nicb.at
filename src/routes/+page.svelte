@@ -18,5 +18,6 @@
         <br/><br/>
         You can contact me at <a href="mailto:nicbat@cs.washington.edu">nicbat@cs.washington.edu</a>.
     </div>
+    <!-- TODO lower quality of photo to load it faster - or move this to static or something, would that be faster? -->
     <img src="home_photo.png" alt="Nicholas Batchelder" class="w-full md:w-1/2 rounded-lg" />
 </div>

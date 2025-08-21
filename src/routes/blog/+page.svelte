@@ -5,7 +5,7 @@
 
 <div class="prose dark:prose-invert max-w-none">
   <h1>Some Writing of Mine</h1>
-  <p>You might see that this site runs at <i>nicb.at/blog</i> – I don't consider myself consistent enough of a write 
+  <p>You might see that this page runs at <i>nicb.at/blog</i> – I don't consider myself consistent enough of a write 
   to be someone who has a <i>blog</i>. Maybe that'll change. I intend on writing – but for now, it'll happen when it happens.</p>
   <br/>
 

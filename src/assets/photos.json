@@ -242,6 +242,96 @@
       "Location": "Alaska",
       "last_modified": "2025-07-13T22:34:42.991Z",
       "hidden": false
+    },
+    {
+      "file_name": "IMG-20250714-WA0001.jpg",
+      "default": false,
+      "image_name": "Race",
+      "description": "",
+      "Year": "2025",
+      "Location": "SF",
+      "hidden": false,
+      "last_modified": "2025-08-21T02:22:18.135Z"
+    },
+    {
+      "file_name": "IMG-20250801-WA0004.jpg",
+      "default": false,
+      "image_name": "Friends",
+      "description": "",
+      "Year": "2025",
+      "Location": "Vienna",
+      "hidden": false,
+      "last_modified": "2025-08-21T02:22:32.381Z"
+    },
+    {
+      "file_name": "PXL_20250727_161017522.MP.jpg",
+      "default": false,
+      "image_name": "Swan",
+      "description": "",
+      "Year": "2025",
+      "Location": "Vienna",
+      "hidden": false,
+      "last_modified": "2025-08-21T02:22:48.077Z"
+    },
+    {
+      "file_name": "IMG_8366.jpg",
+      "default": false,
+      "image_name": "Pondering",
+      "description": "",
+      "Year": "2025",
+      "Location": "Twin Peaks, SF",
+      "hidden": false,
+      "last_modified": "2025-08-21T02:23:48.651Z"
+    },
+    {
+      "file_name": "PXL_20250721_021555010.MP.jpg",
+      "default": false,
+      "image_name": "Tracks",
+      "description": "",
+      "Year": "2025",
+      "Location": "Santa Cruz",
+      "hidden": false,
+      "last_modified": "2025-08-21T02:24:05.151Z"
+    },
+    {
+      "file_name": "PXL_20250812_134345529.MP.jpg",
+      "default": false,
+      "image_name": "Clouds",
+      "description": "",
+      "Year": "2025",
+      "Location": "SEA -> SFO",
+      "hidden": false,
+      "last_modified": "2025-08-21T02:24:35.764Z"
+    },
+    {
+      "file_name": "IMG-20250715-WA0001.jpg",
+      "default": false,
+      "image_name": "Hanging out without me",
+      "description": "",
+      "Year": "2025",
+      "Location": "SF",
+      "hidden": false,
+      "last_modified": "2025-08-21T02:25:46.865Z"
+    },
+    {
+      "file_name": "PXL_20250729_133639349.MP.jpg",
+      "default": false,
+      "image_name": "LlamaPIE Poster",
+      "description": "",
+      "Year": "2025",
+      "Location": "ACL Vienna",
+      "hidden": false,
+      "last_modified": "2025-08-21T02:26:18.009Z"
+    },
+    {
+      "file_name": "IMG_20250710_125227 (1).heic",
+      "default": false,
+      "image_name": "unsupported heic image",
+      "description": "",
+      "Year": "",
+      "Location": "",
+      "hidden": true,
+      "last_modified": "2025-08-21T02:26:33.466Z"
     }
   ]
 }
