@@ -14,9 +14,9 @@
       "image_name": "Prom",
       "description": "",
       "Year": "2022",
-      "last_modified": "2025-07-13T22:18:34.715Z",
+      "last_modified": "2025-10-05T03:29:28.497Z",
       "Location": "Seattle",
-      "hidden": false
+      "hidden": true
     },
     {
       "file_name": "IMG-20240406-WA0000.jpg",
@@ -32,9 +32,9 @@
       "image_name": "Cruise Crew",
       "description": "",
       "Year": "2024",
-      "last_modified": "2025-07-13T22:22:17.424Z",
+      "last_modified": "2025-10-05T03:29:48.351Z",
       "Location": "Alaska",
-      "hidden": false
+      "hidden": true
     },
     {
       "file_name": "IMG-20241111-WA0006.jpg",
@@ -51,8 +51,8 @@
       "description": "",
       "Year": "Seattle",
       "Location": "2023",
-      "last_modified": "2025-07-13T22:20:38.793Z",
-      "hidden": false
+      "last_modified": "2025-10-05T03:30:05.716Z",
+      "hidden": true
     },
     {
       "file_name": "IMG_4007.jpg",
@@ -78,8 +78,8 @@
       "description": "",
       "Year": "2023",
       "Location": "Snoqualmie",
-      "last_modified": "2025-07-13T22:21:57.078Z",
-      "hidden": false
+      "last_modified": "2025-10-05T03:30:15.156Z",
+      "hidden": true
     },
     {
       "file_name": "PXL_20240404_193553177.MP.jpg",
@@ -87,8 +87,8 @@
       "description": "",
       "Year": "2024",
       "Location": "UW",
-      "last_modified": "2025-07-13T22:22:48.910Z",
-      "hidden": false
+      "last_modified": "2025-10-05T03:30:20.088Z",
+      "hidden": true
     },
     {
       "file_name": "PXL_20240816_180558792.MP.jpg",
@@ -123,8 +123,8 @@
       "description": "",
       "Year": "2024",
       "Location": "Mount Catherine",
-      "last_modified": "2025-07-13T22:36:01.704Z",
-      "hidden": false
+      "last_modified": "2025-10-05T03:30:27.879Z",
+      "hidden": true
     },
     {
       "file_name": "PXL_20241018_203748459.MP.jpg",
@@ -141,8 +141,8 @@
       "description": "",
       "Year": "2025",
       "Location": "Snoqualmie",
-      "last_modified": "2025-07-13T22:25:12.041Z",
-      "hidden": false
+      "last_modified": "2025-10-05T03:30:34.417Z",
+      "hidden": true
     },
     {
       "file_name": "PXL_20250309_193321418.jpg",
@@ -186,8 +186,8 @@
       "description": "",
       "Year": "2025",
       "Location": "Oregon Coast",
-      "last_modified": "2025-07-13T22:27:35.853Z",
-      "hidden": false
+      "last_modified": "2025-10-05T03:30:46.349Z",
+      "hidden": true
     },
     {
       "file_name": "PXL_20250607_204310827.MP.jpg",
@@ -195,8 +195,8 @@
       "description": "",
       "Year": "2025",
       "Location": "San Francisco",
-      "last_modified": "2025-07-13T22:27:58.234Z",
-      "hidden": false
+      "last_modified": "2025-10-05T03:30:51.698Z",
+      "hidden": true
     },
     {
       "file_name": "ariel_nicholas_muffins_deceptionpass.jpg",
@@ -240,8 +240,8 @@
       "description": "",
       "Year": "2024",
       "Location": "Alaska",
-      "last_modified": "2025-07-13T22:34:42.991Z",
-      "hidden": false
+      "last_modified": "2025-10-05T03:29:43.010Z",
+      "hidden": true
     },
     {
       "file_name": "IMG-20250714-WA0001.jpg",
@@ -250,8 +250,8 @@
       "description": "",
       "Year": "2025",
       "Location": "SF",
-      "hidden": false,
-      "last_modified": "2025-08-21T02:22:18.135Z"
+      "hidden": true,
+      "last_modified": "2025-10-05T03:29:54.462Z"
     },
     {
       "file_name": "IMG-20250801-WA0004.jpg",
@@ -310,8 +310,8 @@
       "description": "",
       "Year": "2025",
       "Location": "SF",
-      "hidden": false,
-      "last_modified": "2025-08-21T02:25:46.865Z"
+      "hidden": true,
+      "last_modified": "2025-10-05T03:29:59.628Z"
     },
     {
       "file_name": "PXL_20250729_133639349.MP.jpg",
