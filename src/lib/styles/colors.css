@@ -1,29 +1,3 @@
-/*
- * COLOR SCHEME VARIABLES
- * 
- * To change your site's color scheme, simply modify the color values below.
- * 
- * Examples:
- * 
- * PURPLE THEME:
- * --color-primary: #9333ea; (purple-600)
- * --color-primary-light: #c084fc; (purple-400)
- * --color-secondary: #7c3aed; (violet-600)
- * --color-secondary-light: #a78bfa; (violet-400)
- * 
- * ORANGE THEME:
- * --color-primary: #ea580c; (orange-600)
- * --color-primary-light: #fb923c; (orange-400)
- * --color-secondary: #dc2626; (red-600)
- * --color-secondary-light: #f87171; (red-400)
- * 
- * BLUE THEME:
- * --color-primary: #2563eb; (blue-600)
- * --color-primary-light: #60a5fa; (blue-400)
- * --color-secondary: #7c3aed; (violet-600)
- * --color-secondary-light: #a78bfa; (violet-400)
- */
-
 :root {
   /* ===== MAIN BACKGROUND COLORS ===== */
   --color-bg-main: #F2EEE8; /* Catppuccin Latte - Main background */
@@ -64,79 +38,39 @@
 /* ===== DARK MODE COLORS ===== */
 .dark {
   /* ===== MAIN BACKGROUND COLORS ===== */
-  --color-bg-main: #1E1E2E; /* Catppuccin Mocha - Pure dark main background */
-  --color-bg-surface: #11111B; /* Catppuccin Mocha - Navbar/footer background */
-  --color-bg-elevated: #11111B; /* Catppuccin Mocha - Elevated surfaces like cards (now same as navbar) */
-  --color-bg-overlay: #313244; /* Catppuccin Mocha - Overlay backgrounds like code blocks */
-  
-  /* OLD COLORS (COMMENTED OUT):
-  --color-bg-main: #0f172a; 
-  --color-bg-surface: #1e293b; 
-  --color-bg-elevated: #1e293b; 
-  --color-bg-overlay: #334155; 
-  */
+  --color-bg-main: #292522; /* Melange Dark */
+  --color-bg-surface: #34302C; /* Melange Dark */
+  --color-bg-elevated: #34302C; /* Melange Dark */
+  --color-bg-overlay: #3D3834; /* Melange Dark - Overlay backgrounds like code blocks */
   
   /* ===== BRAND COLORS ===== */
-  --color-primary: #94E2D5; /* Catppuccin Teal - Main brand color (kept bright for dark mode) */
-  --color-primary-light: #B5E8E0; /* Light teal variant */
-  --color-primary-dark: #74C7EC; /* Dark teal variant */
+  --color-primary: #D4A574; /* Melange Dark - Warm muted gold/beige for main brand color */
+  --color-primary-light: #E4B88A; /* Melange Dark - Light warm gold variant */
+  --color-primary-dark: #C4955F; /* Melange Dark - Dark warm gold variant */
   
   --color-secondary: #89B4FA; /* Catppuccin Blue - Secondary accent */
   --color-secondary-light: #B4BEFE; /* Light blue variant */
   --color-secondary-dark: #74C7EC; /* Dark blue variant */
   
-  /* OLD COLORS (COMMENTED OUT):
-  --color-primary: #4ade80; 
-  --color-primary-light: #86efac; 
-  --color-primary-dark: #22c55e; 
-  --color-secondary: #60a5fa; 
-  --color-secondary-light: #93c5fd; 
-  --color-secondary-dark: #3b82f6; 
-  */
-  
   /* ===== TEXT COLORS ===== */
-  --color-text-primary: #C6D0F5; /* Catppuccin Mocha - Main text */
-  --color-text-secondary: #A6ADC8; /* Secondary text */
-  --color-text-muted: #9399B2; /* Muted text */
+  --color-text-primary: #ECE1D7; /* Melange Dark */
+  --color-text-secondary: #C4B5A8; /* Melange Dark - Secondary text */
+  --color-text-muted: #9A8E84; /* Melange Dark - Muted text */
   --color-text-inverse: #1E1E2E; /* Text on light backgrounds */
   
-  /* OLD COLORS (COMMENTED OUT):
-  --color-text-primary: #f8fafc; 
-  --color-text-secondary: #cbd5e1; 
-  --color-text-muted: #94a3b8; 
-  --color-text-inverse: #0f172a; 
-  */
-  
   /* ===== BORDER COLORS ===== */
-  --color-border-primary: #313244; /* Catppuccin Mocha - Main borders */
-  --color-border-secondary: #45475A; /* Secondary borders */
-  
-  /* OLD COLORS (COMMENTED OUT):
-  --color-border-primary: #334155; 
-  --color-border-secondary: #475569; 
-  */
+  --color-border-primary: #3D3834; /* Melange Dark - Main borders */
+  --color-border-secondary: #4A4540; /* Melange Dark - Secondary borders */
   
   /* ===== PROJECT TAG COLORS ===== */
-  --color-tag-primary: #94E2D5; /* Catppuccin Teal - Publication tags */
+  --color-tag-primary: #74C7EC; /* Melange Dark - Publication tags */
   --color-tag-primary-light: #B5E8E0; /* Light teal variant */
   --color-tag-secondary: #89B4FA; /* Catppuccin Blue - Other project tags */
   --color-tag-secondary-light: #B4BEFE; /* Light blue variant */
   
-  /* OLD COLORS (COMMENTED OUT):
-  --color-tag-primary: #6ee7b7; 
-  --color-tag-primary-light: #a7f3d0; 
-  --color-tag-secondary: #67e8f9; 
-  --color-tag-secondary-light: #a5f3fc; 
-  */
-  
   /* ===== OVERLAY COLORS ===== */
-  --color-overlay: #1e1e2eb3; /* Image overlays */
-  --color-overlay-light: #1e1e2eb3; /* Lightbox overlays */
-  
-  /* OLD COLORS (COMMENTED OUT):
-  --color-overlay: rgba(0, 0, 0, 0.7); 
-  --color-overlay-light: rgba(0, 0, 0, 0.8); 
-  */
+  --color-overlay: #292522b3; /* Melange Dark - Image overlays */
+  --color-overlay-light: #292522b3; /* Melange Dark - Lightbox overlays */
 }
 
 /* ===== UTILITY CLASSES ===== */
