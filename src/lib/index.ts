@@ -21,70 +21,66 @@ export const fetchMarkdownPosts = async () => {
 	return allPosts;
 };
 
-export const fetchImageList = async () => {
+export const fetchImageList = async (): Promise<ImageData[]> => {
   try {
-    // Read the photos.json file to get image metadata
-    let photoMetadata: Record<string, string> = {};
-    try {
-      const photosJson = await import('$assets/photos.json');
-      photoMetadata = photosJson.default.images.reduce((acc: Record<string, string>, photo: { file_name: string; image_name: string; Location: string; Year: string; hidden: boolean }) => {
-        // skip hidden photos
-        // TODO this is super hacky, make skipping images a native feature of the site
-        if (photo.hidden) {
-          acc[photo.file_name] = "-SKIP-";
-          return acc;
-        }
-        // Create alt text in format: "image_name, Location Year"
-        const location = photo.Location || '';
-        const year = photo.Year || '';
-        const altText = `${photo.image_name}${location ? '. ' + location : ''}${year ? ', ' + year : ''}`;
-        acc[photo.file_name] = altText;
-        return acc;
-      }, {});
-    } catch (error) {
-      console.warn('Could not load photos.json, using filenames as alt text');
-    }
+    const imageData = await import('$assets/media_manager/photos/image-data.json');
+    const imagesFromJson = (imageData.default?.images ?? []) as Array<{
+      file_name: string;
+      image_name: string;
+      Location: string;
+      Year: string;
+      hidden: boolean;
+    }>;
 
-    const allImageFiles = import.meta.glob('$assets/photos/*.{jpg,jpeg,png,gif}');
-    const iterableImageFiles = Object.entries(allImageFiles);
-
-    const allImages = await Promise.all(
-      iterableImageFiles.map(async ([path, resolver]) => {
+    const allImageFiles = import.meta.glob('$assets/media_manager/photos/files/*.{jpg,jpeg,png,gif}');
+    const resolvedSrcByFilename: Record<string, string> = {};
+    await Promise.all(
+      Object.entries(allImageFiles).map(async ([path, resolver]) => {
         const { default: src } = await (resolver as () => Promise<{ default: string }>)();
         const filename = path.split('/').pop() || '';
-        
-        // Use metadata from JSON if available, otherwise use filename
-        const alt = photoMetadata[filename] || filename.split('.')[0];
-        
-        return {
-          src: `${src}`,
-          alt: alt,
-        };
+        resolvedSrcByFilename[filename] = src;
       })
     );
-    const filteredImages = allImages.filter((val) => {
-      return (val.alt !== "-SKIP-")
-    })
-    return filteredImages;
+
+    const result: ImageData[] = [];
+    for (const photo of imagesFromJson) {
+      if (photo.hidden) continue;
+      const src = resolvedSrcByFilename[photo.file_name];
+      if (!src) continue;
+      const location = photo.Location || '';
+      const year = photo.Year || '';
+      const alt = `${photo.image_name}${location ? '. ' + location : ''}${year ? ', ' + year : ''}`.trim() || photo.file_name;
+      result.push({ src, alt });
+    }
+    return result;
   } catch (error) {
-    console.error('Error reading image directory:', error);
+    console.error('Error reading image list:', error);
     return [{ src: 'error', alt: (error as Error).toString() }];
   }
 }
 
-export const fetchProjects = async () => {
-  const allProjectFiles = import.meta.glob<Project>('$assets/projects/*.json');
-  const iterableProjectFiles = Object.entries(allProjectFiles);
+interface ProjectRecord {
+  id: string;
+  last_modified: string;
+  name: string;
+  date: string;
+  tags: string[];
+  description: string;
+  urls: Array<{ display_name: string; url: string }>;
+}
 
-  const allProjects = await Promise.all(
-    iterableProjectFiles.map(async ([path, resolver]) => {
-      const project = await (resolver as () => Promise<Project>)();
-      return {
-        ...project,
-        path: path.slice(16, -5) // Remove '$assets/projects/' and '.json'
-      };
-    })
-  );
+export const fetchProjects = async (): Promise<Project[]> => {
+  const data = await import('$assets/media_manager/projects/data.json');
+  const records: ProjectRecord[] = data.default?.records ?? [];
+
+  const allProjects: Project[] = records.map((record) => ({
+    title: record.name,
+    date: record.date,
+    tags: record.tags as Project['tags'],
+    links: record.urls.map((u) => ({ text: u.display_name, url: u.url })),
+    image: '',
+    description: record.description
+  }));
 
   return allProjects.sort((a: Project, b: Project) => {
     return new Date(b.date).getTime() - new Date(a.date).getTime();

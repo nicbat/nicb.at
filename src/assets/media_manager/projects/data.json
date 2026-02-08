@@ -1,0 +1,84 @@
+{
+  "records": [
+    {
+      "id": "f0667084-1b15-4c5e-aa2e-d450e96b6984",
+      "last_modified": "2026-02-08T01:40:27.979Z",
+      "name": "Echo Armor",
+      "date": "",
+      "tags": [
+        "Product",
+        "Internship"
+      ],
+      "description": "Over the summer I built a service to analyze DDOS Replay Attacks against Roblox Experiences, strengthening Roblox's ability to counterract future attacks.",
+      "urls": [
+        {
+          "display_name": "Roblox Careers",
+          "url": "https://careers.roblox.com"
+        }
+      ]
+    },
+    {
+      "id": "bcc69f92-d261-4751-b5bf-b6ddb5c193bb",
+      "last_modified": "2026-02-08T01:40:13.837Z",
+      "name": "Gradient Game (WIP)",
+      "date": "",
+      "tags": [
+        "Product"
+      ],
+      "description": "I'm building a color game! Still a bit of a work in progress, but feel free to check it out!",
+      "urls": [
+        {
+          "display_name": "See Site",
+          "url": "https://gradient.nicb.at"
+        }
+      ]
+    },
+    {
+      "id": "910a8b1b-d0c3-4307-8a43-2414ccdb4ffc",
+      "last_modified": "2026-02-08T01:39:59.797Z",
+      "name": "LLAMAPIE 🥧: Proactive In-Ear Conversation Assistants",
+      "date": "2025-05-15",
+      "description": "Tuochao Chen, ***Nicholas Batchelder***, Alisa Liu, Noah Smith, Shyamnath Gollakota",
+      "tags": [
+        "Publication"
+      ],
+      "urls": [
+        {
+          "display_name": "Paper",
+          "url": "https://arxiv.org/abs/2505.04066"
+        },
+        {
+          "display_name": "Website",
+          "url": "https://llamapie.cs.washington.edu/"
+        }
+      ]
+    },
+    {
+      "id": "56520be5-64a0-4f4f-9600-6114583af983",
+      "last_modified": "2026-02-08T01:38:41.556Z",
+      "name": "Personal Website",
+      "date": "",
+      "description": "You're looking at it! I built this with SvelteKit.",
+      "tags": [
+        "Product"
+      ],
+      "urls": [
+        {
+          "display_name": "View Source",
+          "url": "https://github.com/nicbat/nicb.at"
+        }
+      ]
+    },
+    {
+      "id": "dc0909d4-f339-4458-a75a-0ae53cdcfc41",
+      "last_modified": "2026-02-08T01:24:56.688Z",
+      "name": "Media Manager",
+      "date": "",
+      "description": "A web-app I'm working on to manage the media on this site.",
+      "tags": [
+        "Product"
+      ],
+      "urls": []
+    }
+  ]
+}

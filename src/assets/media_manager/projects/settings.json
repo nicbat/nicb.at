@@ -1,0 +1,39 @@
+{
+  "displayName": "Projects",
+  "kind": "json",
+  "schema": {
+    "name": {
+      "type": "string",
+      "removable": false,
+      "defaultValue": ""
+    },
+    "date": {
+      "type": "string",
+      "removable": true
+    },
+    "description": {
+      "type": "string",
+      "removable": true
+    },
+    "tags": {
+      "type": "list",
+      "removable": true,
+      "defaultValue": [],
+      "itemTypes": [
+        "string"
+      ]
+    },
+    "urls": {
+      "type": "list",
+      "removable": true,
+      "defaultValue": [],
+      "itemTypes": [
+        "url"
+      ]
+    }
+  },
+  "dataFileName": "data.json",
+  "gridSize": "medium",
+  "autoAdvanceToNextUnlinked": false,
+  "autoSaveOnAdvance": true
+}
