@@ -1,6 +1,8 @@
 export interface ImageData {
   src: string;
   alt: string;
+  width: number;
+  height: number;
 }
 
 export type ProjectTag = 'Publication' | 'Product';

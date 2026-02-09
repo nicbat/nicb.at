@@ -36,16 +36,11 @@
       "type": "boolean",
       "removable": true,
       "defaultValue": false
-    },
-    "tags": {
-      "type": "list",
-      "removable": true,
-      "defaultValue": []
     }
   },
   "dataFileName": "image-data.json",
   "filesSubdir": "files",
   "gridSize": "medium",
   "autoAdvanceToNextUnlinked": true,
-  "autoSaveOnAdvance": false
+  "autoSaveOnAdvance": true
 }

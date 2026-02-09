@@ -11,10 +11,6 @@
       "type": "string",
       "removable": true
     },
-    "description": {
-      "type": "string",
-      "removable": true
-    },
     "tags": {
       "type": "list",
       "removable": true,
@@ -30,6 +26,11 @@
       "itemTypes": [
         "url"
       ]
+    },
+    "description": {
+      "type": "string",
+      "removable": true,
+      "long": true
     }
   },
   "dataFileName": "data.json",

@@ -3,23 +3,27 @@ import type { ImageData } from '$lib/types';
 import type { Project } from './types';
 
 export const fetchMarkdownPosts = async () => {
-	const allPostFiles = import.meta.glob('$assets/blog/*.md');
-	const iterablePostFiles = Object.entries(allPostFiles);
+  const allPostFiles = import.meta.glob('$assets/blog/*.md');
+  const iterablePostFiles = Object.entries(allPostFiles);
 
-	const allPosts = await Promise.all(
-		iterablePostFiles.map(async ([path, resolver]) => {
-			const { metadata } = await (resolver as () => Promise<{ metadata: any }>)();
-			const postPath = '/blog' + path.slice(16, -3);
+  const allPosts = await Promise.all(
+    iterablePostFiles.map(async ([path, resolver]) => {
+      const { metadata } = await (resolver as () => Promise<{ metadata: any }>)();
+      const postPath = '/blog' + path.slice(16, -3);
 
-			return {
-				meta: metadata,
-				path: postPath
-			};
-		})
-	);
+      return {
+        meta: metadata,
+        path: postPath
+      };
+    })
+  );
 
-	return allPosts;
+  return allPosts;
 };
+
+function filenameWithLowercaseExt(name: string): string {
+  return name.replace(/\.[^.]+$/, (ext) => ext.toLowerCase());
+}
 
 export const fetchImageList = async (): Promise<ImageData[]> => {
   try {
@@ -30,6 +34,8 @@ export const fetchImageList = async (): Promise<ImageData[]> => {
       Location: string;
       Year: string;
       hidden: boolean;
+      width: number;
+      height: number;
     }>;
 
     const allImageFiles = import.meta.glob('$assets/media_manager/photos/files/*.{jpg,jpeg,png,gif}');
@@ -38,24 +44,26 @@ export const fetchImageList = async (): Promise<ImageData[]> => {
       Object.entries(allImageFiles).map(async ([path, resolver]) => {
         const { default: src } = await (resolver as () => Promise<{ default: string }>)();
         const filename = path.split('/').pop() || '';
-        resolvedSrcByFilename[filename] = src;
+        resolvedSrcByFilename[filenameWithLowercaseExt(filename)] = src;
       })
     );
 
     const result: ImageData[] = [];
     for (const photo of imagesFromJson) {
       if (photo.hidden) continue;
-      const src = resolvedSrcByFilename[photo.file_name];
+      const src = resolvedSrcByFilename[filenameWithLowercaseExt(photo.file_name)];
       if (!src) continue;
       const location = photo.Location || '';
       const year = photo.Year || '';
       const alt = `${photo.image_name}${location ? '. ' + location : ''}${year ? ', ' + year : ''}`.trim() || photo.file_name;
-      result.push({ src, alt });
+      const width = photo.width;
+      const height = photo.height;
+      result.push({ src, alt, width, height });
     }
     return result;
   } catch (error) {
     console.error('Error reading image list:', error);
-    return [{ src: 'error', alt: (error as Error).toString() }];
+    return [{ src: 'error', alt: (error as Error).toString(), width: 0, height: 0 }];
   }
 }
 
