@@ -4,7 +4,7 @@
 </script>
 
 <div class="prose dark:prose-invert max-w-none">
-    <h1>Some Writing of Mine</h1>
+    <h1>Words</h1>
     <p class="mb-6 text-secondary-text">
         Here are some of my tips/thoughts/notes.
     </p>
