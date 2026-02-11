@@ -100,13 +100,13 @@
       "id": "93744e4a-08e4-4bf8-b11f-d148b032dbf5",
       "file_name": "PXL_20241018_203748459.MP.jpg",
       "image_name": "Stolen Totempole",
-      "last_modified": "2025-07-13T22:25:01.554Z",
+      "last_modified": "2026-02-10T19:00:57.497Z",
       "width": 2268,
       "height": 4032,
       "description": "",
       "Year": "2024",
       "Location": "Pioneer Square",
-      "hidden": false
+      "hidden": true
     },
     {
       "id": "e0d44944-ba2b-4599-9775-e9c54ab8eac5",
@@ -346,7 +346,7 @@
       "id": "24db691f-3af8-41b3-b50d-2ffd30b7ebb0",
       "file_name": "IMG_1735_1.jpg",
       "image_name": "Me and Him",
-      "last_modified": "2026-02-08T02:20:12.399Z",
+      "last_modified": "2026-02-10T19:23:21.635Z",
       "width": 960,
       "height": 1280,
       "description": "",

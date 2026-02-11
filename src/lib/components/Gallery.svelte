@@ -23,30 +23,32 @@
   }
 </script>
 
-<BalancedMasonryGrid gap={12} frameWidth={300}>
-  {#each images as item (item.src)}
-    <Frame width={item.width} height={item.height}>
-      <button
-        class="gallery-item relative group transition-transform duration-300 ease-in-out hover:scale-[1.02] overflow-hidden cursor-pointer w-full h-full block"
-        on:click={() => openLightbox(item)}
-        on:mouseenter={() => showTooltip(item)}
-        on:mouseleave={hideTooltip}
-      >
-        <div
-          class="absolute bottom-2 left-2 bg-overlay text-primary-text px-2 py-1 rounded text-sm transition-opacity ease-in-out duration-100 group-hover:opacity-100 opacity-0 z-10"
+<div class="p-4">
+  <BalancedMasonryGrid gap={12} frameWidth={300}>
+    {#each images as item (item.src)}
+      <Frame width={item.width} height={item.height}>
+        <button
+          class="gallery-item relative group transition-transform duration-300 ease-in-out hover:scale-[1.02] overflow-hidden cursor-pointer w-full h-full block"
+          on:click={() => openLightbox(item)}
+          on:mouseenter={() => showTooltip(item)}
+          on:mouseleave={hideTooltip}
         >
-          {item.alt}
-        </div>
-        <img
-          class="rounded-lg w-full h-full object-cover"
-          src={item.src}
-          alt={item.alt}
-          loading="lazy"
-        />
-      </button>
-    </Frame>
-  {/each}
-</BalancedMasonryGrid>
+          <div
+            class="absolute bottom-2 left-2 bg-overlay text-primary-text px-2 py-1 rounded text-sm transition-opacity ease-in-out duration-100 group-hover:opacity-100 opacity-0 z-10"
+          >
+            {item.alt}
+          </div>
+          <img
+            class="rounded-lg w-full h-full object-cover"
+            src={item.src}
+            alt={item.alt}
+            loading="lazy"
+          />
+        </button>
+      </Frame>
+    {/each}
+  </BalancedMasonryGrid>
+</div>
 
 {#if selectedImage}
   <button
