@@ -110,7 +110,7 @@
                 href="https://courses.cs.washington.edu/courses/cse461/26wi/"
                 class="underline decoration-1 underline-offset-4 hover:decoration-2"
                 >CSE 461: Networks</a
-            >. Starting August 2026 I'll be working fulltime at
+            >. At the end of August I'll be working fulltime at
             <a
                 href="https://careers.roblox.com/"
                 target="_blank"
