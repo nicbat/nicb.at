@@ -12,6 +12,7 @@
 		"predeploy": "npm run build"
 	},
 	"devDependencies": {
+		"@lucide/lab": "^0.1.2",
 		"@sveltejs/adapter-auto": "^3.0.0",
 		"@sveltejs/kit": "^2.24.0",
 		"@sveltejs/vite-plugin-svelte": "^6.0.0",

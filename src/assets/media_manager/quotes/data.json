@@ -1,0 +1,125 @@
+{
+  "records": [
+    {
+      "id": "5faea328-0c83-4a20-9175-8ecb9029d8be",
+      "last_modified": "2026-02-12T23:57:22.473Z",
+      "name": "Ducks",
+      "quote": "How fleeting are all human passions compared with the massive continuity of ducks.",
+      "author": "Dorothy L. Sayers",
+      "source": "",
+      "show_on_homepage": true,
+      "english_translation": "",
+      "literal_translation": ""
+    },
+    {
+      "id": "5652adfd-f879-4dad-9494-8427fca5d94a",
+      "last_modified": "2026-02-12T23:58:00.117Z",
+      "name": "Predictability",
+      "quote": "Only the terminally subordinate act in a predictable manner.",
+      "author": "Robert Greene",
+      "source": "48 Laws of Power, Law 17",
+      "show_on_homepage": false,
+      "english_translation": "",
+      "literal_translation": ""
+    },
+    {
+      "id": "702dc3f7-605a-4ae5-8578-bd6ae396bb2d",
+      "last_modified": "2026-02-12T23:58:37.497Z",
+      "name": "Looking at the stars",
+      "quote": "We are all in the gutter, but some of us are looking at the stars.",
+      "author": "Oscar Wilde",
+      "source": "",
+      "show_on_homepage": true,
+      "english_translation": "",
+      "literal_translation": ""
+    },
+    {
+      "id": "4e270873-f80c-4a54-8855-e17783ae0afd",
+      "last_modified": "2026-02-13T00:11:33.444Z",
+      "name": "Sitting",
+      "quote": "The world will not end if I sit here a moment longer.",
+      "author": "Joe Abercrombie",
+      "source": "Glokta, The Blade Itself, Page 112 (Paperback)",
+      "show_on_homepage": true,
+      "english_translation": "",
+      "literal_translation": ""
+    },
+    {
+      "id": "edac11f9-f046-437c-b2a0-a47508ddea05",
+      "last_modified": "2026-02-13T00:00:46.997Z",
+      "name": "Guiding your Journey",
+      "quote": "With one eye fixed on the destination, there is only one left to guide you along the journey.",
+      "author": "Robin Sharma",
+      "source": "The Monk Who Sold His Ferrari",
+      "show_on_homepage": false,
+      "english_translation": "",
+      "literal_translation": ""
+    },
+    {
+      "id": "617c3914-3f65-45d1-ac5e-c16f58d0414d",
+      "last_modified": "2026-02-13T00:20:36.197Z",
+      "name": "Giving Roses",
+      "quote": "赠人玫瑰手留余香",
+      "author": "Chinese Proverb",
+      "source": "",
+      "show_on_homepage": true,
+      "english_translation": "A little bit of fragrance clings to the hand that gives you roses.",
+      "literal_translation": ""
+    },
+    {
+      "id": "10eeb04f-8805-41e7-9e70-85945223f3c9",
+      "last_modified": "2026-02-13T00:02:30.585Z",
+      "name": "Spiderwebs and Lions",
+      "quote": "When spiderwebs unite, they tie up a lion.",
+      "author": "Amharic Proverb",
+      "source": "",
+      "show_on_homepage": false,
+      "english_translation": "",
+      "literal_translation": ""
+    },
+    {
+      "id": "ff60b688-799f-45fc-9993-54e9c4f7e979",
+      "last_modified": "2026-02-13T00:11:50.674Z",
+      "name": "New Eyes",
+      "quote": "The real voyage of discovery consists not in seeking new landscapes but in having new eyes.",
+      "author": "Marcel Proust",
+      "source": "",
+      "show_on_homepage": true,
+      "english_translation": "",
+      "literal_translation": ""
+    },
+    {
+      "id": "b588689b-06d5-4bf4-9ca2-889195ca99c0",
+      "last_modified": "2026-02-13T00:06:16.898Z",
+      "name": "Care",
+      "quote": "Care keeps his watch in every old man's eye, And where care lodges, sleep will never lie.",
+      "author": "Shakespeare",
+      "source": "Romeo and Juliet",
+      "show_on_homepage": false,
+      "english_translation": "",
+      "literal_translation": ""
+    },
+    {
+      "id": "0e1fe9ed-0fcb-4cdd-ad73-a1d47eae08e2",
+      "last_modified": "2026-02-13T00:09:38.989Z",
+      "name": "Sitting on Stones",
+      "quote": "石の上にも三年",
+      "author": "Japanese Proverb",
+      "source": "",
+      "show_on_homepage": false,
+      "english_translation": "Sitting on a cold stone for three years will make it warm.",
+      "literal_translation": "Three years on a stone."
+    },
+    {
+      "id": "019e2a8d-27ec-459d-be8b-e774231fdf38",
+      "last_modified": "2026-02-13T00:10:43.941Z",
+      "name": "Knowing Everything",
+      "quote": "But if I knew everything, there would be no wonder, because what I believe in is far more than I know.",
+      "author": "Madeleine L'Engle",
+      "source": "An Acceptable Time",
+      "show_on_homepage": true,
+      "english_translation": "",
+      "literal_translation": ""
+    }
+  ]
+}

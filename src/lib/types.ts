@@ -13,10 +13,18 @@ export interface ProjectLink {
 }
 
 export interface Project {
-    title: string;
-    date: string;
-    tags: ProjectTag[];
-    links: ProjectLink[];
-    image: string;
-    description: string;
+  title: string;
+  date: string;
+  tags: ProjectTag[];
+  links: ProjectLink[];
+  image: string;
+  description: string;
+}
+
+export interface Quote {
+  quote: string;
+  author: string;
+  source: string;
+  show_on_homepage: boolean;
+  english_translation?: string;
 }

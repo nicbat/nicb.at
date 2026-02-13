@@ -1,6 +1,6 @@
 // place files you want to import through the `$lib` alias in this folder.
 import type { ImageData } from '$lib/types';
-import type { Project } from './types';
+import type { Project, Quote } from './types';
 
 export const fetchMarkdownPosts = async () => {
   const allPostFiles = import.meta.glob('$assets/blog/*.md');
@@ -95,3 +95,16 @@ export const fetchProjects = async (): Promise<Project[]> => {
   });
 };
 
+
+export const fetchQuotes = async (): Promise<Quote[]> => {
+  const data = await import('$assets/media_manager/quotes/data.json');
+  const records = data.default?.records ?? [];
+
+  return records.map((record: any) => ({
+    quote: record.quote,
+    author: record.author,
+    source: record.source,
+    show_on_homepage: record.show_on_homepage,
+    english_translation: record.english_translation
+  }));
+};
