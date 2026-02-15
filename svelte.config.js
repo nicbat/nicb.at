@@ -6,8 +6,8 @@ import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
 import { mdsvex, escapeSvelte } from "mdsvex";
 import { createHighlighter } from "shiki";
 
-const theme = "ayu-dark";
-// const lightTheme = "everforest-light";
+const theme = "catppuccin-mocha";
+
 const highlighter = await createHighlighter({
   themes: [theme],
   langs: ["javascript", "typescript", "python", "c", "bash"],
