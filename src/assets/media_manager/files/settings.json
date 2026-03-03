@@ -1,0 +1,17 @@
+{
+  "displayName": "Files",
+  "kind": "images",
+  "schema": {
+    "image_name": {
+      "type": "string",
+      "removable": false,
+      "defaultValue": ""
+    }
+  },
+  "dataFileName": "image-data.json",
+  "filesSubdir": "files",
+  "gridSize": "medium",
+  "autoAdvanceToNextUnlinked": false,
+  "autoSaveOnAdvance": false,
+  "excludedFiles": []
+}

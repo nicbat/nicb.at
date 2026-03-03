@@ -172,12 +172,12 @@
       "id": "237a7f01-6f13-497f-94f8-b30a9a2e6d6c",
       "file_name": "IMG-20240408-WA0001.jpg",
       "image_name": "Eclipse",
-      "last_modified": "2025-07-13T22:33:11.142Z",
+      "last_modified": "2026-02-22T02:45:33.378Z",
       "width": 1536,
       "height": 2040,
       "description": "",
       "Year": "2024",
-      "Location": "Kentucky",
+      "Location": "Illinois",
       "hidden": false
     },
     {
@@ -376,6 +376,42 @@
       "description": "",
       "Year": "2026",
       "Location": "Monterey",
+      "hidden": false
+    },
+    {
+      "id": "d6813bdb-2196-41f7-99a4-d1d5e9814744",
+      "file_name": "Snapchat-384140669.jpg",
+      "image_name": "Hooray",
+      "last_modified": "2026-03-03T18:56:49.091Z",
+      "width": 1656,
+      "height": 2208,
+      "description": "",
+      "Year": "2023",
+      "Location": "Wenatchee",
+      "hidden": false
+    },
+    {
+      "id": "fa667663-3607-44e6-aaae-d974863ffdf8",
+      "file_name": "PXL_20250731_173602724.MP.jpg",
+      "image_name": "Nom nom nom",
+      "last_modified": "2026-03-03T19:02:30.052Z",
+      "width": 3072,
+      "height": 4080,
+      "description": "",
+      "Year": "2025",
+      "Location": "Vienna",
+      "hidden": false
+    },
+    {
+      "id": "6e283172-830c-4b9c-b447-f1f778bd6267",
+      "file_name": "PXL_20250729_165642843.MP.jpg",
+      "image_name": "Threats",
+      "last_modified": "2026-03-03T19:02:38.664Z",
+      "width": 4080,
+      "height": 3072,
+      "description": "",
+      "Year": "2025",
+      "Location": "Vienna",
       "hidden": false
     }
   ]

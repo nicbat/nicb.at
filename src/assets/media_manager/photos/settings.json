@@ -41,6 +41,13 @@
   "dataFileName": "image-data.json",
   "filesSubdir": "files",
   "gridSize": "medium",
-  "autoAdvanceToNextUnlinked": true,
-  "autoSaveOnAdvance": true
+  "autoAdvanceToNextUnlinked": false,
+  "autoSaveOnAdvance": true,
+  "excludedFiles": [
+    "Minecraft_Fall_Drop_Campaign_Key_Art_DotNet_Downloadable_Wallpaper_1920x1080.png",
+    "Minecraft_Fall_Drop_Campaign_Key_Art_DotNet_Downloadable_Wallpaper_2048x2048.png",
+    "Minecraft_Fall_Drop_Campaign_Key_Art_DotNet_Downloadable_Wallpaper_800x450.png",
+    "Minecraft_Fall_Drop_Campaign_Key_Art_DotNet_Downloadable_Wallpaper_1080x1920.png",
+    "Minecraft_Fall_Drop_Campaign_Key_Art_DotNet_Downloadable_Wallpaper_800x800.png"
+  ]
 }

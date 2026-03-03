@@ -38,7 +38,7 @@ export const fetchImageList = async (): Promise<ImageData[]> => {
       height: number;
     }>;
 
-    const allImageFiles = import.meta.glob('$assets/media_manager/photos/files/*.{jpg,jpeg,png,gif}');
+    const allImageFiles = import.meta.glob('$assets/media_manager/files/*.{jpg,jpeg,png,gif}');
     const resolvedSrcByFilename: Record<string, string> = {};
     await Promise.all(
       Object.entries(allImageFiles).map(async ([path, resolver]) => {
