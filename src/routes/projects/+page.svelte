@@ -10,18 +10,18 @@
 
 <div>
   <h1>Projects</h1>
-  <p class="text-secondary-text">
-    Here are some of my projects - many more to come!
-  </p>
   {#if data.projects.length === 0}
     <p>
-      No projects yet. Check out my <a
+      Check out my <a
         href="https://github.com/nicbat"
         target="_blank"
         rel="noopener noreferrer">Github</a
       > if you want to see some of my work.
     </p>
   {:else}
+    <p class="text-secondary-text">
+      Here are some of my projects - many more to come!
+    </p>
     <div class="projects-grid">
       {#each data.projects as project}
         <ProjectCard {project} />

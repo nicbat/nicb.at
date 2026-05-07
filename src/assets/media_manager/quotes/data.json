@@ -120,6 +120,50 @@
       "show_on_homepage": true,
       "english_translation": "",
       "literal_translation": ""
+    },
+    {
+      "id": "5f0e913d-e0c6-40fe-a76f-257a007f05fe",
+      "last_modified": "2026-05-06T07:42:40.902Z",
+      "name": "A Novel",
+      "quote": "A man is like a novel: until the very last page you don't know how it will end. Otherwise it wouldn't even be worth reading.",
+      "author": "Yevgeny Zamyatin",
+      "source": "We",
+      "english_translation": "",
+      "literal_translation": "",
+      "show_on_homepage": true
+    },
+    {
+      "id": "f59b9f58-a30d-468b-a67f-fbf5e595e2d0",
+      "last_modified": "2026-05-06T07:43:47.249Z",
+      "name": "An Oar",
+      "quote": "There are some people who leave impressions not so lasting as the imprint of an oar upon water.",
+      "author": "Kate Chopin",
+      "source": "The Awakening",
+      "english_translation": "",
+      "literal_translation": "",
+      "show_on_homepage": false
+    },
+    {
+      "id": "f9d66b6b-889f-4d7b-8546-c5f91890dcee",
+      "last_modified": "2026-05-06T07:44:16.413Z",
+      "name": "Despise",
+      "quote": "His scorn of the great is repeated too often to be real; no man thinks much of that which he despises.",
+      "author": "Samuel Johnson",
+      "source": "",
+      "english_translation": "",
+      "literal_translation": "",
+      "show_on_homepage": false
+    },
+    {
+      "id": "3e898439-5a4c-4335-989b-3df228178726",
+      "last_modified": "2026-05-06T07:45:29.012Z",
+      "name": "Love Him",
+      "quote": "If pressed to say why I loved him, I feel it cannot be expressed. Except by saying: because it was him; because it was me.",
+      "author": "Montaigne",
+      "source": "",
+      "english_translation": "",
+      "literal_translation": "",
+      "show_on_homepage": false
     }
   ]
 }

@@ -11,7 +11,7 @@
 <div class="flex-1 mx-auto w-full px-5 flex flex-col max-w-3xl">
   <h1 class="mb-4">Photos</h1>
   <p class="mb-6 text-secondary-text">
-    Here's a collection of some of my favorite photos.
+    Here's a set of some of my favorite photos.
   </p>
 </div>
 <!-- These photos may be loading slow, but (I think) LLMs aren't able to read them (yet)! 🥳</p> -->

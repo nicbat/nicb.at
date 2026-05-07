@@ -79,6 +79,20 @@
         "Product"
       ],
       "urls": []
+    },
+    {
+      "id": "1b45c44f-746f-4a3c-9178-e1f26a579584",
+      "last_modified": "2026-05-06T07:46:38.892Z",
+      "name": "ShamCheck Android App",
+      "date": "Q1 2026",
+      "tags": [],
+      "urls": [
+        {
+          "display_name": "See Site",
+          "url": "https://shamcheck.com/sham-check"
+        }
+      ],
+      "description": "Built and deployed an Android app for ShamCheck, a scam-detection service developed by ThreeClicks."
     }
   ]
 }
