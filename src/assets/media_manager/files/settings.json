@@ -1,15 +1,8 @@
 {
   "displayName": "Files",
-  "kind": "images",
-  "schema": {
-    "image_name": {
-      "type": "string",
-      "removable": false,
-      "defaultValue": ""
-    }
-  },
+  "kind": "blob_store",
+  "schema": {},
   "dataFileName": "image-data.json",
-  "filesSubdir": "files",
   "gridSize": "medium",
   "autoAdvanceToNextUnlinked": false,
   "autoSaveOnAdvance": false,

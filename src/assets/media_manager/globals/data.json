@@ -1,8 +1,11 @@
 {
   "records": [
     {
-      "id": "global-settings",
-      "name": "Global Settings"
+      "id": "00000000-0000-4000-8000-000000000001",
+      "last_modified": "2026-06-07T20:39:39.554Z",
+      "my name": "Nicholas",
+      "age": 21,
+      "__field_kinds": "{\"my name\":\"string\",\"age\":\"number\"}"
     }
   ]
 }

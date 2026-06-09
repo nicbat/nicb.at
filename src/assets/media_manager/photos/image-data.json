@@ -2,7 +2,7 @@
   "images": [
     {
       "id": "f1c075b6-e41d-4c72-a138-3e5e3ceb58ec",
-      "file_name": "094-park.jpg",
+      "file_name": "grandpa.jpg",
       "image_name": "Me and Grandpa",
       "last_modified": "2026-02-09T04:40:00.848Z",
       "width": 1120,
@@ -191,18 +191,6 @@
       "Year": "2024",
       "Location": "Banff",
       "hidden": false
-    },
-    {
-      "id": "55d5622c-483e-4ed9-81c7-a2acc7d29de6",
-      "file_name": "IMG-20241001-WA0071.jpg",
-      "image_name": "Me and Andrew",
-      "last_modified": "2025-10-05T03:29:43.010Z",
-      "width": 1995,
-      "height": 2661,
-      "description": "",
-      "Year": "2024",
-      "Location": "Alaska",
-      "hidden": true
     },
     {
       "id": "0656e02b-71a1-4a60-8a75-9c352ee20ae7",
