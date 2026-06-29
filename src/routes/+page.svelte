@@ -9,6 +9,9 @@
   } from "lucide-svelte";
   import { elephantFace } from "@lucide/lab";
   import QuoteDisplay from "$lib/components/QuoteDisplay.svelte";
+  import type { PageData } from "./$types";
+
+  export let data: PageData;
 
   let emailHover = false;
   let githubHover = false;
@@ -217,9 +220,9 @@
     </div>
 
     <img
-      src="home_photo.png"
-      alt="Me!"
-      class="w-32 h-32 md:w-48 md:h-48 rounded-full object-cover shadow-lg transition-all duration-500"
+      src={data.homePhoto?.src ?? "home_photo.png"}
+      alt={data.homePhoto?.alt ?? "Me!"}
+      class="w-32 h-32 md:w-48 md:h-48 rounded-full object-cover shadow-lg transition-all duration-500 aspect-square"
     />
   </div>
 

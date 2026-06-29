@@ -1,0 +1,13 @@
+{
+  "schema": {},
+  "config": {
+    "displayName": "Documents",
+    "icon": "file-text"
+  },
+  "records": {
+    "5e595084-379f-42d9-8b0e-d618cf31563c": {
+      "id": "5e595084-379f-42d9-8b0e-d618cf31563c",
+      "last_modified": "2026-06-17T01:13:23.513Z"
+    }
+  }
+}

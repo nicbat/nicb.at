@@ -1,5 +1,6 @@
 <script lang="ts">
   import ProjectCard from "$lib/components/ProjectCard.svelte";
+  import { Masonry } from "@nicbat/svelte-masonry";
   import type { Project } from "$lib/types";
 
   export let data: { projects: Project[] };
@@ -22,25 +23,23 @@
     <p class="text-secondary-text">
       Here are some of my projects - many more to come!
     </p>
-    <div class="projects-grid">
-      {#each data.projects as project}
+    <Masonry
+      class="projects-grid"
+      items={data.projects}
+      getKey={(project) => project.title + project.date}
+      minColumnWidth={320}
+      gap={32}
+      readingOrder="source"
+    >
+      {#snippet children(project)}
         <ProjectCard {project} />
-      {/each}
-    </div>
+      {/snippet}
+    </Masonry>
   {/if}
 </div>
 
 <style>
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+  :global(.projects-grid) {
     padding: 1rem 0;
-  }
-
-  @media (max-width: 768px) {
-    .projects-grid {
-      grid-template-columns: 1fr;
-    }
   }
 </style>

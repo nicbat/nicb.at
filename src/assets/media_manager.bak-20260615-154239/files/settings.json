@@ -1,0 +1,10 @@
+{
+  "displayName": "Files",
+  "kind": "blob_store",
+  "schema": {},
+  "dataFileName": "image-data.json",
+  "gridSize": "medium",
+  "autoAdvanceToNextUnlinked": false,
+  "autoSaveOnAdvance": false,
+  "excludedFiles": []
+}

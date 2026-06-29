@@ -1,0 +1,118 @@
+{
+  "records": [
+    {
+      "id": "f0667084-1b15-4c5e-aa2e-d450e96b6984",
+      "last_modified": "2026-02-08T01:40:27.979Z",
+      "name": "Echo Armor",
+      "date": "",
+      "tags": [
+        "Product",
+        "Internship"
+      ],
+      "description": "Over the summer I built a service to analyze DDOS Replay Attacks against Roblox Experiences, strengthening Roblox's ability to counterract future attacks.",
+      "urls": [
+        {
+          "display_name": "Roblox Careers",
+          "url": "https://careers.roblox.com"
+        }
+      ]
+    },
+    {
+      "id": "bcc69f92-d261-4751-b5bf-b6ddb5c193bb",
+      "last_modified": "2026-06-17T22:40:21.771Z",
+      "name": "Gradient Game",
+      "date": "",
+      "tags": [
+        "Product",
+        "WIP"
+      ],
+      "description": "I'm building a color game! Still a bit of a work in progress, but feel free to check it out!",
+      "urls": [
+        {
+          "display_name": "See Site",
+          "url": "https://gradient.nicb.at"
+        }
+      ]
+    },
+    {
+      "id": "910a8b1b-d0c3-4307-8a43-2414ccdb4ffc",
+      "last_modified": "2026-02-08T01:39:59.797Z",
+      "name": "LLAMAPIE 🥧: Proactive In-Ear Conversation Assistants",
+      "date": "2025-05-15",
+      "description": "Tuochao Chen, ***Nicholas Batchelder***, Alisa Liu, Noah Smith, Shyamnath Gollakota",
+      "tags": [
+        "Publication"
+      ],
+      "urls": [
+        {
+          "display_name": "Paper",
+          "url": "https://arxiv.org/abs/2505.04066"
+        },
+        {
+          "display_name": "Website",
+          "url": "https://llamapie.cs.washington.edu/"
+        }
+      ]
+    },
+    {
+      "id": "56520be5-64a0-4f4f-9600-6114583af983",
+      "last_modified": "2026-06-17T22:40:31.962Z",
+      "name": "Personal Website",
+      "date": "",
+      "description": "You're looking at it! I built this with SvelteKit.",
+      "tags": [
+        "Product",
+        "WIP"
+      ],
+      "urls": [
+        {
+          "display_name": "View Source",
+          "url": "https://github.com/nicbat/nicb.at"
+        }
+      ]
+    },
+    {
+      "id": "dc0909d4-f339-4458-a75a-0ae53cdcfc41",
+      "last_modified": "2026-06-17T22:40:27.672Z",
+      "name": "Media Manager",
+      "date": "",
+      "description": "A web-app I'm working on to manage the media on this site.",
+      "tags": [
+        "Product",
+        "WIP"
+      ],
+      "urls": []
+    },
+    {
+      "id": "1b45c44f-746f-4a3c-9178-e1f26a579584",
+      "last_modified": "2026-06-29T08:05:12.947Z",
+      "name": "ShamCheck Android App",
+      "date": "",
+      "tags": [],
+      "urls": [
+        {
+          "display_name": "See Site",
+          "url": "https://shamcheck.com/sham-check"
+        }
+      ],
+      "description": "Built and deployed an Android app for ShamCheck, a scam-detection service developed by ThreeClicks."
+    },
+    {
+      "id": "5de4b170-5302-4141-b976-4956566a896c",
+      "last_modified": "2026-06-17T22:40:39.114Z",
+      "name": "Task Properties Obsidian Plugin",
+      "date": "",
+      "tags": [
+        "Product",
+        "WIP"
+      ],
+      "urls": [
+        {
+          "display_name": "Github",
+          "url": "https://github.com/nicbat/obsidian-plugin-task-properties"
+        }
+      ],
+      "description": "A simple Obsidian Plugin that stores task completion information in the file properties (for your Bases =D)."
+    }
+  ]
+}

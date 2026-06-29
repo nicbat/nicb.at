@@ -8,7 +8,6 @@
       "defaultValue": ""
     }
   },
-  "dataFileName": "data.json",
   "gridSize": "medium",
   "autoAdvanceToNextUnlinked": false,
   "autoSaveOnAdvance": false,

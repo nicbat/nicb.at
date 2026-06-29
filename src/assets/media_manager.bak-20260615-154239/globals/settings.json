@@ -1,0 +1,16 @@
+{
+  "displayName": "Globals",
+  "kind": "json",
+  "schema": {
+    "name": {
+      "type": "string",
+      "removable": false,
+      "defaultValue": ""
+    }
+  },
+  "dataFileName": "data.json",
+  "gridSize": "medium",
+  "autoAdvanceToNextUnlinked": false,
+  "autoSaveOnAdvance": false,
+  "excludedFiles": []
+}

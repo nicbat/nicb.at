@@ -1,0 +1,43 @@
+{
+  "displayName": "Quotes",
+  "kind": "json",
+  "schema": {
+    "name": {
+      "type": "string",
+      "removable": false,
+      "defaultValue": ""
+    },
+    "quote": {
+      "type": "string",
+      "removable": true,
+      "long": true
+    },
+    "author": {
+      "type": "string",
+      "removable": true
+    },
+    "source": {
+      "type": "string",
+      "removable": true
+    },
+    "english_translation": {
+      "type": "string",
+      "removable": true,
+      "long": true
+    },
+    "literal_translation": {
+      "type": "string",
+      "removable": true,
+      "long": true
+    },
+    "show_on_homepage": {
+      "type": "boolean",
+      "removable": true,
+      "defaultValue": false
+    }
+  },
+  "dataFileName": "data.json",
+  "gridSize": "medium",
+  "autoAdvanceToNextUnlinked": false,
+  "autoSaveOnAdvance": true
+}

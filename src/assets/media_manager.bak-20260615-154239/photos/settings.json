@@ -1,0 +1,53 @@
+{
+  "displayName": "Photos",
+  "kind": "images",
+  "schema": {
+    "file_name": {
+      "type": "string",
+      "removable": false,
+      "defaultValue": ""
+    },
+    "image_name": {
+      "type": "string",
+      "removable": false,
+      "defaultValue": ""
+    },
+    "last_modified": {
+      "type": "string",
+      "removable": false,
+      "defaultValue": ""
+    },
+    "description": {
+      "type": "string",
+      "removable": true,
+      "defaultValue": ""
+    },
+    "Year": {
+      "type": "string",
+      "removable": true,
+      "defaultValue": ""
+    },
+    "Location": {
+      "type": "string",
+      "removable": true,
+      "defaultValue": ""
+    },
+    "hidden": {
+      "type": "boolean",
+      "removable": true,
+      "defaultValue": false
+    }
+  },
+  "dataFileName": "image-data.json",
+  "filesSubdir": "files",
+  "gridSize": "medium",
+  "autoAdvanceToNextUnlinked": false,
+  "autoSaveOnAdvance": true,
+  "excludedFiles": [
+    "92d6251e-62b3-4caf-8618-4e3f13ae2dff",
+    "0a147504-cf62-4dd0-adf7-cd42069718e4",
+    "c6743f1b-92b0-4cf9-b673-694afb65982e",
+    "230679d3-a2b6-4acb-b860-86d5724ce5de",
+    "0d0ab90a-7c85-4057-9c92-aecb08377461"
+  ]
+}

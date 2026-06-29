@@ -2,10 +2,14 @@
   "records": [
     {
       "id": "00000000-0000-4000-8000-000000000001",
-      "last_modified": "2026-06-07T20:39:39.554Z",
+      "last_modified": "2026-06-23T00:34:53.824Z",
       "my name": "Nicholas",
       "age": 21,
-      "__field_kinds": "{\"my name\":\"string\",\"age\":\"number\"}"
+      "__field_kinds": "{\"my name\":\"string\",\"age\":\"number\",\"resume\":\"file\",\"my photo\":\"file\"}",
+      "resume": "5e595084-379f-42d9-8b0e-d618cf31563c",
+      "__field_meta": "{}",
+      "my photo": "c712d031-d485-4898-a52f-26892dfe786a",
+      "__layout": "{\"sections\":[{\"id\":\"sec_9d399c061c\",\"name\":\"General\",\"collapsed\":false,\"fields\":[\"my name\",\"age\",\"resume\",\"my photo\"]}],\"defaultSectionId\":\"sec_9d399c061c\",\"fieldSort\":\"manual\"}"
     }
   ]
 }

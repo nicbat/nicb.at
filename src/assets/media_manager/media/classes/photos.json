@@ -1,0 +1,460 @@
+{
+  "schema": {
+    "name": {
+      "type": "string",
+      "removable": true,
+      "defaultValue": ""
+    },
+    "description": {
+      "type": "string",
+      "removable": true,
+      "defaultValue": ""
+    },
+    "Year": {
+      "type": "string",
+      "removable": true,
+      "defaultValue": ""
+    },
+    "Location": {
+      "type": "string",
+      "removable": true,
+      "defaultValue": ""
+    },
+    "hidden": {
+      "type": "boolean",
+      "removable": true,
+      "defaultValue": false
+    }
+  },
+  "config": {
+    "displayName": "Photos",
+    "gridGroupByField": "hidden",
+    "displayField": "name",
+    "icon": "camera"
+  },
+  "records": {
+    "4766d205-68b4-4567-bb7a-fed9598414d1": {
+      "id": "4766d205-68b4-4567-bb7a-fed9598414d1",
+      "last_modified": "2026-06-22T04:32:00.340Z",
+      "width": 1120,
+      "height": 840,
+      "description": "",
+      "Year": "2006",
+      "Location": "India",
+      "hidden": false,
+      "name": "Me and Grandpa"
+    },
+    "bbb3e0d3-219d-4ab9-a06e-548b733c64c5": {
+      "id": "bbb3e0d3-219d-4ab9-a06e-548b733c64c5",
+      "last_modified": "2026-06-16T01:34:09.274Z",
+      "width": 1204,
+      "height": 1600,
+      "description": "",
+      "Year": "2024",
+      "Location": "Nashville",
+      "hidden": false,
+      "name": "City Hall"
+    },
+    "91962be0-d7da-4709-bd4e-575ced424bec": {
+      "id": "91962be0-d7da-4709-bd4e-575ced424bec",
+      "last_modified": "2026-05-06T07:40:29.989Z",
+      "width": 1200,
+      "height": 1600,
+      "description": "",
+      "Year": "2024",
+      "Location": "Vancouver",
+      "hidden": true,
+      "name": "Superpuff"
+    },
+    "d9afbe18-95b8-48cc-bb81-94cd56cbb80f": {
+      "id": "d9afbe18-95b8-48cc-bb81-94cd56cbb80f",
+      "last_modified": "2026-01-31T02:03:30.314Z",
+      "width": 2166,
+      "height": 1626,
+      "description": "",
+      "Year": "2024",
+      "Location": "UW",
+      "hidden": false,
+      "name": "Henna"
+    },
+    "cd608293-73ce-4517-9798-d39a1a964b89": {
+      "id": "cd608293-73ce-4517-9798-d39a1a964b89",
+      "last_modified": "2025-07-13T22:21:14.120Z",
+      "width": 2268,
+      "height": 4032,
+      "description": "",
+      "Year": "",
+      "Location": "Alki",
+      "hidden": false,
+      "name": "Sailboat"
+    },
+    "a3881054-ba5f-45e2-93db-2141df2c1e75": {
+      "id": "a3881054-ba5f-45e2-93db-2141df2c1e75",
+      "last_modified": "2025-07-13T22:23:04.791Z",
+      "width": 2166,
+      "height": 1218,
+      "description": "",
+      "Year": "2024",
+      "Location": "Alki",
+      "hidden": false,
+      "name": "The Boys"
+    },
+    "40ef0006-4195-4d17-8b6a-918fe1bb88d1": {
+      "id": "40ef0006-4195-4d17-8b6a-918fe1bb88d1",
+      "last_modified": "2025-07-13T22:23:28.602Z",
+      "width": 2268,
+      "height": 4032,
+      "description": "",
+      "Year": "2024",
+      "Location": "Bainbridge Island",
+      "hidden": false,
+      "name": "Wedding"
+    },
+    "c712d031-d485-4898-a52f-26892dfe786a": {
+      "id": "c712d031-d485-4898-a52f-26892dfe786a",
+      "last_modified": "2025-07-13T22:32:56.321Z",
+      "width": 3072,
+      "height": 4080,
+      "description": "",
+      "Year": "2024",
+      "Location": "Snow Lake",
+      "hidden": false,
+      "name": "Water"
+    },
+    "86ae23cf-12a6-4753-83cd-7d9eb5fae577": {
+      "id": "86ae23cf-12a6-4753-83cd-7d9eb5fae577",
+      "last_modified": "2026-02-10T19:00:57.497Z",
+      "width": 2268,
+      "height": 4032,
+      "description": "",
+      "Year": "2024",
+      "Location": "Pioneer Square",
+      "hidden": true,
+      "name": "Stolen Totempole"
+    },
+    "85fa7104-33a8-4c68-a345-cb67af6b8b4d": {
+      "id": "85fa7104-33a8-4c68-a345-cb67af6b8b4d",
+      "last_modified": "2025-07-13T22:25:23.933Z",
+      "width": 1514,
+      "height": 2010,
+      "description": "",
+      "Year": "2025",
+      "Location": "Tiger Mountain",
+      "hidden": false,
+      "name": "Alex"
+    },
+    "f148f474-04aa-4496-bfb7-3dd85cb89303": {
+      "id": "f148f474-04aa-4496-bfb7-3dd85cb89303",
+      "last_modified": "2025-07-13T22:35:36.661Z",
+      "width": 1518,
+      "height": 2016,
+      "description": "River",
+      "Year": "2025",
+      "Location": "Deception Pass",
+      "hidden": true,
+      "name": "Deception Pass"
+    },
+    "ee2e554a-860d-4bb2-85e7-3e24382331e9": {
+      "id": "ee2e554a-860d-4bb2-85e7-3e24382331e9",
+      "last_modified": "2026-05-06T07:39:57.575Z",
+      "width": 1514,
+      "height": 2011,
+      "description": "",
+      "Year": "2025",
+      "Location": "UW",
+      "hidden": true,
+      "name": "Noms"
+    },
+    "d961b3dc-017f-4e3d-8118-5838a3885dcc": {
+      "id": "d961b3dc-017f-4e3d-8118-5838a3885dcc",
+      "last_modified": "2025-07-13T22:34:55.074Z",
+      "width": 3425,
+      "height": 1070,
+      "description": "",
+      "Year": "2025",
+      "Location": "Lake 22",
+      "hidden": false,
+      "name": "Water"
+    },
+    "117bc8a0-c263-4ee8-9806-0a168d08ded7": {
+      "id": "117bc8a0-c263-4ee8-9806-0a168d08ded7",
+      "last_modified": "2026-06-22T03:40:33.571Z",
+      "width": 1510,
+      "height": 2011,
+      "description": "",
+      "Year": "2025",
+      "Location": "Deception Pass",
+      "hidden": false,
+      "name": "The Muffin Men"
+    },
+    "8e6973f2-e2f4-4b4c-aaa1-934bb490340b": {
+      "id": "8e6973f2-e2f4-4b4c-aaa1-934bb490340b",
+      "last_modified": "2026-02-22T02:45:33.378Z",
+      "width": 1536,
+      "height": 2040,
+      "description": "",
+      "Year": "2024",
+      "Location": "Illinois",
+      "hidden": false,
+      "name": "Eclipse"
+    },
+    "47bf1425-514f-41d3-9d0c-d05c042e5737": {
+      "id": "47bf1425-514f-41d3-9d0c-d05c042e5737",
+      "last_modified": "2025-07-13T22:34:34.496Z",
+      "width": 2040,
+      "height": 1536,
+      "description": "",
+      "Year": "2024",
+      "Location": "Banff",
+      "hidden": false,
+      "name": "Sunset"
+    },
+    "3663cca4-14ff-46da-9e18-bdb934718699": {
+      "id": "3663cca4-14ff-46da-9e18-bdb934718699",
+      "last_modified": "2025-08-21T02:22:32.381Z",
+      "width": 2101,
+      "height": 3736,
+      "default": false,
+      "description": "",
+      "Year": "2025",
+      "Location": "Vienna",
+      "hidden": false,
+      "name": "Friends"
+    },
+    "cbe71a55-d550-4ed6-9ec6-210d79421c4e": {
+      "id": "cbe71a55-d550-4ed6-9ec6-210d79421c4e",
+      "last_modified": "2025-08-21T02:22:48.077Z",
+      "width": 3072,
+      "height": 4080,
+      "default": false,
+      "description": "",
+      "Year": "2025",
+      "Location": "Vienna",
+      "hidden": false,
+      "name": "Swan"
+    },
+    "2365ab2c-72f4-4582-b3df-49c0626ce260": {
+      "id": "2365ab2c-72f4-4582-b3df-49c0626ce260",
+      "last_modified": "2025-08-21T02:23:48.651Z",
+      "width": 4284,
+      "height": 5712,
+      "default": false,
+      "description": "",
+      "Year": "2025",
+      "Location": "Twin Peaks, SF",
+      "hidden": false,
+      "name": "Pondering"
+    },
+    "66aef9e5-9484-456c-8630-37ac7a0f6a6a": {
+      "id": "66aef9e5-9484-456c-8630-37ac7a0f6a6a",
+      "last_modified": "2025-08-21T02:24:05.151Z",
+      "width": 3072,
+      "height": 4080,
+      "default": false,
+      "description": "",
+      "Year": "2025",
+      "Location": "Santa Cruz",
+      "hidden": false,
+      "name": "Tracks"
+    },
+    "11e6e011-7cbe-4da0-b458-67108a6b09d1": {
+      "id": "11e6e011-7cbe-4da0-b458-67108a6b09d1",
+      "last_modified": "2025-08-21T02:24:35.764Z",
+      "width": 3072,
+      "height": 4080,
+      "default": false,
+      "description": "",
+      "Year": "2025",
+      "Location": "SEA -> SFO",
+      "hidden": false,
+      "name": "Clouds"
+    },
+    "7330cb5d-08a9-4009-baa2-5a12756a393f": {
+      "id": "7330cb5d-08a9-4009-baa2-5a12756a393f",
+      "last_modified": "2025-08-21T02:26:18.009Z",
+      "width": 3072,
+      "height": 4080,
+      "default": false,
+      "description": "",
+      "Year": "2025",
+      "Location": "ACL Vienna",
+      "hidden": false,
+      "name": "LlamaPIE Poster"
+    },
+    "c0f41b0b-ff69-4631-8dd0-00abaf0e74b6": {
+      "id": "c0f41b0b-ff69-4631-8dd0-00abaf0e74b6",
+      "last_modified": "2026-02-08T02:12:43.268Z",
+      "width": 4665,
+      "height": 6997,
+      "description": "",
+      "Year": "2025",
+      "Location": "Olympic National Park",
+      "hidden": false,
+      "name": "Pondering Again"
+    },
+    "08fdf7c8-7b94-4073-a97c-001f31bbe8c4": {
+      "id": "08fdf7c8-7b94-4073-a97c-001f31bbe8c4",
+      "last_modified": "2026-02-08T02:11:38.918Z",
+      "width": 4000,
+      "height": 3000,
+      "description": "",
+      "Year": "2009",
+      "Location": "Cruise",
+      "hidden": false,
+      "name": "Adventure"
+    },
+    "67922902-aacf-48a8-8f74-9b1363865062": {
+      "id": "67922902-aacf-48a8-8f74-9b1363865062",
+      "last_modified": "2026-02-08T02:12:59.014Z",
+      "width": 3072,
+      "height": 2048,
+      "description": "",
+      "Year": "2024",
+      "Location": "",
+      "hidden": false,
+      "name": "Brothers"
+    },
+    "095ecf2d-033e-407a-b13d-fb413f010199": {
+      "id": "095ecf2d-033e-407a-b13d-fb413f010199",
+      "last_modified": "2026-02-08T02:13:15.179Z",
+      "width": 3072,
+      "height": 4080,
+      "description": "",
+      "Year": "2025",
+      "Location": "",
+      "hidden": false,
+      "name": "Stickers"
+    },
+    "5a9f941b-bf1e-491e-8884-750f5392ebb7": {
+      "id": "5a9f941b-bf1e-491e-8884-750f5392ebb7",
+      "last_modified": "2026-02-08T02:18:04.857Z",
+      "width": 2268,
+      "height": 4032,
+      "description": "",
+      "Year": "2025",
+      "Location": "Alki",
+      "hidden": false,
+      "name": "Beach"
+    },
+    "1a57cb2a-fdeb-4096-8a6a-c1b38e02d34d": {
+      "id": "1a57cb2a-fdeb-4096-8a6a-c1b38e02d34d",
+      "last_modified": "2026-02-10T19:23:21.635Z",
+      "width": 960,
+      "height": 1280,
+      "description": "",
+      "Year": "2015",
+      "Location": "Brazil",
+      "hidden": false,
+      "name": "Me and Him"
+    },
+    "529a3a16-1d74-4775-a577-2cf8a456aa3c": {
+      "id": "529a3a16-1d74-4775-a577-2cf8a456aa3c",
+      "last_modified": "2026-02-08T02:22:13.482Z",
+      "width": 2736,
+      "height": 3648,
+      "description": "",
+      "Year": "2026",
+      "Location": "",
+      "hidden": false,
+      "name": "Snow"
+    },
+    "edb46bb4-609d-468b-ab66-eacd82859baa": {
+      "id": "edb46bb4-609d-468b-ab66-eacd82859baa",
+      "last_modified": "2026-02-08T02:22:57.694Z",
+      "width": 3072,
+      "height": 4080,
+      "description": "",
+      "Year": "2026",
+      "Location": "Monterey",
+      "hidden": false,
+      "name": "Holy Land"
+    },
+    "02bbcb8b-f420-4224-a5f3-857c4b76f3cc": {
+      "id": "02bbcb8b-f420-4224-a5f3-857c4b76f3cc",
+      "last_modified": "2026-03-03T18:56:49.091Z",
+      "width": 1656,
+      "height": 2208,
+      "description": "",
+      "Year": "2023",
+      "Location": "Wenatchee",
+      "hidden": false,
+      "name": "Hooray"
+    },
+    "cee7149b-d73d-4cda-852c-f31870c06ab6": {
+      "id": "cee7149b-d73d-4cda-852c-f31870c06ab6",
+      "last_modified": "2026-03-03T19:02:30.052Z",
+      "width": 3072,
+      "height": 4080,
+      "description": "",
+      "Year": "2025",
+      "Location": "Vienna",
+      "hidden": false,
+      "name": "Nom nom nom"
+    },
+    "92a69a90-e55d-4810-97fd-3921c7e000de": {
+      "id": "92a69a90-e55d-4810-97fd-3921c7e000de",
+      "last_modified": "2026-03-03T19:02:38.664Z",
+      "width": 4080,
+      "height": 3072,
+      "description": "",
+      "Year": "2025",
+      "Location": "Vienna",
+      "hidden": false,
+      "name": "Threats"
+    },
+    "ae0d1c90-0821-4078-acbe-ffba24507e20": {
+      "id": "ae0d1c90-0821-4078-acbe-ffba24507e20",
+      "last_modified": "2026-06-29T17:55:14.713Z",
+      "name": "Dettifoss",
+      "description": "",
+      "Year": "2026",
+      "Location": "Iceland",
+      "hidden": false
+    },
+    "92e43485-6f84-459b-aab2-89cb5212ab22": {
+      "id": "92e43485-6f84-459b-aab2-89cb5212ab22",
+      "last_modified": "2026-06-29T17:54:51.638Z",
+      "name": "Sit",
+      "description": "",
+      "Year": "2026",
+      "Location": "Bath",
+      "hidden": false
+    },
+    "85cb2323-d641-4422-9b26-3b6be0c3ed6a": {
+      "id": "85cb2323-d641-4422-9b26-3b6be0c3ed6a",
+      "last_modified": "2026-06-29T17:54:41.814Z",
+      "name": "Lake District",
+      "description": "",
+      "Year": "2026",
+      "Location": "England",
+      "hidden": false
+    },
+    "bf57b7de-511f-4a99-972d-d9a910d66f4d": {
+      "id": "bf57b7de-511f-4a99-972d-d9a910d66f4d",
+      "last_modified": "2026-06-29T17:54:19.498Z",
+      "name": "Mountains",
+      "description": "",
+      "Year": "2026",
+      "Location": "Greenland",
+      "hidden": false
+    },
+    "dbcf45f7-4f44-4878-8c33-259e6da2c272": {
+      "id": "dbcf45f7-4f44-4878-8c33-259e6da2c272",
+      "last_modified": "2026-06-29T17:54:28.763Z",
+      "name": "Yummy",
+      "description": "",
+      "Year": "2026",
+      "Location": "Tokyo",
+      "hidden": true
+    },
+    "8dc67a82-c78c-4dae-9eae-06ee223a12d7": {
+      "id": "8dc67a82-c78c-4dae-9eae-06ee223a12d7",
+      "last_modified": "2026-06-29T17:53:45.268Z",
+      "name": "Scooter",
+      "description": "",
+      "Year": "2026",
+      "Location": "Iceland",
+      "hidden": false
+    }
+  }
+}

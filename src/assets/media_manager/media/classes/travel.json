@@ -1,0 +1,44 @@
+{
+  "schema": {
+    "trip": {
+      "type": "string",
+      "removable": true
+    }
+  },
+  "config": {
+    "displayName": "Travel",
+    "icon": "plane"
+  },
+  "records": {
+    "cbe71a55-d550-4ed6-9ec6-210d79421c4e": {
+      "id": "cbe71a55-d550-4ed6-9ec6-210d79421c4e",
+      "last_modified": "2026-06-16T17:31:22.574Z",
+      "trip": "ACL Vienna"
+    },
+    "7330cb5d-08a9-4009-baa2-5a12756a393f": {
+      "id": "7330cb5d-08a9-4009-baa2-5a12756a393f",
+      "last_modified": "2026-06-15T23:47:52.069Z",
+      "trip": "ACL Vienna"
+    },
+    "3663cca4-14ff-46da-9e18-bdb934718699": {
+      "id": "3663cca4-14ff-46da-9e18-bdb934718699",
+      "last_modified": "2026-06-16T17:31:15.453Z",
+      "trip": "ACL Vienna"
+    },
+    "cee7149b-d73d-4cda-852c-f31870c06ab6": {
+      "id": "cee7149b-d73d-4cda-852c-f31870c06ab6",
+      "last_modified": "2026-06-15T23:52:42.757Z",
+      "trip": "ACL Vienna"
+    },
+    "92a69a90-e55d-4810-97fd-3921c7e000de": {
+      "id": "92a69a90-e55d-4810-97fd-3921c7e000de",
+      "last_modified": "2026-06-15T23:52:59.847Z",
+      "trip": "ACL Vienna"
+    },
+    "c0f41b0b-ff69-4631-8dd0-00abaf0e74b6": {
+      "id": "c0f41b0b-ff69-4631-8dd0-00abaf0e74b6",
+      "last_modified": "2026-06-15T23:53:41.897Z",
+      "trip": "2025 Olympics Camping"
+    }
+  }
+}

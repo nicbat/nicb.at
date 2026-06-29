@@ -1,6 +1,12 @@
 // place files you want to import through the `$lib` alias in this folder.
 import type { ImageData } from '$lib/types';
 import type { Project, Quote } from './types';
+// TODO: switch the `media-manager` dependency in package.json from `file:../media-manager`
+// to a GitHub dependency (e.g. `"media-manager": "github:type-a-group/media-manager#<tag>"`)
+// Caveat: git install requires media-manager's `prepare` script to build `dist/reader/` on
+// install (currently only `prepublishOnly` builds it). Either update media-manager's prepare
+// script or publish the reader as its own package (media-manager FUTURE_CHANGES Item 44).
+import { MediaManager } from 'media-manager/reader/vite';
 
 export const fetchMarkdownPosts = async () => {
   const allPostFiles = import.meta.glob('$assets/blog/*.md');
@@ -21,90 +27,67 @@ export const fetchMarkdownPosts = async () => {
   return allPosts;
 };
 
-function filenameWithLowercaseExt(name: string): string {
-  return name.replace(/\.[^.]+$/, (ext) => ext.toLowerCase());
+// Load the media-manager workspace once, at build time, from its on-disk file-first layout.
+// Two Vite globs: the JSON (parsed) and the asset files (?url so Vite hashes + serves them). The
+// reader does the manifest join, asset resolution, and normalization — see `media-manager/reader`.
+const mm = MediaManager.load({
+  data: import.meta.glob('$assets/media_manager/**/*.json', { eager: true, import: 'default' }),
+  files: import.meta.glob('$assets/media_manager/media/files/*', {
+    eager: true,
+    query: '?url',
+    import: 'default'
+  })
+});
+
+interface UrlValue {
+  display_name: string;
+  url: string;
 }
 
 export const fetchImageList = async (): Promise<ImageData[]> => {
-  try {
-    const imageData = await import('$assets/media_manager/photos/image-data.json');
-    const imagesFromJson = (imageData.default?.images ?? []) as Array<{
-      file_name: string;
-      image_name: string;
-      Location: string;
-      Year: string;
-      hidden: boolean;
-      width: number;
-      height: number;
-    }>;
-
-    const allImageFiles = import.meta.glob('$assets/media_manager/files/*.{jpg,jpeg,png,gif}');
-    const resolvedSrcByFilename: Record<string, string> = {};
-    await Promise.all(
-      Object.entries(allImageFiles).map(async ([path, resolver]) => {
-        const { default: src } = await (resolver as () => Promise<{ default: string }>)();
-        const filename = path.split('/').pop() || '';
-        resolvedSrcByFilename[filenameWithLowercaseExt(filename)] = src;
-      })
-    );
-
-    const result: ImageData[] = [];
-    for (const photo of imagesFromJson) {
-      if (photo.hidden) continue;
-      const src = resolvedSrcByFilename[filenameWithLowercaseExt(photo.file_name)];
-      if (!src) continue;
-      const location = photo.Location || '';
-      const year = photo.Year || '';
-      const alt = `${photo.image_name}${location ? '. ' + location : ''}${year ? ', ' + year : ''}`.trim() || photo.file_name;
-      const width = photo.width;
-      const height = photo.height;
-      result.push({ src, alt, width, height });
-    }
-    return result;
-  } catch (error) {
-    console.error('Error reading image list:', error);
-    return [{ src: 'error', alt: (error as Error).toString(), width: 0, height: 0 }];
-  }
-}
-
-interface ProjectRecord {
-  id: string;
-  last_modified: string;
-  name: string;
-  date: string;
-  tags: string[];
-  description: string;
-  urls: Array<{ display_name: string; url: string }>;
-}
-
-export const fetchProjects = async (): Promise<Project[]> => {
-  const data = await import('$assets/media_manager/projects/data.json');
-  const records: ProjectRecord[] = data.default?.records ?? [];
-
-  const allProjects: Project[] = records.map((record) => ({
-    title: record.name,
-    date: record.date,
-    tags: record.tags as Project['tags'],
-    links: record.urls.map((u) => ({ text: u.display_name, url: u.url })),
-    image: '',
-    description: record.description
-  }));
-
-  return allProjects.sort((a: Project, b: Project) => {
-    return new Date(b.date).getTime() - new Date(a.date).getTime();
-  });
+  return mm
+    .media('photos')
+    .where({ hidden: false })
+    .map((m) => {
+      const name = (m.field('name') as string) || '';
+      const location = (m.field('Location') as string) || '';
+      const year = (m.field('Year') as string) || '';
+      const alt =
+        `${name}${location ? '. ' + location : ''}${year ? ', ' + year : ''}`.trim() || m.filename;
+      return { src: m.src ?? '', alt, width: m.width, height: m.height };
+    })
+    .filter((img) => img.src);
 };
 
+export const fetchHomePhoto = async (): Promise<ImageData | null> => {
+  const photo = mm.globals()?.file('my photo');
+  if (!photo?.src) return null;
+  return { src: photo.src, alt: 'Me!', width: photo.width, height: photo.height };
+};
+
+export const fetchProjects = async (): Promise<Project[]> => {
+  return mm
+    .records('projects')
+    .sortBy('date', 'desc')
+    .map((r) => ({
+      title: (r.field('name') as string) ?? '',
+      date: (r.field('date') as string) ?? '',
+      tags: ((r.field('tags') as string[]) ?? []) as Project['tags'],
+      links: ((r.field('urls') as UrlValue[]) ?? []).map((u) => ({
+        text: u.display_name,
+        url: u.url
+      })),
+      image: '',
+      description: (r.field('description') as string) ?? ''
+    }));
+};
 
 export const fetchQuotes = async (): Promise<Quote[]> => {
-  const data = await import('$assets/media_manager/quotes/data.json');
-  const records = data.default?.records ?? [];
-
-  return records.map((record: any) => ({
-    quote: record.quote,
-    author: record.author,
-    source: record.source,
-    show_on_homepage: record.show_on_homepage,
-    english_translation: record.english_translation
+  return mm.records('quotes').map((r) => ({
+    quote: (r.field('quote') as string) ?? '',
+    author: (r.field('author') as string) ?? '',
+    source: (r.field('source') as string) ?? '',
+    show_on_homepage: (r.field('show_on_homepage') as boolean) ?? false,
+    english_translation: (r.field('english_translation') as string) || undefined
   }));
 };
