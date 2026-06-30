@@ -283,12 +283,12 @@
     },
     "c0f41b0b-ff69-4631-8dd0-00abaf0e74b6": {
       "id": "c0f41b0b-ff69-4631-8dd0-00abaf0e74b6",
-      "last_modified": "2026-02-08T02:12:43.268Z",
+      "last_modified": "2026-06-30T17:04:17.810Z",
       "width": 4665,
       "height": 6997,
       "description": "",
       "Year": "2025",
-      "Location": "Olympic National Park",
+      "Location": "Olympic NP",
       "hidden": false,
       "name": "Pondering Again"
     },
@@ -402,15 +402,6 @@
       "hidden": false,
       "name": "Threats"
     },
-    "ae0d1c90-0821-4078-acbe-ffba24507e20": {
-      "id": "ae0d1c90-0821-4078-acbe-ffba24507e20",
-      "last_modified": "2026-06-29T17:55:14.713Z",
-      "name": "Dettifoss",
-      "description": "",
-      "Year": "2026",
-      "Location": "Iceland",
-      "hidden": false
-    },
     "92e43485-6f84-459b-aab2-89cb5212ab22": {
       "id": "92e43485-6f84-459b-aab2-89cb5212ab22",
       "last_modified": "2026-06-29T17:54:51.638Z",
@@ -428,24 +419,6 @@
       "Year": "2026",
       "Location": "England",
       "hidden": false
-    },
-    "bf57b7de-511f-4a99-972d-d9a910d66f4d": {
-      "id": "bf57b7de-511f-4a99-972d-d9a910d66f4d",
-      "last_modified": "2026-06-29T17:54:19.498Z",
-      "name": "Mountains",
-      "description": "",
-      "Year": "2026",
-      "Location": "Greenland",
-      "hidden": false
-    },
-    "dbcf45f7-4f44-4878-8c33-259e6da2c272": {
-      "id": "dbcf45f7-4f44-4878-8c33-259e6da2c272",
-      "last_modified": "2026-06-29T17:54:28.763Z",
-      "name": "Yummy",
-      "description": "",
-      "Year": "2026",
-      "Location": "Tokyo",
-      "hidden": true
     },
     "8dc67a82-c78c-4dae-9eae-06ee223a12d7": {
       "id": "8dc67a82-c78c-4dae-9eae-06ee223a12d7",

@@ -1,11 +1,11 @@
-<script>
+<script lang="ts">
     import { mount } from "svelte";
     import CopyButton from "$lib/components/CopyButton.svelte";
 
     let { data } = $props();
     const { title, date, Content } = data;
 
-    let contentContainer;
+    let contentContainer = $state<HTMLElement>();
 
     $effect(() => {
         if (!contentContainer) return;

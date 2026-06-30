@@ -1,8 +1,8 @@
 <script lang="ts">
     import { Copy, Check } from "lucide-svelte";
 
-    let copied = false;
-    export let content = "";
+    let copied = $state(false);
+    let { content = "" }: { content?: string } = $props();
 
     async function copy() {
         try {
@@ -21,7 +21,7 @@
 
 <button
     class="absolute top-2 right-2 p-2 rounded-md bg-surface text-primary transition-opacity duration-200 hover:bg-overlay z-10 border border-primary/20 copy-button"
-    on:click={copy}
+    onclick={copy}
     aria-label="Copy code"
 >
     {#if copied}

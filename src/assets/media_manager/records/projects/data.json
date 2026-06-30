@@ -113,6 +113,20 @@
         }
       ],
       "description": "A simple Obsidian Plugin that stores task completion information in the file properties (for your Bases =D)."
+    },
+    {
+      "id": "27299dfe-6720-4a81-a4f9-ba74d744f980",
+      "last_modified": "2026-06-30T04:30:32.878Z",
+      "name": "Svelte Masonry Library",
+      "date": "",
+      "tags": [],
+      "urls": [
+        {
+          "display_name": "Repo",
+          "url": "https://github.com/nicbat/svelte-masonry"
+        }
+      ],
+      "description": "Quickly made this in a few hours to fix some bugs on my site =D"
     }
   ]
 }

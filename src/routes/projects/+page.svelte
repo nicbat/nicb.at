@@ -3,16 +3,16 @@
   import { Masonry } from "@nicbat/svelte-masonry";
   import type { Project } from "$lib/types";
 
-  export let data: { projects: Project[] };
+  let { data }: { data: { projects: Project[] } } = $props();
 
   // TDOO would love to have filters on this page when it gets full enough
   // - being able to filter out serious things from fun things
 </script>
 
-<div>
-  <h1>Projects</h1>
+<div class="flex-1 mx-auto w-full px-5 flex flex-col max-w-3xl">
+  <h1 class="mb-4">Projects</h1>
   {#if data.projects.length === 0}
-    <p>
+    <p class="mb-6 text-secondary-text">
       Check out my <a
         href="https://github.com/nicbat"
         target="_blank"
@@ -20,9 +20,14 @@
       > if you want to see some of my work.
     </p>
   {:else}
-    <p class="text-secondary-text">
+    <p class="mb-6 text-secondary-text">
       Here are some of my projects - many more to come!
     </p>
+  {/if}
+</div>
+
+{#if data.projects.length > 0}
+  <div class="flex-1 mx-auto w-full px-5 flex flex-col max-w-5xl">
     <Masonry
       class="projects-grid"
       items={data.projects}
@@ -35,8 +40,8 @@
         <ProjectCard {project} />
       {/snippet}
     </Masonry>
-  {/if}
-</div>
+  </div>
+{/if}
 
 <style>
   :global(.projects-grid) {

@@ -15,7 +15,7 @@
   }
 </script>
 
-<svelte:window on:scroll={handleScroll} />
+<svelte:window onscroll={handleScroll} />
 
 <nav
   class="sticky top-0 z-50 bg-main transition-all duration-0 ease-in-out px-4 py-3 border-b border-transparent"
@@ -38,6 +38,14 @@
           class="text-secondary-text hover:text-primary-text transition-colors"
         >
           Photos
+        </a>
+      </li>
+      <li>
+        <a
+          href="/travel"
+          class="text-secondary-text hover:text-primary-text transition-colors"
+        >
+          Travel
         </a>
       </li>
       <li>

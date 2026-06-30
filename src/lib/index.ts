@@ -1,6 +1,7 @@
 // place files you want to import through the `$lib` alias in this folder.
-import type { ImageData } from '$lib/types';
+import type { ImageData, Trip, TripSummary } from '$lib/types';
 import type { Project, Quote } from './types';
+import type { Record as MMRecord } from 'media-manager/reader/vite';
 // TODO: switch the `media-manager` dependency in package.json from `file:../media-manager`
 // to a GitHub dependency (e.g. `"media-manager": "github:type-a-group/media-manager#<tag>"`)
 // Caveat: git install requires media-manager's `prepare` script to build `dist/reader/` on
@@ -80,6 +81,72 @@ export const fetchProjects = async (): Promise<Project[]> => {
       image: '',
       description: (r.field('description') as string) ?? ''
     }));
+};
+
+// A trip's URL is its `html_route` when set, else a slug derived from its name.
+const slugify = (s: string): string =>
+  s
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+
+const tripSlug = (r: MMRecord): string =>
+  ((r.field('html_route') as string) || '').trim() || slugify((r.field('name') as string) || '');
+
+// Cover for a tile: the `cover_photo` field, else the first photo, else null.
+const tripCover = (r: MMRecord): ImageData | null => {
+  const cover = r.file('cover_photo') ?? r.files('photos').first();
+  if (!cover?.src) return null;
+  return {
+    src: cover.src,
+    alt: (cover.field('name') as string) || (r.field('name') as string) || '',
+    width: cover.width,
+    height: cover.height
+  };
+};
+
+export const fetchTrips = async (): Promise<TripSummary[]> => {
+  return mm
+    .records('trips')
+    .map((r) => ({
+      slug: tripSlug(r),
+      name: (r.field('name') as string) ?? '',
+      cover: tripCover(r),
+      startDate: (r.field('start_date') as string) ?? '',
+      endDate: (r.field('end_date') as string) ?? ''
+    }))
+    // Newest first by start date; trips without a date sort to the end.
+    .sort((a, b) => {
+      if (a.startDate === b.startDate) return 0;
+      if (!a.startDate) return 1;
+      if (!b.startDate) return -1;
+      return b.startDate.localeCompare(a.startDate);
+    });
+};
+
+export const fetchTrip = async (slug: string): Promise<Trip | null> => {
+  const r = mm.records('trips').find((rec) => tripSlug(rec) === slug);
+  if (!r) return null;
+
+  const photos = r
+    .files('photos')
+    .map((m) => ({
+      src: m.src ?? '',
+      alt: (m.field('name') as string) || '',
+      width: m.width,
+      height: m.height
+    }))
+    .filter((img) => img.src);
+
+  return {
+    slug,
+    name: (r.field('name') as string) ?? '',
+    description: (r.field('description') as string) ?? '',
+    startDate: (r.field('start_date') as string) ?? '',
+    endDate: (r.field('end_date') as string) ?? '',
+    photos
+  };
 };
 
 export const fetchQuotes = async (): Promise<Quote[]> => {

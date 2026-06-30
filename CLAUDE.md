@@ -18,6 +18,21 @@ npm run deploy     # gh-pages deploy (alternative to Vercel; runs build first)
 
 There is no test suite. `npm run check` is the closest thing to CI — run it to validate types after changes. Node engine is pinned (`engine-strict=true` in `.npmrc`).
 
+## Svelte 5 (runes only)
+
+This is a Svelte 5 project — write **runes**, never Svelte 3/4 syntax. `npm run check` will flag most of the legacy forms.
+
+- State: `let x = $state(0)` — not implicitly-reactive `let`.
+- Computed: `let y = $derived(expr)` / `$derived.by(() => …)` — not `$:` statements.
+- Side effects: `$effect(() => …)` — not `$:` blocks. (`onMount` is still fine for run-once mount logic like a fetch.)
+- Props: `let { data }: { data: PageData } = $props()` — not `export let`. Default values go in the destructure (`let { content = "" } = $props()`).
+- Events: attribute handlers `onclick`/`onscroll`/`onchange` — not `on:click` directives. No event modifiers; do `e.preventDefault()` in the handler.
+- Slots → snippets: a component's default content is `let { children } = $props()` rendered with `{@render children()}`; pass content with `{#snippet …}`. No `<slot>`, `$$props`, `$$restProps`, or `createEventDispatcher` (use callback props).
+- `bind:this` targets and other reassigned-from-the-template vars should be `$state` (e.g. `let el = $state<HTMLElement>()`).
+- Component instance methods are still `export function …`, called via a `bind:this` reference.
+
+Path aliases (`$lib`, etc.), `.svelte.ts` stores, `writable`/`readable` stores with `$store` auto-subscription, and `import.meta.glob` are all unchanged and still correct.
+
 ## Architecture
 
 ### Content pipeline (the important part)

@@ -2,8 +2,8 @@
     import { onMount } from "svelte";
     import type { Quote } from "$lib/types";
 
-    let quotes: Quote[] = [];
-    let currentQuote: Quote | null = null;
+    let quotes: Quote[] = $state([]);
+    let currentQuote: Quote | null = $state(null);
     let shuffledIndices: number[] = [];
     let currentIndex = 0;
 

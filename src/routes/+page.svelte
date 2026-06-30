@@ -11,17 +11,17 @@
   import QuoteDisplay from "$lib/components/QuoteDisplay.svelte";
   import type { PageData } from "./$types";
 
-  export let data: PageData;
+  let { data }: { data: PageData } = $props();
 
-  let emailHover = false;
-  let githubHover = false;
+  let emailHover = $state(false);
+  let githubHover = $state(false);
 
-  let linkedinHover = false;
-  let mastodonHover = false;
-  let robloxHover = false;
-  let syncHover = false;
+  let linkedinHover = $state(false);
+  let mastodonHover = $state(false);
+  let robloxHover = $state(false);
+  let syncHover = $state(false);
 
-  let quoteComponent: QuoteDisplay;
+  let quoteComponent = $state<QuoteDisplay>();
 
   const robloxIcon: IconNode = [
     [
@@ -57,7 +57,7 @@
         <button
           class="transition-transform hover:scale-110 relative group"
           aria-label="New Quote"
-          onclick={() => quoteComponent.setRandomQuote()}
+          onclick={() => quoteComponent?.setRandomQuote()}
           onmouseover={() => (syncHover = true)}
           onfocus={() => (syncHover = true)}
           onmouseout={() => (syncHover = false)}

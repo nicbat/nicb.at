@@ -2,7 +2,7 @@
   import Gallery from "$lib/components/Gallery.svelte";
   import type { ImageData } from "$lib/types";
 
-  export let data: { images: ImageData[] };
+  let { data }: { data: { images: ImageData[] } } = $props();
 
   let images: ImageData[] = data.images;
 </script>

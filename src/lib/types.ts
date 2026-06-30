@@ -28,3 +28,22 @@ export interface Quote {
   show_on_homepage: boolean;
   english_translation?: string;
 }
+
+/** A trip as shown on the /travel index: a tile (cover + title) that links to its page. */
+export interface TripSummary {
+  slug: string;
+  name: string;
+  cover: ImageData | null;
+  startDate: string;
+  endDate: string;
+}
+
+/** A single trip page: title, description, and its masonry gallery. */
+export interface Trip {
+  slug: string;
+  name: string;
+  description: string;
+  startDate: string;
+  endDate: string;
+  photos: ImageData[];
+}

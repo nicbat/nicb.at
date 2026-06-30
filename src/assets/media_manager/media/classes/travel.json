@@ -1,44 +1,293 @@
 {
   "schema": {
-    "trip": {
+    "name": {
       "type": "string",
       "removable": true
+    },
+    "description": {
+      "type": "string",
+      "removable": true
+    },
+    "tags": {
+      "type": "list",
+      "removable": true,
+      "defaultValue": [],
+      "itemTypes": [
+        "string"
+      ],
+      "suggest": true
+    },
+    "trip": {
+      "type": "record",
+      "removable": true,
+      "recordType": "trips",
+      "linkedField": "photos"
     }
   },
   "config": {
     "displayName": "Travel",
-    "icon": "plane"
+    "displayField": "name",
+    "icon": "plane",
+    "verboseFields": [
+      "trip"
+    ]
   },
   "records": {
     "cbe71a55-d550-4ed6-9ec6-210d79421c4e": {
       "id": "cbe71a55-d550-4ed6-9ec6-210d79421c4e",
-      "last_modified": "2026-06-16T17:31:22.574Z",
-      "trip": "ACL Vienna"
+      "last_modified": "2026-06-30T06:22:54.226Z",
+      "name": "",
+      "description": "",
+      "tags": [],
+      "trip": "da30652d-eef4-4f09-9510-589843a5c2f6"
     },
     "7330cb5d-08a9-4009-baa2-5a12756a393f": {
       "id": "7330cb5d-08a9-4009-baa2-5a12756a393f",
-      "last_modified": "2026-06-15T23:47:52.069Z",
-      "trip": "ACL Vienna"
+      "last_modified": "2026-06-30T06:22:54.228Z",
+      "name": "",
+      "description": "",
+      "tags": [],
+      "trip": "da30652d-eef4-4f09-9510-589843a5c2f6"
     },
     "3663cca4-14ff-46da-9e18-bdb934718699": {
       "id": "3663cca4-14ff-46da-9e18-bdb934718699",
-      "last_modified": "2026-06-16T17:31:15.453Z",
-      "trip": "ACL Vienna"
+      "last_modified": "2026-06-30T06:22:54.229Z",
+      "name": "",
+      "description": "",
+      "tags": [],
+      "trip": "da30652d-eef4-4f09-9510-589843a5c2f6"
     },
     "cee7149b-d73d-4cda-852c-f31870c06ab6": {
       "id": "cee7149b-d73d-4cda-852c-f31870c06ab6",
-      "last_modified": "2026-06-15T23:52:42.757Z",
-      "trip": "ACL Vienna"
+      "last_modified": "2026-06-30T06:22:54.230Z",
+      "name": "",
+      "description": "",
+      "tags": [],
+      "trip": "da30652d-eef4-4f09-9510-589843a5c2f6"
     },
     "92a69a90-e55d-4810-97fd-3921c7e000de": {
       "id": "92a69a90-e55d-4810-97fd-3921c7e000de",
-      "last_modified": "2026-06-15T23:52:59.847Z",
-      "trip": "ACL Vienna"
+      "last_modified": "2026-06-30T06:22:54.231Z",
+      "name": "",
+      "description": "",
+      "tags": [],
+      "trip": "da30652d-eef4-4f09-9510-589843a5c2f6"
     },
     "c0f41b0b-ff69-4631-8dd0-00abaf0e74b6": {
       "id": "c0f41b0b-ff69-4631-8dd0-00abaf0e74b6",
-      "last_modified": "2026-06-15T23:53:41.897Z",
-      "trip": "2025 Olympics Camping"
+      "last_modified": "2026-06-30T06:23:29.854Z",
+      "name": "",
+      "description": "",
+      "tags": [],
+      "trip": "994b71a5-c96d-4567-98cd-60f4c42d1554"
+    },
+    "8dc67a82-c78c-4dae-9eae-06ee223a12d7": {
+      "id": "8dc67a82-c78c-4dae-9eae-06ee223a12d7",
+      "last_modified": "2026-06-30T17:34:45.042Z",
+      "name": "Scooter in Reykjavik",
+      "description": "",
+      "tags": [],
+      "trip": "2b683f06-e376-4c3b-b937-577e1903801d"
+    },
+    "ae0d1c90-0821-4078-acbe-ffba24507e20": {
+      "id": "ae0d1c90-0821-4078-acbe-ffba24507e20",
+      "last_modified": "2026-06-30T06:22:54.232Z",
+      "name": "Dettifoss",
+      "description": "",
+      "tags": [],
+      "trip": "2b683f06-e376-4c3b-b937-577e1903801d"
+    },
+    "92e43485-6f84-459b-aab2-89cb5212ab22": {
+      "id": "92e43485-6f84-459b-aab2-89cb5212ab22",
+      "last_modified": "2026-06-30T17:34:24.905Z",
+      "name": "Bench in Bath",
+      "description": "",
+      "tags": [],
+      "trip": "2b683f06-e376-4c3b-b937-577e1903801d"
+    },
+    "85cb2323-d641-4422-9b26-3b6be0c3ed6a": {
+      "id": "85cb2323-d641-4422-9b26-3b6be0c3ed6a",
+      "last_modified": "2026-06-30T17:34:15.241Z",
+      "name": "Lake District",
+      "description": "",
+      "tags": [],
+      "trip": "2b683f06-e376-4c3b-b937-577e1903801d"
+    },
+    "bf57b7de-511f-4a99-972d-d9a910d66f4d": {
+      "id": "bf57b7de-511f-4a99-972d-d9a910d66f4d",
+      "last_modified": "2026-06-30T17:06:43.097Z",
+      "name": "Greenland Mountains",
+      "description": "",
+      "tags": [],
+      "trip": "2b683f06-e376-4c3b-b937-577e1903801d"
+    },
+    "a91f3185-8dec-4e03-8c07-f56fc3bd3c92": {
+      "id": "a91f3185-8dec-4e03-8c07-f56fc3bd3c92",
+      "last_modified": "2026-06-30T06:42:46.994Z",
+      "name": "",
+      "description": "",
+      "tags": [],
+      "trip": "6e375843-aaf1-48c9-9000-bdd60eeb3b3b"
+    },
+    "88394672-0714-4902-ad64-16ae6cb647ee": {
+      "id": "88394672-0714-4902-ad64-16ae6cb647ee",
+      "last_modified": "2026-06-30T06:56:41.831Z",
+      "name": "",
+      "description": "",
+      "tags": [],
+      "trip": "994b71a5-c96d-4567-98cd-60f4c42d1554"
+    },
+    "a8c4f11f-baf1-4f33-8360-97d689b06e6e": {
+      "id": "a8c4f11f-baf1-4f33-8360-97d689b06e6e",
+      "last_modified": "2026-06-30T06:56:45.698Z",
+      "name": "",
+      "description": "",
+      "tags": [],
+      "trip": "994b71a5-c96d-4567-98cd-60f4c42d1554"
+    },
+    "5e66c855-d861-4153-8cf1-c468e05e32a1": {
+      "id": "5e66c855-d861-4153-8cf1-c468e05e32a1",
+      "last_modified": "2026-06-30T06:56:56.950Z",
+      "name": "",
+      "description": "",
+      "tags": [],
+      "trip": "994b71a5-c96d-4567-98cd-60f4c42d1554"
+    },
+    "7cf82074-266b-4b1c-8d68-10b16c7de507": {
+      "id": "7cf82074-266b-4b1c-8d68-10b16c7de507",
+      "last_modified": "2026-06-30T06:57:11.863Z",
+      "name": "",
+      "description": "",
+      "tags": [],
+      "trip": "994b71a5-c96d-4567-98cd-60f4c42d1554"
+    },
+    "38545208-e7ee-4c69-936f-90a0c04dc016": {
+      "id": "38545208-e7ee-4c69-936f-90a0c04dc016",
+      "last_modified": "2026-06-30T06:57:04.678Z",
+      "name": "",
+      "description": "",
+      "tags": [],
+      "trip": "994b71a5-c96d-4567-98cd-60f4c42d1554"
+    },
+    "348bdbcb-7a7b-44ba-a36f-8da6e771a101": {
+      "id": "348bdbcb-7a7b-44ba-a36f-8da6e771a101",
+      "last_modified": "2026-06-30T06:57:08.173Z",
+      "name": "",
+      "description": "",
+      "tags": [],
+      "trip": "994b71a5-c96d-4567-98cd-60f4c42d1554"
+    },
+    "b51a76e8-4a35-4100-b464-8ff76ff0eeb0": {
+      "id": "b51a76e8-4a35-4100-b464-8ff76ff0eeb0",
+      "last_modified": "2026-06-30T06:57:26.007Z",
+      "name": "",
+      "description": "",
+      "tags": [],
+      "trip": "994b71a5-c96d-4567-98cd-60f4c42d1554"
+    },
+    "4e464d9f-e006-4cc5-897c-a1712e9891c0": {
+      "id": "4e464d9f-e006-4cc5-897c-a1712e9891c0",
+      "last_modified": "2026-06-30T06:57:00.696Z",
+      "name": "",
+      "description": "",
+      "tags": [],
+      "trip": "994b71a5-c96d-4567-98cd-60f4c42d1554"
+    },
+    "76a70fe4-123a-4718-b182-a235f7de940f": {
+      "id": "76a70fe4-123a-4718-b182-a235f7de940f",
+      "last_modified": "2026-06-30T07:17:32.689Z",
+      "name": "",
+      "description": "",
+      "tags": [],
+      "trip": "c4df5b12-ba45-4ab7-ae34-144d9e6de694"
+    },
+    "181e7aed-0374-4227-8693-1f8905c61627": {
+      "id": "181e7aed-0374-4227-8693-1f8905c61627",
+      "last_modified": "2026-06-30T19:44:53.452Z",
+      "name": "Mountains",
+      "description": "",
+      "tags": [],
+      "trip": "c4df5b12-ba45-4ab7-ae34-144d9e6de694"
+    },
+    "ddcb00fc-0307-490d-96b2-ca8921a11188": {
+      "id": "ddcb00fc-0307-490d-96b2-ca8921a11188",
+      "last_modified": "2026-06-30T07:17:32.042Z",
+      "name": "",
+      "description": "",
+      "tags": [],
+      "trip": "c4df5b12-ba45-4ab7-ae34-144d9e6de694"
+    },
+    "e3085d5b-7ef1-492b-a56b-ffc4463433ff": {
+      "id": "e3085d5b-7ef1-492b-a56b-ffc4463433ff",
+      "last_modified": "2026-06-30T07:19:36.826Z",
+      "name": "",
+      "description": "",
+      "tags": [],
+      "trip": "c4df5b12-ba45-4ab7-ae34-144d9e6de694"
+    },
+    "b63f49ef-f98c-4afd-a7e2-a6e04bd3333c": {
+      "id": "b63f49ef-f98c-4afd-a7e2-a6e04bd3333c",
+      "last_modified": "2026-06-30T07:17:33.405Z",
+      "name": "",
+      "description": "",
+      "tags": [],
+      "trip": "c4df5b12-ba45-4ab7-ae34-144d9e6de694"
+    },
+    "36f0d0ac-bfec-4ca8-bdce-210241868171": {
+      "id": "36f0d0ac-bfec-4ca8-bdce-210241868171",
+      "last_modified": "2026-06-30T16:59:57.900Z",
+      "name": "Project Matcha",
+      "description": "",
+      "tags": [],
+      "trip": "c4df5b12-ba45-4ab7-ae34-144d9e6de694"
+    },
+    "3c40871b-e36e-49eb-93e1-3b845c8de813": {
+      "id": "3c40871b-e36e-49eb-93e1-3b845c8de813",
+      "last_modified": "2026-06-30T07:17:29.414Z",
+      "name": "",
+      "description": "",
+      "tags": [],
+      "trip": "c4df5b12-ba45-4ab7-ae34-144d9e6de694"
+    },
+    "c4d00d6e-5a8c-4400-9cba-0a2c896d42ba": {
+      "id": "c4d00d6e-5a8c-4400-9cba-0a2c896d42ba",
+      "last_modified": "2026-06-30T07:17:31.396Z",
+      "name": "",
+      "description": "",
+      "tags": [],
+      "trip": "c4df5b12-ba45-4ab7-ae34-144d9e6de694"
+    },
+    "53d873dd-7d6c-446e-8ca5-61332ce814c9": {
+      "id": "53d873dd-7d6c-446e-8ca5-61332ce814c9",
+      "last_modified": "2026-06-30T18:36:52.537Z",
+      "name": "Columbia Gorge",
+      "description": "",
+      "tags": [],
+      "trip": "c4df5b12-ba45-4ab7-ae34-144d9e6de694"
+    },
+    "96c3a325-5f31-4840-8591-5eab97e679e3": {
+      "id": "96c3a325-5f31-4840-8591-5eab97e679e3",
+      "last_modified": "2026-06-30T18:06:00.440Z",
+      "name": "Book",
+      "description": "",
+      "tags": [],
+      "trip": "c4df5b12-ba45-4ab7-ae34-144d9e6de694"
+    },
+    "4e371527-e427-4e15-89e5-9701eb4deafd": {
+      "id": "4e371527-e427-4e15-89e5-9701eb4deafd",
+      "last_modified": "2026-06-30T07:17:30.735Z",
+      "name": "",
+      "description": "",
+      "tags": [],
+      "trip": "c4df5b12-ba45-4ab7-ae34-144d9e6de694"
+    },
+    "4b3341d8-79b1-4db3-89fa-4741c28026dd": {
+      "id": "4b3341d8-79b1-4db3-89fa-4741c28026dd",
+      "last_modified": "2026-06-30T07:17:30.101Z",
+      "name": "",
+      "description": "",
+      "tags": [],
+      "trip": "c4df5b12-ba45-4ab7-ae34-144d9e6de694"
     }
   }
 }

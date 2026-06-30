@@ -1,0 +1,43 @@
+{
+  "displayName": "Trips",
+  "kind": "json",
+  "schema": {
+    "name": {
+      "type": "string",
+      "removable": false,
+      "defaultValue": ""
+    },
+    "cover_photo": {
+      "type": "file",
+      "removable": true,
+      "classId": "travel"
+    },
+    "description": {
+      "type": "string",
+      "removable": true
+    },
+    "html_route": {
+      "type": "string",
+      "removable": true
+    },
+    "start_date": {
+      "type": "date",
+      "removable": true
+    },
+    "end_date": {
+      "type": "date",
+      "removable": true
+    },
+    "photos": {
+      "type": "file",
+      "removable": true,
+      "multiselect": true,
+      "classId": "travel",
+      "linkedField": "trip"
+    }
+  },
+  "subtitleField": "end_date",
+  "sortField": "start_date",
+  "sortDir": "desc",
+  "icon": "plane"
+}

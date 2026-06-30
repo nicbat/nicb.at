@@ -1,6 +1,6 @@
 <!-- src/routes/blog/+page.svelte -->
 <script>
-  export let data;
+  let { data } = $props();
 </script>
 
 <div class="prose dark:prose-invert max-w-none">
