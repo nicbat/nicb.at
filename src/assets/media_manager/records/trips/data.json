@@ -53,7 +53,7 @@
     },
     {
       "id": "da30652d-eef4-4f09-9510-589843a5c2f6",
-      "last_modified": "2026-06-30T07:12:12.977Z",
+      "last_modified": "2026-06-30T21:25:11.101Z",
       "name": "Vienna and Bratislava",
       "cover_photo": "92a69a90-e55d-4810-97fd-3921c7e000de",
       "description": "",
@@ -62,7 +62,10 @@
         "7330cb5d-08a9-4009-baa2-5a12756a393f",
         "92a69a90-e55d-4810-97fd-3921c7e000de",
         "cee7149b-d73d-4cda-852c-f31870c06ab6",
-        "cbe71a55-d550-4ed6-9ec6-210d79421c4e"
+        "cbe71a55-d550-4ed6-9ec6-210d79421c4e",
+        "5bcf2e9e-6ff7-4341-943f-4ad260e375a4",
+        "f7790900-4196-43df-93b9-48ac619d780d",
+        "644b1864-05f5-4198-9293-53c348b59134"
       ],
       "html_route": "vienna-2025",
       "start_date": "2025-07-25",

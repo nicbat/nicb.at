@@ -3,7 +3,7 @@
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
-  const currentDate = new Date(2026, 5);
+  const currentDate = new Date(2026, 6);
   const currentMonth = currentDate.toLocaleString("default", { month: "long" });
   const currentYear = currentDate.getFullYear();
 </script>

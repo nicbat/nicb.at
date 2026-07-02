@@ -27,6 +27,8 @@
   "config": {
     "displayName": "Travel",
     "displayField": "name",
+    "sortField": "size",
+    "sortDir": "desc",
     "icon": "plane",
     "verboseFields": [
       "trip"
@@ -211,8 +213,8 @@
     },
     "ddcb00fc-0307-490d-96b2-ca8921a11188": {
       "id": "ddcb00fc-0307-490d-96b2-ca8921a11188",
-      "last_modified": "2026-06-30T07:17:32.042Z",
-      "name": "",
+      "last_modified": "2026-06-30T20:33:08.918Z",
+      "name": "Wild Rose in Bend",
       "description": "",
       "tags": [],
       "trip": "c4df5b12-ba45-4ab7-ae34-144d9e6de694"
@@ -288,6 +290,30 @@
       "description": "",
       "tags": [],
       "trip": "c4df5b12-ba45-4ab7-ae34-144d9e6de694"
+    },
+    "5bcf2e9e-6ff7-4341-943f-4ad260e375a4": {
+      "id": "5bcf2e9e-6ff7-4341-943f-4ad260e375a4",
+      "last_modified": "2026-06-30T21:25:11.084Z",
+      "name": "",
+      "description": "",
+      "tags": [],
+      "trip": "da30652d-eef4-4f09-9510-589843a5c2f6"
+    },
+    "f7790900-4196-43df-93b9-48ac619d780d": {
+      "id": "f7790900-4196-43df-93b9-48ac619d780d",
+      "last_modified": "2026-06-30T21:25:11.093Z",
+      "name": "",
+      "description": "",
+      "tags": [],
+      "trip": "da30652d-eef4-4f09-9510-589843a5c2f6"
+    },
+    "644b1864-05f5-4198-9293-53c348b59134": {
+      "id": "644b1864-05f5-4198-9293-53c348b59134",
+      "last_modified": "2026-06-30T21:25:11.098Z",
+      "name": "",
+      "description": "",
+      "tags": [],
+      "trip": "da30652d-eef4-4f09-9510-589843a5c2f6"
     }
   }
 }

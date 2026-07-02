@@ -32,7 +32,7 @@
 		"@sveltejs/adapter-vercel": "^5.4.1",
 		"@tailwindcss/vite": "^4.1.10",
 		"lucide-svelte": "^0.414.0",
-		"media-manager": "github:type-a-group/media-manager#v0.1.0",
+		"media-manager": "github:type-a-group/media-manager#v0.2.0",
 		"shiki": "^2.3.2",
 		"tailwindcss": "^4.1.10"
 	}

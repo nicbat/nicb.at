@@ -242,6 +242,14 @@
       >! In the meantime, I'm taking some time to solo-travel and enjoy Seattle
       while I'm still here.
     </p>
+    <p class="text-sm text-secondary-text">
+      Curious what I'm up to lately? See my
+      <a
+        href="/now"
+        class="underline decoration-1 underline-offset-4 hover:decoration-2"
+        >now page</a
+      >.
+    </p>
     <!-- <p> -->
     <!--   Outside of programming, I've recently been spending my time studying -->
     <!--   languages, snowboarding, bouldering, listening to audiobooks, and -->
