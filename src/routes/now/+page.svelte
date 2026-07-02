@@ -28,7 +28,10 @@
       </li>
       <li>Bouldering and running</li>
       <li>
-        Catching up on over a month of <a href="https://beliapp.com/">Beli</a>
+        Catching up on over a month of <a
+          href="https://beliapp.com/"
+          target="_blank">Beli</a
+        >
         from my <a href="/travel/japan-2026">trip to Japan</a>
       </li>
       <li>Playing Subnautica</li>
@@ -38,11 +41,11 @@
     <p>
       I'm also building a <a
         href="https://www.lego.com/cdn/product-assets/product.bi.core.pdf/6182624.pdf"
-        >Lego Death Star 75159</a
+        target="_blank">Lego Death Star 75159</a
       >
       out of random pieces with my friend
-      <a href="https://kgoh.net/">Keven</a> (we're currently on step 85/~500). Some
-      sort of page on how that process is going will be up soon.
+      <a href="https://kgoh.net/" target="_blank">Keven</a> (we're currently on step
+      85/~500). Some sort of page on how that process is going will be up soon.
     </p>
   </div>
 

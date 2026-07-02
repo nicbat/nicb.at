@@ -231,6 +231,7 @@
     <p>
       I recently graduated with a Masters in Computer Science from the <a
         href="https://www.washington.edu/"
+        target="_blank"
         class="underline decoration-1 underline-offset-4 hover:decoration-2"
         >University of Washington</a
       >. At the end of August I'll be working fulltime at
@@ -243,7 +244,7 @@
       while I'm still here.
     </p>
     <p class="text-sm text-secondary-text">
-      Curious what I'm up to lately? See my
+      tely? See my
       <a
         href="/now"
         class="underline decoration-1 underline-offset-4 hover:decoration-2"
