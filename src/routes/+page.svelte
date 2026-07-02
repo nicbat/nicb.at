@@ -244,12 +244,12 @@
       while I'm still here.
     </p>
     <p class="text-sm text-secondary-text">
-      tely? See my
+      Check out my
       <a
         href="/now"
         class="underline decoration-1 underline-offset-4 hover:decoration-2"
         >now page</a
-      >.
+      > to see what I've been up to lately :-)
     </p>
     <!-- <p> -->
     <!--   Outside of programming, I've recently been spending my time studying -->
