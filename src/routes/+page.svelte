@@ -37,224 +37,284 @@
       },
     ],
   ];
+
+  // ===== decorative background: layered mountains + drifting clouds =====
+  const MW = 1200;
+  const MH = 360;
+  const mountains = (() => {
+    const layers = 4;
+    const baseAmp = MH * 0.09;
+    const topMargin = MH * 0.12; // headroom so the tallest peak never clips flat
+    const gap = MH * 0.13;
+    const op = [0.1, 0.16, 0.24, 0.34];
+    const out: { d: string; o: number }[] = [];
+    for (let L = 0; L < layers; L++) {
+      const amp = baseAmp * (1 - L * 0.12);
+      const b = topMargin + 1.4 * amp + L * gap;
+      const ph = L * 1.3;
+      const y = (x: number) =>
+        b + Math.sin(x / 150 + ph) * amp + Math.cos(x / 68 + ph) * amp * 0.4;
+      let d = `M 0 ${y(0).toFixed(1)}`;
+      for (let x = 0; x <= MW; x += 24) d += ` L ${x} ${y(x).toFixed(1)}`;
+      d += ` L ${MW} ${y(MW).toFixed(1)} L ${MW} ${MH} L 0 ${MH} Z`;
+      out.push({ d, o: op[L] });
+    }
+    return out;
+  })();
 </script>
 
-<div class="flex flex-col gap-8 w-full">
-  <!-- Header Section -->
-  <div
-    class="flex flex-col-reverse md:flex-row justify-between items-start md:items-center gap-8 md:gap-12"
-  >
-    <div class="flex flex-col gap-4">
-      <h1 class="text-5xl font-medium">Hey, it's Nicholas</h1>
+<section class="home-hero">
+  <div class="home-bg" aria-hidden="true">
+    <svg class="mountains" viewBox="0 0 {MW} {MH}" preserveAspectRatio="none">
+      {#each mountains as m}
+        <path d={m.d} fill="var(--color-primary)" opacity={m.o} />
+      {/each}
+    </svg>
+  </div>
 
-      <div class="font-mono text-sm text-secondary-text">
-        <!-- developer, sometimes other things -->
-        <QuoteDisplay bind:this={quoteComponent} />
+  <div class="home-content flex flex-col gap-8 w-full">
+    <!-- Header Section -->
+    <div
+      class="flex flex-col-reverse md:flex-row justify-between items-start md:items-center gap-8 md:gap-12"
+    >
+      <div class="flex flex-col gap-4">
+        <h1 class="text-5xl font-medium">Hey, it's Nicholas</h1>
+
+        <div class="font-mono text-sm text-secondary-text">
+          <!-- developer, sometimes other things -->
+          <QuoteDisplay bind:this={quoteComponent} />
+        </div>
+
+        <div class="flex gap-4 items-center">
+          <!-- Sync Quote -->
+          <button
+            class="transition-transform hover:scale-110 relative group"
+            aria-label="New Quote"
+            onclick={() => quoteComponent?.setRandomQuote()}
+            onmouseover={() => (syncHover = true)}
+            onfocus={() => (syncHover = true)}
+            onmouseout={() => (syncHover = false)}
+            onblur={() => (syncHover = false)}
+          >
+            <RefreshCcw
+              size={20}
+              color={syncHover
+                ? "var(--color-primary)"
+                : "var(--color-text-secondary)"}
+            />
+            <!-- Tooltip -->
+            <span
+              class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10 shadow-sm border"
+              style="background-color: var(--color-bg-surface); color: var(--color-text-primary); border-color: var(--color-border-primary);"
+            >
+              New Quote
+            </span>
+          </button>
+
+          <!-- Divider -->
+          <div
+            class="w-px h-6 mx-1"
+            style="background-color: var(--color-border-primary);"
+          ></div>
+
+          <!-- Email -->
+          <a
+            href="mailto:nicbatnicko@gmail.com"
+            class="transition-transform hover:scale-110 relative group"
+            aria-label="Email"
+            onmouseover={() => (emailHover = true)}
+            onfocus={() => (emailHover = true)}
+            onmouseout={() => (emailHover = false)}
+            onblur={() => (emailHover = false)}
+          >
+            <Mail
+              size={20}
+              color={emailHover
+                ? "var(--color-primary)"
+                : "var(--color-text-secondary)"}
+            />
+            <!-- Tooltip -->
+            <span
+              class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10 shadow-sm border"
+              style="background-color: var(--color-bg-surface); color: var(--color-text-primary); border-color: var(--color-border-primary);"
+            >
+              Email me!
+            </span>
+          </a>
+
+          <!-- Github -->
+          <a
+            href="https://github.com/nicbat"
+            target="_blank"
+            class="transition-transform hover:scale-110 relative group"
+            aria-label="Github"
+            onmouseover={() => (githubHover = true)}
+            onfocus={() => (githubHover = true)}
+            onmouseout={() => (githubHover = false)}
+            onblur={() => (githubHover = false)}
+          >
+            <Github
+              size={20}
+              color={githubHover
+                ? "var(--color-primary)"
+                : "var(--color-text-secondary)"}
+            />
+            <!-- Tooltip -->
+            <span
+              class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10 shadow-sm border"
+              style="background-color: var(--color-bg-surface); color: var(--color-text-primary); border-color: var(--color-border-primary);"
+            >
+              Github
+            </span>
+          </a>
+
+          <!-- LinkedIn -->
+          <a
+            href="https://www.linkedin.com/in/nicholasbatchelder/"
+            target="_blank"
+            class="transition-transform hover:scale-110 relative group"
+            aria-label="LinkedIn"
+            onmouseover={() => (linkedinHover = true)}
+            onfocus={() => (linkedinHover = true)}
+            onmouseout={() => (linkedinHover = false)}
+            onblur={() => (linkedinHover = false)}
+          >
+            <Linkedin
+              size={20}
+              color={linkedinHover
+                ? "var(--color-primary)"
+                : "var(--color-text-secondary)"}
+            />
+            <!-- Tooltip -->
+            <span
+              class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10 shadow-sm border"
+              style="background-color: var(--color-bg-surface); color: var(--color-text-primary); border-color: var(--color-border-primary);"
+            >
+              LinkedIn
+            </span>
+          </a>
+
+          <!-- Mastodon -->
+          <a
+            href="https://mastodon.social/@nicbat"
+            target="_blank"
+            class="transition-transform hover:scale-110 relative group"
+            aria-label="Mastodon"
+            onmouseover={() => (mastodonHover = true)}
+            onfocus={() => (mastodonHover = true)}
+            onmouseout={() => (mastodonHover = false)}
+            onblur={() => (mastodonHover = false)}
+          >
+            <Icon
+              iconNode={elephantFace}
+              size={20}
+              color={mastodonHover
+                ? "var(--color-primary)"
+                : "var(--color-text-secondary)"}
+            />
+            <!-- Tooltip -->
+            <span
+              class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10 shadow-sm border"
+              style="background-color: var(--color-bg-surface); color: var(--color-text-primary); border-color: var(--color-border-primary);"
+            >
+              Mastodon
+            </span>
+          </a>
+
+          <!-- Roblox -->
+          <a
+            href="https://www.roblox.com/users/35677096/profile"
+            target="_blank"
+            class="transition-transform hover:scale-110 relative group"
+            aria-label="Roblox"
+            onmouseover={() => (robloxHover = true)}
+            onfocus={() => (robloxHover = true)}
+            onmouseout={() => (robloxHover = false)}
+            onblur={() => (robloxHover = false)}
+          >
+            <Icon
+              iconNode={robloxIcon}
+              viewBox="0 0 48 48"
+              strokeWidth={4}
+              size={20}
+              color={robloxHover
+                ? "var(--color-primary)"
+                : "var(--color-text-secondary)"}
+            />
+            <!-- Tooltip -->
+            <span
+              class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10 shadow-sm border"
+              style="background-color: var(--color-bg-surface); color: var(--color-text-primary); border-color: var(--color-border-primary);"
+            >
+              Roblox
+            </span>
+          </a>
+        </div>
       </div>
 
-      <div class="flex gap-4 items-center">
-        <!-- Sync Quote -->
-        <button
-          class="transition-transform hover:scale-110 relative group"
-          aria-label="New Quote"
-          onclick={() => quoteComponent?.setRandomQuote()}
-          onmouseover={() => (syncHover = true)}
-          onfocus={() => (syncHover = true)}
-          onmouseout={() => (syncHover = false)}
-          onblur={() => (syncHover = false)}
-        >
-          <RefreshCcw
-            size={20}
-            color={syncHover
-              ? "var(--color-primary)"
-              : "var(--color-text-secondary)"}
-          />
-          <!-- Tooltip -->
-          <span
-            class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10 shadow-sm border"
-            style="background-color: var(--color-bg-surface); color: var(--color-text-primary); border-color: var(--color-border-primary);"
-          >
-            New Quote
-          </span>
-        </button>
-
-        <!-- Divider -->
-        <div
-          class="w-px h-6 mx-1"
-          style="background-color: var(--color-border-primary);"
-        ></div>
-
-        <!-- Email -->
-        <a
-          href="mailto:nicbatnicko@gmail.com"
-          class="transition-transform hover:scale-110 relative group"
-          aria-label="Email"
-          onmouseover={() => (emailHover = true)}
-          onfocus={() => (emailHover = true)}
-          onmouseout={() => (emailHover = false)}
-          onblur={() => (emailHover = false)}
-        >
-          <Mail
-            size={20}
-            color={emailHover
-              ? "var(--color-primary)"
-              : "var(--color-text-secondary)"}
-          />
-          <!-- Tooltip -->
-          <span
-            class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10 shadow-sm border"
-            style="background-color: var(--color-bg-surface); color: var(--color-text-primary); border-color: var(--color-border-primary);"
-          >
-            Email me!
-          </span>
-        </a>
-
-        <!-- Github -->
-        <a
-          href="https://github.com/nicbat"
-          target="_blank"
-          class="transition-transform hover:scale-110 relative group"
-          aria-label="Github"
-          onmouseover={() => (githubHover = true)}
-          onfocus={() => (githubHover = true)}
-          onmouseout={() => (githubHover = false)}
-          onblur={() => (githubHover = false)}
-        >
-          <Github
-            size={20}
-            color={githubHover
-              ? "var(--color-primary)"
-              : "var(--color-text-secondary)"}
-          />
-          <!-- Tooltip -->
-          <span
-            class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10 shadow-sm border"
-            style="background-color: var(--color-bg-surface); color: var(--color-text-primary); border-color: var(--color-border-primary);"
-          >
-            Github
-          </span>
-        </a>
-
-        <!-- LinkedIn -->
-        <a
-          href="https://www.linkedin.com/in/nicholasbatchelder/"
-          target="_blank"
-          class="transition-transform hover:scale-110 relative group"
-          aria-label="LinkedIn"
-          onmouseover={() => (linkedinHover = true)}
-          onfocus={() => (linkedinHover = true)}
-          onmouseout={() => (linkedinHover = false)}
-          onblur={() => (linkedinHover = false)}
-        >
-          <Linkedin
-            size={20}
-            color={linkedinHover
-              ? "var(--color-primary)"
-              : "var(--color-text-secondary)"}
-          />
-          <!-- Tooltip -->
-          <span
-            class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10 shadow-sm border"
-            style="background-color: var(--color-bg-surface); color: var(--color-text-primary); border-color: var(--color-border-primary);"
-          >
-            LinkedIn
-          </span>
-        </a>
-
-        <!-- Mastodon -->
-        <a
-          href="https://mastodon.social/@nicbat"
-          target="_blank"
-          class="transition-transform hover:scale-110 relative group"
-          aria-label="Mastodon"
-          onmouseover={() => (mastodonHover = true)}
-          onfocus={() => (mastodonHover = true)}
-          onmouseout={() => (mastodonHover = false)}
-          onblur={() => (mastodonHover = false)}
-        >
-          <Icon
-            iconNode={elephantFace}
-            size={20}
-            color={mastodonHover
-              ? "var(--color-primary)"
-              : "var(--color-text-secondary)"}
-          />
-          <!-- Tooltip -->
-          <span
-            class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10 shadow-sm border"
-            style="background-color: var(--color-bg-surface); color: var(--color-text-primary); border-color: var(--color-border-primary);"
-          >
-            Mastodon
-          </span>
-        </a>
-
-        <!-- Roblox -->
-        <a
-          href="https://www.roblox.com/users/35677096/profile"
-          target="_blank"
-          class="transition-transform hover:scale-110 relative group"
-          aria-label="Roblox"
-          onmouseover={() => (robloxHover = true)}
-          onfocus={() => (robloxHover = true)}
-          onmouseout={() => (robloxHover = false)}
-          onblur={() => (robloxHover = false)}
-        >
-          <Icon
-            iconNode={robloxIcon}
-            viewBox="0 0 48 48"
-            strokeWidth={4}
-            size={20}
-            color={robloxHover
-              ? "var(--color-primary)"
-              : "var(--color-text-secondary)"}
-          />
-          <!-- Tooltip -->
-          <span
-            class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10 shadow-sm border"
-            style="background-color: var(--color-bg-surface); color: var(--color-text-primary); border-color: var(--color-border-primary);"
-          >
-            Roblox
-          </span>
-        </a>
-      </div>
+      <img
+        src={data.homePhoto?.src ?? "home_photo.png"}
+        alt={data.homePhoto?.alt ?? "Me!"}
+        class="w-32 h-32 md:w-48 md:h-48 rounded-full object-cover shadow-lg transition-all duration-500 aspect-square"
+      />
     </div>
 
-    <img
-      src={data.homePhoto?.src ?? "home_photo.png"}
-      alt={data.homePhoto?.alt ?? "Me!"}
-      class="w-32 h-32 md:w-48 md:h-48 rounded-full object-cover shadow-lg transition-all duration-500 aspect-square"
-    />
+    <!-- Content Section -->
+    <div class="mt-8 text-lg leading-relaxed text-primary-text space-y-6">
+      <p>
+        I recently graduated with a Masters in Computer Science from the <a
+          href="https://www.washington.edu/"
+          target="_blank">University of Washington</a
+        >. At the end of August I'll be working fulltime at
+        <a href="https://careers.roblox.com/" target="_blank">Roblox</a>! In the
+        meantime, I'm taking some time to solo-travel and enjoy Seattle while
+        I'm still here.
+      </p>
+      <p class="text-sm text-secondary-text">
+        Check out my
+        <a href="/now">now page</a> to see what I've been up to lately :-)
+      </p>
+      <p class="text-sm text-secondary-text">
+        P.S. I'm working on redesigning this site so it'll probably change a lot
+        in the coming weeks. For example, I'm not really sure how I feel about
+        the "mountains" below.
+      </p>
+      <!-- <p> -->
+      <!--   Outside of programming, I've recently been spending my time studying -->
+      <!--   languages, snowboarding, bouldering, listening to audiobooks, and -->
+      <!--   exploring the west coast. -->
+      <!-- </p> -->
+    </div>
   </div>
+</section>
 
-  <!-- Content Section -->
-  <div class="mt-8 text-lg leading-relaxed text-primary-text space-y-6">
-    <p>
-      I recently graduated with a Masters in Computer Science from the <a
-        href="https://www.washington.edu/"
-        target="_blank"
-        class="underline decoration-1 underline-offset-4 hover:decoration-2"
-        >University of Washington</a
-      >. At the end of August I'll be working fulltime at
-      <a
-        href="https://careers.roblox.com/"
-        target="_blank"
-        class="underline decoration-1 underline-offset-4 hover:decoration-2"
-        >Roblox</a
-      >! In the meantime, I'm taking some time to solo-travel and enjoy Seattle
-      while I'm still here.
-    </p>
-    <p class="text-sm text-secondary-text">
-      Check out my
-      <a
-        href="/now"
-        class="underline decoration-1 underline-offset-4 hover:decoration-2"
-        >now page</a
-      > to see what I've been up to lately :-)
-    </p>
-    <!-- <p> -->
-    <!--   Outside of programming, I've recently been spending my time studying -->
-    <!--   languages, snowboarding, bouldering, listening to audiobooks, and -->
-    <!--   exploring the west coast. -->
-    <!-- </p> -->
-  </div>
-</div>
+<style>
+  /* hero fills the viewport so the footer sits below the fold */
+  .home-hero {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 5.5rem);
+  }
+  /* mountains pinned to the bottom of the viewport, full width, behind content */
+  .home-bg {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: clamp(200px, 38vh, 420px);
+    z-index: 0;
+    pointer-events: none;
+  }
+  .mountains {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .home-content {
+    position: relative;
+    z-index: 1;
+  }
+</style>

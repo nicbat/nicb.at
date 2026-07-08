@@ -73,15 +73,20 @@
     },
     {
       "id": "dc0909d4-f339-4458-a75a-0ae53cdcfc41",
-      "last_modified": "2026-06-17T22:40:27.672Z",
+      "last_modified": "2026-07-08T22:50:15.077Z",
       "name": "Media Manager",
       "date": "",
-      "description": "A web-app I'm working on to manage the media on this site.",
+      "description": "A web-app I'm working on to manage the media on this site. I'll have some information on how I use this someday soon.",
       "tags": [
         "Product",
         "WIP"
       ],
-      "urls": []
+      "urls": [
+        {
+          "display_name": "Repo",
+          "url": "https://github.com/nicbat/media-manager"
+        }
+      ]
     },
     {
       "id": "1b45c44f-746f-4a3c-9178-e1f26a579584",
@@ -116,7 +121,7 @@
     },
     {
       "id": "27299dfe-6720-4a81-a4f9-ba74d744f980",
-      "last_modified": "2026-06-30T04:30:32.878Z",
+      "last_modified": "2026-07-08T22:50:49.001Z",
       "name": "Svelte Masonry Library",
       "date": "",
       "tags": [],
@@ -126,7 +131,7 @@
           "url": "https://github.com/nicbat/svelte-masonry"
         }
       ],
-      "description": "Quickly made this in a few hours to fix some bugs on my site =D"
+      "description": "Quickly made this in a few hours to fix some bugs on my site, all of the masonry layouts you see here use it!"
     }
   ]
 }

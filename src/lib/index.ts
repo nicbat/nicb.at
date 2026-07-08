@@ -3,7 +3,7 @@ import type { ImageData, Trip, TripSummary } from '$lib/types';
 import type { Project, Quote } from './types';
 import type { MMRecord } from 'media-manager/reader/vite';
 // TODO: switch the `media-manager` dependency in package.json from `file:../media-manager`
-// to a GitHub dependency (e.g. `"media-manager": "github:type-a-group/media-manager#<tag>"`)
+// to a GitHub dependency (e.g. `"media-manager": "github:nicbat/media-manager#<tag>"`)
 // Caveat: git install requires media-manager's `prepare` script to build `dist/reader/` on
 // install (currently only `prepublishOnly` builds it). Either update media-manager's prepare
 // script or publish the reader as its own package (media-manager FUTURE_CHANGES Item 44).

@@ -1,76 +1,76 @@
 :root {
   /* ===== MAIN BACKGROUND COLORS ===== */
-  --color-bg-main: #F2EEE8; /* Catppuccin Latte - Main background */
-  --color-bg-surface: #ECE7DF; /* Catppuccin Latte - Navbar/footer background */
-  --color-bg-elevated: #ECE7DF; /* Catppuccin Latte - Elevated surfaces like cards (now same as navbar) */
-  --color-bg-overlay: #E1D4D0; /* Catppuccin Latte - Overlay backgrounds like code blocks */
-  
+  --color-bg-main: #F1F1E9; /* Muted Forest - paper */
+  --color-bg-surface: #E7E7DC; /* Muted Forest - navbar/footer/cards */
+  --color-bg-elevated: #E7E7DC; /* Muted Forest - elevated surfaces */
+  --color-bg-overlay: #DEDED2; /* Muted Forest - code blocks / overlays */
+
   /* ===== BRAND COLORS ===== */
-  --color-primary: #648767; /* Darker teal for better contrast in light mode */
-  --color-primary-light: #94E2D5; /* Original teal for hover states */
-  --color-primary-dark: #74C7EC; /* Darker teal variant */
-  
-  --color-secondary: #89B4FA; /* Catppuccin Blue - Secondary accent */
-  --color-secondary-light: #B4BEFE; /* Light blue variant */
-  --color-secondary-dark: #74C7EC; /* Dark blue variant */
-  
+  --color-primary: #4C7440; /* Muted Forest - sage-green accent / links */
+  --color-primary-light: #5E8B4F; /* hover */
+  --color-primary-dark: #3C5E33; /* darker variant */
+
+  --color-secondary: #7C8A57; /* Muted olive - secondary accent */
+  --color-secondary-light: #94A06F;
+  --color-secondary-dark: #626E45;
+
   /* ===== TEXT COLORS ===== */
-  --color-text-primary: #654941; /* Catppuccin Latte - Main text */
-  --color-text-secondary: #8B7D7B; /* Secondary text */
-  --color-text-muted: #A6A0A0; /* Muted text */
-  --color-text-inverse: #F2EEE8; /* Text on dark backgrounds */
-  
+  --color-text-primary: #232B20; /* deep pine */
+  --color-text-secondary: #737A6C; /* secondary text */
+  --color-text-muted: #9AA091; /* muted text */
+  --color-text-inverse: #F1F1E9; /* text on accent/dark */
+
   /* ===== BORDER COLORS ===== */
-  --color-border-primary: #E1D4D0; /* Catppuccin Latte - Main borders */
-  --color-border-secondary: #D9CECB; /* Secondary borders */
-  
+  --color-border-primary: #DDDDD0;
+  --color-border-secondary: #D2D3C4;
+
   /* ===== PROJECT TAG COLORS ===== */
-  --color-tag-primary: #2e6d64; /* Darker teal for better contrast - Publication tags */
-  --color-tag-primary-light: #2e6d64; /* Original teal for light variant */
-  --color-tag-secondary: #334df1; /* Catppuccin Blue - Other project tags */
-  --color-tag-secondary-light: #334df1; /* Light blue variant */
-  
+  --color-tag-primary: #3C6E4A; /* green - publication tags */
+  --color-tag-primary-light: #3C6E4A;
+  --color-tag-secondary: #6E7A55; /* olive - other project tags */
+  --color-tag-secondary-light: #6E7A55;
+
   /* ===== OVERLAY COLORS ===== */
-  --color-overlay: rgba(242, 238, 232, 0.9); /* Light background with dark text for light mode */
-  --color-overlay-light: rgba(242, 238, 232, 0.95); /* Lighter background for lightbox */
+  --color-overlay: rgba(241, 241, 233, 0.9);
+  --color-overlay-light: rgba(241, 241, 233, 0.95);
 }
 
 /* ===== DARK MODE COLORS ===== */
 .dark {
   /* ===== MAIN BACKGROUND COLORS ===== */
-  --color-bg-main: #292522; /* Melange Dark */
-  --color-bg-surface: #34302C; /* Melange Dark */
-  --color-bg-elevated: #34302C; /* Melange Dark */
-  --color-bg-overlay: #3D3834; /* Melange Dark - Overlay backgrounds like code blocks */
-  
+  --color-bg-main: #0F140F; /* Muted Forest - forest floor */
+  --color-bg-surface: #191E18; /* Muted Forest - navbar/footer/cards */
+  --color-bg-elevated: #191E18;
+  --color-bg-overlay: #1F2620; /* code blocks / overlays */
+
   /* ===== BRAND COLORS ===== */
-  --color-primary: #D4A574; /* Melange Dark - Warm muted gold/beige for main brand color */
-  --color-primary-light: #E4B88A; /* Melange Dark - Light warm gold variant */
-  --color-primary-dark: #C4955F; /* Melange Dark - Dark warm gold variant */
-  
-  --color-secondary: #89B4FA; /* Catppuccin Blue - Secondary accent */
-  --color-secondary-light: #B4BEFE; /* Light blue variant */
-  --color-secondary-dark: #74C7EC; /* Dark blue variant */
-  
+  --color-primary: #A3CB81; /* Muted Forest - sage-lime accent */
+  --color-primary-light: #B7D89A;
+  --color-primary-dark: #8FB86F;
+
+  --color-secondary: #9DB07A; /* muted leaf */
+  --color-secondary-light: #B4C596;
+  --color-secondary-dark: #7E9260;
+
   /* ===== TEXT COLORS ===== */
-  --color-text-primary: #ECE1D7; /* Melange Dark */
-  --color-text-secondary: #C4B5A8; /* Melange Dark - Secondary text */
-  --color-text-muted: #9A8E84; /* Melange Dark - Muted text */
-  --color-text-inverse: #1E1E2E; /* Text on light backgrounds */
-  
+  --color-text-primary: #E7EBE2; /* birch */
+  --color-text-secondary: #8A9184;
+  --color-text-muted: #6E766A;
+  --color-text-inverse: #0F140F;
+
   /* ===== BORDER COLORS ===== */
-  --color-border-primary: #3D3834; /* Melange Dark - Main borders */
-  --color-border-secondary: #4A4540; /* Melange Dark - Secondary borders */
-  
+  --color-border-primary: #232B23;
+  --color-border-secondary: #2E362D;
+
   /* ===== PROJECT TAG COLORS ===== */
-  --color-tag-primary: #74C7EC; /* Melange Dark - Publication tags */
-  --color-tag-primary-light: #B5E8E0; /* Light teal variant */
-  --color-tag-secondary: #89B4FA; /* Catppuccin Blue - Other project tags */
-  --color-tag-secondary-light: #B4BEFE; /* Light blue variant */
-  
+  --color-tag-primary: #A3CB81;
+  --color-tag-primary-light: #C0DCA3;
+  --color-tag-secondary: #9DB07A;
+  --color-tag-secondary-light: #B4C596;
+
   /* ===== OVERLAY COLORS ===== */
-  --color-overlay: #292522b3; /* Melange Dark - Image overlays */
-  --color-overlay-light: #292522b3; /* Melange Dark - Lightbox overlays */
+  --color-overlay: #0F140Fb3;
+  --color-overlay-light: #0F140Fb3;
 }
 
 /* ===== UTILITY CLASSES ===== */
@@ -112,17 +112,7 @@
 .bg-overlay-light { background-color: var(--color-overlay-light); }
 
 /*
-light:
-text: #654941
-background: #F2EEE8
-navbar background: #ECE7DF
-color: #94E2D5
-border color: #E1D4D0
-
-dark:
-text: #C6D0F5
-background: #1E1E2E
-navbar background: #11111B
-color: #94E2D5
-border color: #313244
+Muted Forest
+light:  bg #F1F1E9  surface #E7E7DC  text #232B20  accent #4C7440  border #DDDDD0
+dark:   bg #0F140F  surface #191E18  text #E7EBE2  accent #A3CB81  border #232B23
 */

@@ -8,18 +8,19 @@
   const currentYear = currentDate.getFullYear();
 </script>
 
-<footer class="mt-auto py-12 px-5">
+<footer
+  class="mt-auto relative z-10 bg-surface border-t border-primary py-8 px-6"
+>
   <div
-    class="max-w-3xl mx-auto flex justify-between items-center text-sm text-secondary-text font-mono"
+    class="max-w-5xl mx-auto flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 text-sm text-secondary-text font-mono"
   >
-    <div>
-      Last updated: {currentMonth}
-      {currentYear}
-    </div>
+    <!-- left -->
+    <div>Last updated: {currentMonth} {currentYear}</div>
 
+    <!-- right -->
     <button
       onclick={scrollToTop}
-      class="hover:text-primary-text transition-colors cursor-pointer"
+      class="hover:text-primary transition-colors cursor-pointer"
     >
       back to top ↑
     </button>
