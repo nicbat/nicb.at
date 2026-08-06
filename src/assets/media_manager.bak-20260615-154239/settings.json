@@ -1,7 +1,0 @@
-{
-  "imageDataFileName": "image-data.json",
-  "schemaFileName": "schema.json",
-  "autoAdvanceToNextUnlinked": false,
-  "autoSaveOnAdvance": false,
-  "gridSize": "large"
-}
