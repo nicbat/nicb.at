@@ -19,7 +19,7 @@
     },
     {
       "id": "bcc69f92-d261-4751-b5bf-b6ddb5c193bb",
-      "last_modified": "2026-06-17T22:40:21.771Z",
+      "last_modified": "2026-07-15T00:37:22.715Z",
       "name": "Gradient Game",
       "date": "",
       "tags": [
@@ -30,7 +30,7 @@
       "urls": [
         {
           "display_name": "See Site",
-          "url": "https://gradient.nicb.at"
+          "url": "https://gradient.nicbat.com"
         }
       ]
     },
@@ -104,12 +104,13 @@
     },
     {
       "id": "5de4b170-5302-4141-b976-4956566a896c",
-      "last_modified": "2026-06-17T22:40:39.114Z",
+      "last_modified": "2026-08-06T02:27:01.243Z",
       "name": "Task Properties Obsidian Plugin",
       "date": "",
       "tags": [
         "Product",
-        "WIP"
+        "WIP",
+        "Small"
       ],
       "urls": [
         {
@@ -121,10 +122,12 @@
     },
     {
       "id": "27299dfe-6720-4a81-a4f9-ba74d744f980",
-      "last_modified": "2026-07-08T22:50:49.001Z",
+      "last_modified": "2026-08-06T02:26:56.995Z",
       "name": "Svelte Masonry Library",
       "date": "",
-      "tags": [],
+      "tags": [
+        "Small"
+      ],
       "urls": [
         {
           "display_name": "Repo",
@@ -132,6 +135,31 @@
         }
       ],
       "description": "Quickly made this in a few hours to fix some bugs on my site, all of the masonry layouts you see here use it!"
+    },
+    {
+      "id": "f234b990-0ecc-473a-94e3-d9289dee757e",
+      "last_modified": "2026-07-15T00:34:32.229Z",
+      "name": "Steam Achievements",
+      "date": "",
+      "tags": [],
+      "urls": [
+        {
+          "display_name": "URL",
+          "url": "https://steam-achievements.nicbat.com/"
+        }
+      ],
+      "description": "A simple site I made to learn more about how you can increase your \"average game completion\" score more efficiently."
+    },
+    {
+      "id": "590c37e7-c909-4944-8e57-c162a5611fd3",
+      "last_modified": "2026-08-06T02:26:50.021Z",
+      "name": "Zen Browser Corners Mod",
+      "date": "",
+      "tags": [
+        "Small"
+      ],
+      "urls": [],
+      "description": "Quick Zen Browser mod I made (unfortunately I'm not able to publish it just yet) to change the corner rounding on the browser."
     }
   ]
 }

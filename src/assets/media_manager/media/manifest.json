@@ -667,6 +667,61 @@
       "created_at": "2026-06-30T21:24:26.868Z",
       "width": 3072,
       "height": 4080
+    },
+    "23c1417e-5917-415f-977d-84afc09351ff": {
+      "file_name": "deathstart_after_3.jpg",
+      "classes": [
+        "blog-photo"
+      ],
+      "missing": false,
+      "size": 247507,
+      "created_at": "2026-07-09T23:40:50.265Z",
+      "width": 1508,
+      "height": 2004
+    },
+    "06b78323-e991-4690-bc67-cca1aafa754c": {
+      "file_name": "PXL_20260608_214937961.MP.jpg",
+      "classes": [
+        "blog-photo"
+      ],
+      "missing": false,
+      "size": 3722185,
+      "created_at": "2026-07-14T04:45:34.857Z",
+      "width": 3072,
+      "height": 4080
+    },
+    "89938fa5-e091-415a-9cd5-ad2008f3be40": {
+      "file_name": "PXL_20260608_220034155.MP.jpg",
+      "classes": [
+        "blog-photo"
+      ],
+      "missing": false,
+      "size": 4150054,
+      "created_at": "2026-07-14T04:45:35.898Z",
+      "width": 3072,
+      "height": 4080
+    },
+    "a23cfa64-cf6e-47f2-ae3f-bfb297160785": {
+      "file_name": "PXL_20260608_220025464.MP.jpg",
+      "classes": [
+        "blog-photo"
+      ],
+      "missing": false,
+      "size": 2729400,
+      "created_at": "2026-07-14T04:45:36.556Z",
+      "width": 3072,
+      "height": 4080
+    },
+    "6b0a338e-747e-4e0c-92be-9e5e27af03cd": {
+      "file_name": "PXL_20260628_063632611.MP.jpg",
+      "classes": [
+        "blog-photo"
+      ],
+      "missing": false,
+      "size": 2855708,
+      "created_at": "2026-07-14T04:45:38.256Z",
+      "width": 3072,
+      "height": 4080
     }
   }
 }

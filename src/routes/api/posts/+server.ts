@@ -1,12 +1,7 @@
 import { fetchMarkdownPosts } from '$lib';
 import { json } from '@sveltejs/kit';
 
+// The reader already returns the `words` collection newest-first, so no sort is needed here.
 export const GET = async () => {
-	const allPosts = await fetchMarkdownPosts();
-
-	const sortedPosts = allPosts.sort((a, b) => {
-		return new Date(b.meta.date).getTime() - new Date(a.meta.date).getTime();
-	});
-
-	return json(sortedPosts);
+	return json(await fetchMarkdownPosts());
 };

@@ -1,7 +1,7 @@
 // place files you want to import through the `$lib` alias in this folder.
 import type { ImageData, Trip, TripSummary } from '$lib/types';
 import type { Project, Quote } from './types';
-import type { MMRecord } from 'media-manager/reader/vite';
+import type { MMRecord, PostItem } from 'media-manager/reader/vite';
 // TODO: switch the `media-manager` dependency in package.json from `file:../media-manager`
 // to a GitHub dependency (e.g. `"media-manager": "github:nicbat/media-manager#<tag>"`)
 // Caveat: git install requires media-manager's `prepare` script to build `dist/reader/` on
@@ -9,36 +9,69 @@ import type { MMRecord } from 'media-manager/reader/vite';
 // script or publish the reader as its own package (media-manager FUTURE_CHANGES Item 44).
 import { MediaManager } from 'media-manager/reader/vite';
 
+// A rendered post's finished HTML plus its frontmatter, resolved by the media-manager reader.
+export interface Post {
+  meta: Record<string, unknown>;
+  html: string;
+}
+
+// A words post's URL slug: its `html_route` frontmatter when set, else the `.md` filename stem.
+// Mirrors how a trip resolves its route (see `tripSlug`).
+const postRoute = (p: PostItem): string =>
+  ((p.meta.html_route as string) || '').trim() || p.slug;
+
+// A post is public only when `published` frontmatter is explicitly true. The field defaults to
+// false in the schema, so a post that's absent/false is hidden — no listing and no route (404).
+const isPublished = (p: PostItem): boolean => p.meta.published === true;
+
+// The published `words` posts, newest-first (`.all()` already sorts by frontmatter `date` desc).
+// Only metadata + route are needed for the index — the body HTML is fetched per-post on demand.
 export const fetchMarkdownPosts = async () => {
-  const allPostFiles = import.meta.glob('$assets/blog/*.md');
-  const iterablePostFiles = Object.entries(allPostFiles);
+  return mm.posts('words').all()
+    .filter(isPublished)
+    .map((p) => ({
+      meta: p.meta,
+      path: '/words/' + postRoute(p)
+    }));
+};
 
-  const allPosts = await Promise.all(
-    iterablePostFiles.map(async ([path, resolver]) => {
-      const { metadata } = await (resolver as () => Promise<{ metadata: any }>)();
-      const postPath = '/words' + path.slice(16, -3);
+// One published `words` post by its route (`html_route` or filename stem), or null if unknown /
+// unpublished (so an unpublished post's URL 404s just like a nonexistent one).
+export const fetchPost = async (route: string): Promise<Post | null> => {
+  const post = mm.posts('words').all().find((p) => isPublished(p) && postRoute(p) === route);
+  if (!post) return null;
+  return { meta: post.meta, html: post.html };
+};
 
-      return {
-        meta: metadata,
-        path: postPath
-      };
-    })
-  );
-
-  return allPosts;
+// The single `now` post (posts/now/now.md), or null if absent.
+export const fetchNow = async (): Promise<Post | null> => {
+  const post = mm.posts('now').bySlug('now');
+  if (!post) return null;
+  return { meta: post.meta, html: post.html };
 };
 
 // Load the media-manager workspace once, at build time, from its on-disk file-first layout.
-// Two Vite globs: the JSON (parsed) and the asset files (?url so Vite hashes + serves them). The
-// reader does the manifest join, asset resolution, and normalization — see `media-manager/reader`.
-const mm = MediaManager.load({
-  data: import.meta.glob('$assets/media_manager/**/*.json', { eager: true, import: 'default' }),
-  files: import.meta.glob('$assets/media_manager/media/files/*', {
-    eager: true,
-    query: '?url',
-    import: 'default'
-  })
-});
+// Three Vite globs: the JSON (parsed), the asset files (?url so Vite hashes + serves them), and the
+// Posts markdown (?raw so each `.md` arrives as a string for the reader to render). The reader does
+// the manifest join, asset resolution, markdown rendering, and normalization — see
+// `media-manager/reader`.
+const mm = MediaManager.load(
+  {
+    data: import.meta.glob('$assets/media_manager/**/*.json', { eager: true, import: 'default' }),
+    files: import.meta.glob('$assets/media_manager/media/files/*', {
+      eager: true,
+      query: '?url',
+      import: 'default'
+    }),
+    posts: import.meta.glob('$assets/media_manager/posts/**/*.md', {
+      eager: true,
+      query: '?raw',
+      import: 'default'
+    })
+  },
+  // Match the site's existing Shiki theme for fenced code (see svelte.config.js).
+  { posts: { theme: 'catppuccin-mocha' } }
+);
 
 interface UrlValue {
   display_name: string;

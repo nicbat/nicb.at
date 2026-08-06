@@ -1,7 +1,9 @@
 ---
 title: Lazy Loading
 description: Why load anything on startup if you don't have to?
-date: '250207'
+date: 2025-02-07
+html_route: lazy-loading
+published: true
 ---
 
 Why load anything on startup if you don't have to?

@@ -2,7 +2,7 @@
   import type { PageData } from "./$types";
 
   let { data }: { data: PageData } = $props();
-  const { updated, Content } = data;
+  const { updated, html } = data;
 </script>
 
 <div class="flex flex-col gap-6">
@@ -14,8 +14,9 @@
     </p>
   </div>
 
+  <!-- eslint-disable-next-line svelte/no-at-html-tags -->
   <div class="now-content text-lg leading-relaxed text-primary-text">
-    <Content />
+    {@html html}
   </div>
 
   <p class="text-sm text-secondary-text">Last updated {updated}.</p>

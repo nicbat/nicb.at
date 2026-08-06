@@ -1,0 +1,39 @@
+{
+  "schema": {
+    "description": {
+      "type": "string",
+      "removable": true
+    }
+  },
+  "config": {
+    "displayName": "Blog Photo",
+    "icon": "book"
+  },
+  "records": {
+    "23c1417e-5917-415f-977d-84afc09351ff": {
+      "id": "23c1417e-5917-415f-977d-84afc09351ff",
+      "last_modified": "2026-07-14T04:47:59.137Z",
+      "description": ""
+    },
+    "06b78323-e991-4690-bc67-cca1aafa754c": {
+      "id": "06b78323-e991-4690-bc67-cca1aafa754c",
+      "last_modified": "2026-07-14T04:47:59.137Z",
+      "description": ""
+    },
+    "89938fa5-e091-415a-9cd5-ad2008f3be40": {
+      "id": "89938fa5-e091-415a-9cd5-ad2008f3be40",
+      "last_modified": "2026-07-14T04:47:59.137Z",
+      "description": ""
+    },
+    "a23cfa64-cf6e-47f2-ae3f-bfb297160785": {
+      "id": "a23cfa64-cf6e-47f2-ae3f-bfb297160785",
+      "last_modified": "2026-07-14T04:47:59.137Z",
+      "description": ""
+    },
+    "6b0a338e-747e-4e0c-92be-9e5e27af03cd": {
+      "id": "6b0a338e-747e-4e0c-92be-9e5e27af03cd",
+      "last_modified": "2026-07-14T04:47:59.137Z",
+      "description": ""
+    }
+  }
+}

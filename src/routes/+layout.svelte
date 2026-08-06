@@ -2,6 +2,8 @@
   import { theme } from "$lib/stores/theme";
   import { page } from "$app/stores";
   import "../lib/styles/layout.css";
+  // Layout for media-manager Posts: `mm-*` content islands + rendered code blocks / copy buttons.
+  import "media-manager/reader/posts.css";
   import Navbar from "../lib/components/Navbar.svelte";
   import Footer from "../lib/components/Footer.svelte";
   import type { Snippet } from "svelte";

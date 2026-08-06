@@ -7,10 +7,17 @@ test("home renders intro heading", async ({ page }) => {
   ).toBeVisible();
 });
 
-test("words index lists posts", async ({ page }) => {
+test("words index lists only published posts", async ({ page }) => {
   await page.goto("/words");
   await expect(page.getByRole("heading", { level: 1, name: "Words" })).toBeVisible();
   await expect(page.getByRole("link", { name: "Lazy Loading" })).toBeVisible();
+  // Lego Death Star is unpublished — it must not appear in the index.
+  await expect(page.getByRole("link", { name: "Lego Death Star" })).toHaveCount(0);
+});
+
+test("unpublished post route returns 404", async ({ page }) => {
+  const response = await page.goto("/words/lego-death-star");
+  expect(response?.status()).toBe(404);
 });
 
 test("projects renders heading", async ({ page }) => {
@@ -30,10 +37,10 @@ test("travel renders heading", async ({ page }) => {
 
 test("navigates into a trip", async ({ page }) => {
   await page.goto("/travel");
-  await page.locator('a[href="/travel/vienna-and-bratislava-2025"]').click();
-  await expect(page).toHaveURL(/\/travel\/vienna-and-bratislava-2025$/);
+  await page.locator('a[href="/travel/vienna-2025"]').click();
+  await expect(page).toHaveURL(/\/travel\/vienna-2025$/);
   await expect(
-    page.getByRole("heading", { level: 1, name: "Vienna and Bratislava 2025" }),
+    page.getByRole("heading", { level: 1, name: "Vienna and Bratislava" }),
   ).toBeVisible();
 });
 
@@ -45,7 +52,7 @@ test("unknown trip slug returns 404", async ({ page }) => {
 test("navigates into a blog post", async ({ page }) => {
   await page.goto("/words");
   await page.getByRole("link", { name: "Lazy Loading" }).click();
-  await expect(page).toHaveURL(/\/words\/lazy_loading$/);
+  await expect(page).toHaveURL(/\/words\/lazy-loading$/);
   await expect(
     page.getByRole("heading", { level: 1, name: "Lazy Loading" }),
   ).toBeVisible();

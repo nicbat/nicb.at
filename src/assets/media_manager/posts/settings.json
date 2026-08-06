@@ -1,0 +1,47 @@
+{
+  "collections": {
+    "now": {
+      "displayName": "Now",
+      "schema": {
+        "date": {
+          "type": "date",
+          "removable": true
+        },
+        "title": {
+          "type": "string",
+          "removable": true
+        }
+      }
+    },
+    "words": {
+      "displayName": "Words",
+      "schema": {
+        "title": {
+          "type": "string",
+          "removable": true
+        },
+        "description": {
+          "type": "string",
+          "removable": true
+        },
+        "date": {
+          "type": "date",
+          "removable": true
+        },
+        "html_route": {
+          "type": "string",
+          "removable": true
+        },
+        "published": {
+          "type": "boolean",
+          "removable": true,
+          "defaultValue": false
+        }
+      }
+    }
+  },
+  "collectionOrder": [
+    "now",
+    "words"
+  ]
+}
