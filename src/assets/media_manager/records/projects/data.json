@@ -165,6 +165,20 @@
         }
       ],
       "description": "Quick Zen Browser mod I made (unfortunately I'm not able to publish it just yet) to change the corner rounding on the browser."
+    },
+    {
+      "id": "90b1d852-80de-44f1-a229-919fc386b886",
+      "last_modified": "2026-08-18T18:18:12.746Z",
+      "name": "My Dotfiles",
+      "date": "",
+      "tags": [],
+      "urls": [
+        {
+          "display_name": "Repo",
+          "url": "https://github.com/nicbat/dotfiles"
+        }
+      ],
+      "description": "There are a bit messy, but I've put a lot of work into making my machine as pretty as it can be :)"
     }
   ]
 }
