@@ -26,9 +26,10 @@
           class="group block no-underline hover:no-underline"
         >
           {#if trip.cover}
+            <!-- Tile: compressed derivative when the cover has one, else the original. -->
             <img
               class="aspect-[1/1] w-full rounded-[10px] object-cover transition-opacity duration-200 group-hover:opacity-90"
-              src={trip.cover.src}
+              src={trip.cover.thumb?.src ?? trip.cover.src}
               alt={trip.cover.alt}
               loading="lazy"
             />

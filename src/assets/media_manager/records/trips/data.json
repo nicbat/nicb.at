@@ -31,16 +31,32 @@
     },
     {
       "id": "2b683f06-e376-4c3b-b937-577e1903801d",
-      "last_modified": "2026-06-30T07:11:29.568Z",
+      "last_modified": "2026-08-18T22:15:15.413Z",
       "name": "Iceland, UK and Ireland",
-      "cover_photo": "",
+      "cover_photo": "92e43485-6f84-459b-aab2-89cb5212ab22",
       "description": "",
       "photos": [
         "8dc67a82-c78c-4dae-9eae-06ee223a12d7",
         "ae0d1c90-0821-4078-acbe-ffba24507e20",
         "92e43485-6f84-459b-aab2-89cb5212ab22",
         "85cb2323-d641-4422-9b26-3b6be0c3ed6a",
-        "bf57b7de-511f-4a99-972d-d9a910d66f4d"
+        "bf57b7de-511f-4a99-972d-d9a910d66f4d",
+        "613a3903-92a9-4c8f-83f0-10638be7cba5",
+        "07635675-da3f-4305-871c-6a4fa7bbc48e",
+        "6e073e16-a5ab-4820-951d-46fcc33a17d0",
+        "9bebf774-bfd7-448b-8fbd-c84434bc52b2",
+        "5e418126-5d32-42dc-846c-505878b3c995",
+        "03706dea-df9b-47d8-a8f7-d7b61e01e202",
+        "d813b4bd-c509-434f-bc82-402ec5583783",
+        "26526d6b-633a-476c-b0bc-89720cc1d438",
+        "308ddd62-7ea7-4367-96bb-bd290c5f67bf",
+        "cd37c62d-caea-497a-8630-0ec4874e6517",
+        "d52f6ba0-28ee-41d6-892f-ca827b045857",
+        "5f9f6e3c-f837-4d68-ae19-6acecb65700f",
+        "850ceb2e-0706-4531-9029-e9253b569d69",
+        "bcd3b4f6-8200-4ca9-826d-421c7cf65971",
+        "3d3524f1-4125-4362-a5bc-84a242d8702b",
+        "6fe48a06-d642-47eb-9549-4c8a310a92a8"
       ],
       "html_route": "uk-2026",
       "start_date": "2026-04-01",
@@ -110,6 +126,64 @@
       "start_date": "2026-03-23",
       "end_date": "2026-03-26",
       "cover_photo": "4e371527-e427-4e15-89e5-9701eb4deafd"
+    },
+    {
+      "id": "480007f0-f11b-4965-b179-7739cf55863b",
+      "last_modified": "2026-08-18T21:42:46.774Z",
+      "name": "Rome Study Abroad",
+      "cover_photo": "73cc837e-2902-4172-9a5f-7caf8fb7802e",
+      "description": "",
+      "html_route": "uw-rome",
+      "start_date": "2022-09-02",
+      "end_date": "2022-09-16",
+      "photos": [
+        "16b2cb2f-4550-420c-aaba-85e3d1ce2d6e",
+        "36ebcb83-5653-47ed-ac50-199640322b83",
+        "0f1eea05-4201-49ef-8cd6-62e9ce6bb7ff",
+        "af70d814-6e07-4370-b797-e4bc3dc96471",
+        "89b18651-6b44-4327-b891-95e00c87f061",
+        "157f2c48-23f5-4c6d-b780-ec510d3863ff",
+        "5a9b9921-b749-450e-ae73-f78bb3dc1c70",
+        "73cc837e-2902-4172-9a5f-7caf8fb7802e"
+      ]
+    },
+    {
+      "id": "44a2e64f-47b2-4dd7-b6bc-fb23cca84df6",
+      "last_modified": "2026-08-18T21:43:02.494Z",
+      "name": "Nashville + Solar Eclipse",
+      "cover_photo": "8e6973f2-e2f4-4b4c-aaa1-934bb490340b",
+      "description": "",
+      "html_route": "eclipse-2024",
+      "start_date": "2024-04-06",
+      "end_date": "2026-04-10",
+      "photos": [
+        "c54a657c-8067-4b82-8aa5-3c2094ed574a",
+        "f7d4b4de-03d6-4192-a0eb-2c674d91e6db",
+        "8e6973f2-e2f4-4b4c-aaa1-934bb490340b",
+        "dc33aea4-5e88-4b7b-9567-97e08cf681e0",
+        "9b856232-d065-44e9-ab2f-0c84fd3b1d73",
+        "710a01cd-3374-441c-804b-3d955e6283b8",
+        "9de29d65-665f-4fda-9223-b80694937b29",
+        "bbb3e0d3-219d-4ab9-a06e-548b733c64c5"
+      ]
+    },
+    {
+      "id": "59101a38-acc6-4193-8332-2d16b77d2dcd",
+      "last_modified": "2026-08-18T22:14:57.553Z",
+      "name": "Washington Coast with Family",
+      "cover_photo": "067da34b-9fa5-4775-8e12-37454e61166b",
+      "description": "",
+      "html_route": "ocean-shores-2026",
+      "start_date": "2026-07-17",
+      "end_date": "2026-07-20",
+      "photos": [
+        "ebe5f107-6465-406f-b83e-97346e734bee",
+        "067da34b-9fa5-4775-8e12-37454e61166b",
+        "a789939c-b520-4d7f-a571-45ee4aa829c2",
+        "857d25f3-53ba-4ab8-a92c-c861c94147f4",
+        "c66ac9ef-264a-4fba-800e-6eda1fbae1cb",
+        "fdf1e57e-7ce3-47e3-80d7-b5bfd6b2e6ff"
+      ]
     }
   ]
 }

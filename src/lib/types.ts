@@ -5,6 +5,16 @@ export interface ImageData {
   caption?: string;
   width: number;
   height: number;
+  /**
+   * The compressed derivative used for grid tiles, or null when this photo has none.
+   *
+   * The split is deliberate: `src`/`width`/`height` above always describe the **original** — that's
+   * what a full-size view (lightbox, click-through) must load — while grids render `thumb` so a page
+   * of tiles pulls the cheap bytes. Null when the preset wasn't generated for the blob (media-manager
+   * skips files that don't shrink, e.g. a PNG that grows under re-encode); callers then fall back to
+   * `src`. Dimensions come off the derivative itself, since a preset is free to resize.
+   */
+  thumb: { src: string; width: number; height: number } | null;
 }
 
 export type ProjectTag = 'Publication' | 'Product';

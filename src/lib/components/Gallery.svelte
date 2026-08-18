@@ -46,9 +46,10 @@
             {item.caption}
           </div>
         {/if}
+        <!-- Tiles render the compressed derivative; the lightbox below keeps the original. -->
         <img
           class="rounded-lg w-full h-auto block"
-          src={item.src}
+          src={item.thumb?.src ?? item.src}
           alt={item.alt}
           loading="lazy"
         />
@@ -62,6 +63,7 @@
     class="fixed inset-0 bg-overlay-light flex flex-col justify-center items-center z-50"
     onclick={closeLightbox}
   >
+    <!-- Full size: always the untouched original, never the compressed tile derivative. -->
     <img
       class="max-w-[90%] max-h-[90%] object-contain rounded-lg"
       src={selectedImage.src}

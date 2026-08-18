@@ -252,8 +252,9 @@
         </div>
       </div>
 
+      <!-- Small avatar, never opened full size: take the compressed derivative when there is one. -->
       <img
-        src={data.homePhoto?.src ?? "home_photo.png"}
+        src={data.homePhoto?.thumb?.src ?? data.homePhoto?.src ?? "home_photo.png"}
         alt={data.homePhoto?.alt ?? "Me!"}
         class="w-32 h-32 md:w-48 md:h-48 rounded-full object-cover shadow-lg transition-all duration-500 aspect-square"
       />

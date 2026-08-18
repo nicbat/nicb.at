@@ -1,5 +1,19 @@
 {
   "classOrder": [
     "photos"
-  ]
+  ],
+  "compression": {
+    "autoCompress": true,
+    "presets": [
+      {
+        "id": "web",
+        "label": "Preview",
+        "format": "webp",
+        "quality": 80
+      }
+    ],
+    "workspacePresets": [
+      "web"
+    ]
+  }
 }

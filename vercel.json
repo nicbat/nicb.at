@@ -1,0 +1,8 @@
+{
+	"headers": [
+		{
+			"source": "/media/derived/(.*)",
+			"headers": [{ "key": "Cache-Control", "value": "public, max-age=3600" }]
+		}
+	]
+}

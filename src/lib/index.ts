@@ -90,7 +90,12 @@ const mm = MediaManager.load(
       eager: true,
       query: '?raw',
       import: 'default'
-    })
+    }),
+    // Static-assets mode deliberately ships no blob glob — an empty asset map is exactly what makes
+    // the reader synthesize `/media/<file>` (and `/media/derived/<preset>/<file>`) from the manifest.
+    // Spelled out only because `WorkspaceGlobs.files` is typed as required; the reader itself
+    // defaults it to `{}`, so this is a type annotation, not behaviour.
+    files: {}
   },
   {
     // Static-assets mode: blobs served from /media/<file>, not bundled (see static/media/).
@@ -104,6 +109,22 @@ interface UrlValue {
   display_name: string;
   url: string;
 }
+
+// The compression preset whose derivatives back every grid tile on the site. media-manager writes
+// them next to the blobs (static/media/derived/web/*.webp) and, in static-assets mode, the reader
+// synthesizes their URLs from the manifest — nothing extra to glob or bundle.
+const THUMB_PRESET = 'web';
+
+// The compressed twin of a blob, for `ImageData.thumb`. Grid tiles render this; the full-size views
+// (lightbox, trip cover click-through) keep the untouched original in `src` — hence two fields
+// rather than one rewritten `src`. `variantInfo` returns null when the preset wasn't generated for
+// this blob (media-manager skips files that don't shrink), and the reader offers no fallback of its
+// own, so every use site is written "thumb if present, else original". Width/height are the
+// *derivative's* — a preset may resize, so they're never assumed equal to the original's.
+const thumbOf = (m: MediaItem): ImageData['thumb'] => {
+  const v = m.variantInfo(THUMB_PRESET);
+  return v ? { src: v.src, width: v.width, height: v.height } : null;
+};
 
 export const fetchImageList = async (): Promise<ImageData[]> => {
   return mm
@@ -121,7 +142,8 @@ export const fetchImageList = async (): Promise<ImageData[]> => {
         alt: caption || m.filename,
         caption: caption || undefined,
         width: m.width,
-        height: m.height
+        height: m.height,
+        thumb: thumbOf(m)
       };
     })
     .filter((img) => img.src);
@@ -153,7 +175,13 @@ const photoCaption = (m: MediaItem): string =>
 export const fetchHomePhoto = async (): Promise<ImageData | null> => {
   const photo = mm.globals()?.file('my photo');
   if (!photo?.src) return null;
-  return { src: photo.src, alt: 'Me!', width: photo.width, height: photo.height };
+  return {
+    src: photo.src,
+    alt: 'Me!',
+    width: photo.width,
+    height: photo.height,
+    thumb: thumbOf(photo)
+  };
 };
 
 export const fetchProjects = async (): Promise<Project[]> => {
@@ -194,7 +222,8 @@ const tripCover = (r: MMRecord): ImageData | null => {
     alt: caption || (r.field('name') as string) || '',
     caption: caption || undefined,
     width: cover.width,
-    height: cover.height
+    height: cover.height,
+    thumb: thumbOf(cover)
   };
 };
 
@@ -231,7 +260,8 @@ export const fetchTrip = async (slug: string): Promise<Trip | null> => {
         alt: caption || tripName || m.filename,
         caption: caption || undefined,
         width: m.width,
-        height: m.height
+        height: m.height,
+        thumb: thumbOf(m)
       };
     })
     .filter((img) => img.src);

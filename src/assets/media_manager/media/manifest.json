@@ -4,12 +4,21 @@
     "8e6973f2-e2f4-4b4c-aaa1-934bb490340b": {
       "file_name": "IMG-20240408-WA0001.jpg",
       "classes": [
-        "photos"
+        "photos",
+        "travel"
       ],
       "missing": false,
+      "size": 528343,
       "created_at": "2026-06-12T01:01:03.846Z",
       "width": 1536,
-      "height": 2040
+      "height": 2040,
+      "derived": {
+        "web": {
+          "recipe": "webp:q80",
+          "source_size": 528343,
+          "skipped": "larger"
+        }
+      }
     },
     "47bf1425-514f-41d3-9d0c-d05c042e5737": {
       "file_name": "IMG-20240721-WA0000.jpg",
@@ -17,9 +26,22 @@
         "photos"
       ],
       "missing": false,
+      "size": 314834,
       "created_at": "2026-06-12T01:01:03.846Z",
       "width": 2040,
-      "height": 1536
+      "height": 1536,
+      "derived": {
+        "web": {
+          "file_name": "IMG-20240721-WA0000.webp",
+          "size": 230980,
+          "width": 2040,
+          "height": 1536,
+          "ssim": 0.989,
+          "recipe": "webp:q80",
+          "source_size": 314834,
+          "generated_at": "2026-08-18T19:13:45.384Z"
+        }
+      }
     },
     "91962be0-d7da-4709-bd4e-575ced424bec": {
       "file_name": "superpuff.jpg",
@@ -27,9 +49,22 @@
         "photos"
       ],
       "missing": false,
+      "size": 297319,
       "created_at": "2026-06-12T01:01:03.846Z",
       "width": 1200,
-      "height": 1600
+      "height": 1600,
+      "derived": {
+        "web": {
+          "file_name": "superpuff.webp",
+          "size": 250462,
+          "width": 1200,
+          "height": 1600,
+          "ssim": 0.987,
+          "recipe": "webp:q80",
+          "source_size": 297319,
+          "generated_at": "2026-08-18T19:13:45.303Z"
+        }
+      }
     },
     "3663cca4-14ff-46da-9e18-bdb934718699": {
       "file_name": "IMG-20250801-WA0004.jpg",
@@ -38,9 +73,22 @@
         "travel"
       ],
       "missing": false,
+      "size": 831355,
       "created_at": "2026-06-12T01:01:03.846Z",
       "width": 2101,
-      "height": 3736
+      "height": 3736,
+      "derived": {
+        "web": {
+          "file_name": "IMG-20250801-WA0004.webp",
+          "size": 706160,
+          "width": 2101,
+          "height": 3736,
+          "ssim": 0.988,
+          "recipe": "webp:q80",
+          "source_size": 831355,
+          "generated_at": "2026-08-18T19:13:46.270Z"
+        }
+      }
     },
     "c0f41b0b-ff69-4631-8dd0-00abaf0e74b6": {
       "file_name": "olympic_river.jpeg",
@@ -49,9 +97,22 @@
         "travel"
       ],
       "missing": false,
+      "size": 11636817,
       "created_at": "2026-06-12T01:01:03.846Z",
       "width": 4665,
-      "height": 6997
+      "height": 6997,
+      "derived": {
+        "web": {
+          "file_name": "olympic_river.webp",
+          "size": 6148628,
+          "width": 4665,
+          "height": 6997,
+          "ssim": 0.961,
+          "recipe": "webp:q80",
+          "source_size": 11636817,
+          "generated_at": "2026-08-18T19:13:58.604Z"
+        }
+      }
     },
     "08fdf7c8-7b94-4073-a97c-001f31bbe8c4": {
       "file_name": "IMG_1588_1.jpg",
@@ -59,9 +120,22 @@
         "photos"
       ],
       "missing": false,
+      "size": 571307,
       "created_at": "2026-06-12T01:01:03.846Z",
       "width": 4000,
-      "height": 3000
+      "height": 3000,
+      "derived": {
+        "web": {
+          "file_name": "IMG_1588_1.webp",
+          "size": 464746,
+          "width": 4000,
+          "height": 3000,
+          "ssim": 0.992,
+          "recipe": "webp:q80",
+          "source_size": 571307,
+          "generated_at": "2026-08-18T19:13:46.565Z"
+        }
+      }
     },
     "1a57cb2a-fdeb-4096-8a6a-c1b38e02d34d": {
       "file_name": "IMG_1735_1.jpg",
@@ -69,9 +143,22 @@
         "photos"
       ],
       "missing": false,
+      "size": 233728,
       "created_at": "2026-06-12T01:01:03.846Z",
       "width": 1280,
-      "height": 960
+      "height": 960,
+      "derived": {
+        "web": {
+          "file_name": "IMG_1735_1.webp",
+          "size": 117528,
+          "width": 960,
+          "height": 1280,
+          "ssim": 0.987,
+          "recipe": "webp:q80",
+          "source_size": 233728,
+          "generated_at": "2026-08-18T19:13:46.443Z"
+        }
+      }
     },
     "67922902-aacf-48a8-8f74-9b1363865062": {
       "file_name": "IMG_20230517_153325.jpg",
@@ -79,9 +166,22 @@
         "photos"
       ],
       "missing": false,
+      "size": 825723,
       "created_at": "2026-06-12T01:01:03.846Z",
       "width": 3072,
-      "height": 2048
+      "height": 2048,
+      "derived": {
+        "web": {
+          "file_name": "IMG_20230517_153325.webp",
+          "size": 421606,
+          "width": 3072,
+          "height": 2048,
+          "ssim": 0.991,
+          "recipe": "webp:q80",
+          "source_size": 825723,
+          "generated_at": "2026-08-18T19:13:47.119Z"
+        }
+      }
     },
     "d9afbe18-95b8-48cc-bb81-94cd56cbb80f": {
       "file_name": "IMG_4007.jpg",
@@ -89,9 +189,22 @@
         "photos"
       ],
       "missing": false,
+      "size": 623040,
       "created_at": "2026-06-12T01:01:03.846Z",
       "width": 2166,
-      "height": 1626
+      "height": 1626,
+      "derived": {
+        "web": {
+          "file_name": "IMG_4007.webp",
+          "size": 352800,
+          "width": 2166,
+          "height": 1626,
+          "ssim": 0.989,
+          "recipe": "webp:q80",
+          "source_size": 623040,
+          "generated_at": "2026-08-18T19:13:47.003Z"
+        }
+      }
     },
     "2365ab2c-72f4-4582-b3df-49c0626ce260": {
       "file_name": "IMG_8366.jpg",
@@ -99,9 +212,22 @@
         "photos"
       ],
       "missing": false,
+      "size": 5171437,
       "created_at": "2026-06-12T01:01:03.846Z",
       "width": 4284,
-      "height": 5712
+      "height": 5712,
+      "derived": {
+        "web": {
+          "file_name": "IMG_8366.webp",
+          "size": 683574,
+          "width": 4284,
+          "height": 5712,
+          "ssim": 0.985,
+          "recipe": "webp:q80",
+          "source_size": 5171437,
+          "generated_at": "2026-08-18T19:13:49.050Z"
+        }
+      }
     },
     "cd608293-73ce-4517-9798-d39a1a964b89": {
       "file_name": "PXL_20220707_040041845.jpg",
@@ -109,9 +235,22 @@
         "photos"
       ],
       "missing": false,
+      "size": 1558404,
       "created_at": "2026-06-12T01:01:03.846Z",
       "width": 2268,
-      "height": 4032
+      "height": 4032,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20220707_040041845.webp",
+          "size": 176160,
+          "width": 2268,
+          "height": 4032,
+          "ssim": 0.991,
+          "recipe": "webp:q80",
+          "source_size": 1558404,
+          "generated_at": "2026-08-18T19:13:47.947Z"
+        }
+      }
     },
     "a3881054-ba5f-45e2-93db-2141df2c1e75": {
       "file_name": "PXL_20240816_180558792.MP.jpg",
@@ -119,9 +258,22 @@
         "photos"
       ],
       "missing": false,
+      "size": 419367,
       "created_at": "2026-06-12T01:01:03.846Z",
       "width": 2166,
-      "height": 1218
+      "height": 1218,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20240816_180558792.MP.webp",
+          "size": 223974,
+          "width": 2166,
+          "height": 1218,
+          "ssim": 0.991,
+          "recipe": "webp:q80",
+          "source_size": 419367,
+          "generated_at": "2026-08-18T19:13:48.259Z"
+        }
+      }
     },
     "40ef0006-4195-4d17-8b6a-918fe1bb88d1": {
       "file_name": "PXL_20240902_030535722.MP.jpg",
@@ -129,9 +281,22 @@
         "photos"
       ],
       "missing": false,
+      "size": 4318470,
       "created_at": "2026-06-12T01:01:03.846Z",
       "width": 2268,
-      "height": 4032
+      "height": 4032,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20240902_030535722.MP.webp",
+          "size": 407942,
+          "width": 2268,
+          "height": 4032,
+          "ssim": 0.99,
+          "recipe": "webp:q80",
+          "source_size": 4318470,
+          "generated_at": "2026-08-18T19:13:49.149Z"
+        }
+      }
     },
     "c712d031-d485-4898-a52f-26892dfe786a": {
       "file_name": "PXL_20240903_204203588.jpg",
@@ -139,9 +304,22 @@
         "photos"
       ],
       "missing": false,
+      "size": 3472767,
       "created_at": "2026-06-12T01:01:03.846Z",
       "width": 3072,
-      "height": 4080
+      "height": 4080,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20240903_204203588.webp",
+          "size": 1441068,
+          "width": 3072,
+          "height": 4080,
+          "ssim": 0.982,
+          "recipe": "webp:q80",
+          "source_size": 3472767,
+          "generated_at": "2026-08-18T19:13:50.511Z"
+        }
+      }
     },
     "86ae23cf-12a6-4753-83cd-7d9eb5fae577": {
       "file_name": "PXL_20241018_203748459.MP.jpg",
@@ -149,9 +327,22 @@
         "photos"
       ],
       "missing": false,
+      "size": 6897128,
       "created_at": "2026-06-12T01:01:03.846Z",
       "width": 2268,
-      "height": 4032
+      "height": 4032,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20241018_203748459.MP.webp",
+          "size": 2301474,
+          "width": 2268,
+          "height": 4032,
+          "ssim": 0.981,
+          "recipe": "webp:q80",
+          "source_size": 6897128,
+          "generated_at": "2026-08-18T19:13:50.635Z"
+        }
+      }
     },
     "85fa7104-33a8-4c68-a345-cb67af6b8b4d": {
       "file_name": "PXL_20250309_193321418.jpg",
@@ -159,9 +350,22 @@
         "photos"
       ],
       "missing": false,
+      "size": 350160,
       "created_at": "2026-06-12T01:01:03.846Z",
       "width": 1514,
-      "height": 2010
+      "height": 2010,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20250309_193321418.webp",
+          "size": 164994,
+          "width": 1514,
+          "height": 2010,
+          "ssim": 0.989,
+          "recipe": "webp:q80",
+          "source_size": 350160,
+          "generated_at": "2026-08-18T19:13:50.841Z"
+        }
+      }
     },
     "f148f474-04aa-4496-bfb7-3dd85cb89303": {
       "file_name": "PXL_20250419_205220976.jpg",
@@ -169,9 +373,22 @@
         "photos"
       ],
       "missing": false,
+      "size": 1059892,
       "created_at": "2026-06-12T01:01:03.846Z",
       "width": 1518,
-      "height": 2016
+      "height": 2016,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20250419_205220976.webp",
+          "size": 752352,
+          "width": 1518,
+          "height": 2016,
+          "ssim": 0.973,
+          "recipe": "webp:q80",
+          "source_size": 1059892,
+          "generated_at": "2026-08-18T19:13:51.123Z"
+        }
+      }
     },
     "ee2e554a-860d-4bb2-85e7-3e24382331e9": {
       "file_name": "PXL_20250424_022702866.jpg",
@@ -179,9 +396,22 @@
         "photos"
       ],
       "missing": false,
+      "size": 614448,
       "created_at": "2026-06-12T01:01:03.846Z",
       "width": 1514,
-      "height": 2011
+      "height": 2011,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20250424_022702866.webp",
+          "size": 351486,
+          "width": 1514,
+          "height": 2011,
+          "ssim": 0.985,
+          "recipe": "webp:q80",
+          "source_size": 614448,
+          "generated_at": "2026-08-18T19:13:51.235Z"
+        }
+      }
     },
     "d961b3dc-017f-4e3d-8118-5838a3885dcc": {
       "file_name": "PXL_20250504_155530072.PANO.jpg",
@@ -189,9 +419,22 @@
         "photos"
       ],
       "missing": false,
+      "size": 1007681,
       "created_at": "2026-06-12T01:01:03.846Z",
       "width": 3425,
-      "height": 1070
+      "height": 1070,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20250504_155530072.PANO.webp",
+          "size": 625532,
+          "width": 3425,
+          "height": 1070,
+          "ssim": 0.975,
+          "recipe": "webp:q80",
+          "source_size": 1007681,
+          "generated_at": "2026-08-18T19:13:51.635Z"
+        }
+      }
     },
     "66aef9e5-9484-456c-8630-37ac7a0f6a6a": {
       "file_name": "PXL_20250721_021555010.MP.jpg",
@@ -199,9 +442,22 @@
         "photos"
       ],
       "missing": false,
+      "size": 6402348,
       "created_at": "2026-06-12T01:01:03.846Z",
       "width": 3072,
-      "height": 4080
+      "height": 4080,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20250721_021555010.MP.webp",
+          "size": 2171980,
+          "width": 3072,
+          "height": 4080,
+          "ssim": 0.973,
+          "recipe": "webp:q80",
+          "source_size": 6402348,
+          "generated_at": "2026-08-18T19:13:52.996Z"
+        }
+      }
     },
     "cbe71a55-d550-4ed6-9ec6-210d79421c4e": {
       "file_name": "PXL_20250727_161017522.MP.jpg",
@@ -210,9 +466,22 @@
         "travel"
       ],
       "missing": false,
+      "size": 4376568,
       "created_at": "2026-06-12T01:01:03.846Z",
       "width": 3072,
-      "height": 4080
+      "height": 4080,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20250727_161017522.MP.webp",
+          "size": 786272,
+          "width": 3072,
+          "height": 4080,
+          "ssim": 0.991,
+          "recipe": "webp:q80",
+          "source_size": 4376568,
+          "generated_at": "2026-08-18T19:13:52.998Z"
+        }
+      }
     },
     "7330cb5d-08a9-4009-baa2-5a12756a393f": {
       "file_name": "PXL_20250729_133639349.MP.jpg",
@@ -221,9 +490,22 @@
         "travel"
       ],
       "missing": false,
+      "size": 8037461,
       "created_at": "2026-06-12T01:01:03.846Z",
       "width": 3072,
-      "height": 4080
+      "height": 4080,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20250729_133639349.MP.webp",
+          "size": 1485128,
+          "width": 3072,
+          "height": 4080,
+          "ssim": 0.96,
+          "recipe": "webp:q80",
+          "source_size": 8037461,
+          "generated_at": "2026-08-18T19:13:54.534Z"
+        }
+      }
     },
     "92a69a90-e55d-4810-97fd-3921c7e000de": {
       "file_name": "PXL_20250729_165642843.MP.jpg",
@@ -232,9 +514,22 @@
         "travel"
       ],
       "missing": false,
+      "size": 8980410,
       "created_at": "2026-06-12T01:01:03.846Z",
       "width": 4080,
-      "height": 3072
+      "height": 3072,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20250729_165642843.MP.webp",
+          "size": 2705356,
+          "width": 4080,
+          "height": 3072,
+          "ssim": 0.964,
+          "recipe": "webp:q80",
+          "source_size": 8980410,
+          "generated_at": "2026-08-18T19:13:54.890Z"
+        }
+      }
     },
     "cee7149b-d73d-4cda-852c-f31870c06ab6": {
       "file_name": "PXL_20250731_173602724.MP.jpg",
@@ -243,9 +538,22 @@
         "travel"
       ],
       "missing": false,
+      "size": 5697766,
       "created_at": "2026-06-12T01:01:03.846Z",
       "width": 3072,
-      "height": 4080
+      "height": 4080,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20250731_173602724.MP.webp",
+          "size": 1174266,
+          "width": 3072,
+          "height": 4080,
+          "ssim": 0.982,
+          "recipe": "webp:q80",
+          "source_size": 5697766,
+          "generated_at": "2026-08-18T19:14:00.305Z"
+        }
+      }
     },
     "11e6e011-7cbe-4da0-b458-67108a6b09d1": {
       "file_name": "PXL_20250812_134345529.MP.jpg",
@@ -253,9 +561,22 @@
         "photos"
       ],
       "missing": false,
+      "size": 5179934,
       "created_at": "2026-06-12T01:01:03.846Z",
       "width": 3072,
-      "height": 4080
+      "height": 4080,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20250812_134345529.MP.webp",
+          "size": 724736,
+          "width": 3072,
+          "height": 4080,
+          "ssim": 0.982,
+          "recipe": "webp:q80",
+          "source_size": 5179934,
+          "generated_at": "2026-08-18T19:14:00.119Z"
+        }
+      }
     },
     "095ecf2d-033e-407a-b13d-fb413f010199": {
       "file_name": "PXL_20251128_011957739.MP.jpg",
@@ -263,9 +584,22 @@
         "photos"
       ],
       "missing": false,
+      "size": 5390351,
       "created_at": "2026-06-12T01:01:03.847Z",
       "width": 3072,
-      "height": 4080
+      "height": 4080,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20251128_011957739.MP.webp",
+          "size": 969190,
+          "width": 3072,
+          "height": 4080,
+          "ssim": 0.984,
+          "recipe": "webp:q80",
+          "source_size": 5390351,
+          "generated_at": "2026-08-18T19:14:00.202Z"
+        }
+      }
     },
     "529a3a16-1d74-4775-a577-2cf8a456aa3c": {
       "file_name": "PXL_20260108_231533257.MP.jpg",
@@ -273,9 +607,22 @@
         "photos"
       ],
       "missing": false,
+      "size": 5648291,
       "created_at": "2026-06-12T01:01:03.847Z",
       "width": 2736,
-      "height": 3648
+      "height": 3648,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260108_231533257.MP.webp",
+          "size": 507592,
+          "width": 2736,
+          "height": 3648,
+          "ssim": 0.991,
+          "recipe": "webp:q80",
+          "source_size": 5648291,
+          "generated_at": "2026-08-18T19:14:01.194Z"
+        }
+      }
     },
     "edb46bb4-609d-468b-ab66-eacd82859baa": {
       "file_name": "PXL_20260118_021603661.MP.jpg",
@@ -283,9 +630,22 @@
         "photos"
       ],
       "missing": false,
+      "size": 5563715,
       "created_at": "2026-06-12T01:01:03.847Z",
       "width": 3072,
-      "height": 4080
+      "height": 4080,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260118_021603661.MP.webp",
+          "size": 1304222,
+          "width": 3072,
+          "height": 4080,
+          "ssim": 0.988,
+          "recipe": "webp:q80",
+          "source_size": 5563715,
+          "generated_at": "2026-08-18T19:14:01.713Z"
+        }
+      }
     },
     "02bbcb8b-f420-4224-a5f3-857c4b76f3cc": {
       "file_name": "Snapchat-384140669.jpg",
@@ -293,9 +653,22 @@
         "photos"
       ],
       "missing": false,
+      "size": 291510,
       "created_at": "2026-06-12T01:01:03.847Z",
       "width": 1656,
-      "height": 2208
+      "height": 2208,
+      "derived": {
+        "web": {
+          "file_name": "Snapchat-384140669.webp",
+          "size": 282534,
+          "width": 1656,
+          "height": 2208,
+          "ssim": 0.986,
+          "recipe": "webp:q80",
+          "source_size": 291510,
+          "generated_at": "2026-08-18T19:14:00.689Z"
+        }
+      }
     },
     "117bc8a0-c263-4ee8-9806-0a168d08ded7": {
       "file_name": "ariel_nicholas_muffins_deceptionpass.jpg",
@@ -303,19 +676,46 @@
         "photos"
       ],
       "missing": false,
+      "size": 935192,
       "created_at": "2026-06-12T01:01:03.847Z",
       "width": 1510,
-      "height": 2011
+      "height": 2011,
+      "derived": {
+        "web": {
+          "file_name": "ariel_nicholas_muffins_deceptionpass.webp",
+          "size": 567388,
+          "width": 1510,
+          "height": 2011,
+          "ssim": 0.971,
+          "recipe": "webp:q80",
+          "source_size": 935192,
+          "generated_at": "2026-08-18T19:14:01.129Z"
+        }
+      }
     },
     "bbb3e0d3-219d-4ab9-a06e-548b733c64c5": {
       "file_name": "city_hall.jpg",
       "classes": [
-        "photos"
+        "photos",
+        "travel"
       ],
       "missing": false,
+      "size": 218285,
       "created_at": "2026-06-12T01:01:03.847Z",
       "width": 1204,
-      "height": 1600
+      "height": 1600,
+      "derived": {
+        "web": {
+          "file_name": "city_hall.webp",
+          "size": 162410,
+          "width": 1204,
+          "height": 1600,
+          "ssim": 0.99,
+          "recipe": "webp:q80",
+          "source_size": 218285,
+          "generated_at": "2026-08-18T19:14:01.382Z"
+        }
+      }
     },
     "4766d205-68b4-4567-bb7a-fed9598414d1": {
       "file_name": "grandpa.jpg",
@@ -323,9 +723,22 @@
         "photos"
       ],
       "missing": false,
+      "size": 274515,
       "created_at": "2026-06-12T01:01:03.847Z",
       "width": 1120,
-      "height": 840
+      "height": 840,
+      "derived": {
+        "web": {
+          "file_name": "grandpa.webp",
+          "size": 217520,
+          "width": 1120,
+          "height": 840,
+          "ssim": 0.981,
+          "recipe": "webp:q80",
+          "source_size": 274515,
+          "generated_at": "2026-08-18T19:14:01.356Z"
+        }
+      }
     },
     "5a9f941b-bf1e-491e-8884-750f5392ebb7": {
       "file_name": "signal-2025-09-22-12-23-26-113.jpg",
@@ -333,9 +746,22 @@
         "photos"
       ],
       "missing": false,
+      "size": 735223,
       "created_at": "2026-06-12T01:01:03.847Z",
       "width": 2268,
-      "height": 4032
+      "height": 4032,
+      "derived": {
+        "web": {
+          "file_name": "signal-2025-09-22-12-23-26-113.webp",
+          "size": 552034,
+          "width": 2268,
+          "height": 4032,
+          "ssim": 0.989,
+          "recipe": "webp:q80",
+          "source_size": 735223,
+          "generated_at": "2026-08-18T19:14:02.246Z"
+        }
+      }
     },
     "5e595084-379f-42d9-8b0e-d618cf31563c": {
       "file_name": "resume.pdf",
@@ -344,7 +770,13 @@
       ],
       "missing": false,
       "size": 99526,
-      "created_at": "2026-06-16T07:14:18.127Z"
+      "created_at": "2026-06-16T07:14:18.127Z",
+      "derived": {
+        "web": {
+          "recipe": "webp:q80",
+          "skipped": "unsupported"
+        }
+      }
     },
     "8dc67a82-c78c-4dae-9eae-06ee223a12d7": {
       "file_name": "PXL_20260403_204133014.MP.jpg",
@@ -356,7 +788,19 @@
       "size": 4348836,
       "created_at": "2026-06-29T17:52:48.481Z",
       "width": 3072,
-      "height": 4080
+      "height": 4080,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260403_204133014.MP.webp",
+          "size": 847400,
+          "width": 3072,
+          "height": 4080,
+          "ssim": 0.987,
+          "recipe": "webp:q80",
+          "source_size": 4348836,
+          "generated_at": "2026-08-18T19:14:02.685Z"
+        }
+      }
     },
     "ae0d1c90-0821-4078-acbe-ffba24507e20": {
       "file_name": "PXL_20260403_135155932.MP.jpg",
@@ -367,7 +811,19 @@
       "size": 4909198,
       "created_at": "2026-06-29T17:52:49.626Z",
       "width": 3072,
-      "height": 4080
+      "height": 4080,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260403_135155932.MP.webp",
+          "size": 1175740,
+          "width": 3072,
+          "height": 4080,
+          "ssim": 0.982,
+          "recipe": "webp:q80",
+          "source_size": 4909198,
+          "generated_at": "2026-08-18T19:14:03.088Z"
+        }
+      }
     },
     "92e43485-6f84-459b-aab2-89cb5212ab22": {
       "file_name": "PXL_20260411_163322144.NIGHT.jpg",
@@ -379,7 +835,19 @@
       "size": 4278824,
       "created_at": "2026-06-29T17:52:50.851Z",
       "width": 4080,
-      "height": 3072
+      "height": 3072,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260411_163322144.NIGHT.webp",
+          "size": 2687944,
+          "width": 4080,
+          "height": 3072,
+          "ssim": 0.98,
+          "recipe": "webp:q80",
+          "source_size": 4278824,
+          "generated_at": "2026-08-18T19:14:03.996Z"
+        }
+      }
     },
     "85cb2323-d641-4422-9b26-3b6be0c3ed6a": {
       "file_name": "PXL_20260418_131359375.MP.jpg",
@@ -391,7 +859,19 @@
       "size": 4102374,
       "created_at": "2026-06-29T17:52:52.005Z",
       "width": 3072,
-      "height": 4080
+      "height": 4080,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260418_131359375.MP.webp",
+          "size": 1325274,
+          "width": 3072,
+          "height": 4080,
+          "ssim": 0.983,
+          "recipe": "webp:q80",
+          "source_size": 4102374,
+          "generated_at": "2026-08-18T19:14:04.031Z"
+        }
+      }
     },
     "bf57b7de-511f-4a99-972d-d9a910d66f4d": {
       "file_name": "PXL_20260430_205350060.MP.jpg",
@@ -402,7 +882,19 @@
       "size": 3213929,
       "created_at": "2026-06-29T17:52:52.772Z",
       "width": 3072,
-      "height": 4080
+      "height": 4080,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260430_205350060.MP.webp",
+          "size": 503522,
+          "width": 3072,
+          "height": 4080,
+          "ssim": 0.991,
+          "recipe": "webp:q80",
+          "source_size": 3213929,
+          "generated_at": "2026-08-18T19:14:04.150Z"
+        }
+      }
     },
     "a91f3185-8dec-4e03-8c07-f56fc3bd3c92": {
       "file_name": "IMG-20260518-WA0011.jpg",
@@ -413,7 +905,19 @@
       "size": 970280,
       "created_at": "2026-06-30T06:42:31.516Z",
       "width": 4032,
-      "height": 3024
+      "height": 3024,
+      "derived": {
+        "web": {
+          "file_name": "IMG-20260518-WA0011.webp",
+          "size": 563164,
+          "width": 4032,
+          "height": 3024,
+          "ssim": 0.994,
+          "recipe": "webp:q80",
+          "source_size": 970280,
+          "generated_at": "2026-08-18T19:14:05.285Z"
+        }
+      }
     },
     "88394672-0714-4902-ad64-16ae6cb647ee": {
       "file_name": "PXL_20251124_185342112.MP.jpg",
@@ -424,7 +928,19 @@
       "size": 6685467,
       "created_at": "2026-06-30T06:52:58.571Z",
       "width": 3072,
-      "height": 4080
+      "height": 4080,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20251124_185342112.MP.webp",
+          "size": 1327622,
+          "width": 3072,
+          "height": 4080,
+          "ssim": 0.988,
+          "recipe": "webp:q80",
+          "source_size": 6685467,
+          "generated_at": "2026-08-18T19:14:05.511Z"
+        }
+      }
     },
     "a8c4f11f-baf1-4f33-8360-97d689b06e6e": {
       "file_name": "PXL_20251124_172558209.MP.jpg",
@@ -435,7 +951,19 @@
       "size": 7771184,
       "created_at": "2026-06-30T06:52:59.709Z",
       "width": 4080,
-      "height": 3072
+      "height": 3072,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20251124_172558209.MP.webp",
+          "size": 3465578,
+          "width": 4080,
+          "height": 3072,
+          "ssim": 0.977,
+          "recipe": "webp:q80",
+          "source_size": 7771184,
+          "generated_at": "2026-08-18T19:14:06.308Z"
+        }
+      }
     },
     "4e464d9f-e006-4cc5-897c-a1712e9891c0": {
       "file_name": "PXL_20251125_202543448.MP.jpg",
@@ -446,7 +974,19 @@
       "size": 5923710,
       "created_at": "2026-06-30T06:53:00.715Z",
       "width": 3072,
-      "height": 4080
+      "height": 4080,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20251125_202543448.MP.webp",
+          "size": 2318866,
+          "width": 3072,
+          "height": 4080,
+          "ssim": 0.978,
+          "recipe": "webp:q80",
+          "source_size": 5923710,
+          "generated_at": "2026-08-18T19:14:07.123Z"
+        }
+      }
     },
     "b51a76e8-4a35-4100-b464-8ff76ff0eeb0": {
       "file_name": "PXL_20251125_195958528.MP.jpg",
@@ -457,7 +997,19 @@
       "size": 6146788,
       "created_at": "2026-06-30T06:53:01.348Z",
       "width": 3072,
-      "height": 4080
+      "height": 4080,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20251125_195958528.MP.webp",
+          "size": 2096828,
+          "width": 3072,
+          "height": 4080,
+          "ssim": 0.973,
+          "recipe": "webp:q80",
+          "source_size": 6146788,
+          "generated_at": "2026-08-18T19:14:07.256Z"
+        }
+      }
     },
     "348bdbcb-7a7b-44ba-a36f-8da6e771a101": {
       "file_name": "PXL_20251125_191120267.MP.jpg",
@@ -468,7 +1020,19 @@
       "size": 7545306,
       "created_at": "2026-06-30T06:53:02.746Z",
       "width": 4080,
-      "height": 3072
+      "height": 3072,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20251125_191120267.MP.webp",
+          "size": 3368510,
+          "width": 4080,
+          "height": 3072,
+          "ssim": 0.971,
+          "recipe": "webp:q80",
+          "source_size": 7545306,
+          "generated_at": "2026-08-18T19:14:08.446Z"
+        }
+      }
     },
     "38545208-e7ee-4c69-936f-90a0c04dc016": {
       "file_name": "PXL_20251125_165220484.MP.jpg",
@@ -479,7 +1043,19 @@
       "size": 3435818,
       "created_at": "2026-06-30T06:53:03.579Z",
       "width": 3072,
-      "height": 4080
+      "height": 4080,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20251125_165220484.MP.webp",
+          "size": 681824,
+          "width": 3072,
+          "height": 4080,
+          "ssim": 0.986,
+          "recipe": "webp:q80",
+          "source_size": 3435818,
+          "generated_at": "2026-08-18T19:14:08.434Z"
+        }
+      }
     },
     "7cf82074-266b-4b1c-8d68-10b16c7de507": {
       "file_name": "PXL_20251124_232536307.MP.jpg",
@@ -490,7 +1066,19 @@
       "size": 6360998,
       "created_at": "2026-06-30T06:53:04.813Z",
       "width": 4080,
-      "height": 3072
+      "height": 3072,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20251124_232536307.MP.webp",
+          "size": 2409846,
+          "width": 4080,
+          "height": 3072,
+          "ssim": 0.984,
+          "recipe": "webp:q80",
+          "source_size": 6360998,
+          "generated_at": "2026-08-18T19:14:09.082Z"
+        }
+      }
     },
     "5e66c855-d861-4153-8cf1-c468e05e32a1": {
       "file_name": "PXL_20251124_232421323.MP.jpg",
@@ -501,7 +1089,19 @@
       "size": 4792139,
       "created_at": "2026-06-30T06:53:05.624Z",
       "width": 4080,
-      "height": 3072
+      "height": 3072,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20251124_232421323.MP.webp",
+          "size": 1142584,
+          "width": 4080,
+          "height": 3072,
+          "ssim": 0.984,
+          "recipe": "webp:q80",
+          "source_size": 4792139,
+          "generated_at": "2026-08-18T19:14:09.817Z"
+        }
+      }
     },
     "181e7aed-0374-4227-8693-1f8905c61627": {
       "file_name": "PXL_20260324_024332563.MP.jpg",
@@ -512,7 +1112,19 @@
       "size": 2877051,
       "created_at": "2026-06-30T07:16:31.924Z",
       "width": 4080,
-      "height": 3072
+      "height": 3072,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260324_024332563.MP.webp",
+          "size": 792410,
+          "width": 4080,
+          "height": 3072,
+          "ssim": 0.985,
+          "recipe": "webp:q80",
+          "source_size": 2877051,
+          "generated_at": "2026-08-18T19:14:09.854Z"
+        }
+      }
     },
     "4b3341d8-79b1-4db3-89fa-4741c28026dd": {
       "file_name": "PXL_20260324_180453559.MP.jpg",
@@ -523,7 +1135,19 @@
       "size": 6471983,
       "created_at": "2026-06-30T07:16:33.478Z",
       "width": 4080,
-      "height": 3072
+      "height": 3072,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260324_180453559.MP.webp",
+          "size": 2221320,
+          "width": 4080,
+          "height": 3072,
+          "ssim": 0.982,
+          "recipe": "webp:q80",
+          "source_size": 6471983,
+          "generated_at": "2026-08-18T19:14:10.796Z"
+        }
+      }
     },
     "ddcb00fc-0307-490d-96b2-ca8921a11188": {
       "file_name": "PXL_20260324_202611333.MP.jpg",
@@ -534,7 +1158,19 @@
       "size": 4560881,
       "created_at": "2026-06-30T07:16:34.383Z",
       "width": 4080,
-      "height": 3072
+      "height": 3072,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260324_202611333.MP.webp",
+          "size": 882476,
+          "width": 4080,
+          "height": 3072,
+          "ssim": 0.989,
+          "recipe": "webp:q80",
+          "source_size": 4560881,
+          "generated_at": "2026-08-18T19:14:11.173Z"
+        }
+      }
     },
     "e3085d5b-7ef1-492b-a56b-ffc4463433ff": {
       "file_name": "PXL_20260325_194731260.MP.jpg",
@@ -545,7 +1181,19 @@
       "size": 6903344,
       "created_at": "2026-06-30T07:16:35.755Z",
       "width": 4080,
-      "height": 3072
+      "height": 3072,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260325_194731260.MP.webp",
+          "size": 2839730,
+          "width": 4080,
+          "height": 3072,
+          "ssim": 0.98,
+          "recipe": "webp:q80",
+          "source_size": 6903344,
+          "generated_at": "2026-08-18T19:14:11.733Z"
+        }
+      }
     },
     "b63f49ef-f98c-4afd-a7e2-a6e04bd3333c": {
       "file_name": "PXL_20260325_192829132.MP.jpg",
@@ -556,7 +1204,19 @@
       "size": 6803697,
       "created_at": "2026-06-30T07:16:37.200Z",
       "width": 4080,
-      "height": 3072
+      "height": 3072,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260325_192829132.MP.webp",
+          "size": 2780722,
+          "width": 4080,
+          "height": 3072,
+          "ssim": 0.977,
+          "recipe": "webp:q80",
+          "source_size": 6803697,
+          "generated_at": "2026-08-18T19:14:12.613Z"
+        }
+      }
     },
     "76a70fe4-123a-4718-b182-a235f7de940f": {
       "file_name": "PXL_20260325_165043798.MP.jpg",
@@ -567,7 +1227,19 @@
       "size": 7225549,
       "created_at": "2026-06-30T07:16:38.646Z",
       "width": 3072,
-      "height": 4080
+      "height": 4080,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260325_165043798.MP.webp",
+          "size": 2842254,
+          "width": 3072,
+          "height": 4080,
+          "ssim": 0.959,
+          "recipe": "webp:q80",
+          "source_size": 7225549,
+          "generated_at": "2026-08-18T19:14:13.141Z"
+        }
+      }
     },
     "4e371527-e427-4e15-89e5-9701eb4deafd": {
       "file_name": "PXL_20260326_002136098.MP.jpg",
@@ -578,7 +1250,19 @@
       "size": 6485463,
       "created_at": "2026-06-30T07:16:39.718Z",
       "width": 3648,
-      "height": 2736
+      "height": 2736,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260326_002136098.MP.webp",
+          "size": 1436922,
+          "width": 3648,
+          "height": 2736,
+          "ssim": 0.985,
+          "recipe": "webp:q80",
+          "source_size": 6485463,
+          "generated_at": "2026-08-18T19:14:13.101Z"
+        }
+      }
     },
     "96c3a325-5f31-4840-8591-5eab97e679e3": {
       "file_name": "PXL_20260325_234820424.MP.jpg",
@@ -589,7 +1273,19 @@
       "size": 2659227,
       "created_at": "2026-06-30T07:16:40.723Z",
       "width": 3072,
-      "height": 4080
+      "height": 4080,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260325_234820424.MP.webp",
+          "size": 440530,
+          "width": 3072,
+          "height": 4080,
+          "ssim": 0.994,
+          "recipe": "webp:q80",
+          "source_size": 2659227,
+          "generated_at": "2026-08-18T19:14:13.816Z"
+        }
+      }
     },
     "53d873dd-7d6c-446e-8ca5-61332ce814c9": {
       "file_name": "columbia_gorge.jpg",
@@ -600,7 +1296,19 @@
       "size": 4978186,
       "created_at": "2026-06-30T07:16:41.812Z",
       "width": 4080,
-      "height": 3072
+      "height": 3072,
+      "derived": {
+        "web": {
+          "file_name": "columbia_gorge.webp",
+          "size": 1359072,
+          "width": 4080,
+          "height": 3072,
+          "ssim": 0.985,
+          "recipe": "webp:q80",
+          "source_size": 4978186,
+          "generated_at": "2026-08-18T19:14:14.473Z"
+        }
+      }
     },
     "c4d00d6e-5a8c-4400-9cba-0a2c896d42ba": {
       "file_name": "PXL_20260326_170925106.MP.jpg",
@@ -611,7 +1319,19 @@
       "size": 6096652,
       "created_at": "2026-06-30T07:16:42.624Z",
       "width": 4080,
-      "height": 3072
+      "height": 3072,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260326_170925106.MP.webp",
+          "size": 2112830,
+          "width": 4080,
+          "height": 3072,
+          "ssim": 0.975,
+          "recipe": "webp:q80",
+          "source_size": 6096652,
+          "generated_at": "2026-08-18T19:14:14.687Z"
+        }
+      }
     },
     "3c40871b-e36e-49eb-93e1-3b845c8de813": {
       "file_name": "PXL_20260326_183037735.MP.jpg",
@@ -622,7 +1342,19 @@
       "size": 5627576,
       "created_at": "2026-06-30T07:16:43.618Z",
       "width": 4080,
-      "height": 3072
+      "height": 3072,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260326_183037735.MP.webp",
+          "size": 2365962,
+          "width": 4080,
+          "height": 3072,
+          "ssim": 0.976,
+          "recipe": "webp:q80",
+          "source_size": 5627576,
+          "generated_at": "2026-08-18T19:14:15.463Z"
+        }
+      }
     },
     "36f0d0ac-bfec-4ca8-bdce-210241868171": {
       "file_name": "PXL_20260326_211313094.MP.jpg",
@@ -633,7 +1365,19 @@
       "size": 4167751,
       "created_at": "2026-06-30T07:16:44.449Z",
       "width": 3072,
-      "height": 4080
+      "height": 4080,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260326_211313094.MP.webp",
+          "size": 384466,
+          "width": 3072,
+          "height": 4080,
+          "ssim": 0.991,
+          "recipe": "webp:q80",
+          "source_size": 4167751,
+          "generated_at": "2026-08-18T19:14:15.582Z"
+        }
+      }
     },
     "644b1864-05f5-4198-9293-53c348b59134": {
       "file_name": "PXL_20250730_122945749.MP.jpg",
@@ -644,7 +1388,19 @@
       "size": 5074818,
       "created_at": "2026-06-30T21:24:25.134Z",
       "width": 3072,
-      "height": 4080
+      "height": 4080,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20250730_122945749.MP.webp",
+          "size": 2017928,
+          "width": 3072,
+          "height": 4080,
+          "ssim": 0.986,
+          "recipe": "webp:q80",
+          "source_size": 5074818,
+          "generated_at": "2026-08-18T19:14:16.352Z"
+        }
+      }
     },
     "f7790900-4196-43df-93b9-48ac619d780d": {
       "file_name": "PXL_20250802_133546248.MP.jpg",
@@ -655,7 +1411,19 @@
       "size": 3046313,
       "created_at": "2026-06-30T21:24:25.846Z",
       "width": 4080,
-      "height": 3072
+      "height": 3072,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20250802_133546248.MP.webp",
+          "size": 386652,
+          "width": 4080,
+          "height": 3072,
+          "ssim": 0.989,
+          "recipe": "webp:q80",
+          "source_size": 3046313,
+          "generated_at": "2026-08-18T19:14:16.640Z"
+        }
+      }
     },
     "5bcf2e9e-6ff7-4341-943f-4ad260e375a4": {
       "file_name": "PXL_20250802_104916204.MP.jpg",
@@ -666,7 +1434,19 @@
       "size": 5032874,
       "created_at": "2026-06-30T21:24:26.868Z",
       "width": 3072,
-      "height": 4080
+      "height": 4080,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20250802_104916204.MP.webp",
+          "size": 1272780,
+          "width": 3072,
+          "height": 4080,
+          "ssim": 0.981,
+          "recipe": "webp:q80",
+          "source_size": 5032874,
+          "generated_at": "2026-08-18T19:14:17.003Z"
+        }
+      }
     },
     "23c1417e-5917-415f-977d-84afc09351ff": {
       "file_name": "deathstart_after_3.jpg",
@@ -677,7 +1457,19 @@
       "size": 247507,
       "created_at": "2026-07-09T23:40:50.265Z",
       "width": 1508,
-      "height": 2004
+      "height": 2004,
+      "derived": {
+        "web": {
+          "file_name": "deathstart_after_3.webp",
+          "size": 102774,
+          "width": 1508,
+          "height": 2004,
+          "ssim": 0.993,
+          "recipe": "webp:q80",
+          "source_size": 247507,
+          "generated_at": "2026-08-18T19:14:16.662Z"
+        }
+      }
     },
     "06b78323-e991-4690-bc67-cca1aafa754c": {
       "file_name": "PXL_20260608_214937961.MP.jpg",
@@ -688,7 +1480,19 @@
       "size": 3722185,
       "created_at": "2026-07-14T04:45:34.857Z",
       "width": 3072,
-      "height": 4080
+      "height": 4080,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260608_214937961.MP.webp",
+          "size": 639884,
+          "width": 3072,
+          "height": 4080,
+          "ssim": 0.991,
+          "recipe": "webp:q80",
+          "source_size": 3722185,
+          "generated_at": "2026-08-18T19:14:17.928Z"
+        }
+      }
     },
     "89938fa5-e091-415a-9cd5-ad2008f3be40": {
       "file_name": "PXL_20260608_220034155.MP.jpg",
@@ -699,7 +1503,19 @@
       "size": 4150054,
       "created_at": "2026-07-14T04:45:35.898Z",
       "width": 3072,
-      "height": 4080
+      "height": 4080,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260608_220034155.MP.webp",
+          "size": 921194,
+          "width": 3072,
+          "height": 4080,
+          "ssim": 0.988,
+          "recipe": "webp:q80",
+          "source_size": 4150054,
+          "generated_at": "2026-08-18T19:14:18.014Z"
+        }
+      }
     },
     "a23cfa64-cf6e-47f2-ae3f-bfb297160785": {
       "file_name": "PXL_20260608_220025464.MP.jpg",
@@ -710,7 +1526,19 @@
       "size": 2729400,
       "created_at": "2026-07-14T04:45:36.556Z",
       "width": 3072,
-      "height": 4080
+      "height": 4080,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260608_220025464.MP.webp",
+          "size": 654736,
+          "width": 3072,
+          "height": 4080,
+          "ssim": 0.991,
+          "recipe": "webp:q80",
+          "source_size": 2729400,
+          "generated_at": "2026-08-18T19:14:18.290Z"
+        }
+      }
     },
     "6b0a338e-747e-4e0c-92be-9e5e27af03cd": {
       "file_name": "PXL_20260628_063632611.MP.jpg",
@@ -721,7 +1549,19 @@
       "size": 2855708,
       "created_at": "2026-07-14T04:45:38.256Z",
       "width": 3072,
-      "height": 4080
+      "height": 4080,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260628_063632611.MP.webp",
+          "size": 587360,
+          "width": 3072,
+          "height": 4080,
+          "ssim": 0.99,
+          "recipe": "webp:q80",
+          "source_size": 2855708,
+          "generated_at": "2026-08-18T19:14:19.143Z"
+        }
+      }
     },
     "c31428bd-069a-4cee-be6e-8edba8a15837": {
       "file_name": "PXL_20260519_054457618.MP.jpg",
@@ -732,7 +1572,19 @@
       "size": 4074494,
       "created_at": "2026-08-18T01:08:42.466Z",
       "width": 3072,
-      "height": 4080
+      "height": 4080,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260519_054457618.MP.webp",
+          "size": 992880,
+          "width": 3072,
+          "height": 4080,
+          "ssim": 0.987,
+          "recipe": "webp:q80",
+          "source_size": 4074494,
+          "generated_at": "2026-08-18T19:14:19.366Z"
+        }
+      }
     },
     "e91d0f5b-50d4-4d12-bbcd-6682df318142": {
       "file_name": "PXL_20260516_190839205.MP.jpg",
@@ -743,7 +1595,19 @@
       "size": 5049258,
       "created_at": "2026-08-18T01:08:44.298Z",
       "width": 3072,
-      "height": 4080
+      "height": 4080,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260516_190839205.MP.webp",
+          "size": 919050,
+          "width": 3072,
+          "height": 4080,
+          "ssim": 0.987,
+          "recipe": "webp:q80",
+          "source_size": 5049258,
+          "generated_at": "2026-08-18T19:14:19.701Z"
+        }
+      }
     },
     "401a6e80-2603-42b8-a0c1-f477fb3136b8": {
       "file_name": "PXL_20260516_180408736.jpg",
@@ -754,7 +1618,19 @@
       "size": 1612601,
       "created_at": "2026-08-18T01:08:45.618Z",
       "width": 3072,
-      "height": 4080
+      "height": 4080,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260516_180408736.webp",
+          "size": 618968,
+          "width": 3072,
+          "height": 4080,
+          "ssim": 0.991,
+          "recipe": "webp:q80",
+          "source_size": 1612601,
+          "generated_at": "2026-08-18T19:14:20.387Z"
+        }
+      }
     },
     "0f78619c-7f11-4b2e-8acd-3174f50b8ff4": {
       "file_name": "PXL_20260519_234941656.MP.jpg",
@@ -765,7 +1641,19 @@
       "size": 6101650,
       "created_at": "2026-08-18T01:08:47.966Z",
       "width": 3072,
-      "height": 4080
+      "height": 4080,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260519_234941656.MP.webp",
+          "size": 2640162,
+          "width": 3072,
+          "height": 4080,
+          "ssim": 0.977,
+          "recipe": "webp:q80",
+          "source_size": 6101650,
+          "generated_at": "2026-08-18T19:14:21.252Z"
+        }
+      }
     },
     "51439f8e-fd01-4c66-bced-d7367feec7ee": {
       "file_name": "PXL_20260520_232827962.MP.jpg",
@@ -776,7 +1664,19 @@
       "size": 3322644,
       "created_at": "2026-08-18T01:08:49.372Z",
       "width": 3648,
-      "height": 2736
+      "height": 2736,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260520_232827962.MP.webp",
+          "size": 698040,
+          "width": 3648,
+          "height": 2736,
+          "ssim": 0.992,
+          "recipe": "webp:q80",
+          "source_size": 3322644,
+          "generated_at": "2026-08-18T19:14:20.814Z"
+        }
+      }
     },
     "ff69a003-8af6-4db3-9956-96200db9d626": {
       "file_name": "PXL_20260521_063043063.MP.jpg",
@@ -787,7 +1687,19 @@
       "size": 4718875,
       "created_at": "2026-08-18T01:08:51.044Z",
       "width": 3072,
-      "height": 4080
+      "height": 4080,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260521_063043063.MP.webp",
+          "size": 996030,
+          "width": 3072,
+          "height": 4080,
+          "ssim": 0.98,
+          "recipe": "webp:q80",
+          "source_size": 4718875,
+          "generated_at": "2026-08-18T19:14:21.798Z"
+        }
+      }
     },
     "5aee175a-8d0f-4532-9cc1-963d3964ce48": {
       "file_name": "PXL_20260524_091220394.MP.jpg",
@@ -798,7 +1710,19 @@
       "size": 6053409,
       "created_at": "2026-08-18T01:08:53.324Z",
       "width": 3072,
-      "height": 4080
+      "height": 4080,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260524_091220394.MP.webp",
+          "size": 2666548,
+          "width": 3072,
+          "height": 4080,
+          "ssim": 0.961,
+          "recipe": "webp:q80",
+          "source_size": 6053409,
+          "generated_at": "2026-08-18T19:14:22.703Z"
+        }
+      }
     },
     "8cfb9ed7-21ef-4ed6-a7fe-cb352a447b98": {
       "file_name": "PXL_20260526_035529487.MP.jpg",
@@ -809,7 +1733,19 @@
       "size": 4687492,
       "created_at": "2026-08-18T01:08:55.013Z",
       "width": 3648,
-      "height": 2736
+      "height": 2736,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260526_035529487.MP.webp",
+          "size": 903072,
+          "width": 3648,
+          "height": 2736,
+          "ssim": 0.991,
+          "recipe": "webp:q80",
+          "source_size": 4687492,
+          "generated_at": "2026-08-18T19:14:22.440Z"
+        }
+      }
     },
     "fa8bbbaf-a61e-4a4c-9289-d03e2babed13": {
       "file_name": "PXL_20260526_055212287.MP.jpg",
@@ -820,7 +1756,19 @@
       "size": 5974487,
       "created_at": "2026-08-18T01:08:56.901Z",
       "width": 3072,
-      "height": 4080
+      "height": 4080,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260526_055212287.MP.webp",
+          "size": 2817040,
+          "width": 3072,
+          "height": 4080,
+          "ssim": 0.965,
+          "recipe": "webp:q80",
+          "source_size": 5974487,
+          "generated_at": "2026-08-18T19:14:23.713Z"
+        }
+      }
     },
     "d4c2badc-00a2-4c98-8c7b-7ccff672ffc9": {
       "file_name": "PXL_20260528_235715110.MP.jpg",
@@ -831,7 +1779,19 @@
       "size": 5626194,
       "created_at": "2026-08-18T01:08:59.508Z",
       "width": 3072,
-      "height": 4080
+      "height": 4080,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260528_235715110.MP.webp",
+          "size": 2141216,
+          "width": 3072,
+          "height": 4080,
+          "ssim": 0.976,
+          "recipe": "webp:q80",
+          "source_size": 5626194,
+          "generated_at": "2026-08-18T19:14:24.219Z"
+        }
+      }
     },
     "0294c404-e1ca-43d3-b016-946483127de2": {
       "file_name": "PXL_20260531_042553264.MP.jpg",
@@ -842,7 +1802,19 @@
       "size": 3637731,
       "created_at": "2026-08-18T01:09:01.020Z",
       "width": 3072,
-      "height": 4080
+      "height": 4080,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260531_042553264.MP.webp",
+          "size": 692044,
+          "width": 3072,
+          "height": 4080,
+          "ssim": 0.986,
+          "recipe": "webp:q80",
+          "source_size": 3637731,
+          "generated_at": "2026-08-18T19:14:23.992Z"
+        }
+      }
     },
     "351999ea-55d5-4cdb-96f9-90731d6d5242": {
       "file_name": "PXL_20260531_133140477.MP.jpg",
@@ -853,7 +1825,19 @@
       "size": 4030637,
       "created_at": "2026-08-18T01:09:02.668Z",
       "width": 3072,
-      "height": 4080
+      "height": 4080,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260531_133140477.MP.webp",
+          "size": 284908,
+          "width": 3072,
+          "height": 4080,
+          "ssim": 0.994,
+          "recipe": "webp:q80",
+          "source_size": 4030637,
+          "generated_at": "2026-08-18T19:14:24.798Z"
+        }
+      }
     },
     "0ece8798-e5d4-488c-bc62-8e2c5fc46a89": {
       "file_name": "IMG_20260601_140614_065.jpg",
@@ -864,7 +1848,19 @@
       "size": 180346,
       "created_at": "2026-08-18T01:09:03.124Z",
       "width": 1180,
-      "height": 1572
+      "height": 1572,
+      "derived": {
+        "web": {
+          "file_name": "IMG_20260601_140614_065.webp",
+          "size": 141872,
+          "width": 1180,
+          "height": 1572,
+          "ssim": 0.993,
+          "recipe": "webp:q80",
+          "source_size": 180346,
+          "generated_at": "2026-08-18T19:14:24.246Z"
+        }
+      }
     },
     "3cca433e-dc1e-43e1-9e04-bdd5395efe42": {
       "file_name": "PXL_20260604_022039946.MP.jpg",
@@ -875,7 +1871,19 @@
       "size": 4712158,
       "created_at": "2026-08-18T01:09:05.168Z",
       "width": 3072,
-      "height": 4080
+      "height": 4080,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260604_022039946.MP.webp",
+          "size": 1203242,
+          "width": 3072,
+          "height": 4080,
+          "ssim": 0.976,
+          "recipe": "webp:q80",
+          "source_size": 4712158,
+          "generated_at": "2026-08-18T19:14:25.724Z"
+        }
+      }
     },
     "827fff6c-5f39-449f-bdf9-fcc1db4f27dc": {
       "file_name": "PXL_20260603_103734722.MP.jpg",
@@ -886,7 +1894,19 @@
       "size": 5096547,
       "created_at": "2026-08-18T01:09:07.123Z",
       "width": 4080,
-      "height": 3072
+      "height": 3072,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260603_103734722.MP.webp",
+          "size": 2142936,
+          "width": 4080,
+          "height": 3072,
+          "ssim": 0.962,
+          "recipe": "webp:q80",
+          "source_size": 5096547,
+          "generated_at": "2026-08-18T19:14:25.996Z"
+        }
+      }
     },
     "36995ab8-550d-4234-948c-dadfbfe86909": {
       "file_name": "IMG_20260606_065628.jpg",
@@ -897,7 +1917,847 @@
       "size": 3369358,
       "created_at": "2026-08-18T01:09:08.994Z",
       "width": 3455,
-      "height": 4607
+      "height": 4607,
+      "derived": {
+        "web": {
+          "file_name": "IMG_20260606_065628.webp",
+          "size": 1148922,
+          "width": 3455,
+          "height": 4607,
+          "ssim": 0.966,
+          "recipe": "webp:q80",
+          "source_size": 3369358,
+          "generated_at": "2026-08-18T19:14:26.494Z"
+        }
+      }
+    },
+    "5a9b9921-b749-450e-ae73-f78bb3dc1c70": {
+      "file_name": "PXL_20220902_175617108.MP.jpg",
+      "classes": [
+        "travel"
+      ],
+      "missing": false,
+      "size": 3538488,
+      "created_at": "2026-08-18T21:35:44.590Z",
+      "width": 4032,
+      "height": 2268,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20220902_175617108.MP.webp",
+          "size": 532824,
+          "width": 4032,
+          "height": 2268,
+          "ssim": 0.987,
+          "recipe": "webp:q80",
+          "source_size": 3538488,
+          "generated_at": "2026-08-18T21:35:54.603Z"
+        }
+      }
+    },
+    "157f2c48-23f5-4c6d-b780-ec510d3863ff": {
+      "file_name": "PXL_20220903_160755024.jpg",
+      "classes": [
+        "travel"
+      ],
+      "missing": false,
+      "size": 1796392,
+      "created_at": "2026-08-18T21:35:45.418Z",
+      "width": 3840,
+      "height": 2160,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20220903_160755024.webp",
+          "size": 423994,
+          "width": 3840,
+          "height": 2160,
+          "ssim": 0.994,
+          "recipe": "webp:q80",
+          "source_size": 1796392,
+          "generated_at": "2026-08-18T21:35:54.530Z"
+        }
+      }
+    },
+    "89b18651-6b44-4327-b891-95e00c87f061": {
+      "file_name": "PXL_20220903_164335687.jpg",
+      "classes": [
+        "travel"
+      ],
+      "missing": false,
+      "size": 2814125,
+      "created_at": "2026-08-18T21:35:46.532Z",
+      "width": 4032,
+      "height": 2268,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20220903_164335687.webp",
+          "size": 1162258,
+          "width": 4032,
+          "height": 2268,
+          "ssim": 0.983,
+          "recipe": "webp:q80",
+          "source_size": 2814125,
+          "generated_at": "2026-08-18T21:35:54.810Z"
+        }
+      }
+    },
+    "73cc837e-2902-4172-9a5f-7caf8fb7802e": {
+      "file_name": "IMG-20220906-WA0002.jpg",
+      "classes": [
+        "travel"
+      ],
+      "missing": false,
+      "size": 362461,
+      "created_at": "2026-08-18T21:35:46.885Z",
+      "width": 1200,
+      "height": 1600,
+      "derived": {
+        "web": {
+          "file_name": "IMG-20220906-WA0002.webp",
+          "size": 337998,
+          "width": 1200,
+          "height": 1600,
+          "ssim": 0.984,
+          "recipe": "webp:q80",
+          "source_size": 362461,
+          "generated_at": "2026-08-18T21:35:54.935Z"
+        }
+      }
+    },
+    "af70d814-6e07-4370-b797-e4bc3dc96471": {
+      "file_name": "PXL_20220907_081654228.jpg",
+      "classes": [
+        "travel"
+      ],
+      "missing": false,
+      "size": 2872592,
+      "created_at": "2026-08-18T21:35:47.926Z",
+      "width": 4032,
+      "height": 2268,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20220907_081654228.webp",
+          "size": 1172778,
+          "width": 4032,
+          "height": 2268,
+          "ssim": 0.985,
+          "recipe": "webp:q80",
+          "source_size": 2872592,
+          "generated_at": "2026-08-18T21:35:56.286Z"
+        }
+      }
+    },
+    "0f1eea05-4201-49ef-8cd6-62e9ce6bb7ff": {
+      "file_name": "PXL_20220908_093924711.jpg",
+      "classes": [
+        "travel"
+      ],
+      "missing": false,
+      "size": 4091648,
+      "created_at": "2026-08-18T21:35:49.373Z",
+      "width": 4032,
+      "height": 2268,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20220908_093924711.webp",
+          "size": 1983170,
+          "width": 4032,
+          "height": 2268,
+          "ssim": 0.985,
+          "recipe": "webp:q80",
+          "source_size": 4091648,
+          "generated_at": "2026-08-18T21:35:57.018Z"
+        }
+      }
+    },
+    "36ebcb83-5653-47ed-ac50-199640322b83": {
+      "file_name": "PXL_20220910_123226467.jpg",
+      "classes": [
+        "travel"
+      ],
+      "missing": false,
+      "size": 3155005,
+      "created_at": "2026-08-18T21:35:50.717Z",
+      "width": 2268,
+      "height": 4032,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20220910_123226467.webp",
+          "size": 1246670,
+          "width": 2268,
+          "height": 4032,
+          "ssim": 0.987,
+          "recipe": "webp:q80",
+          "source_size": 3155005,
+          "generated_at": "2026-08-18T21:35:56.796Z"
+        }
+      }
+    },
+    "16b2cb2f-4550-420c-aaba-85e3d1ce2d6e": {
+      "file_name": "PXL_20220913_084531556.MP.jpg",
+      "classes": [
+        "travel"
+      ],
+      "missing": false,
+      "size": 6654679,
+      "created_at": "2026-08-18T21:35:52.366Z",
+      "width": 2268,
+      "height": 4032,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20220913_084531556.MP.webp",
+          "size": 1655270,
+          "width": 2268,
+          "height": 4032,
+          "ssim": 0.984,
+          "recipe": "webp:q80",
+          "source_size": 6654679,
+          "generated_at": "2026-08-18T21:35:58.283Z"
+        }
+      }
+    },
+    "9b856232-d065-44e9-ab2f-0c84fd3b1d73": {
+      "file_name": "PXL_20240406_183605278.MP.jpg",
+      "classes": [
+        "travel"
+      ],
+      "missing": false,
+      "size": 4917008,
+      "created_at": "2026-08-18T21:37:44.150Z",
+      "width": 2268,
+      "height": 4032,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20240406_183605278.MP.webp",
+          "size": 1779358,
+          "width": 2268,
+          "height": 4032,
+          "ssim": 0.974,
+          "recipe": "webp:q80",
+          "source_size": 4917008,
+          "generated_at": "2026-08-18T21:37:50.724Z"
+        }
+      }
+    },
+    "f7d4b4de-03d6-4192-a0eb-2c674d91e6db": {
+      "file_name": "PXL_20240408_153841679.MP.jpg",
+      "classes": [
+        "travel"
+      ],
+      "missing": false,
+      "size": 6033218,
+      "created_at": "2026-08-18T21:37:45.651Z",
+      "width": 4032,
+      "height": 2268,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20240408_153841679.MP.webp",
+          "size": 2559866,
+          "width": 4032,
+          "height": 2268,
+          "ssim": 0.96,
+          "recipe": "webp:q80",
+          "source_size": 6033218,
+          "generated_at": "2026-08-18T21:37:50.719Z"
+        }
+      }
+    },
+    "710a01cd-3374-441c-804b-3d955e6283b8": {
+      "file_name": "IMG-20240408-WA0000.jpg",
+      "classes": [
+        "travel"
+      ],
+      "missing": false,
+      "size": 65421,
+      "created_at": "2026-08-18T21:37:45.809Z",
+      "width": 1536,
+      "height": 2040,
+      "derived": {
+        "web": {
+          "file_name": "IMG-20240408-WA0000.webp",
+          "size": 46456,
+          "width": 1536,
+          "height": 2040,
+          "ssim": 0.988,
+          "recipe": "webp:q80",
+          "source_size": 65421,
+          "generated_at": "2026-08-18T21:37:48.868Z"
+        }
+      }
+    },
+    "9de29d65-665f-4fda-9223-b80694937b29": {
+      "file_name": "IMG-20240409-WA0000.jpg",
+      "classes": [
+        "travel"
+      ],
+      "missing": false,
+      "size": 296539,
+      "created_at": "2026-08-18T21:37:46.124Z",
+      "width": 1204,
+      "height": 1600,
+      "derived": {
+        "web": {
+          "file_name": "IMG-20240409-WA0000.webp",
+          "size": 236364,
+          "width": 1204,
+          "height": 1600,
+          "ssim": 0.988,
+          "recipe": "webp:q80",
+          "source_size": 296539,
+          "generated_at": "2026-08-18T21:37:49.414Z"
+        }
+      }
+    },
+    "c54a657c-8067-4b82-8aa5-3c2094ed574a": {
+      "file_name": "PXL_20240409_193750777.MP.jpg",
+      "classes": [
+        "travel"
+      ],
+      "missing": false,
+      "size": 4337027,
+      "created_at": "2026-08-18T21:37:47.488Z",
+      "width": 2268,
+      "height": 4032,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20240409_193750777.MP.webp",
+          "size": 1052720,
+          "width": 2268,
+          "height": 4032,
+          "ssim": 0.988,
+          "recipe": "webp:q80",
+          "source_size": 4337027,
+          "generated_at": "2026-08-18T21:37:51.127Z"
+        }
+      }
+    },
+    "dc33aea4-5e88-4b7b-9567-97e08cf681e0": {
+      "file_name": "IMG-20240410-WA0005.jpg",
+      "classes": [
+        "travel"
+      ],
+      "missing": false,
+      "size": 238109,
+      "created_at": "2026-08-18T21:37:47.756Z",
+      "width": 1600,
+      "height": 1198,
+      "derived": {
+        "web": {
+          "file_name": "IMG-20240410-WA0005.webp",
+          "size": 172134,
+          "width": 1600,
+          "height": 1198,
+          "ssim": 0.992,
+          "recipe": "webp:q80",
+          "source_size": 238109,
+          "generated_at": "2026-08-18T21:37:51.062Z"
+        }
+      }
+    },
+    "d52f6ba0-28ee-41d6-892f-ca827b045857": {
+      "file_name": "PXL_20260406_095547946.MP.jpg",
+      "classes": [
+        "travel"
+      ],
+      "missing": false,
+      "size": 5544482,
+      "created_at": "2026-08-18T21:50:52.099Z",
+      "width": 4080,
+      "height": 3072,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260406_095547946.MP.webp",
+          "size": 1624530,
+          "width": 4080,
+          "height": 3072,
+          "ssim": 0.982,
+          "recipe": "webp:q80",
+          "source_size": 5544482,
+          "generated_at": "2026-08-18T21:51:21.488Z"
+        }
+      }
+    },
+    "5f9f6e3c-f837-4d68-ae19-6acecb65700f": {
+      "file_name": "PXL_20260408_115503427.MP.jpg",
+      "classes": [
+        "travel"
+      ],
+      "missing": false,
+      "size": 5052257,
+      "created_at": "2026-08-18T21:50:54.188Z",
+      "width": 3072,
+      "height": 4080,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260408_115503427.MP.webp",
+          "size": 2014034,
+          "width": 3072,
+          "height": 4080,
+          "ssim": 0.973,
+          "recipe": "webp:q80",
+          "source_size": 5052257,
+          "generated_at": "2026-08-18T21:51:21.647Z"
+        }
+      }
+    },
+    "3d3524f1-4125-4362-a5bc-84a242d8702b": {
+      "file_name": "PXL_20260408_182325638.MP.jpg",
+      "classes": [
+        "travel"
+      ],
+      "missing": false,
+      "size": 4599977,
+      "created_at": "2026-08-18T21:50:55.606Z",
+      "width": 4080,
+      "height": 3072,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260408_182325638.MP.webp",
+          "size": 1178074,
+          "width": 4080,
+          "height": 3072,
+          "ssim": 0.983,
+          "recipe": "webp:q80",
+          "source_size": 4599977,
+          "generated_at": "2026-08-18T21:51:21.192Z"
+        }
+      }
+    },
+    "bcd3b4f6-8200-4ca9-826d-421c7cf65971": {
+      "file_name": "PXL_20260413_114103101.jpg",
+      "classes": [
+        "travel"
+      ],
+      "missing": false,
+      "size": 3220389,
+      "created_at": "2026-08-18T21:50:56.856Z",
+      "width": 3072,
+      "height": 4080,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260413_114103101.webp",
+          "size": 1816448,
+          "width": 3072,
+          "height": 4080,
+          "ssim": 0.981,
+          "recipe": "webp:q80",
+          "source_size": 3220389,
+          "generated_at": "2026-08-18T21:51:23.944Z"
+        }
+      }
+    },
+    "850ceb2e-0706-4531-9029-e9253b569d69": {
+      "file_name": "PXL_20260415_101626891.MP.jpg",
+      "classes": [
+        "travel"
+      ],
+      "missing": false,
+      "size": 4732247,
+      "created_at": "2026-08-18T21:50:58.526Z",
+      "width": 4080,
+      "height": 3072,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260415_101626891.MP.webp",
+          "size": 1341550,
+          "width": 4080,
+          "height": 3072,
+          "ssim": 0.983,
+          "recipe": "webp:q80",
+          "source_size": 4732247,
+          "generated_at": "2026-08-18T21:51:24.147Z"
+        }
+      }
+    },
+    "cd37c62d-caea-497a-8630-0ec4874e6517": {
+      "file_name": "PXL_20260416_094659282.MP.jpg",
+      "classes": [
+        "travel"
+      ],
+      "missing": false,
+      "size": 4029534,
+      "created_at": "2026-08-18T21:50:59.959Z",
+      "width": 3072,
+      "height": 4080,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260416_094659282.MP.webp",
+          "size": 358330,
+          "width": 3072,
+          "height": 4080,
+          "ssim": 0.991,
+          "recipe": "webp:q80",
+          "source_size": 4029534,
+          "generated_at": "2026-08-18T21:51:23.354Z"
+        }
+      }
+    },
+    "26526d6b-633a-476c-b0bc-89720cc1d438": {
+      "file_name": "PXL_20260417_173741276.MP.jpg",
+      "classes": [
+        "travel"
+      ],
+      "missing": false,
+      "size": 8492446,
+      "created_at": "2026-08-18T21:51:02.204Z",
+      "width": 4080,
+      "height": 3072,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260417_173741276.MP.webp",
+          "size": 3953486,
+          "width": 4080,
+          "height": 3072,
+          "ssim": 0.973,
+          "recipe": "webp:q80",
+          "source_size": 8492446,
+          "generated_at": "2026-08-18T21:51:27.141Z"
+        }
+      }
+    },
+    "308ddd62-7ea7-4367-96bb-bd290c5f67bf": {
+      "file_name": "PXL_20260418_185632315.MP.jpg",
+      "classes": [
+        "travel"
+      ],
+      "missing": false,
+      "size": 5418673,
+      "created_at": "2026-08-18T21:51:04.244Z",
+      "width": 3072,
+      "height": 4080,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260418_185632315.MP.webp",
+          "size": 2469118,
+          "width": 3072,
+          "height": 4080,
+          "ssim": 0.973,
+          "recipe": "webp:q80",
+          "source_size": 5418673,
+          "generated_at": "2026-08-18T21:51:26.592Z"
+        }
+      }
+    },
+    "d813b4bd-c509-434f-bc82-402ec5583783": {
+      "file_name": "PXL_20260421_015759288.MP.jpg",
+      "classes": [
+        "travel"
+      ],
+      "missing": false,
+      "size": 4236234,
+      "created_at": "2026-08-18T21:51:05.899Z",
+      "width": 3072,
+      "height": 4080,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260421_015759288.MP.webp",
+          "size": 1151680,
+          "width": 3072,
+          "height": 4080,
+          "ssim": 0.984,
+          "recipe": "webp:q80",
+          "source_size": 4236234,
+          "generated_at": "2026-08-18T21:51:26.287Z"
+        }
+      }
+    },
+    "6fe48a06-d642-47eb-9549-4c8a310a92a8": {
+      "file_name": "PXL_20260423_170344966.MP.jpg",
+      "classes": [
+        "travel"
+      ],
+      "missing": false,
+      "size": 5068021,
+      "created_at": "2026-08-18T21:51:07.984Z",
+      "width": 4080,
+      "height": 3072,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260423_170344966.MP.webp",
+          "size": 2276412,
+          "width": 4080,
+          "height": 3072,
+          "ssim": 0.979,
+          "recipe": "webp:q80",
+          "source_size": 5068021,
+          "generated_at": "2026-08-18T21:51:28.621Z"
+        }
+      }
+    },
+    "03706dea-df9b-47d8-a8f7-d7b61e01e202": {
+      "file_name": "PXL_20260423_125720951.MP.jpg",
+      "classes": [
+        "travel"
+      ],
+      "missing": false,
+      "size": 6204066,
+      "created_at": "2026-08-18T21:51:10.387Z",
+      "width": 3072,
+      "height": 4080,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260423_125720951.MP.webp",
+          "size": 2202378,
+          "width": 3072,
+          "height": 4080,
+          "ssim": 0.979,
+          "recipe": "webp:q80",
+          "source_size": 6204066,
+          "generated_at": "2026-08-18T21:51:28.967Z"
+        }
+      }
+    },
+    "5e418126-5d32-42dc-846c-505878b3c995": {
+      "file_name": "PXL_20260423_234236242.MP.jpg",
+      "classes": [
+        "travel"
+      ],
+      "missing": false,
+      "size": 3107604,
+      "created_at": "2026-08-18T21:51:11.863Z",
+      "width": 4080,
+      "height": 3072,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260423_234236242.MP.webp",
+          "size": 492472,
+          "width": 4080,
+          "height": 3072,
+          "ssim": 0.99,
+          "recipe": "webp:q80",
+          "source_size": 3107604,
+          "generated_at": "2026-08-18T21:51:28.750Z"
+        }
+      }
+    },
+    "9bebf774-bfd7-448b-8fbd-c84434bc52b2": {
+      "file_name": "PXL_20260425_111858674.MP.jpg",
+      "classes": [
+        "travel"
+      ],
+      "missing": false,
+      "size": 4661249,
+      "created_at": "2026-08-18T21:51:13.685Z",
+      "width": 4080,
+      "height": 3072,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260425_111858674.MP.webp",
+          "size": 1754468,
+          "width": 4080,
+          "height": 3072,
+          "ssim": 0.978,
+          "recipe": "webp:q80",
+          "source_size": 4661249,
+          "generated_at": "2026-08-18T21:51:30.680Z"
+        }
+      }
+    },
+    "6e073e16-a5ab-4820-951d-46fcc33a17d0": {
+      "file_name": "PXL_20260427_195500099.MP.jpg",
+      "classes": [
+        "travel"
+      ],
+      "missing": false,
+      "size": 4191668,
+      "created_at": "2026-08-18T21:51:15.047Z",
+      "width": 3072,
+      "height": 4080,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260427_195500099.MP.webp",
+          "size": 1227810,
+          "width": 3072,
+          "height": 4080,
+          "ssim": 0.972,
+          "recipe": "webp:q80",
+          "source_size": 4191668,
+          "generated_at": "2026-08-18T21:51:30.825Z"
+        }
+      }
+    },
+    "613a3903-92a9-4c8f-83f0-10638be7cba5": {
+      "file_name": "PXL_20260429_190005577.MP.jpg",
+      "classes": [
+        "travel"
+      ],
+      "missing": false,
+      "size": 3993069,
+      "created_at": "2026-08-18T21:51:16.424Z",
+      "width": 4080,
+      "height": 3072,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260429_190005577.MP.webp",
+          "size": 1017558,
+          "width": 4080,
+          "height": 3072,
+          "ssim": 0.984,
+          "recipe": "webp:q80",
+          "source_size": 3993069,
+          "generated_at": "2026-08-18T21:51:30.746Z"
+        }
+      }
+    },
+    "07635675-da3f-4305-871c-6a4fa7bbc48e": {
+      "file_name": "PXL_20260429_171726165.MP.jpg",
+      "classes": [
+        "travel"
+      ],
+      "missing": false,
+      "size": 4393515,
+      "created_at": "2026-08-18T21:51:18.326Z",
+      "width": 3072,
+      "height": 4080,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260429_171726165.MP.webp",
+          "size": 1272824,
+          "width": 3072,
+          "height": 4080,
+          "ssim": 0.987,
+          "recipe": "webp:q80",
+          "source_size": 4393515,
+          "generated_at": "2026-08-18T21:51:32.690Z"
+        }
+      }
+    },
+    "c66ac9ef-264a-4fba-800e-6eda1fbae1cb": {
+      "file_name": "PXL_20260718_171521393.MP.jpg",
+      "classes": [
+        "travel"
+      ],
+      "missing": false,
+      "size": 3954281,
+      "created_at": "2026-08-18T21:53:30.391Z",
+      "width": 3072,
+      "height": 4080,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260718_171521393.MP.webp",
+          "size": 690744,
+          "width": 3072,
+          "height": 4080,
+          "ssim": 0.99,
+          "recipe": "webp:q80",
+          "source_size": 3954281,
+          "generated_at": "2026-08-18T21:53:40.286Z"
+        }
+      }
+    },
+    "fdf1e57e-7ce3-47e3-80d7-b5bfd6b2e6ff": {
+      "file_name": "PXL_20260718_170610081.MP.jpg",
+      "classes": [
+        "travel"
+      ],
+      "missing": false,
+      "size": 5294855,
+      "created_at": "2026-08-18T21:53:31.976Z",
+      "width": 3072,
+      "height": 4080,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260718_170610081.MP.webp",
+          "size": 1849630,
+          "width": 3072,
+          "height": 4080,
+          "ssim": 0.978,
+          "recipe": "webp:q80",
+          "source_size": 5294855,
+          "generated_at": "2026-08-18T21:53:40.711Z"
+        }
+      }
+    },
+    "a789939c-b520-4d7f-a571-45ee4aa829c2": {
+      "file_name": "PXL_20260719_204712634.MP.jpg",
+      "classes": [
+        "travel"
+      ],
+      "missing": false,
+      "size": 5725661,
+      "created_at": "2026-08-18T21:53:33.569Z",
+      "width": 3072,
+      "height": 4080,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260719_204712634.MP.webp",
+          "size": 2827720,
+          "width": 3072,
+          "height": 4080,
+          "ssim": 0.965,
+          "recipe": "webp:q80",
+          "source_size": 5725661,
+          "generated_at": "2026-08-18T21:53:41.136Z"
+        }
+      }
+    },
+    "067da34b-9fa5-4775-8e12-37454e61166b": {
+      "file_name": "PXL_20260720_001318205.MP.jpg",
+      "classes": [
+        "travel"
+      ],
+      "missing": false,
+      "size": 5144453,
+      "created_at": "2026-08-18T21:53:35.040Z",
+      "width": 4080,
+      "height": 3072,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260720_001318205.MP.webp",
+          "size": 1940606,
+          "width": 4080,
+          "height": 3072,
+          "ssim": 0.977,
+          "recipe": "webp:q80",
+          "source_size": 5144453,
+          "generated_at": "2026-08-18T21:53:42.640Z"
+        }
+      }
+    },
+    "ebe5f107-6465-406f-b83e-97346e734bee": {
+      "file_name": "PXL_20260720_181202535.MP.jpg",
+      "classes": [
+        "travel"
+      ],
+      "missing": false,
+      "size": 2669856,
+      "created_at": "2026-08-18T21:53:36.299Z",
+      "width": 3072,
+      "height": 4080,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260720_181202535.MP.webp",
+          "size": 399090,
+          "width": 3072,
+          "height": 4080,
+          "ssim": 0.99,
+          "recipe": "webp:q80",
+          "source_size": 2669856,
+          "generated_at": "2026-08-18T21:53:42.303Z"
+        }
+      }
+    },
+    "857d25f3-53ba-4ab8-a92c-c861c94147f4": {
+      "file_name": "PXL_20260719_195156034.jpg",
+      "classes": [
+        "travel"
+      ],
+      "missing": false,
+      "size": 2480254,
+      "created_at": "2026-08-18T21:53:37.628Z",
+      "width": 3072,
+      "height": 4080,
+      "derived": {
+        "web": {
+          "file_name": "PXL_20260719_195156034.webp",
+          "size": 1474688,
+          "width": 3072,
+          "height": 4080,
+          "ssim": 0.979,
+          "recipe": "webp:q80",
+          "source_size": 2480254,
+          "generated_at": "2026-08-18T21:53:43.136Z"
+        }
+      }
     }
   }
 }
