@@ -51,11 +51,26 @@
           "defaultValue": false
         }
       }
+    },
+    "travel-writing": {
+      "displayName": "Travel Writing",
+      "schema": {
+        "title": {
+          "type": "string",
+          "removable": true
+        },
+        "trip": {
+          "type": "record",
+          "removable": true,
+          "recordType": "trips"
+        }
+      }
     }
   },
   "collectionOrder": [
     "home",
     "now",
-    "words"
+    "words",
+    "travel-writing"
   ]
 }

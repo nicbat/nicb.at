@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { ImageData } from "$lib/types";
   import { Masonry } from "@nicbat/svelte-masonry";
+  import ProgressiveImage from "$components/ProgressiveImage.svelte";
 
   let { images = [] }: { images?: ImageData[] } = $props();
   let selectedImage = $state<ImageData | null>(null);
@@ -63,11 +64,14 @@
     class="fixed inset-0 bg-overlay-light flex flex-col justify-center items-center z-50"
     onclick={closeLightbox}
   >
-    <!-- Full size: always the untouched original, never the compressed tile derivative. -->
-    <img
-      class="max-w-[90%] max-h-[90%] object-contain rounded-lg"
+    <!-- The tile's derivative is already cached, so it paints instantly; the untouched original
+         fades in over it as soon as it has downloaded. -->
+    <ProgressiveImage
       src={selectedImage.src}
+      thumb={selectedImage.thumb?.src}
       alt={selectedImage.alt}
+      class="max-w-[90vw] max-h-[90vh] object-contain"
+      imgClass="rounded-lg"
     />
     {#if selectedImage.caption}
       <p class="text-primary-text text-lg mt-4">{selectedImage.caption}</p>
