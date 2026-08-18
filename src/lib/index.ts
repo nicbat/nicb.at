@@ -51,16 +51,17 @@ export const fetchNow = async (): Promise<Post | null> => {
 };
 
 // Load the media-manager workspace once, at build time, from its on-disk file-first layout.
-// Three Vite globs: the JSON (parsed), the asset files (?url so Vite hashes + serves them), and the
-// Posts markdown (?raw so each `.md` arrives as a string for the reader to render). The reader does
-// the manifest join, asset resolution, markdown rendering, and normalization — see
-// `media-manager/reader`.
+// Two Vite globs: the JSON (parsed) and the Posts markdown (?raw so each `.md` arrives as a string for
+// the reader to render). Blobs are NOT globbed — the workspace is in static-assets mode (config
+// `assets: { dir: './static/media', baseUrl: '/media' }`), so the reader synthesizes each blob's URL
+// from the manifest as `/media/<file_name>` and the binaries are served straight from `static/media/`
+// instead of being bundled into the function. The `!**/google.json` exclusion keeps the Google Photos
+// OAuth secret out of the client bundle. The reader does the manifest join, asset resolution, markdown
+// rendering, and normalization — see `media-manager/reader`.
 const mm = MediaManager.load(
   {
-    data: import.meta.glob('$assets/media_manager/**/*.json', { eager: true, import: 'default' }),
-    files: import.meta.glob('$assets/media_manager/media/files/*', {
+    data: import.meta.glob(['$assets/media_manager/**/*.json', '!**/google.json'], {
       eager: true,
-      query: '?url',
       import: 'default'
     }),
     posts: import.meta.glob('$assets/media_manager/posts/**/*.md', {
@@ -69,8 +70,12 @@ const mm = MediaManager.load(
       import: 'default'
     })
   },
-  // Match the site's existing Shiki theme for fenced code (see svelte.config.js).
-  { posts: { theme: 'catppuccin-mocha' } }
+  {
+    // Static-assets mode: blobs served from /media/<file>, not bundled (see static/media/).
+    assets: { baseUrl: '/media' },
+    // Match the site's existing Shiki theme for fenced code (see svelte.config.js).
+    posts: { theme: 'catppuccin-mocha' }
+  }
 );
 
 interface UrlValue {

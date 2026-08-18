@@ -1,3 +1,7 @@
 {
-  "root": "./src/assets/media_manager"
+  "root": "./src/assets/media_manager",
+  "assets": {
+    "dir": "./static/media",
+    "baseUrl": "/media"
+  }
 }
