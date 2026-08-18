@@ -1,5 +1,18 @@
 {
   "collections": {
+    "home": {
+      "displayName": "Home",
+      "schema": {
+        "date": {
+          "type": "date",
+          "removable": true
+        },
+        "title": {
+          "type": "string",
+          "removable": true
+        }
+      }
+    },
     "now": {
       "displayName": "Now",
       "schema": {
@@ -41,6 +54,7 @@
     }
   },
   "collectionOrder": [
+    "home",
     "now",
     "words"
   ]

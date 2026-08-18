@@ -1,6 +1,8 @@
 export interface ImageData {
   src: string;
   alt: string;
+  /** Human-written caption shown on hover / in the lightbox. Absent when the photo is unnamed. */
+  caption?: string;
   width: number;
   height: number;
 }

@@ -1,8 +1,9 @@
 ---
 title: Lego Death Star
-description: ""
+description: Every boy's dream
 date: 2026-07-09
 html_route: lego-death-star
+published: false
 ---
 
 My friend Keven and I are working towards building a Lego Death Star using all of the misc. Lego pieces lying around my parents' house.

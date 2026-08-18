@@ -39,11 +39,13 @@
         onmouseenter={() => showTooltip(item)}
         onmouseleave={hideTooltip}
       >
-        <div
-          class="absolute bottom-2 left-2 bg-overlay text-primary-text px-2 py-1 rounded text-sm transition-opacity ease-in-out duration-100 group-hover:opacity-100 opacity-0 z-10"
-        >
-          {item.alt}
-        </div>
+        {#if item.caption}
+          <div
+            class="absolute bottom-2 left-2 bg-overlay text-primary-text px-2 py-1 rounded text-sm transition-opacity ease-in-out duration-100 group-hover:opacity-100 opacity-0 z-10"
+          >
+            {item.caption}
+          </div>
+        {/if}
         <img
           class="rounded-lg w-full h-auto block"
           src={item.src}
@@ -65,6 +67,8 @@
       src={selectedImage.src}
       alt={selectedImage.alt}
     />
-    <p class="text-primary-text text-lg mt-4">{selectedImage.alt}</p>
+    {#if selectedImage.caption}
+      <p class="text-primary-text text-lg mt-4">{selectedImage.caption}</p>
+    {/if}
   </button>
 {/if}

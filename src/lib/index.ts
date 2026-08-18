@@ -1,7 +1,7 @@
 // place files you want to import through the `$lib` alias in this folder.
 import type { ImageData, Trip, TripSummary } from '$lib/types';
 import type { Project, Quote } from './types';
-import type { MMRecord, PostItem } from 'media-manager/reader/vite';
+import type { MediaItem, MMRecord, PostItem } from 'media-manager/reader/vite';
 // TODO: switch the `media-manager` dependency in package.json from `file:../media-manager`
 // to a GitHub dependency (e.g. `"media-manager": "github:nicbat/media-manager#<tag>"`)
 // Caveat: git install requires media-manager's `prepare` script to build `dist/reader/` on
@@ -43,12 +43,34 @@ export const fetchPost = async (route: string): Promise<Post | null> => {
   return { meta: post.meta, html: post.html };
 };
 
-// The single `now` post (posts/now/now.md), or null if absent.
-export const fetchNow = async (): Promise<Post | null> => {
-  const post = mm.posts('now').bySlug('now');
-  if (!post) return null;
-  return { meta: post.meta, html: post.html };
+// A post's sort key as an ISO date: its frontmatter `date` when set, else a date read from the
+// `.md` filename stem (`260817` or `2026-08-17`), so a post is ordered correctly whether it's dated
+// in the frontmatter, in its name, or both. Undatable posts sort last.
+const postDate = (p: PostItem): string => {
+  const meta = p.meta.date != null ? String(p.meta.date).trim() : '';
+  if (meta) return meta;
+  const digits = p.slug.replace(/\D/g, '');
+  if (digits.length === 8) return `${digits.slice(0, 4)}-${digits.slice(4, 6)}-${digits.slice(6)}`;
+  if (digits.length === 6) return `20${digits.slice(0, 2)}-${digits.slice(2, 4)}-${digits.slice(4)}`;
+  return '';
 };
+
+// The newest post of a single-page collection (`now`, `home`), or null when it holds no posts.
+// Writing a new dated `.md` in the collection is what publishes it — the previous ones stay put as
+// an archive. `.all()` is already date desc; the reduce also honours a date carried in the filename.
+const latestPost = (collection: string): Post | null => {
+  const posts = mm.posts(collection).all();
+  if (posts.length === 0) return null;
+  const latest = posts.reduce((newest, p) => (postDate(p) > postDate(newest) ? p : newest));
+  return { meta: latest.meta, html: latest.html };
+};
+
+// The most recent `now` post (the newest of posts/now/*.md), or null if the collection is empty.
+export const fetchNow = async (): Promise<Post | null> => latestPost('now');
+
+// The home page's intro blurb — the newest of posts/home/*.md, or null if the collection is empty
+// (the home page then renders without an intro rather than erroring).
+export const fetchHome = async (): Promise<Post | null> => latestPost('home');
 
 // Load the media-manager workspace once, at build time, from its on-disk file-first layout.
 // Two Vite globs: the JSON (parsed) and the Posts markdown (?raw so each `.md` arrives as a string for
@@ -91,12 +113,42 @@ export const fetchImageList = async (): Promise<ImageData[]> => {
       const name = (m.field('name') as string) || '';
       const location = (m.field('Location') as string) || '';
       const year = (m.field('Year') as string) || '';
-      const alt =
-        `${name}${location ? '. ' + location : ''}${year ? ', ' + year : ''}`.trim() || m.filename;
-      return { src: m.src ?? '', alt, width: m.width, height: m.height };
+      const caption = `${name}${location ? '. ' + location : ''}${
+        year ? ', ' + year : ''
+      }`.trim();
+      return {
+        src: m.src ?? '',
+        alt: caption || m.filename,
+        caption: caption || undefined,
+        width: m.width,
+        height: m.height
+      };
     })
     .filter((img) => img.src);
 };
+
+// A blob reached through a reference (e.g. `trip.files('photos')`) is *blob-level*: its `fields` are
+// empty, because one blob can belong to several classes with differing metadata. The per-photo
+// `name` lives on the class view, so index each class view by blob id (once, lazily) and look the
+// metadata up through that.
+const classMetaLookup = (classId: string) => {
+  let index: Map<string, MediaItem> | null = null;
+  return (id: string): MediaItem | null => {
+    index ??= new Map(mm.media(classId).map((m) => [m.id, m]));
+    return index.get(id) ?? null;
+  };
+};
+
+const travelMeta = classMetaLookup('travel');
+const photoMeta = classMetaLookup('photos');
+
+// A trip photo's caption: its travel-class `name` (trip-specific), else its photos-class `name`.
+const photoCaption = (m: MediaItem): string =>
+  (
+    (travelMeta(m.id)?.field('name') as string) ||
+    (photoMeta(m.id)?.field('name') as string) ||
+    ''
+  ).trim();
 
 export const fetchHomePhoto = async (): Promise<ImageData | null> => {
   const photo = mm.globals()?.file('my photo');
@@ -136,9 +188,11 @@ const tripSlug = (r: MMRecord): string =>
 const tripCover = (r: MMRecord): ImageData | null => {
   const cover = r.file('cover_photo') ?? r.files('photos').first();
   if (!cover?.src) return null;
+  const caption = photoCaption(cover);
   return {
     src: cover.src,
-    alt: (cover.field('name') as string) || (r.field('name') as string) || '',
+    alt: caption || (r.field('name') as string) || '',
+    caption: caption || undefined,
     width: cover.width,
     height: cover.height
   };
@@ -167,14 +221,19 @@ export const fetchTrip = async (slug: string): Promise<Trip | null> => {
   const r = mm.records('trips').find((rec) => tripSlug(rec) === slug);
   if (!r) return null;
 
+  const tripName = (r.field('name') as string) ?? '';
   const photos = r
     .files('photos')
-    .map((m) => ({
-      src: m.src ?? '',
-      alt: (m.field('name') as string) || '',
-      width: m.width,
-      height: m.height
-    }))
+    .map((m) => {
+      const caption = photoCaption(m);
+      return {
+        src: m.src ?? '',
+        alt: caption || tripName || m.filename,
+        caption: caption || undefined,
+        width: m.width,
+        height: m.height
+      };
+    })
     .filter((img) => img.src);
 
   return {

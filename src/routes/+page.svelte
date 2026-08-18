@@ -259,32 +259,13 @@
       />
     </div>
 
-    <!-- Content Section -->
-    <div class="mt-8 text-lg leading-relaxed text-primary-text space-y-6">
-      <p>
-        I recently graduated with a Masters in Computer Science from the <a
-          href="https://www.washington.edu/"
-          target="_blank">University of Washington</a
-        >. At the end of August I'll be working fulltime at
-        <a href="https://careers.roblox.com/" target="_blank">Roblox</a>! In the
-        meantime, I'm taking some time to solo-travel and enjoy Seattle while
-        I'm still here.
-      </p>
-      <p class="text-sm text-secondary-text">
-        Check out my
-        <a href="/now">now page</a> to see what I've been up to lately :-)
-      </p>
-      <p class="text-sm text-secondary-text">
-        P.S. I'm working on redesigning this site so it'll probably change a lot
-        in the coming weeks. For example, I'm not really sure how I feel about
-        the "mountains" below.
-      </p>
-      <!-- <p> -->
-      <!--   Outside of programming, I've recently been spending my time studying -->
-      <!--   languages, snowboarding, bouldering, listening to audiobooks, and -->
-      <!--   exploring the west coast. -->
-      <!-- </p> -->
-    </div>
+    <!-- Content Section — authored in media manager as the newest posts/home/*.md -->
+    {#if data.introHtml}
+      <!-- eslint-disable-next-line svelte/no-at-html-tags -->
+      <div class="home-intro mt-8 text-lg leading-relaxed text-primary-text">
+        {@html data.introHtml}
+      </div>
+    {/if}
   </div>
 </section>
 
@@ -316,5 +297,23 @@
   .home-content {
     position: relative;
     z-index: 1;
+  }
+
+  /* Markdown intro: paragraph rhythm matching the hand-written markup it replaced. */
+  .home-intro :global(p + p) {
+    margin-top: 1.5rem;
+  }
+
+  /* Aside convention: a blockquote (`> …`) in home.md renders as a small secondary note —
+     how the "now page" pointer and the P.S. keep their quieter styling in plain markdown. */
+  .home-intro :global(blockquote) {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--color-text-secondary);
+    margin-top: 1.5rem;
+  }
+
+  .home-intro :global(blockquote p + p) {
+    margin-top: 0.75rem;
   }
 </style>

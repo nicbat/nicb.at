@@ -9,8 +9,6 @@ The only semi-serious thing I'm working on right now is finding an apartment in 
 - Bouldering and running
 - Catching up on over a month of [Beli](https://beliapp.com/) from my [trip to Japan](/travel/japan-2026)
 - Beating Subnautica
-
-
 - Watching Modern Family
 - Trying to figure out how to redesign this site, this is taking a lot longer than I expected
 

@@ -104,7 +104,7 @@
     },
     {
       "id": "5de4b170-5302-4141-b976-4956566a896c",
-      "last_modified": "2026-08-06T02:27:01.243Z",
+      "last_modified": "2026-08-18T03:16:33.473Z",
       "name": "Task Properties Obsidian Plugin",
       "date": "",
       "tags": [
@@ -114,7 +114,7 @@
       ],
       "urls": [
         {
-          "display_name": "Github",
+          "display_name": "Repo",
           "url": "https://github.com/nicbat/obsidian-plugin-task-properties"
         }
       ],
@@ -152,13 +152,18 @@
     },
     {
       "id": "590c37e7-c909-4944-8e57-c162a5611fd3",
-      "last_modified": "2026-08-06T02:26:50.021Z",
+      "last_modified": "2026-08-18T03:16:14.745Z",
       "name": "Zen Browser Corners Mod",
       "date": "",
       "tags": [
         "Small"
       ],
-      "urls": [],
+      "urls": [
+        {
+          "display_name": "Repo",
+          "url": "https://github.com/nicbat/zen-corner-mod"
+        }
+      ],
       "description": "Quick Zen Browser mod I made (unfortunately I'm not able to publish it just yet) to change the corner rounding on the browser."
     }
   ]
