@@ -1,9 +1,15 @@
 <script lang="ts">
+  import { theme } from "$lib/stores/theme";
+
+  function toggleTheme() {
+    theme.update((value) => (value === "light" ? "dark" : "light"));
+  }
+
   function scrollToTop() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
-  const currentDate = new Date(2026, 7);
+  const currentDate = new Date(2026, 10);
   const currentMonth = currentDate.toLocaleString("default", { month: "long" });
   const currentYear = currentDate.getFullYear();
 </script>
@@ -18,11 +24,19 @@
     <div>Last updated: {currentMonth} {currentYear}</div>
 
     <!-- right -->
-    <button
-      onclick={scrollToTop}
-      class="hover:text-primary transition-colors cursor-pointer"
-    >
-      back to top ↑
-    </button>
+    <div class="flex flex-wrap items-center gap-x-6 gap-y-3">
+      <button
+        onclick={toggleTheme}
+        class="hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 transition-colors cursor-pointer"
+      >
+        {$theme === "light" ? "dark mode" : "light mode"}
+      </button>
+      <button
+        onclick={scrollToTop}
+        class="hover:text-primary transition-colors cursor-pointer"
+      >
+        back to top ↑
+      </button>
+    </div>
   </div>
 </footer>

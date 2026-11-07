@@ -4,7 +4,6 @@
   import "../lib/styles/layout.css";
   // Layout for media-manager Posts: `mm-*` content islands + rendered code blocks / copy buttons.
   import "media-manager/reader/posts.css";
-  import Navbar from "../lib/components/Navbar.svelte";
   import Footer from "../lib/components/Footer.svelte";
   import type { Snippet } from "svelte";
 
@@ -41,14 +40,14 @@
 </svelte:head>
 
 <div class="min-h-screen flex flex-col bg-main text-primary-text font-sans">
-  <Navbar />
   <div
     class="flex-1 mx-auto w-full px-5 flex flex-col"
-    class:max-w-3xl={!$page.url.pathname.startsWith("/photos") &&
+    class:max-w-3xl={$page.url.pathname !== "/" &&
+      !$page.url.pathname.startsWith("/photos") &&
       !$page.url.pathname.startsWith("/travel") &&
       !$page.url.pathname.startsWith("/projects")}
   >
-    <main class="flex-1 min-h-0 py-5">
+    <main class="flex-1 min-h-0 py-10 sm:py-12">
       {@render children()}
     </main>
   </div>

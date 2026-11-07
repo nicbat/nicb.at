@@ -26,6 +26,9 @@
 		"vite": "^6.0.0"
 	},
 	"type": "module",
+	"engines": {
+		"node": "24.x"
+	},
 	"dependencies": {
 		"@nicbat/svelte-masonry": "github:nicbat/svelte-masonry",
 		"@sveltejs/adapter-static": "^3.0.2",

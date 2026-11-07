@@ -93,6 +93,7 @@
     "c0f41b0b-ff69-4631-8dd0-00abaf0e74b6": {
       "file_name": "olympic_river.jpeg",
       "classes": [
+        "favorites",
         "photos",
         "travel"
       ],
@@ -255,6 +256,7 @@
     "a3881054-ba5f-45e2-93db-2141df2c1e75": {
       "file_name": "PXL_20240816_180558792.MP.jpg",
       "classes": [
+        "favorites",
         "photos"
       ],
       "missing": false,
@@ -390,29 +392,6 @@
         }
       }
     },
-    "ee2e554a-860d-4bb2-85e7-3e24382331e9": {
-      "file_name": "PXL_20250424_022702866.jpg",
-      "classes": [
-        "photos"
-      ],
-      "missing": false,
-      "size": 614448,
-      "created_at": "2026-06-12T01:01:03.846Z",
-      "width": 1514,
-      "height": 2011,
-      "derived": {
-        "web": {
-          "file_name": "PXL_20250424_022702866.webp",
-          "size": 351486,
-          "width": 1514,
-          "height": 2011,
-          "ssim": 0.985,
-          "recipe": "webp:q80",
-          "source_size": 614448,
-          "generated_at": "2026-08-18T19:13:51.235Z"
-        }
-      }
-    },
     "d961b3dc-017f-4e3d-8118-5838a3885dcc": {
       "file_name": "PXL_20250504_155530072.PANO.jpg",
       "classes": [
@@ -486,6 +465,7 @@
     "7330cb5d-08a9-4009-baa2-5a12756a393f": {
       "file_name": "PXL_20250729_133639349.MP.jpg",
       "classes": [
+        "favorites",
         "photos",
         "travel"
       ],
@@ -510,6 +490,7 @@
     "92a69a90-e55d-4810-97fd-3921c7e000de": {
       "file_name": "PXL_20250729_165642843.MP.jpg",
       "classes": [
+        "favorites",
         "photos",
         "travel"
       ],
@@ -720,6 +701,7 @@
     "4766d205-68b4-4567-bb7a-fed9598414d1": {
       "file_name": "grandpa.jpg",
       "classes": [
+        "favorites",
         "photos"
       ],
       "missing": false,
@@ -781,6 +763,7 @@
     "8dc67a82-c78c-4dae-9eae-06ee223a12d7": {
       "file_name": "PXL_20260403_204133014.MP.jpg",
       "classes": [
+        "favorites",
         "photos",
         "travel"
       ],
@@ -899,6 +882,7 @@
     "a91f3185-8dec-4e03-8c07-f56fc3bd3c92": {
       "file_name": "IMG-20260518-WA0011.jpg",
       "classes": [
+        "favorites",
         "travel"
       ],
       "missing": false,
@@ -1037,6 +1021,7 @@
     "38545208-e7ee-4c69-936f-90a0c04dc016": {
       "file_name": "PXL_20251125_165220484.MP.jpg",
       "classes": [
+        "favorites",
         "travel"
       ],
       "missing": false,
@@ -1290,6 +1275,7 @@
     "53d873dd-7d6c-446e-8ca5-61332ce814c9": {
       "file_name": "columbia_gorge.jpg",
       "classes": [
+        "favorites",
         "travel"
       ],
       "missing": false,
@@ -1589,6 +1575,7 @@
     "e91d0f5b-50d4-4d12-bbcd-6682df318142": {
       "file_name": "PXL_20260516_190839205.MP.jpg",
       "classes": [
+        "favorites",
         "travel"
       ],
       "missing": false,
@@ -1635,6 +1622,7 @@
     "0f78619c-7f11-4b2e-8acd-3174f50b8ff4": {
       "file_name": "PXL_20260519_234941656.MP.jpg",
       "classes": [
+        "favorites",
         "travel"
       ],
       "missing": false,

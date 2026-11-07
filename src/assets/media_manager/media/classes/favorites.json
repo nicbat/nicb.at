@@ -1,0 +1,85 @@
+{
+  "schema": {
+    "name": {
+      "type": "string",
+      "removable": true
+    },
+    "description": {
+      "type": "string",
+      "removable": true
+    }
+  },
+  "config": {
+    "displayName": "Favorites",
+    "displayField": "name",
+    "icon": "star"
+  },
+  "records": {
+    "0f78619c-7f11-4b2e-8acd-3174f50b8ff4": {
+      "id": "0f78619c-7f11-4b2e-8acd-3174f50b8ff4",
+      "last_modified": "2026-11-06T22:22:25.797Z",
+      "name": "Fisherman",
+      "description": ""
+    },
+    "e91d0f5b-50d4-4d12-bbcd-6682df318142": {
+      "id": "e91d0f5b-50d4-4d12-bbcd-6682df318142",
+      "last_modified": "2026-11-06T22:22:57.218Z",
+      "name": "4AM",
+      "description": ""
+    },
+    "53d873dd-7d6c-446e-8ca5-61332ce814c9": {
+      "id": "53d873dd-7d6c-446e-8ca5-61332ce814c9",
+      "last_modified": "2026-11-06T22:22:30.554Z",
+      "name": "Tutorial World",
+      "description": ""
+    },
+    "38545208-e7ee-4c69-936f-90a0c04dc016": {
+      "id": "38545208-e7ee-4c69-936f-90a0c04dc016",
+      "last_modified": "2026-11-06T21:20:50.684Z",
+      "name": "",
+      "description": ""
+    },
+    "a91f3185-8dec-4e03-8c07-f56fc3bd3c92": {
+      "id": "a91f3185-8dec-4e03-8c07-f56fc3bd3c92",
+      "last_modified": "2026-11-06T22:22:48.454Z",
+      "name": "家族",
+      "description": ""
+    },
+    "8dc67a82-c78c-4dae-9eae-06ee223a12d7": {
+      "id": "8dc67a82-c78c-4dae-9eae-06ee223a12d7",
+      "last_modified": "2026-11-06T22:22:35.693Z",
+      "name": "Adventure",
+      "description": ""
+    },
+    "92a69a90-e55d-4810-97fd-3921c7e000de": {
+      "id": "92a69a90-e55d-4810-97fd-3921c7e000de",
+      "last_modified": "2026-11-06T22:23:06.319Z",
+      "name": "Threats",
+      "description": ""
+    },
+    "a3881054-ba5f-45e2-93db-2141df2c1e75": {
+      "id": "a3881054-ba5f-45e2-93db-2141df2c1e75",
+      "last_modified": "2026-11-06T22:23:02.660Z",
+      "name": "The Boys",
+      "description": ""
+    },
+    "4766d205-68b4-4567-bb7a-fed9598414d1": {
+      "id": "4766d205-68b4-4567-bb7a-fed9598414d1",
+      "last_modified": "2026-11-06T22:22:14.297Z",
+      "name": "Me and Grandpa",
+      "description": ""
+    },
+    "c0f41b0b-ff69-4631-8dd0-00abaf0e74b6": {
+      "id": "c0f41b0b-ff69-4631-8dd0-00abaf0e74b6",
+      "last_modified": "2026-11-06T22:22:04.702Z",
+      "name": "Pondering",
+      "description": ""
+    },
+    "7330cb5d-08a9-4009-baa2-5a12756a393f": {
+      "id": "7330cb5d-08a9-4009-baa2-5a12756a393f",
+      "last_modified": "2026-11-06T22:22:08.919Z",
+      "name": "Presentation",
+      "description": ""
+    }
+  }
+}

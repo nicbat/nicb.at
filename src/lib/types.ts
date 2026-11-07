@@ -26,6 +26,7 @@ export interface ProjectLink {
 
 export interface Project {
   title: string;
+  featured: boolean;
   date: string;
   tags: ProjectTag[];
   links: ProjectLink[];

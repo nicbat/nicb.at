@@ -3,9 +3,8 @@
   import { Masonry } from "@nicbat/svelte-masonry";
   import ProgressiveImage from "$components/ProgressiveImage.svelte";
 
-  let { images = [] }: { images?: ImageData[] } = $props();
+  let { images = [], padded = true }: { images?: ImageData[]; padded?: boolean } = $props();
   let selectedImage = $state<ImageData | null>(null);
-  let hoveredImage = $state<ImageData | null>(null);
 
   function openLightbox(image: ImageData): void {
     selectedImage = image;
@@ -14,17 +13,9 @@
   function closeLightbox(): void {
     selectedImage = null;
   }
-
-  function showTooltip(image: ImageData): void {
-    hoveredImage = image;
-  }
-
-  function hideTooltip(): void {
-    hoveredImage = null;
-  }
 </script>
 
-<div class="p-4">
+<div class:p-4={padded}>
   <Masonry
     items={images}
     getKey={(item) => item.src}
@@ -36,13 +27,13 @@
     {#snippet children(item)}
       <button
         class="gallery-item relative group transition-transform duration-300 ease-in-out hover:scale-[1.02] overflow-hidden cursor-pointer w-full block"
+        aria-label={item.alt}
         onclick={() => openLightbox(item)}
-        onmouseenter={() => showTooltip(item)}
-        onmouseleave={hideTooltip}
       >
         {#if item.caption}
           <div
-            class="absolute bottom-2 left-2 bg-overlay text-primary-text px-2 py-1 rounded text-sm transition-opacity ease-in-out duration-100 group-hover:opacity-100 opacity-0 z-10"
+            role="tooltip"
+            class="absolute bottom-2 left-2 bg-overlay text-primary-text px-2 py-1 rounded text-sm transition-opacity ease-in-out duration-100 group-hover:opacity-100 group-focus-visible:opacity-100 opacity-0 z-10"
           >
             {item.caption}
           </div>

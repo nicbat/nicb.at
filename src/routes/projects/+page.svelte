@@ -10,6 +10,7 @@
 </script>
 
 <div class="flex-1 mx-auto w-full px-5 flex flex-col max-w-3xl">
+  <a href="/" class="mb-6 self-start text-sm">Back to home</a>
   <h1 class="mb-4">Projects</h1>
   {#if data.projects.length === 0}
     <p class="mb-6 text-secondary-text">

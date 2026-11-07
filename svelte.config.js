@@ -39,7 +39,7 @@ const config = {
     // See https://kit.svelte.dev/docs/adapters for more information about adapters.
     appDir: "app",
     adapter: adapter({
-      runtime: "nodejs20.x", // TODO update this? - required for vercel
+      runtime: "nodejs24.x",
     }),
     outDir: "build",
 

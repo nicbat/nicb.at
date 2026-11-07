@@ -15,7 +15,8 @@
           "display_name": "Roblox Careers",
           "url": "https://careers.roblox.com"
         }
-      ]
+      ],
+      "featured": false
     },
     {
       "id": "bcc69f92-d261-4751-b5bf-b6ddb5c193bb",
@@ -32,7 +33,8 @@
           "display_name": "See Site",
           "url": "https://gradient.nicbat.com"
         }
-      ]
+      ],
+      "featured": false
     },
     {
       "id": "910a8b1b-d0c3-4307-8a43-2414ccdb4ffc",
@@ -52,7 +54,8 @@
           "display_name": "Website",
           "url": "https://llamapie.cs.washington.edu/"
         }
-      ]
+      ],
+      "featured": false
     },
     {
       "id": "56520be5-64a0-4f4f-9600-6114583af983",
@@ -69,11 +72,12 @@
           "display_name": "View Source",
           "url": "https://github.com/nicbat/nicb.at"
         }
-      ]
+      ],
+      "featured": false
     },
     {
       "id": "dc0909d4-f339-4458-a75a-0ae53cdcfc41",
-      "last_modified": "2026-07-08T22:50:15.077Z",
+      "last_modified": "2026-11-06T22:06:49.606Z",
       "name": "Media Manager",
       "date": "",
       "description": "A web-app I'm working on to manage the media on this site. I'll have some information on how I use this someday soon.",
@@ -86,7 +90,8 @@
           "display_name": "Repo",
           "url": "https://github.com/nicbat/media-manager"
         }
-      ]
+      ],
+      "featured": true
     },
     {
       "id": "1b45c44f-746f-4a3c-9178-e1f26a579584",
@@ -100,7 +105,8 @@
           "url": "https://shamcheck.com/sham-check"
         }
       ],
-      "description": "Built and deployed an Android app for ShamCheck, a scam-detection service developed by ThreeClicks."
+      "description": "Built and deployed an Android app for ShamCheck, a scam-detection service developed by ThreeClicks.",
+      "featured": false
     },
     {
       "id": "5de4b170-5302-4141-b976-4956566a896c",
@@ -118,7 +124,8 @@
           "url": "https://github.com/nicbat/obsidian-plugin-task-properties"
         }
       ],
-      "description": "A simple Obsidian Plugin that stores task completion information in the file properties (for your Bases =D)."
+      "description": "A simple Obsidian Plugin that stores task completion information in the file properties (for your Bases =D).",
+      "featured": false
     },
     {
       "id": "27299dfe-6720-4a81-a4f9-ba74d744f980",
@@ -134,7 +141,8 @@
           "url": "https://github.com/nicbat/svelte-masonry"
         }
       ],
-      "description": "Quickly made this in a few hours to fix some bugs on my site, all of the masonry layouts you see here use it!"
+      "description": "Quickly made this in a few hours to fix some bugs on my site, all of the masonry layouts you see here use it!",
+      "featured": false
     },
     {
       "id": "f234b990-0ecc-473a-94e3-d9289dee757e",
@@ -148,7 +156,8 @@
           "url": "https://steam-achievements.nicbat.com/"
         }
       ],
-      "description": "A simple site I made to learn more about how you can increase your \"average game completion\" score more efficiently."
+      "description": "A simple site I made to learn more about how you can increase your \"average game completion\" score more efficiently.",
+      "featured": false
     },
     {
       "id": "590c37e7-c909-4944-8e57-c162a5611fd3",
@@ -164,7 +173,8 @@
           "url": "https://github.com/nicbat/zen-corner-mod"
         }
       ],
-      "description": "Quick Zen Browser mod I made (unfortunately I'm not able to publish it just yet) to change the corner rounding on the browser."
+      "description": "Quick Zen Browser mod I made (unfortunately I'm not able to publish it just yet) to change the corner rounding on the browser.",
+      "featured": false
     },
     {
       "id": "90b1d852-80de-44f1-a229-919fc386b886",
@@ -178,7 +188,38 @@
           "url": "https://github.com/nicbat/dotfiles"
         }
       ],
-      "description": "There are a bit messy, but I've put a lot of work into making my machine as pretty as it can be :)"
+      "description": "There are a bit messy, but I've put a lot of work into making my machine as pretty as it can be :)",
+      "featured": false
+    },
+    {
+      "id": "44a5170f-775c-4604-967d-9f7b5e66f4d4",
+      "last_modified": "2026-11-06T22:06:15.780Z",
+      "name": "Last Layer",
+      "date": "",
+      "tags": [],
+      "urls": [
+        {
+          "display_name": "See Site",
+          "url": "https://lastlayer.net/"
+        }
+      ],
+      "description": "A pretty awesome Rubik's cube site I'm building with Keven.",
+      "featured": true
+    },
+    {
+      "id": "eb53b3c3-802e-453d-ae92-008036de7df5",
+      "last_modified": "2026-11-06T22:06:31.359Z",
+      "name": "Smoky Durtles",
+      "date": "",
+      "tags": [],
+      "urls": [
+        {
+          "display_name": "Repo",
+          "url": "https://github.com/nicbat/smouldering_durtles/tree/smoky-durtles/foundation"
+        }
+      ],
+      "description": "A fork of a well loved Android WaniKani wrapper, redesigned with Material 3 and lots of other quality of life features.",
+      "featured": true
     }
   ]
 }

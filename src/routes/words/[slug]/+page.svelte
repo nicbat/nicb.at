@@ -13,7 +13,7 @@
 </script>
 
 <article
-    class="prose dark:prose-invert max-w-none"
+    class="markdown-content max-w-none"
     bind:this={contentContainer}
 >
     <h1>{title}</h1>

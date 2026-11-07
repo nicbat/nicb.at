@@ -149,6 +149,23 @@ export const fetchImageList = async (): Promise<ImageData[]> => {
     .filter((img) => img.src);
 };
 
+// Favorites have their own names, independent of the same blobs in other photo classes.
+export const fetchFavoriteImages = async (): Promise<ImageData[]> => {
+  return mm.media('favorites')
+    .map((m) => {
+      const name = ((m.field('name') as string) || '').trim();
+      return {
+        src: m.src ?? '',
+        alt: name || m.filename,
+        caption: name || undefined,
+        width: m.width,
+        height: m.height,
+        thumb: thumbOf(m)
+      };
+    })
+    .filter((img) => img.src);
+};
+
 // A blob reached through a reference (e.g. `trip.files('photos')`) is *blob-level*: its `fields` are
 // empty, because one blob can belong to several classes with differing metadata. The per-photo
 // `name` lives on the class view, so index each class view by blob id (once, lazily) and look the
@@ -190,6 +207,7 @@ export const fetchProjects = async (): Promise<Project[]> => {
     .sortBy('date', 'desc')
     .map((r) => ({
       title: (r.field('name') as string) ?? '',
+      featured: r.field('featured') === true,
       date: (r.field('date') as string) ?? '',
       tags: ((r.field('tags') as string[]) ?? []) as Project['tags'],
       links: ((r.field('urls') as UrlValue[]) ?? []).map((u) => ({
