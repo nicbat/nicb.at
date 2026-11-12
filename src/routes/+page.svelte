@@ -1,13 +1,5 @@
 <script lang="ts">
-  import {
-    Mail,
-    Github,
-    Linkedin,
-    RefreshCcw,
-    Icon,
-    type IconNode,
-  } from "lucide-svelte";
-  import { elephantFace } from "@lucide/lab";
+  import { RefreshCcw } from "lucide-svelte";
   import Gallery from "$lib/components/Gallery.svelte";
   import ProjectCard from "$lib/components/ProjectCard.svelte";
   import QuoteDisplay from "$lib/components/QuoteDisplay.svelte";
@@ -15,237 +7,63 @@
 
   let { data }: { data: PageData } = $props();
 
-  let emailHover = $state(false);
-  let githubHover = $state(false);
-
-  let linkedinHover = $state(false);
-  let mastodonHover = $state(false);
-  let robloxHover = $state(false);
-  let syncHover = $state(false);
-
   let quoteComponent = $state<QuoteDisplay>();
-
-  const robloxIcon: IconNode = [
-    [
-      "path",
-      {
-        d: "M41.2648,12.6719,14.7123,5.5572a1.666,1.666,0,0,0-2.04,1.178L5.5572,33.2877a1.666,1.666,0,0,0,1.178,2.04l26.5525,7.1147a1.666,1.666,0,0,0,2.04-1.178l7.1147-26.5525a1.666,1.666,0,0,0-1.178-2.04Z",
-      },
-    ],
-    [
-      "path",
-      {
-        d: "M29.3193,20.51l-8.1808-2.192a.5133.5133,0,0,0-.6287.3629l-2.192,8.1808a.5133.5133,0,0,0,.3629.6287l8.1808,2.192a.5133.5133,0,0,0,.6287-.3629l2.192-8.1808A.5133.5133,0,0,0,29.3193,20.51Z",
-      },
-    ],
-  ];
 </script>
 
 <div class="home-page mx-auto w-full">
-  <section class="home-hero">
-    <div class="home-content flex flex-col gap-8 w-full">
-      <!-- Header Section -->
-      <div
-        class="flex flex-col-reverse md:flex-row justify-between items-start md:items-center gap-8 md:gap-12"
-      >
-        <div class="flex flex-col gap-4">
-          <h1 class="text-5xl font-medium">Hey, it's Nicholas</h1>
+  <section class="home-hero flex flex-col gap-5 md:pt-6">
+    <!-- Grid areas: phone stacks name → polaroid → intro; md+ puts the polaroid
+         beside the name and intro (see .hero-top below). -->
+    <div class="hero-top">
+      <h1 class="home-title mb-0 font-semibold">Hey, it's Nicholas</h1>
 
-          <div class="font-mono text-sm text-secondary-text">
-            <!-- developer, sometimes other things -->
-            <QuoteDisplay bind:this={quoteComponent} />
-          </div>
-
-          <div class="flex gap-4 items-center">
-            <!-- Sync Quote -->
-            <button
-              class="transition-transform hover:scale-110 relative group"
-              aria-label="New Quote"
-              onclick={() => quoteComponent?.setRandomQuote()}
-              onmouseover={() => (syncHover = true)}
-              onfocus={() => (syncHover = true)}
-              onmouseout={() => (syncHover = false)}
-              onblur={() => (syncHover = false)}
-            >
-              <RefreshCcw
-                size={20}
-                color={syncHover
-                  ? "var(--color-primary)"
-                  : "var(--color-text-secondary)"}
-              />
-              <!-- Tooltip -->
-              <span
-                class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10 shadow-sm border"
-                style="background-color: var(--color-bg-surface); color: var(--color-text-primary); border-color: var(--color-border-primary);"
-              >
-                New Quote
-              </span>
-            </button>
-
-            <!-- Divider -->
-            <div
-              class="w-px h-6 mx-1"
-              style="background-color: var(--color-border-primary);"
-            ></div>
-
-            <!-- Email -->
-            <a
-              href="mailto:nicbatnicko@gmail.com"
-              class="transition-transform hover:scale-110 relative group"
-              aria-label="Email"
-              onmouseover={() => (emailHover = true)}
-              onfocus={() => (emailHover = true)}
-              onmouseout={() => (emailHover = false)}
-              onblur={() => (emailHover = false)}
-            >
-              <Mail
-                size={20}
-                color={emailHover
-                  ? "var(--color-primary)"
-                  : "var(--color-text-secondary)"}
-              />
-              <!-- Tooltip -->
-              <span
-                class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10 shadow-sm border"
-                style="background-color: var(--color-bg-surface); color: var(--color-text-primary); border-color: var(--color-border-primary);"
-              >
-                Email me!
-              </span>
-            </a>
-
-            <!-- Github -->
-            <a
-              href="https://github.com/nicbat"
-              target="_blank"
-              class="transition-transform hover:scale-110 relative group"
-              aria-label="Github"
-              onmouseover={() => (githubHover = true)}
-              onfocus={() => (githubHover = true)}
-              onmouseout={() => (githubHover = false)}
-              onblur={() => (githubHover = false)}
-            >
-              <Github
-                size={20}
-                color={githubHover
-                  ? "var(--color-primary)"
-                  : "var(--color-text-secondary)"}
-              />
-              <!-- Tooltip -->
-              <span
-                class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10 shadow-sm border"
-                style="background-color: var(--color-bg-surface); color: var(--color-text-primary); border-color: var(--color-border-primary);"
-              >
-                Github
-              </span>
-            </a>
-
-            <!-- LinkedIn -->
-            <a
-              href="https://www.linkedin.com/in/nicholasbatchelder/"
-              target="_blank"
-              class="transition-transform hover:scale-110 relative group"
-              aria-label="LinkedIn"
-              onmouseover={() => (linkedinHover = true)}
-              onfocus={() => (linkedinHover = true)}
-              onmouseout={() => (linkedinHover = false)}
-              onblur={() => (linkedinHover = false)}
-            >
-              <Linkedin
-                size={20}
-                color={linkedinHover
-                  ? "var(--color-primary)"
-                  : "var(--color-text-secondary)"}
-              />
-              <!-- Tooltip -->
-              <span
-                class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10 shadow-sm border"
-                style="background-color: var(--color-bg-surface); color: var(--color-text-primary); border-color: var(--color-border-primary);"
-              >
-                LinkedIn
-              </span>
-            </a>
-
-            <!-- Mastodon -->
-            <a
-              href="https://mastodon.social/@nicbat"
-              target="_blank"
-              class="transition-transform hover:scale-110 relative group"
-              aria-label="Mastodon"
-              onmouseover={() => (mastodonHover = true)}
-              onfocus={() => (mastodonHover = true)}
-              onmouseout={() => (mastodonHover = false)}
-              onblur={() => (mastodonHover = false)}
-            >
-              <Icon
-                iconNode={elephantFace}
-                size={20}
-                color={mastodonHover
-                  ? "var(--color-primary)"
-                  : "var(--color-text-secondary)"}
-              />
-              <!-- Tooltip -->
-              <span
-                class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10 shadow-sm border"
-                style="background-color: var(--color-bg-surface); color: var(--color-text-primary); border-color: var(--color-border-primary);"
-              >
-                Mastodon
-              </span>
-            </a>
-
-            <!-- Roblox -->
-            <a
-              href="https://www.roblox.com/users/35677096/profile"
-              target="_blank"
-              class="transition-transform hover:scale-110 relative group"
-              aria-label="Roblox"
-              onmouseover={() => (robloxHover = true)}
-              onfocus={() => (robloxHover = true)}
-              onmouseout={() => (robloxHover = false)}
-              onblur={() => (robloxHover = false)}
-            >
-              <Icon
-                iconNode={robloxIcon}
-                viewBox="0 0 48 48"
-                strokeWidth={4}
-                size={20}
-                color={robloxHover
-                  ? "var(--color-primary)"
-                  : "var(--color-text-secondary)"}
-              />
-              <!-- Tooltip -->
-              <span
-                class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10 shadow-sm border"
-                style="background-color: var(--color-bg-surface); color: var(--color-text-primary); border-color: var(--color-border-primary);"
-              >
-                Roblox
-              </span>
-            </a>
-          </div>
-        </div>
-
-        <!-- Small avatar, never opened full size: take the compressed derivative when there is one. -->
+      <!-- Small photo, never opened full size: take the compressed derivative when there is one. -->
+      <figure class="polaroid">
         <img
           src={data.homePhoto?.thumb?.src ??
             data.homePhoto?.src ??
             "home_photo.png"}
           alt={data.homePhoto?.alt ?? "Me!"}
-          class="w-32 h-32 md:w-48 md:h-48 rounded-full object-cover shadow-lg transition-all duration-500 aspect-square"
         />
-      </div>
+        <!-- TODO: read this from a "my photo caption" string field on the media-manager
+             Globals record (next to "my photo") via /api/home-photo; hide when empty. -->
+        <figcaption class="font-mono">Snow Lake, 2024</figcaption>
+      </figure>
 
-      <!-- Content Section — authored in media manager as the newest posts/home/*.md -->
+      <!-- Intro — authored in media manager as the newest posts/home/*.md -->
       {#if data.introHtml}
         <!-- eslint-disable-next-line svelte/no-at-html-tags -->
         <div
-          class="home-intro markdown-content mt-8 text-lg leading-relaxed text-primary-text"
+          class="home-intro markdown-content text-lg md:text-xl leading-relaxed text-primary-text"
         >
           {@html data.introHtml}
         </div>
       {/if}
-      <!-- <p class="text-sm text-secondary-text mb-0"> -->
-      <!--   I also <a href="/words">write from time to time</a>. -->
-      <!-- </p> -->
     </div>
+
+    <!-- Quote: its own quiet line under the intro, with refresh beside it -->
+    <!-- Top-aligned so a wrapped quote keeps its gap from the rule. pt-3 puts a single
+         line where centering against the 44px button used to (44 - 20) / 2 = 12px. -->
+    <figure
+      class="home-quote m-0 mt-2 pt-1 border-t border-primary flex items-start gap-1"
+    >
+      <div class="flex-1 min-w-0 pt-3">
+        <QuoteDisplay bind:this={quoteComponent} />
+      </div>
+      <button
+        class="quote-refresh relative group"
+        aria-label="New quote"
+        onclick={() => quoteComponent?.setRandomQuote()}
+      >
+        <RefreshCcw size={16} />
+        <span
+          class="absolute bottom-full left-1/2 -translate-x-1/2 mb-1 px-2 py-1 text-xs rounded opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10 shadow-sm border"
+          style="background-color: var(--color-bg-surface); color: var(--color-text-primary); border-color: var(--color-border-primary);"
+        >
+          New quote
+        </span>
+      </button>
+    </figure>
   </section>
 
   <section aria-labelledby="home-projects" class="mt-16">
@@ -262,7 +80,11 @@
   </section>
 
   <section aria-labelledby="home-photos" class="mt-16 mb-8">
-    <h2 id="home-photos" class="mb-6">Photos</h2>
+    <h2 id="home-photos">Photos</h2>
+    <p class="mb-6 text-secondary-text">
+      A few of my favorite shots from the last couple of years. See the rest of
+      them <a href="/photos">here</a>.
+    </p>
     <Gallery images={data.favorites} padded={false} />
   </section>
 </div>
@@ -273,7 +95,111 @@
     max-width: 56rem;
   }
 
+  .home-title {
+    font-size: 2rem;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  @media (min-width: 768px) {
+    .home-title {
+      font-size: 3.25rem;
+      letter-spacing: -0.025em;
+    }
+  }
+
+  .hero-top {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "title" "photo" "intro";
+    row-gap: 1.25rem;
+  }
+
+  .hero-top > .home-title {
+    grid-area: title;
+  }
+
+  .hero-top > .polaroid {
+    grid-area: photo;
+    justify-self: center;
+    margin: 0.5rem 0 0.25rem;
+  }
+
+  .hero-top > .home-intro {
+    grid-area: intro;
+  }
+
+  @media (min-width: 768px) {
+    .hero-top {
+      grid-template-columns: minmax(0, 1fr) auto;
+      grid-template-areas: "title photo" "intro photo";
+      grid-template-rows: auto 1fr;
+      column-gap: 4rem;
+      align-items: start;
+    }
+
+    .hero-top > .polaroid {
+      align-self: center;
+      margin: 0 0.5rem 0 0;
+    }
+  }
+
+  /* Polaroid: square photo, thick bottom strip with a mono caption, slight tilt.
+     Stays a white print in dark mode too — it's an object on the page. */
+  .polaroid {
+    width: max-content;
+    padding: 9px 9px 0;
+    background: #fdfdf9;
+    box-shadow:
+      0 2px 6px rgb(35 43 32 / 0.14),
+      0 12px 28px rgb(35 43 32 / 0.1);
+    transform: rotate(-2deg);
+  }
+
+  .polaroid img {
+    display: block;
+    width: 168px;
+    height: 168px;
+    object-fit: cover;
+    object-position: 50% 40%;
+  }
+
+  .polaroid figcaption {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    /* Fixed (not themed): the print is always light. ~5.5:1 on #fdfdf9. */
+    color: #61685b;
+  }
+
+  @media (min-width: 768px) {
+    .polaroid {
+      padding: 10px 10px 0;
+    }
+    .polaroid img {
+      width: 176px;
+      height: 176px;
+    }
+    .polaroid figcaption {
+      height: 44px;
+    }
+  }
+
+  :global(.dark) .polaroid {
+    box-shadow:
+      0 2px 6px rgb(0 0 0 / 0.4),
+      0 12px 28px rgb(0 0 0 / 0.35);
+  }
+
   /* Markdown intro: paragraph rhythm matching the hand-written markup it replaced. */
+  .home-intro :global(p) {
+    margin-bottom: 0;
+  }
+
   .home-intro :global(p + p) {
     margin-top: 1.5rem;
   }
@@ -284,10 +210,29 @@
     font-size: 0.875rem;
     line-height: 1.5;
     color: var(--color-text-secondary);
-    margin-top: 1.5rem;
+    margin-top: 1rem;
   }
 
   .home-intro :global(blockquote p + p) {
     margin-top: 0.75rem;
+  }
+
+  /* 44px tap target; icon follows text color, accent on hover/focus. */
+  .quote-refresh {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 9999px;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    transition: color 150ms;
+  }
+
+  .quote-refresh:hover,
+  .quote-refresh:focus-visible {
+    color: var(--color-primary);
   }
 </style>
