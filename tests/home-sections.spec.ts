@@ -30,10 +30,27 @@ test("home hero reads name, then intro, then quote", async ({ page }) => {
     (await page.locator(selector).first().boundingBox())!.y;
   const h1 = await top("h1");
   const intro = await top(".home-intro");
-  const quote = await top(".home-hero figure");
+  const quote = await top(".home-quote");
   expect(h1).toBeLessThan(intro);
   expect(intro).toBeLessThan(quote);
   await expect(page.getByRole("button", { name: "New quote" })).toBeVisible();
+});
+
+test("home polaroid sits beside the intro on desktop and under the name on phones", async ({ page }) => {
+  await page.goto("/");
+  const polaroid = page.locator(".home-hero .polaroid");
+  await expect(polaroid.getByText("Snow Lake, 2024")).toBeVisible();
+  let photo = (await polaroid.boundingBox())!;
+  let intro = (await page.locator(".home-intro").boundingBox())!;
+  expect(photo.x).toBeGreaterThan(intro.x + intro.width); // to the right
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  photo = (await polaroid.boundingBox())!;
+  intro = (await page.locator(".home-intro").boundingBox())!;
+  const h1 = (await page.locator("h1").boundingBox())!;
+  expect(photo.y).toBeGreaterThan(h1.y + h1.height); // below the name
+  expect(photo.y + photo.height).toBeLessThanOrEqual(intro.y + 1); // above the intro
+  expect(Math.abs(photo.x + photo.width / 2 - 195)).toBeLessThan(6); // centered
 });
 
 test("photos section links to the full photos page", async ({ page }) => {

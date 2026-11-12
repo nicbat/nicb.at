@@ -12,34 +12,40 @@
 
 <div class="home-page mx-auto w-full">
   <section class="home-hero flex flex-col gap-5 md:pt-6">
-    <!-- Name, with the small photo as a byline tile -->
-    <div class="flex items-center gap-3.5 md:gap-5">
-      <!-- Small avatar, never opened full size: take the compressed derivative when there is one. -->
-      <img
-        src={data.homePhoto?.thumb?.src ??
-          data.homePhoto?.src ??
-          "home_photo.png"}
-        alt={data.homePhoto?.alt ?? "Me!"}
-        class="home-avatar w-12 h-12 md:w-16 md:h-16 rounded-[11px] md:rounded-[14px] object-cover shrink-0"
-      />
+    <!-- Grid areas: phone stacks name → polaroid → intro; md+ puts the polaroid
+         beside the name and intro (see .hero-top below). -->
+    <div class="hero-top">
       <h1 class="home-title mb-0 font-semibold">Hey, it's Nicholas</h1>
-    </div>
 
-    <!-- Intro — authored in media manager as the newest posts/home/*.md -->
-    {#if data.introHtml}
-      <!-- eslint-disable-next-line svelte/no-at-html-tags -->
-      <div
-        class="home-intro markdown-content text-lg md:text-xl leading-relaxed text-primary-text"
-      >
-        {@html data.introHtml}
-      </div>
-    {/if}
+      <!-- Small photo, never opened full size: take the compressed derivative when there is one. -->
+      <figure class="polaroid">
+        <img
+          src={data.homePhoto?.thumb?.src ??
+            data.homePhoto?.src ??
+            "home_photo.png"}
+          alt={data.homePhoto?.alt ?? "Me!"}
+        />
+        <!-- TODO: read this from a "my photo caption" string field on the media-manager
+             Globals record (next to "my photo") via /api/home-photo; hide when empty. -->
+        <figcaption class="font-mono">Snow Lake, 2024</figcaption>
+      </figure>
+
+      <!-- Intro — authored in media manager as the newest posts/home/*.md -->
+      {#if data.introHtml}
+        <!-- eslint-disable-next-line svelte/no-at-html-tags -->
+        <div
+          class="home-intro markdown-content text-lg md:text-xl leading-relaxed text-primary-text"
+        >
+          {@html data.introHtml}
+        </div>
+      {/if}
+    </div>
 
     <!-- Quote: its own quiet line under the intro, with refresh beside it -->
     <!-- Top-aligned so a wrapped quote keeps its gap from the rule. pt-3 puts a single
          line where centering against the 44px button used to (44 - 20) / 2 = 12px. -->
     <figure
-      class="m-0 mt-2 pt-1 border-t border-primary flex items-start gap-1"
+      class="home-quote m-0 mt-2 pt-1 border-t border-primary flex items-start gap-1"
     >
       <div class="flex-1 min-w-0 pt-3">
         <QuoteDisplay bind:this={quoteComponent} />
@@ -102,8 +108,91 @@
     }
   }
 
-  .home-avatar {
+  .hero-top {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "title" "photo" "intro";
+    row-gap: 1.25rem;
+  }
+
+  .hero-top > .home-title {
+    grid-area: title;
+  }
+
+  .hero-top > .polaroid {
+    grid-area: photo;
+    justify-self: center;
+    margin: 0.5rem 0 0.25rem;
+  }
+
+  .hero-top > .home-intro {
+    grid-area: intro;
+  }
+
+  @media (min-width: 768px) {
+    .hero-top {
+      grid-template-columns: minmax(0, 1fr) auto;
+      grid-template-areas: "title photo" "intro photo";
+      grid-template-rows: auto 1fr;
+      column-gap: 4rem;
+      align-items: start;
+    }
+
+    .hero-top > .polaroid {
+      align-self: center;
+      margin: 0 0.5rem 0 0;
+    }
+  }
+
+  /* Polaroid: square photo, thick bottom strip with a mono caption, slight tilt.
+     Stays a white print in dark mode too — it's an object on the page. */
+  .polaroid {
+    width: max-content;
+    padding: 9px 9px 0;
+    background: #fdfdf9;
+    box-shadow:
+      0 2px 6px rgb(35 43 32 / 0.14),
+      0 12px 28px rgb(35 43 32 / 0.1);
+    transform: rotate(-2deg);
+  }
+
+  .polaroid img {
+    display: block;
+    width: 168px;
+    height: 168px;
+    object-fit: cover;
     object-position: 50% 40%;
+  }
+
+  .polaroid figcaption {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    /* Fixed (not themed): the print is always light. ~5.5:1 on #fdfdf9. */
+    color: #61685b;
+  }
+
+  @media (min-width: 768px) {
+    .polaroid {
+      padding: 10px 10px 0;
+    }
+    .polaroid img {
+      width: 176px;
+      height: 176px;
+    }
+    .polaroid figcaption {
+      height: 44px;
+    }
+  }
+
+  :global(.dark) .polaroid {
+    box-shadow:
+      0 2px 6px rgb(0 0 0 / 0.4),
+      0 12px 28px rgb(0 0 0 / 0.35);
   }
 
   /* Markdown intro: paragraph rhythm matching the hand-written markup it replaced. */
