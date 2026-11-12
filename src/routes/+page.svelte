@@ -36,10 +36,12 @@
     {/if}
 
     <!-- Quote: its own quiet line under the intro, with refresh beside it -->
+    <!-- Top-aligned so a wrapped quote keeps its gap from the rule. pt-3 puts a single
+         line where centering against the 44px button used to (44 - 20) / 2 = 12px. -->
     <figure
-      class="m-0 mt-2 pt-1 border-t border-primary flex items-center gap-1"
+      class="m-0 mt-2 pt-1 border-t border-primary flex items-start gap-1"
     >
-      <div class="flex-1 min-w-0">
+      <div class="flex-1 min-w-0 pt-3">
         <QuoteDisplay bind:this={quoteComponent} />
       </div>
       <button
