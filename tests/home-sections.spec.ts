@@ -12,16 +12,50 @@ test("home shows only featured projects and links to the complete list", async (
   for (const project of projects) {
     await expect(section.getByText(project.name, { exact: true })).toHaveCount(project.featured ? 1 : 0);
   }
-  await section.getByRole("link", { name: "See all projects" }).click();
+  await section.locator('a[href="/projects"]').click();
   await expect(page).toHaveURL(/\/projects$/);
   await expect(page.locator(".project-content")).toHaveCount(projects.length);
   await page.getByRole("link", { name: "Back to home" }).click();
   await expect(page).toHaveURL(/\/$/);
   await expect(page.getByRole("navigation")).toHaveCount(0);
   await expect(page.locator(".mountains")).toHaveCount(0);
-  await page.getByRole("link", { name: "write from time to time" }).click();
+  await page.locator('.home-intro a[href="/words"]').click();
   await expect(page).toHaveURL(/\/words$/);
   await expect(page.getByRole("heading", { name: "Words", exact: true })).toBeVisible();
+});
+
+test("home hero reads name, then intro, then quote", async ({ page }) => {
+  await page.goto("/");
+  const top = async (selector: string) =>
+    (await page.locator(selector).first().boundingBox())!.y;
+  const h1 = await top("h1");
+  const intro = await top(".home-intro");
+  const quote = await top(".home-hero figure");
+  expect(h1).toBeLessThan(intro);
+  expect(intro).toBeLessThan(quote);
+  await expect(page.getByRole("button", { name: "New quote" })).toBeVisible();
+});
+
+test("photos section links to the full photos page", async ({ page }) => {
+  await page.goto("/");
+  const section = page.getByRole("region", { name: "Photos", exact: true });
+  await section.locator('a[href="/photos"]').click();
+  await expect(page).toHaveURL(/\/photos$/);
+  await expect(page.getByRole("heading", { level: 1, name: "Photos" })).toBeVisible();
+});
+
+test("footer holds the contact links, without Mastodon", async ({ page }) => {
+  await page.goto("/");
+  const contact = page.getByRole("contentinfo").getByRole("list", { name: "Contact" });
+  for (const name of ["Email", "GitHub", "LinkedIn", "Roblox"]) {
+    await expect(contact.getByRole("link", { name, exact: true })).toBeVisible();
+  }
+  await expect(page.getByRole("link", { name: "Mastodon" })).toHaveCount(0);
+  // Contacts live only in the footer now, so they show on every page.
+  await page.goto("/projects");
+  await expect(
+    page.getByRole("contentinfo").getByRole("link", { name: "GitHub", exact: true }),
+  ).toBeVisible();
 });
 
 test("home Favorites use class names for hover and keyboard tooltips", async ({ page }) => {
