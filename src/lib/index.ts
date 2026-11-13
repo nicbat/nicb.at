@@ -141,6 +141,8 @@ export const fetchImageList = async (): Promise<ImageData[]> => {
         src: m.src ?? '',
         alt: caption || m.filename,
         caption: caption || undefined,
+        title: name.trim() || undefined,
+        ...backOf(m),
         width: m.width,
         height: m.height,
         thumb: thumbOf(m)
@@ -158,6 +160,8 @@ export const fetchFavoriteImages = async (): Promise<ImageData[]> => {
         src: m.src ?? '',
         alt: name || m.filename,
         caption: name || undefined,
+        title: name || undefined,
+        ...backOf(m, photoMeta(m.id)),
         width: m.width,
         height: m.height,
         thumb: thumbOf(m)
@@ -189,17 +193,42 @@ const photoCaption = (m: MediaItem): string =>
     ''
   ).trim();
 
+// The back-of-the-print details for a flipped gallery card: `description` (every photo class has
+// one), plus the photos class's `Location` / `Year`. Sources are tried in order and the first
+// non-blank value wins, so a favorite or trip photo inherits the photos-class notes for the same blob
+// unless its own class says otherwise. Blank fields are left off entirely.
+const backOf = (
+  ...sources: (MediaItem | null | undefined)[]
+): Pick<ImageData, 'place' | 'year' | 'description'> => {
+  const first = (field: string): string | undefined => {
+    for (const m of sources) {
+      const v = ((m?.field(field) as string) || '').trim();
+      if (v) return v;
+    }
+    return undefined;
+  };
+  return { place: first('Location'), year: first('Year'), description: first('description') };
+};
+
 // The homepage polaroid: the Globals `my photo` file plus its `my photo caption` string. The caption
-// is omitted when blank, and the page then leaves the polaroid's bottom strip empty.
+// is omitted when blank, and the page then leaves the polaroid's bottom strip empty. The back of the
+// print reads the Globals `my photo note` (add it in the media manager; blank or missing shows the
+// empty note), then falls back to the photos-class notes for the same blob, as gallery prints do.
 export const fetchHomePhoto = async (): Promise<ImageData | null> => {
   const globals = mm.globals();
   const photo = globals?.file('my photo');
   if (!photo?.src) return null;
   const caption = ((globals?.field('my photo caption') as string) || '').trim();
+  const note = ((globals?.field('my photo note') as string) || '').trim();
+  const back = backOf(photoMeta(photo.id));
   return {
     src: photo.src,
     alt: 'Me!',
     caption: caption || undefined,
+    title: caption || undefined,
+    backTitle: 'Me',
+    ...back,
+    description: note || back.description,
     width: photo.width,
     height: photo.height,
     thumb: thumbOf(photo)
@@ -282,6 +311,8 @@ export const fetchTrip = async (slug: string): Promise<Trip | null> => {
         src: m.src ?? '',
         alt: caption || tripName || m.filename,
         caption: caption || undefined,
+        title: caption || undefined,
+        ...backOf(travelMeta(m.id), photoMeta(m.id)),
         width: m.width,
         height: m.height,
         thumb: thumbOf(m)

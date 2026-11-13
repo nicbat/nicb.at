@@ -3,11 +3,23 @@
   import Gallery from "$lib/components/Gallery.svelte";
   import ProjectCard from "$lib/components/ProjectCard.svelte";
   import QuoteDisplay from "$lib/components/QuoteDisplay.svelte";
+  import PrintTile from "$lib/components/PrintTile.svelte";
+  import PhotoViewer from "$lib/components/PhotoViewer.svelte";
+  import { tiltOf } from "$lib/polaroid";
+  import type { ImageData } from "$lib/types";
   import type { PageData } from "./$types";
 
   let { data }: { data: PageData } = $props();
 
   let quoteComponent = $state<QuoteDisplay>();
+
+  // The profile photo is the same print as the gallery's, square-cropped. Without a Globals photo
+  // it falls back to the bundled static image.
+  let mePhoto = $derived<ImageData>(
+    data.homePhoto ?? { src: "home_photo.png", alt: "Me!", width: 1, height: 1, thumb: null },
+  );
+  let meViewer = $state<PhotoViewer>();
+  let meTile: HTMLElement | null = null;
 </script>
 
 <div class="home-page mx-auto w-full">
@@ -17,22 +29,19 @@
     <div class="hero-top">
       <h1 class="home-title mb-0 font-semibold">Hey, it's Nicholas</h1>
 
-      <!-- Small photo, never opened full size: take the compressed derivative when there is one. -->
-      <figure class="polaroid">
-        <img
-          src={data.homePhoto?.thumb?.src ??
-            data.homePhoto?.src ??
-            "home_photo.png"}
-          alt={data.homePhoto?.alt ?? "Me!"}
+      <!-- Profile photo: the same print as the gallery (subtle tilt, straightens on hover, opens to
+           zoom and flip), always leaning the far end of the subtle range. Square-cropped. -->
+      <div class="polaroid">
+        <PrintTile
+          image={mePhoto}
+          tilt={tiltOf("me", -1)}
+          ratio={1}
+          onopen={(tile) => {
+            meTile = tile;
+            meViewer?.open(0, tile);
+          }}
         />
-        <!-- Caption from the Globals "my photo caption" field. Without one, an empty div
-             keeps the polaroid's thick bottom strip (same fixed height as the figcaption). -->
-        {#if data.homePhoto?.caption}
-          <figcaption class="font-mono">{data.homePhoto.caption}</figcaption>
-        {:else}
-          <div class="polaroid-strip" aria-hidden="true"></div>
-        {/if}
-      </figure>
+      </div>
 
       <!-- Intro — authored in media manager as the newest posts/home/*.md -->
       {#if data.introHtml}
@@ -93,6 +102,8 @@
   </section>
 </div>
 
+<PhotoViewer bind:this={meViewer} images={[mePhoto]} getTile={() => meTile} ratio={1} />
+
 <style>
   .home-page {
     /* Shared width for the intro, projects, and photos. 56rem = 896px. */
@@ -148,60 +159,9 @@
     }
   }
 
-  /* Polaroid: square photo, thick bottom strip with a mono caption, slight tilt.
-     Stays a white print in dark mode too — it's an object on the page. */
+  /* Profile print: the shared Print at a fixed width; every other measurement scales from it. */
   .polaroid {
-    width: max-content;
-    padding: 9px 9px 0;
-    background: #fdfdf9;
-    box-shadow:
-      0 2px 6px rgb(35 43 32 / 0.14),
-      0 12px 28px rgb(35 43 32 / 0.1);
-    transform: rotate(-2deg);
-  }
-
-  .polaroid img {
-    display: block;
-    width: 168px;
-    height: 168px;
-    object-fit: cover;
-    object-position: 50% 40%;
-  }
-
-  .polaroid-strip {
-    height: 40px;
-  }
-
-  .polaroid figcaption {
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    white-space: nowrap;
-    font-size: 0.75rem;
-    letter-spacing: 0.04em;
-    /* Fixed (not themed): the print is always light. ~5.5:1 on #fdfdf9. */
-    color: #61685b;
-  }
-
-  @media (min-width: 768px) {
-    .polaroid {
-      padding: 10px 10px 0;
-    }
-    .polaroid img {
-      width: 176px;
-      height: 176px;
-    }
-    .polaroid figcaption,
-    .polaroid-strip {
-      height: 44px;
-    }
-  }
-
-  :global(.dark) .polaroid {
-    box-shadow:
-      0 2px 6px rgb(0 0 0 / 0.4),
-      0 12px 28px rgb(0 0 0 / 0.35);
+    width: 232px;
   }
 
   /* Markdown intro: paragraph rhythm matching the hand-written markup it replaced. */

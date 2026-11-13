@@ -18,6 +18,7 @@
     alt = "",
     class: className = "",
     imgClass = "",
+    fill = false,
   }: {
     /** The original — the image we ultimately want on screen. */
     src: string;
@@ -28,6 +29,8 @@
     class?: string;
     /** Visual classes shared by both layers (rounding, shadows) — never sizing. */
     imgClass?: string;
+    /** Fill a parent with an explicit size (block wrapper) instead of shrink-wrapping the thumb. */
+    fill?: boolean;
   } = $props();
 
   let fullEl = $state<HTMLImageElement>();
@@ -44,11 +47,11 @@
 
 {#if thumb && thumb !== src}
   <!-- The wrapper shrink-wraps the placeholder, so the overlay's inset-0 lines up with it exactly. -->
-  <div class="relative inline-block leading-none">
+  <div class="relative leading-none {fill ? 'block h-full w-full' : 'inline-block'}">
     <img class="block {className} {imgClass}" src={thumb} {alt} />
     <img
       bind:this={fullEl}
-      class="absolute inset-0 block h-full w-full object-contain transition-opacity duration-300 {imgClass}"
+      class="absolute inset-0 block h-full w-full {fill ? 'object-cover' : 'object-contain'} transition-opacity duration-300 {imgClass}"
       class:opacity-0={!fullLoaded}
       {src}
       alt=""

@@ -3,6 +3,14 @@ export interface ImageData {
   alt: string;
   /** Human-written caption shown on hover / in the lightbox. Absent when the photo is unnamed. */
   caption?: string;
+  /** The photo's own `name`, unadorned — what the polaroid's bottom strip prints. */
+  title?: string;
+  /** "Back of the print" details for the flipped card. All optional; most are still empty. */
+  place?: string;
+  year?: string;
+  description?: string;
+  /** Heading on the back of the print when it should differ from `title` (the home photo's "Me"). */
+  backTitle?: string;
   width: number;
   height: number;
   /**
