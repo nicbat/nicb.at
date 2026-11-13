@@ -5,6 +5,14 @@
 
 /* Global styles that can't be easily handled by Tailwind */
 
+/* Show every photo at normal (SDR) brightness. Many originals are Pixel Ultra HDR JPEGs; on an
+   HDR phone screen they'd render brighter than their SDR derivatives and ramp the display into
+   HDR mode over about a second, which reads as a photo slowly "brightening". Browsers without
+   support ignore it. */
+img {
+  dynamic-range-limit: standard;
+}
+
 /* Typography base styles */
 h1, h2, h3, h4, h5, h6 {
   @apply font-bold mb-2;

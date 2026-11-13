@@ -1,70 +1,53 @@
 import { test, expect } from "@playwright/test";
 
-// The lightbox must never wait on the original before showing something: the compressed
-// derivative is already in cache from the grid tile, so it paints in the same frame as the click
-// and the original fades in over it afterwards.
-test("lightbox shows the derivative first, then swaps in the original", async ({ page }) => {
-  // Hold the originals (/media/<file>, not /media/derived/...) so the "still loading" state is
-  // observable rather than a race we'd usually lose.
-  let release: (() => void) | null = null;
-  const held = new Promise<void>((r) => (release = r));
-  await page.route(/\/media\/(?!derived\/)[^/]+$/, async (route) => {
-    await held;
-    await route.continue();
+// The zoomed print shows the same `web` derivative the grid tile already loaded. The originals are
+// the same resolution (the derivatives are full-size re-encodes) but 4–9 MB, and many are Pixel
+// Ultra HDR JPEGs: downloading and decoding one mid-animation made phones stutter and visibly
+// brighten the photo as the HDR original faded in. So while the derivative is at least as large
+// as the original, the viewer must never request the original at all.
+test("zoomed photos reuse the derivative and never download originals", async ({ page }) => {
+  // Only photos that have a derivative count: one without (media-manager skips a re-encode that
+  // comes out larger) is shown from its original everywhere, grid included.
+  const images: { src: string; thumb: unknown }[] = await (await page.request.get("/api/images")).json();
+  const replaceable = new Set(images.filter((i) => i.thumb).map((i) => i.src));
+  const originals: string[] = [];
+  page.on("request", (req) => {
+    const path = decodeURIComponent(new URL(req.url()).pathname);
+    if (replaceable.has(path)) originals.push(path);
   });
 
   await page.goto("/photos");
   const tile = page.locator(".gallery-item").first();
-  await expect(tile).toBeVisible();
   const thumbSrc = await tile.locator("img").getAttribute("src");
   expect(thumbSrc).toContain("/media/derived/web/");
 
-  await tile.click();
-
-  // Placeholder layer: the derivative, visible immediately.
-  const lightbox = page.locator(".fixed.inset-0");
-  const placeholder = lightbox.locator("img").first();
-  const original = lightbox.locator("img[aria-hidden='true']");
-  await expect(placeholder).toHaveAttribute("src", thumbSrc!);
-  await expect(placeholder).toBeVisible();
-
-  // The original is mounted but transparent while its bytes are still in flight.
-  await expect(original).toHaveClass(/opacity-0/);
-  const originalSrc = await original.getAttribute("src");
-  expect(originalSrc).not.toContain("/derived/");
-
-  release!();
-
-  // Once it loads it fades in on top, at the same box as the placeholder.
-  await expect(original).not.toHaveClass(/opacity-0/);
-  // Read both boxes in one frame: the card may still be mid zoom-in animation.
-  const [a, b] = await lightbox.evaluate((el) =>
-    [...el.querySelectorAll("img")].slice(0, 2).map((img) => {
-      const r = img.getBoundingClientRect();
-      return { width: r.width, height: r.height };
-    }),
-  );
-  expect(Math.round(b.width)).toBe(Math.round(a.width));
-  expect(Math.round(b.height)).toBe(Math.round(a.height));
-});
-
-// One instance is reused for every photo, so opening a second image must fall back to *its*
-// derivative rather than leaving the previous original on screen.
-test("reopening a different photo resets to that photo's derivative", async ({ page }) => {
-  await page.goto("/photos");
-  const tiles = page.locator(".gallery-item");
-  await expect(tiles.first()).toBeVisible();
-
-  const lightbox = page.locator(".fixed.inset-0");
+  const dialog = page.getByRole("dialog");
   // Retry: a click that lands before hydration hits the server-rendered button with no handler.
   await expect(async () => {
-    await tiles.nth(0).click();
-    await expect(lightbox.locator("img[aria-hidden='true']")).toBeVisible({ timeout: 1000 });
+    await tile.click();
+    await expect(dialog).toBeVisible({ timeout: 1000 });
   }).toPass();
-  await lightbox.click({ position: { x: 5, y: 5 } });
 
-  await expect(lightbox).toHaveCount(0); // the print has flown back to its tile
-  const secondThumb = await tiles.nth(1).locator("img").getAttribute("src");
-  await tiles.nth(1).click();
-  await expect(lightbox.locator("img").first()).toHaveAttribute("src", secondThumb!);
+  // The zoomed print paints the very same, already-cached file.
+  await expect(dialog.locator(".front img")).toHaveAttribute("src", thumbSrc!);
+
+  // Flip, browse a few photos, close: still no originals.
+  await dialog.getByRole("button", { name: "Flip over to read the back" }).click();
+  for (let i = 0; i < 3; i++) await page.keyboard.press("ArrowRight");
+  await expect(dialog.locator(".front img")).not.toHaveAttribute("src", thumbSrc!);
+  await page.keyboard.press("Escape");
+  await expect(dialog).toHaveCount(0);
+
+  expect(originals).toEqual([]);
+});
+
+// Showing photos at normal brightness: HDR originals elsewhere on the site mustn't push the
+// screen into HDR mode either.
+test("photos are limited to standard dynamic range", async ({ page }) => {
+  await page.goto("/photos");
+  const limit = await page
+    .locator(".gallery-item img")
+    .first()
+    .evaluate((img) => getComputedStyle(img).getPropertyValue("dynamic-range-limit"));
+  expect(limit).toBe("standard");
 });
