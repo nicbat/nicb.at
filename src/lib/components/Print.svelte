@@ -3,8 +3,11 @@
    * One polaroid print: the photo in a white frame with the title printed on the bottom strip.
    * Rendered at any width — see `$lib/polaroid` for why every measurement is proportional.
    *
-   * `full` swaps the plain thumbnail for ProgressiveImage, which paints the cached derivative and
-   * fades the original in over it; grid tiles keep the cheap derivative only.
+   * `full` (the zoomed print) upgrades to the original only when the derivative is actually
+   * smaller than it: ProgressiveImage then paints the cached derivative and fades the original in
+   * over it. Today's `web` derivatives are full-resolution re-encodes, so the original would add
+   * nothing on screen while costing a 4–9 MB download, and many are Ultra HDR JPEGs whose gain
+   * map is heavy to decode and pushes phones into HDR mode mid-animation (the slow "brighten").
    */
   import type { ImageData } from "$lib/types";
   import ProgressiveImage from "$components/ProgressiveImage.svelte";
@@ -25,11 +28,12 @@
 
   let ar = $derived(ratio ?? aspect(image));
   let label = $derived(image.title ?? image.caption);
+  let upgrade = $derived(full && !!image.thumb && image.thumb.width < image.width);
 </script>
 
 <div class="print" style="--sf: {stripFrac(ar)}">
   <div class="photo" style="aspect-ratio: {ar}">
-    {#if full}
+    {#if upgrade}
       <ProgressiveImage
         src={image.src}
         thumb={image.thumb?.src}
@@ -42,6 +46,7 @@
         src={image.thumb?.src ?? image.src}
         alt={image.alt}
         loading={lazy ? "lazy" : undefined}
+        decoding="async"
         draggable="false"
       />
     {/if}

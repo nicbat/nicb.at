@@ -49,6 +49,8 @@ All site content lives in `src/assets/` and flows through a consistent pattern. 
 
 When adding or changing content behavior, follow this chain: `src/assets` → transform in `src/lib/index.ts` → expose via `src/routes/api/.../+server.ts` → consume in the route's `+page.ts`.
 
+**Open item, photo sizes:** every photo on the site is served from media-manager's `web` preset, which is a full-resolution re-encode (12–24 MP), so phones decode far more pixels than they show. The plan is a resized media-manager preset; see the `TODO(photos perf)` above `THUMB_PRESET` in `src/lib/index.ts`. Bring it up when working on photos or performance.
+
 ### Blog posts (mdsvex)
 
 Markdown posts (`src/assets/blog/*.md`) are compiled by **mdsvex** (configured in `svelte.config.js`) — `.md` is registered as a Svelte extension. Each post has YAML frontmatter (`title`, `date`, `description`); `date` is a `YYMMDD` string. Code blocks are syntax-highlighted at build time by **shiki** (theme `catppuccin-mocha`); only the languages listed in `svelte.config.js` (`javascript, typescript, python, c, bash`) are available — add new languages there. Individual posts render via the dynamic route `src/routes/words/[slug]/+page.ts`, which resolves the matching `.md` through `import.meta.glob`, pulls its `metadata` + default component, and returns `error(404)` for unknown slugs.

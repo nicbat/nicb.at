@@ -113,6 +113,21 @@ interface UrlValue {
 // The compression preset whose derivatives back every grid tile on the site. media-manager writes
 // them next to the blobs (static/media/derived/web/*.webp) and, in static-assets mode, the reader
 // synthesizes their URLs from the manifest — nothing extra to glob or bundle.
+//
+// TODO(photos perf, to discuss): add a *resized* preset in media-manager and point this at it.
+// `web` is a full-resolution re-encode (webp:q80, same pixel size as the original: 12–24 MP), so a
+// phone decodes ~50 MB of pixels per photo; with ~30 on /photos, Chrome on Android evicts decoded
+// images and re-decodes them, which shows up as stutter when opening / browsing prints. Plan:
+//   1. Check whether media-manager presets can resize (the reader's `variantInfo` already reports
+//      per-preset width/height, which suggests they can). If not, that's a media-manager change.
+//   2. Add a preset, e.g. `display`: webp, ~1600px long edge (enough for the zoomed print at 3x
+//      DPR on a phone), and regenerate derivatives.
+//   3. Change THUMB_PRESET to it. Nothing else needs to change: `ImageData.thumb` carries the
+//      derivative's own dimensions, and Print.svelte's zoomed view upgrades to the original only
+//      when the derivative is smaller than it (it fades the original in over the derivative).
+//      Decide then whether that upgrade is wanted at all: the originals are mostly Pixel Ultra HDR
+//      JPEGs, 4–9 MB each (photos are capped to SDR via `dynamic-range-limit` in layout.css).
+// Related: the TODO in src/routes/photos/+page.svelte about loading lower quality by default.
 const THUMB_PRESET = 'web';
 
 // The compressed twin of a blob, for `ImageData.thumb`. Grid tiles render this; the full-size views
