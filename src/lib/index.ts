@@ -189,12 +189,17 @@ const photoCaption = (m: MediaItem): string =>
     ''
   ).trim();
 
+// The homepage polaroid: the Globals `my photo` file plus its `my photo caption` string. The caption
+// is omitted when blank, and the page then leaves the polaroid's bottom strip empty.
 export const fetchHomePhoto = async (): Promise<ImageData | null> => {
-  const photo = mm.globals()?.file('my photo');
+  const globals = mm.globals();
+  const photo = globals?.file('my photo');
   if (!photo?.src) return null;
+  const caption = ((globals?.field('my photo caption') as string) || '').trim();
   return {
     src: photo.src,
     alt: 'Me!',
+    caption: caption || undefined,
     width: photo.width,
     height: photo.height,
     thumb: thumbOf(photo)

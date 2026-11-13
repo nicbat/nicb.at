@@ -25,9 +25,13 @@
             "home_photo.png"}
           alt={data.homePhoto?.alt ?? "Me!"}
         />
-        <!-- TODO: read this from a "my photo caption" string field on the media-manager
-             Globals record (next to "my photo") via /api/home-photo; hide when empty. -->
-        <figcaption class="font-mono">Snow Lake, 2024</figcaption>
+        <!-- Caption from the Globals "my photo caption" field. Without one, an empty div
+             keeps the polaroid's thick bottom strip (same fixed height as the figcaption). -->
+        {#if data.homePhoto?.caption}
+          <figcaption class="font-mono">{data.homePhoto.caption}</figcaption>
+        {:else}
+          <div class="polaroid-strip" aria-hidden="true"></div>
+        {/if}
       </figure>
 
       <!-- Intro — authored in media manager as the newest posts/home/*.md -->
@@ -164,6 +168,10 @@
     object-position: 50% 40%;
   }
 
+  .polaroid-strip {
+    height: 40px;
+  }
+
   .polaroid figcaption {
     height: 40px;
     display: flex;
@@ -184,7 +192,8 @@
       width: 176px;
       height: 176px;
     }
-    .polaroid figcaption {
+    .polaroid figcaption,
+    .polaroid-strip {
       height: 44px;
     }
   }
