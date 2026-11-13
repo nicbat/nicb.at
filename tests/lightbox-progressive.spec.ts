@@ -37,10 +37,15 @@ test("lightbox shows the derivative first, then swaps in the original", async ({
 
   // Once it loads it fades in on top, at the same box as the placeholder.
   await expect(original).not.toHaveClass(/opacity-0/);
-  const a = await placeholder.boundingBox();
-  const b = await original.boundingBox();
-  expect(Math.round(b!.width)).toBe(Math.round(a!.width));
-  expect(Math.round(b!.height)).toBe(Math.round(a!.height));
+  // Read both boxes in one frame: the card may still be mid zoom-in animation.
+  const [a, b] = await lightbox.evaluate((el) =>
+    [...el.querySelectorAll("img")].slice(0, 2).map((img) => {
+      const r = img.getBoundingClientRect();
+      return { width: r.width, height: r.height };
+    }),
+  );
+  expect(Math.round(b.width)).toBe(Math.round(a.width));
+  expect(Math.round(b.height)).toBe(Math.round(a.height));
 });
 
 // One instance is reused for every photo, so opening a second image must fall back to *its*

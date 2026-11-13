@@ -77,7 +77,7 @@ test("footer holds the contact links, without Mastodon", async ({ page }) => {
   ).toBeVisible();
 });
 
-test("home Favorites use class names for hover and keyboard tooltips", async ({ page }) => {
+test("home Favorites print their class names on the polaroid strip", async ({ page }) => {
   const errors: string[] = [];
   page.on("pageerror", error => errors.push(error.message));
   await page.goto("/");
@@ -88,14 +88,10 @@ test("home Favorites use class names for hover and keyboard tooltips", async ({ 
   }
   const name = Object.values(favorites).find(p => p.name)!.name;
   const tile = section.getByRole("button", { name, exact: true });
-  const tooltip = tile.getByRole("tooltip");
-  await tile.hover();
-  await expect(tooltip).toHaveCSS("opacity", "1");
-  await page.mouse.move(0, 0);
-  await tile.focus();
-  await expect(tooltip).toHaveCSS("opacity", "1");
+  // The name is printed on the polaroid's bottom strip — always visible, no hover needed.
+  await expect(tile.locator(".strip").getByText(name, { exact: true })).toBeVisible();
   await tile.click();
-  await expect(page.locator(".fixed.inset-0").getByText(name, { exact: true })).toBeVisible();
+  await expect(page.locator(".fixed.inset-0 .front").getByText(name, { exact: true })).toBeVisible();
   expect(errors).toEqual([]);
 });
 
