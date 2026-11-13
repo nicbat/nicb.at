@@ -1,9 +1,11 @@
 import { expect, test } from "@playwright/test";
 import favoriteData from "../src/assets/media_manager/media/classes/favorites.json" with { type: "json" };
 import projectData from "../src/assets/media_manager/records/projects/data.json" with { type: "json" };
+import globalsData from "../src/assets/media_manager/globals/data.json" with { type: "json" };
 
 const favorites = favoriteData.records;
 const projects = projectData.records;
+const photoCaption = globalsData.records[0]["my photo caption"];
 
 test("home shows only featured projects and links to the complete list", async ({ page }) => {
   await page.goto("/");
@@ -39,7 +41,7 @@ test("home hero reads name, then intro, then quote", async ({ page }) => {
 test("home polaroid sits beside the intro on desktop and under the name on phones", async ({ page }) => {
   await page.goto("/");
   const polaroid = page.locator(".home-hero .polaroid");
-  await expect(polaroid.getByText("Snow Lake, 2024")).toBeVisible();
+  await expect(polaroid.getByText(photoCaption, { exact: true })).toBeVisible();
   let photo = (await polaroid.boundingBox())!;
   let intro = (await page.locator(".home-intro").boundingBox())!;
   expect(photo.x).toBeGreaterThan(intro.x + intro.width); // to the right
