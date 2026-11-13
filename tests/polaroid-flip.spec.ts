@@ -112,3 +112,24 @@ test("home profile photo is a print that zooms and flips", async ({ page }) => {
   await expect(dialog).toHaveCount(0);
   await expect(print).toBeVisible();
 });
+
+test("tapping again mid-flip reverses the turn and ends face up", async ({ page }) => {
+  await page.goto("/photos");
+  const tile = page.locator(".gallery-item").first();
+  const dialog = page.getByRole("dialog");
+  await expect(async () => {
+    await tile.click();
+    await expect(dialog).toBeVisible({ timeout: 1000 });
+  }).toPass();
+  const card = dialog.locator(".card");
+  await card.click();
+  await page.waitForTimeout(200); // part-way through the turn
+  await card.click();
+  await expect(card).toHaveAttribute("aria-pressed", "false");
+  // The turn settles back at 0° (GSAP leaves an identity-ish 3D matrix on the element).
+  await expect
+    .poll(async () =>
+      dialog.locator(".card-inner").evaluate((el) => new DOMMatrix(getComputedStyle(el).transform).m11),
+    )
+    .toBeCloseTo(1, 2);
+});
