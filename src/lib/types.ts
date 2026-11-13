@@ -9,6 +9,8 @@ export interface ImageData {
   place?: string;
   year?: string;
   description?: string;
+  /** Heading on the back of the print when it should differ from `title` (the home photo's "Me"). */
+  backTitle?: string;
   width: number;
   height: number;
   /**

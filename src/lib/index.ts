@@ -211,16 +211,24 @@ const backOf = (
 };
 
 // The homepage polaroid: the Globals `my photo` file plus its `my photo caption` string. The caption
-// is omitted when blank, and the page then leaves the polaroid's bottom strip empty.
+// is omitted when blank, and the page then leaves the polaroid's bottom strip empty. The back of the
+// print reads the Globals `my photo note` (add it in the media manager; blank or missing shows the
+// empty note), then falls back to the photos-class notes for the same blob, as gallery prints do.
 export const fetchHomePhoto = async (): Promise<ImageData | null> => {
   const globals = mm.globals();
   const photo = globals?.file('my photo');
   if (!photo?.src) return null;
   const caption = ((globals?.field('my photo caption') as string) || '').trim();
+  const note = ((globals?.field('my photo note') as string) || '').trim();
+  const back = backOf(photoMeta(photo.id));
   return {
     src: photo.src,
     alt: 'Me!',
     caption: caption || undefined,
+    title: caption || undefined,
+    backTitle: 'Me',
+    ...back,
+    description: note || back.description,
     width: photo.width,
     height: photo.height,
     thumb: thumbOf(photo)

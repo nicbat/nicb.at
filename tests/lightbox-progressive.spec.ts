@@ -55,11 +55,15 @@ test("reopening a different photo resets to that photo's derivative", async ({ p
   const tiles = page.locator(".gallery-item");
   await expect(tiles.first()).toBeVisible();
 
-  await tiles.nth(0).click();
   const lightbox = page.locator(".fixed.inset-0");
-  await expect(lightbox.locator("img[aria-hidden='true']")).toBeVisible();
+  // Retry: a click that lands before hydration hits the server-rendered button with no handler.
+  await expect(async () => {
+    await tiles.nth(0).click();
+    await expect(lightbox.locator("img[aria-hidden='true']")).toBeVisible({ timeout: 1000 });
+  }).toPass();
   await lightbox.click({ position: { x: 5, y: 5 } });
 
+  await expect(lightbox).toHaveCount(0); // the print has flown back to its tile
   const secondThumb = await tiles.nth(1).locator("img").getAttribute("src");
   await tiles.nth(1).click();
   await expect(lightbox.locator("img").first()).toHaveAttribute("src", secondThumb!);
