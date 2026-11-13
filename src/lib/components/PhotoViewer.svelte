@@ -30,6 +30,13 @@
 
   let index = $state(-1);
   let flipped = $state(false);
+  // How the card is turning, as a CSS class on .card-inner: "rest" (face up, no animation),
+  // "over" (turning to the back) or "back" (turning face up again). The flip is a CSS animation
+  // rather than a GSAP tween so it runs on the compositor thread: a JS tween animates on the main
+  // thread and stutters on phones whenever the page is busy, e.g. decoding the full-size photo.
+  let turn = $state<"rest" | "over" | "back">("rest");
+  let quickTurn = $state(false); // the shorter turn used while flying back to the grid
+  let turning = false;
   let cardSize = $state({ w: 0, h: 0 });
   let selected = $derived(index >= 0 ? (images[index] ?? null) : null);
   let browsable = $derived(images.length > 1);
@@ -43,6 +50,16 @@
   let closing = false;
   let busy = false; // mid prev/next swap
   let queued = 0; // net prev/next presses made mid-swap (+ next, − prev), played after it finishes
+
+  // A cancelled turn (e.g. its class swapped mid-way) never fires animationend; don't stay locked.
+  // Svelte's element types have no onanimationcancel attribute, so listen directly.
+  $effect(() => {
+    const el = innerEl;
+    if (!el) return;
+    const unlock = () => (turning = false);
+    el.addEventListener("animationcancel", unlock);
+    return () => el.removeEventListener("animationcancel", unlock);
+  });
 
   const reducedMotion = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const ratioOf = (img: ImageData) => ratio ?? aspect(img);
@@ -100,6 +117,8 @@
     closing = busy = false;
     queued = 0;
     flipped = false;
+    turn = "rest";
+    quickTurn = turning = false;
     cardSize = fitCard(images[i]);
     index = i;
     lockScroll(true);
@@ -107,7 +126,6 @@
     if (!cardEl || !innerEl) return;
 
     cardEl.focus({ preventScroll: true });
-    gsap.set(innerEl, { rotationY: 0, scale: 1 });
 
     if (reducedMotion()) {
       gsap.fromTo([backdropEl!, cardEl, chromeEl!], { opacity: 0 }, { opacity: 1, duration: 0.2 });
@@ -133,12 +151,13 @@
       if (home) home.style.visibility = "";
       index = -1;
       flipped = false;
+      turn = "rest";
       closing = busy = false;
       lockScroll(false);
       home?.focus({ preventScroll: true });
     };
 
-    gsap.killTweensOf([cardEl!, innerEl!, backdropEl!, chromeEl!]);
+    gsap.killTweensOf([cardEl!, backdropEl!, chromeEl!]);
 
     if (reducedMotion() || !home || !cardEl) {
       gsap.to([backdropEl!, cardEl!, chromeEl!], { opacity: 0, duration: 0.15, onComplete: done });
@@ -153,23 +172,23 @@
 
     gsap.to(chromeEl!, { opacity: 0, duration: 0.15 });
     gsap.to(backdropEl!, { opacity: 0, duration: 0.45, ease: "power2.in" });
-    gsap.to(innerEl!, { rotationY: 0, scale: 1, duration: 0.45, ease: "power2.inOut" });
+    // Turn face up on the way back, quickly enough to land before the card does.
+    if (flipped) {
+      flipped = false;
+      quickTurn = true;
+      turn = "back";
+    }
     gsap.to(cardEl, { ...to, duration: 0.5, ease: "power3.inOut", onComplete: done });
   }
 
   function flip() {
-    if (!innerEl || closing || busy) return;
+    // A tap mid-turn would restart the animation from its first keyframe (a visible jump), so the
+    // turn finishes first. Reduced motion has no animation, hence no animationend to wait for.
+    if (!innerEl || closing || busy || turning) return;
     flipped = !flipped;
-    if (reducedMotion()) {
-      gsap.set(innerEl, { rotationY: flipped ? 180 : 0 });
-      return;
-    }
-    // The print lifts slightly as it turns over, then settles.
-    gsap
-      .timeline()
-      .to(innerEl, { rotationY: flipped ? 180 : 0, duration: 0.75, ease: "power3.inOut" }, 0)
-      .to(innerEl, { scale: 1.04, duration: 0.375, ease: "power2.out" }, 0)
-      .to(innerEl, { scale: 1, duration: 0.375, ease: "power2.in" }, 0.375);
+    quickTurn = false;
+    turn = flipped ? "over" : "back";
+    turning = !reducedMotion();
   }
 
   // Prev / next: the print slides off one side and the neighbour slides in from the other. The
@@ -187,10 +206,11 @@
       if (tile) tile.style.visibility = "";
       tile = getTile(next);
       flipped = false;
+      turn = "rest";
+      turning = false;
       cardSize = fitCard(images[next]);
       index = next;
       await tick();
-      gsap.set(innerEl!, { rotationY: 0, scale: 1 });
       if (tile && !reducedMotion()) tile.style.visibility = "hidden";
     };
 
@@ -318,7 +338,12 @@
         onpointerup={onPointerUp}
         onpointercancel={onPointerUp}
       >
-        <div bind:this={innerEl} class="card-inner">
+        <div
+          bind:this={innerEl}
+          class="card-inner {turn}"
+          class:quick={quickTurn}
+          onanimationend={() => (turning = false)}
+        >
           <div class="face front" aria-hidden={flipped}>
             <Print image={selected} {ratio} full />
           </div>
@@ -372,9 +397,9 @@
   .backdrop {
     position: absolute;
     inset: 0;
-    background: var(--color-overlay-light);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
+    /* Opaque enough to read as a plain backdrop. No backdrop-filter blur: re-blurring the whole
+       screen every frame cost ~12ms of a 16ms frame on a phone and made the flip stutter. */
+    background: color-mix(in srgb, var(--color-bg-main) 93%, transparent);
   }
 
   .stage {
@@ -414,6 +439,56 @@
     width: 100%;
     height: 100%;
     transform-style: preserve-3d;
+    will-change: transform;
+  }
+
+  /* End states, which are also all that reduced motion gets. */
+  .card-inner.over {
+    transform: rotateY(180deg);
+  }
+
+  /* The turn: the print lifts slightly as it goes edge-on, then settles. Each half eases on its
+     own, which together read as one ease-in-out. */
+  @media (prefers-reduced-motion: no-preference) {
+    .card-inner.over {
+      animation: turn-over 700ms both;
+    }
+
+    .card-inner.back {
+      animation: turn-back 700ms both;
+    }
+
+    .card-inner.quick {
+      animation-duration: 450ms;
+    }
+  }
+
+  @keyframes turn-over {
+    0% {
+      transform: rotateY(0deg) scale(1);
+      animation-timing-function: cubic-bezier(0.5, 0, 0.75, 0.4);
+    }
+    50% {
+      transform: rotateY(90deg) scale(1.04);
+      animation-timing-function: cubic-bezier(0.25, 0.6, 0.5, 1);
+    }
+    100% {
+      transform: rotateY(180deg) scale(1);
+    }
+  }
+
+  @keyframes turn-back {
+    0% {
+      transform: rotateY(180deg) scale(1);
+      animation-timing-function: cubic-bezier(0.5, 0, 0.75, 0.4);
+    }
+    50% {
+      transform: rotateY(90deg) scale(1.04);
+      animation-timing-function: cubic-bezier(0.25, 0.6, 0.5, 1);
+    }
+    100% {
+      transform: rotateY(0deg) scale(1);
+    }
   }
 
   .face {
