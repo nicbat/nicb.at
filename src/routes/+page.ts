@@ -7,7 +7,7 @@ export const load: PageLoad = async ({ fetch }) => {
     fetch('/api/home-photo'),
     fetch('/api/home'),
     fetch('/api/favorites'),
-    fetch('/api/projects?featured=true')
+    fetch('/api/projects')
   ]);
 
   const homePhoto: ImageData | null = await photoRes.json();

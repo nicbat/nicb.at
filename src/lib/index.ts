@@ -254,18 +254,27 @@ export const fetchProjects = async (): Promise<Project[]> => {
   return mm
     .records('projects')
     .sortBy('date', 'desc')
-    .map((r) => ({
-      title: (r.field('name') as string) ?? '',
-      featured: r.field('featured') === true,
-      date: (r.field('date') as string) ?? '',
-      tags: ((r.field('tags') as string[]) ?? []) as Project['tags'],
-      links: ((r.field('urls') as UrlValue[]) ?? []).map((u) => ({
-        text: u.display_name,
-        url: u.url
-      })),
-      image: '',
-      description: (r.field('description') as string) ?? ''
-    }));
+    .map((r) => {
+      const title = (r.field('name') as string) ?? '';
+      // Optional `image` file field (add it to the Projects schema in the media manager). A record
+      // without it, or with it empty, gets a plain note.
+      const img = r.file('image');
+      return {
+        id: r.id,
+        title,
+        featured: r.field('featured') === true,
+        date: (r.field('date') as string) ?? '',
+        tags: (r.field('tags') as string[]) ?? [],
+        links: ((r.field('urls') as UrlValue[]) ?? []).map((u) => ({
+          text: u.display_name,
+          url: u.url
+        })),
+        image: img?.src
+          ? { src: img.src, alt: title, width: img.width, height: img.height, thumb: thumbOf(img) }
+          : null,
+        description: (r.field('description') as string) ?? ''
+      };
+    });
 };
 
 // A trip's URL is its `html_route` when set, else a slug derived from its name.

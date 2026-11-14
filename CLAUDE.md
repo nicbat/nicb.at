@@ -51,6 +51,10 @@ When adding or changing content behavior, follow this chain: `src/assets` → tr
 
 **Open item, photo sizes:** every photo on the site is served from media-manager's `web` preset, which is a full-resolution re-encode (12–24 MP), so phones decode far more pixels than they show. The plan is a resized media-manager preset; see the `TODO(photos perf)` above `THUMB_PRESET` in `src/lib/index.ts`. Bring it up when working on photos or performance.
 
+### Projects (sticky notes)
+
+Each project renders as a sticky note (`StickyNote.svelte`). Its color comes from its tags, and its tilt and pile position are seeded from the record id (`src/lib/stickyNote.ts`). The home page sticks up the `featured` notes and stacks the rest in a pile that links to /projects. Clicking a note picks it up in `NoteViewer.svelte` (a GSAP flight, like PhotoViewer). Between `/` and `/projects`, `+layout.svelte` flies every note to its new spot with GSAP Flip, pairing them by `data-flip-id`. An optional `image` file field on a project record shows a photo taped onto its note.
+
 ### Blog posts (mdsvex)
 
 Markdown posts (`src/assets/blog/*.md`) are compiled by **mdsvex** (configured in `svelte.config.js`) — `.md` is registered as a Svelte extension. Each post has YAML frontmatter (`title`, `date`, `description`); `date` is a `YYMMDD` string. Code blocks are syntax-highlighted at build time by **shiki** (theme `catppuccin-mocha`); only the languages listed in `svelte.config.js` (`javascript, typescript, python, c, bash`) are available — add new languages there. Individual posts render via the dynamic route `src/routes/words/[slug]/+page.ts`, which resolves the matching `.md` through `import.meta.glob`, pulls its `metadata` + default component, and returns `error(404)` for unknown slugs.
