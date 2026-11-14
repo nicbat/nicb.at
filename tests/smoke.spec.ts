@@ -30,18 +30,11 @@ test("photos renders heading", async ({ page }) => {
   await expect(page.getByRole("heading", { level: 1, name: "Photos" })).toBeVisible();
 });
 
-test("travel renders heading", async ({ page }) => {
-  await page.goto("/travel");
-  await expect(page.getByRole("heading", { level: 1, name: "Travel" })).toBeVisible();
-});
-
-test("navigates into a trip", async ({ page }) => {
-  await page.goto("/travel");
-  await page.locator('a[href="/travel/vienna-2025"]').click();
-  await expect(page).toHaveURL(/\/travel\/vienna-2025$/);
-  await expect(
-    page.getByRole("heading", { level: 1, name: "Vienna and Bratislava" }),
-  ).toBeVisible();
+test("travel is hidden: the index, a trip and the trips API all 404", async ({ page, request }) => {
+  expect((await page.goto("/travel"))?.status()).toBe(404);
+  expect((await page.goto("/travel/vienna-2025"))?.status()).toBe(404);
+  expect((await request.get("/api/trips")).status()).toBe(404);
+  expect((await request.get("/api/trips/vienna-2025")).status()).toBe(404);
 });
 
 test("unknown trip slug returns 404", async ({ page }) => {

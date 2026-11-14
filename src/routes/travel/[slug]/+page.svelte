@@ -14,13 +14,7 @@
   );
 </script>
 
-<div class="flex-1 mx-auto w-full px-5 flex flex-col max-w-3xl">
-  <a
-    href="/travel"
-    class="text-sm text-primary hover:underline mb-2 no-underline"
-  >
-    ← Travel
-  </a>
+<div class="flex flex-col max-w-3xl">
   <h1 class="mb-1">{trip.name}</h1>
   {#if dateRange}
     <p class="text-muted text-sm mb-3">{dateRange}</p>
@@ -30,7 +24,7 @@
   {/if}
 </div>
 
-<div class="flex-1 mx-auto w-full px-5 flex flex-col max-w-5xl">
+<div class="flex flex-col">
   {#if trip.photos.length === 0}
     <p class="text-secondary-text px-4">
       Photos from this trip are coming soon.

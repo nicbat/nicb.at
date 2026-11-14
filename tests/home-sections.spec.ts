@@ -17,9 +17,13 @@ test("home sticks up only the featured projects and links to the complete list",
   await section.locator('a[href="/projects"]').click();
   await expect(page).toHaveURL(/\/projects$/);
   await expect(page.locator(".note-grid button.note")).toHaveCount(projects.length);
-  await page.getByRole("link", { name: "Back to home" }).click();
+  // Home is the first crumb in the site terminal (it replaced the per-page "Back to home" links).
+  await page.getByRole("navigation", { name: "Breadcrumb" }).getByRole("link", { name: "nicbat" }).click();
   await expect(page).toHaveURL(/\/$/);
-  await expect(page.getByRole("navigation")).toHaveCount(0);
+  // No navbar: every navigation landmark on the page belongs to the site terminal.
+  const terminalNavs = await page.getByRole("region", { name: "Site terminal" }).getByRole("navigation").count();
+  await expect(page.getByRole("navigation")).toHaveCount(terminalNavs);
+  await expect(page.getByRole("navigation", { name: "Breadcrumb" })).toHaveCount(1);
   await expect(page.locator(".mountains")).toHaveCount(0);
   await page.locator('.home-intro a[href="/words"]').click();
   await expect(page).toHaveURL(/\/words$/);
@@ -110,7 +114,10 @@ test("footer text button switches themes and persists across navigation and relo
   await expect(page.locator("html")).toHaveClass(/dark/);
   await footer.getByRole("button", { name: "light mode", exact: true }).click();
   await expect(page.locator("html")).not.toHaveClass(/dark/);
-  await expect(page.getByRole("navigation")).toHaveCount(0);
+  // No navbar: every navigation landmark on the page belongs to the site terminal.
+  const terminalNavs = await page.getByRole("region", { name: "Site terminal" }).getByRole("navigation").count();
+  await expect(page.getByRole("navigation")).toHaveCount(terminalNavs);
+  await expect(page.getByRole("navigation", { name: "Breadcrumb" })).toHaveCount(1);
 });
 
 test("home fits a narrow mobile viewport", async ({ page }) => {

@@ -8,12 +8,19 @@
   import PhotoViewer from "$lib/components/PhotoViewer.svelte";
   import { tiltOf } from "$lib/polaroid";
   import { noteTilt } from "$lib/stickyNote";
+  import { terminal } from "$lib/terminal/state.svelte";
   import type { ImageData } from "$lib/types";
   import type { PageData } from "./$types";
 
   let { data }: { data: PageData } = $props();
 
   let quoteComponent = $state<QuoteDisplay>();
+
+  // The site terminal's `quote` command shuffles this page's quote.
+  $effect(() => {
+    terminal.shuffleQuote = () => quoteComponent?.setRandomQuote();
+    return () => (terminal.shuffleQuote = null);
+  });
 
   // The profile photo is the same print as the gallery's, square-cropped. Without a Globals photo
   // it falls back to the bundled static image.
@@ -27,7 +34,7 @@
 </script>
 
 <div class="home-page mx-auto w-full">
-  <section class="home-hero flex flex-col gap-5 md:pt-6">
+  <section class="home-hero flex flex-col gap-5">
     <!-- Grid areas: phone stacks name → polaroid → intro; md+ puts the polaroid
          beside the name and intro (see .hero-top below). -->
     <div class="hero-top">

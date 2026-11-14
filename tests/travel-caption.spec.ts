@@ -1,4 +1,8 @@
 import { expect, test } from "@playwright/test";
+import { TRAVEL_ENABLED } from "../src/lib/features";
+
+// Travel is hidden for now (src/lib/features.ts); this checks trip pages, so it runs once it's back.
+test.skip(!TRAVEL_ENABLED, "travel is hidden");
 
 // Trip photos carry a `name` in the media-manager `travel` class. It must survive the trip →
 // gallery hop as both the img alt and the hover / lightbox caption.

@@ -58,6 +58,13 @@ p {
   @apply mb-4;
 }
 
+/* Every page opens the same way: the default h1, then this line under it, then the content a fixed
+   gap below. Keep page headers to these two so pages start and line up identically. */
+.page-lede {
+  margin: 0 0 2rem;
+  color: var(--color-text-secondary);
+}
+
 /* Link styles */
 a {
   color: var(--color-primary);
@@ -97,6 +104,9 @@ pre {
   @apply transition-colors duration-300;
 } */
 
-html, body {
-  overscroll-behavior: none;
+/* The page colour behind iOS/macOS rubber-banding and pull-to-refresh, so the bounce matches the
+   page in both themes. (Don't set overscroll-behavior here: `none` disables pull-to-refresh and
+   swipe-to-go-back/forward.) */
+html {
+  background-color: var(--color-bg-main);
 }

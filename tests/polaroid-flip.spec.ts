@@ -3,23 +3,15 @@ import { expect, test } from "@playwright/test";
 // Gallery tiles are polaroids: tapping one zooms it into a card, tapping the card flips it over to
 // the media-manager `description` (or a placeholder when it's blank), and Escape puts it back.
 test("photo card zooms in, flips to its description, and closes", async ({ page }) => {
-  // Descriptions are still sparse; trip photos are where they exist today.
+  // Descriptions are still sparse, and trip photos (where most are) are hidden with travel. Run
+  // once a photo on /photos has one; the flip itself is covered by the empty-note test below.
   type Photo = { alt: string; description?: string };
-  const trips = await (await page.request.get("/api/trips")).json();
-  let found: { slug: string; photo: Photo } | undefined;
-  for (const t of trips as { slug: string }[]) {
-    const trip = await (await page.request.get(`/api/trips/${t.slug}`)).json();
-    const photo = (trip.photos as Photo[]).find((p) => p.description);
-    if (photo) {
-      found = { slug: t.slug, photo };
-      break;
-    }
-  }
-  expect(found, "at least one trip photo has a description").toBeTruthy();
-  const described = found!.photo;
+  const photos: Photo[] = await (await page.request.get("/api/images")).json();
+  const described = photos.find((p) => p.description);
+  test.skip(!described, "no visible photo on /photos has a description yet");
 
-  await page.goto(`/travel/${found!.slug}`);
-  const tile = page.locator(`.gallery-item:has(img[alt="${described.alt}"])`).first();
+  await page.goto("/photos");
+  const tile = page.locator(`.gallery-item:has(img[alt="${described!.alt}"])`).first();
   const dialog = page.getByRole("dialog");
   // Retry: a click that lands before hydration hits the server-rendered button with no handler.
   await expect(async () => {
@@ -34,7 +26,7 @@ test("photo card zooms in, flips to its description, and closes", async ({ page 
     "aria-pressed",
     "true",
   );
-  await expect(dialog.locator(".back-note")).toHaveText(described.description!.trim());
+  await expect(dialog.locator(".back-note")).toHaveText(described!.description!.trim());
 
   await page.keyboard.press("Escape");
   await expect(dialog).toHaveCount(0);

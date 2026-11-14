@@ -5,14 +5,14 @@
   let { data }: { data: { trips: TripSummary[] } } = $props();
 </script>
 
-<div class="flex-1 mx-auto w-full px-5 flex flex-col max-w-3xl">
-  <h1 class="mb-4">Travel</h1>
-  <p class="mb-6 text-secondary-text">
+<div class="flex flex-col max-w-3xl">
+  <h1>Travel</h1>
+  <p class="page-lede">
     Some of my trips from the past few years. Still adding in some old photos!
   </p>
 </div>
 
-<div class="flex-1 mx-auto w-full px-5 flex flex-col max-w-5xl">
+<div class="flex flex-col">
   {#if data.trips.length === 0}
     <p class="text-secondary-text">No trips yet — check back soon.</p>
   {:else}

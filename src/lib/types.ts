@@ -26,6 +26,13 @@ export interface ImageData {
 }
 
 
+/** A heading inside a rendered post: its anchor id, plain text and level (2 for `##` ...). */
+export interface Heading {
+  id: string;
+  text: string;
+  depth: number;
+}
+
 export interface ProjectLink {
   text: string;
   url: string;
