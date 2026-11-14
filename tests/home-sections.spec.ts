@@ -7,16 +7,18 @@ const favorites = favoriteData.records;
 const projects = projectData.records;
 const photoCaption = globalsData.records[0]["my photo caption"];
 
-test("home shows only featured projects and links to the complete list", async ({ page }) => {
+test("home sticks up the featured projects, piles the rest, and links to the complete list", async ({ page }) => {
   await page.goto("/");
   const section = page.getByRole("region", { name: "Projects", exact: true });
-  await expect(section.locator(".project-content")).toHaveCount(projects.filter(p => p.featured).length);
+  // Featured projects are the only notes you can pick up; the rest sit in the pile, which is a link.
+  await expect(section.locator(".featured-notes button.note")).toHaveCount(projects.filter(p => p.featured).length);
   for (const project of projects) {
-    await expect(section.getByText(project.name, { exact: true })).toHaveCount(project.featured ? 1 : 0);
+    await expect(section.getByRole("button", { name: project.name, exact: true })).toHaveCount(project.featured ? 1 : 0);
   }
-  await section.locator('a[href="/projects"]').click();
+  await expect(section.locator(".note-pile .note-wrap")).toHaveCount(projects.filter(p => !p.featured).length);
+  await section.getByRole("link", { name: "See all projects" }).click();
   await expect(page).toHaveURL(/\/projects$/);
-  await expect(page.locator(".project-content")).toHaveCount(projects.length);
+  await expect(page.locator(".note-grid button.note")).toHaveCount(projects.length);
   await page.getByRole("link", { name: "Back to home" }).click();
   await expect(page).toHaveURL(/\/$/);
   await expect(page.getByRole("navigation")).toHaveCount(0);
