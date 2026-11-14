@@ -1,11 +1,13 @@
 <script lang="ts">
   import { RefreshCcw } from "lucide-svelte";
   import Gallery from "$lib/components/Gallery.svelte";
-  import ProjectCard from "$lib/components/ProjectCard.svelte";
+  import StickyNote from "$lib/components/StickyNote.svelte";
+  import NoteViewer from "$lib/components/NoteViewer.svelte";
   import QuoteDisplay from "$lib/components/QuoteDisplay.svelte";
   import PrintTile from "$lib/components/PrintTile.svelte";
   import PhotoViewer from "$lib/components/PhotoViewer.svelte";
   import { tiltOf } from "$lib/polaroid";
+  import { noteTilt } from "$lib/stickyNote";
   import type { ImageData } from "$lib/types";
   import type { PageData } from "./$types";
 
@@ -20,6 +22,8 @@
   );
   let meViewer = $state<PhotoViewer>();
   let meTile: HTMLElement | null = null;
+
+  let noteViewer = $state<NoteViewer>();
 </script>
 
 <div class="home-page mx-auto w-full">
@@ -85,9 +89,15 @@
       Here's a few of the things I'm working on in my free time. See my other
       projects <a href="/projects">here</a>.
     </p>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-      {#each data.projects as project (project.title + project.date)}
-        <ProjectCard {project} />
+    <div class="featured-notes">
+      {#each data.projects as project (project.id)}
+        <div class="featured-slot">
+          <StickyNote
+            {project}
+            tilt={noteTilt(project.id)}
+            onopen={(note) => noteViewer?.open(project, note)}
+          />
+        </div>
       {/each}
     </div>
   </section>
@@ -101,6 +111,8 @@
     <Gallery images={data.favorites} padded={false} />
   </section>
 </div>
+
+<NoteViewer bind:this={noteViewer} />
 
 <PhotoViewer bind:this={meViewer} images={[mePhoto]} getTile={() => meTile} ratio={1} />
 
@@ -162,6 +174,36 @@
   /* Profile print: the shared Print at a fixed width; every other measurement scales from it. */
   .polaroid {
     width: 232px;
+  }
+
+  /* Projects: the featured notes in a row. On phones they swipe sideways (each 80% wide, snapping)
+     so the next one peeks in. */
+  .featured-notes {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.75rem;
+  }
+
+  @media (max-width: 639px) {
+    .featured-notes {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 1.1rem;
+      /* Bleed to the screen edges so the next note peeks in; room for shadows top and bottom. */
+      margin: -0.75rem -1.25rem 0;
+      padding: 1.25rem 1.25rem 2rem;
+      scrollbar-width: none;
+    }
+
+    .featured-notes::-webkit-scrollbar {
+      display: none;
+    }
+
+    .featured-slot {
+      flex: 0 0 80%;
+      scroll-snap-align: center;
+    }
   }
 
   /* Markdown intro: paragraph rhythm matching the hand-written markup it replaced. */

@@ -25,7 +25,6 @@ export interface ImageData {
   thumb: { src: string; width: number; height: number } | null;
 }
 
-export type ProjectTag = 'Publication' | 'Product';
 
 export interface ProjectLink {
   text: string;
@@ -33,12 +32,16 @@ export interface ProjectLink {
 }
 
 export interface Project {
+  /** The media-manager record id: seeds the note's tilt and pairs it across pages for the flight. */
+  id: string;
   title: string;
   featured: boolean;
   date: string;
-  tags: ProjectTag[];
+  /** Free-form media-manager tags (Publication, Product, WIP, Small, Internship, ...). */
+  tags: string[];
   links: ProjectLink[];
-  image: string;
+  /** Optional photo taped onto the note: the record's `image` file field, null when it's empty. */
+  image: ImageData | null;
   description: string;
 }
 
