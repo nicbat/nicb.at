@@ -392,29 +392,6 @@
         }
       }
     },
-    "d961b3dc-017f-4e3d-8118-5838a3885dcc": {
-      "file_name": "PXL_20250504_155530072.PANO.jpg",
-      "classes": [
-        "photos"
-      ],
-      "missing": false,
-      "size": 1007681,
-      "created_at": "2026-06-12T01:01:03.846Z",
-      "width": 3425,
-      "height": 1070,
-      "derived": {
-        "web": {
-          "file_name": "PXL_20250504_155530072.PANO.webp",
-          "size": 625532,
-          "width": 3425,
-          "height": 1070,
-          "ssim": 0.975,
-          "recipe": "webp:q80",
-          "source_size": 1007681,
-          "generated_at": "2026-08-18T19:13:51.635Z"
-        }
-      }
-    },
     "66aef9e5-9484-456c-8630-37ac7a0f6a6a": {
       "file_name": "PXL_20250721_021555010.MP.jpg",
       "classes": [

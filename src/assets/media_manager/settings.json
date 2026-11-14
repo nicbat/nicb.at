@@ -3,7 +3,7 @@
   "schemaFileName": "schema.json",
   "autoAdvanceToNextUnlinked": false,
   "autoSaveOnAdvance": false,
-  "gridSize": "large",
+  "gridSize": "xlarge",
   "railCollapsed": false,
   "verboseFields": [
     "dimensions"
