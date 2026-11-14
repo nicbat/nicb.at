@@ -63,6 +63,30 @@ test("theme command switches to dark mode", async ({ page }) => {
   await expect(page.locator("html")).toHaveClass(/dark/);
 });
 
+test("theme toggles and light/dark shortcuts select a mode directly", async ({ page }) => {
+  await page.goto("/", { waitUntil: "networkidle" });
+  const command = page.getByLabel("Command");
+  const root = page.locator("html");
+  for (const [input, dark] of [
+    ["light", false], ["theme", true], ["theme", false],
+    ["dark", true], ["dark", true], ["light", false], ["light", false],
+  ] as const) {
+    await command.fill(input);
+    await command.press("Enter");
+    if (dark) await expect(root).toHaveClass(/dark/);
+    else await expect(root).not.toHaveClass(/dark/);
+  }
+  for (const [prefix, full] of [["dar", "dark"], ["lig", "light"]]) {
+    await command.fill(prefix);
+    await command.press("Tab");
+    await expect(command).toHaveValue(full);
+  }
+  await command.fill("dark");
+  await command.press("Enter");
+  await page.reload();
+  await expect(root).toHaveClass(/dark/);
+});
+
 test.describe("phone", () => {
   // iPhone-sized viewport and touch, on the suite's Chromium (the device preset defaults to WebKit).
   const { defaultBrowserType: _webkit, ...iphone } = devices["iPhone 13"];
@@ -179,6 +203,24 @@ test("home and section names are commands", async ({ page }) => {
   await prompt.fill("home");
   await prompt.press("Enter");
   await expect(page).toHaveURL(/\/$/);
+});
+
+test("socials completes and lists the contact links", async ({ page }) => {
+  await page.goto("/", { waitUntil: "networkidle" });
+  const command = page.getByLabel("Command");
+  await command.fill("soc");
+  await command.press("Tab");
+  await expect(command).toHaveValue("socials");
+  await command.press("Enter");
+  const log = terminal(page).getByRole("log");
+  for (const [name, href] of [
+    ["email", "mailto:nicbatnicko@gmail.com"],
+    ["github", "https://github.com/nicbat"],
+    ["linkedin", "https://www.linkedin.com/in/nicholasbatchelder/"],
+    ["roblox", "https://www.roblox.com/users/35677096/profile"],
+  ]) {
+    await expect(log.getByRole("link", { name, exact: true })).toHaveAttribute("href", href);
+  }
 });
 
 test("copy puts a social link on the clipboard, and its name opens it", async ({ page, context }) => {
