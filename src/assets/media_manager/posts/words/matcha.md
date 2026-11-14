@@ -1,7 +1,7 @@
 ---
 title: Matcha.
 description: Want to take a moment to document my current (frequently changing) matcha recipes.
-date: 2004-11-06
+date: 2026-11-06
 html_route: matcha
 published: true
 ---
@@ -36,7 +36,7 @@ Here you'll make the matcha first, then pour the concentrated Usucha on top of t
 
 This will make two servings. This recipe is a bit more complicated. You'll also need one of those electric milk frothers.
 
-Ingredients:
+#### Ingredients
 
 - 4g of matcha powder
 - 35g water
@@ -44,7 +44,7 @@ Ingredients:
 - 25g heavy cream
 - 16oz of coconut water (8oz for each serving)
 
-Steps
+#### Steps
 
 - make the super concentrated usucha
 - pour in the milk and heavy cream

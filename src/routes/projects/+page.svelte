@@ -15,10 +15,9 @@
 </script>
 
 <div class="projects-page mx-auto w-full flex flex-col">
-  <a href="/" class="mb-6 self-start text-sm">Back to home</a>
-  <h1 class="mb-4">Projects</h1>
+  <h1>Projects</h1>
   {#if projects.length === 0}
-    <p class="mb-6 text-secondary-text">
+    <p class="page-lede">
       Check out my <a
         href="https://github.com/nicbat"
         target="_blank"
@@ -26,7 +25,7 @@
       > if you want to see some of my work.
     </p>
   {:else}
-    <p class="mb-8 text-secondary-text">
+    <p class="page-lede">
       Everything I've made, big and small. Pick one up for a closer look.
     </p>
     <div class="note-grid">

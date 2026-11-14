@@ -1,6 +1,7 @@
 <script lang="ts">
   import { Mail, Github, Linkedin, Icon, type IconNode } from "lucide-svelte";
   import { theme } from "$lib/stores/theme";
+  import { contacts } from "$lib/contacts";
 
   function toggleTheme() {
     theme.update((value) => (value === "light" ? "dark" : "light"));
@@ -29,20 +30,6 @@
     ],
   ];
 
-  const contacts = [
-    { label: "Email", href: "mailto:nicbatnicko@gmail.com", external: false },
-    { label: "GitHub", href: "https://github.com/nicbat", external: true },
-    {
-      label: "LinkedIn",
-      href: "https://www.linkedin.com/in/nicholasbatchelder/",
-      external: true,
-    },
-    {
-      label: "Roblox",
-      href: "https://www.roblox.com/users/35677096/profile",
-      external: true,
-    },
-  ] as const;
 </script>
 
 <footer

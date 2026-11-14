@@ -1,5 +1,5 @@
 // place files you want to import through the `$lib` alias in this folder.
-import type { ImageData, Trip, TripSummary } from '$lib/types';
+import type { Heading, ImageData, Trip, TripSummary } from '$lib/types';
 import type { Project, Quote } from './types';
 import type { MediaItem, MMRecord, PostItem } from 'media-manager/reader/vite';
 // TODO: switch the `media-manager` dependency in package.json from `file:../media-manager`
@@ -10,10 +10,38 @@ import type { MediaItem, MMRecord, PostItem } from 'media-manager/reader/vite';
 import { MediaManager } from 'media-manager/reader/vite';
 
 // A rendered post's finished HTML plus its frontmatter, resolved by the media-manager reader.
+// `headings` is filled for `words` posts only (see `withHeadingIds`).
 export interface Post {
   meta: Record<string, unknown>;
   html: string;
+  headings?: Heading[];
 }
+
+const decodeEntities = (s: string): string =>
+  s
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&amp;/g, '&');
+
+// The reader's markdown-it renders bare `<h2>`–`<h4>`, with no ids. Give each one a slug id (unique
+// within the post) so headings can be linked to, and return them in order for the terminal's
+// on-this-page list and `cd #heading`.
+const withHeadingIds = (html: string): { html: string; headings: Heading[] } => {
+  const headings: Heading[] = [];
+  const used = new Map<string, number>();
+  const out = html.replace(/<h([2-4])>([\s\S]*?)<\/h\1>/g, (_m, level: string, inner: string) => {
+    const text = decodeEntities(inner.replace(/<[^>]+>/g, '')).trim();
+    const base = slugify(text) || 'section';
+    const n = used.get(base) ?? 0;
+    used.set(base, n + 1);
+    const id = n ? `${base}-${n + 1}` : base;
+    headings.push({ id, text, depth: Number(level) });
+    return `<h${level} id="${id}">${inner}</h${level}>`;
+  });
+  return { html: out, headings };
+};
 
 // A words post's URL slug: its `html_route` frontmatter when set, else the `.md` filename stem.
 // Mirrors how a trip resolves its route (see `tripSlug`).
@@ -40,8 +68,15 @@ export const fetchMarkdownPosts = async () => {
 export const fetchPost = async (route: string): Promise<Post | null> => {
   const post = mm.posts('words').all().find((p) => isPublished(p) && postRoute(p) === route);
   if (!post) return null;
-  return { meta: post.meta, html: post.html };
+  return { meta: post.meta, ...withHeadingIds(post.html) };
 };
+
+// The terminal's view of the site's dynamic places: every published post's route. The fixed
+// sections (photos, projects, now) are listed in `$lib/terminal/shell`. (Trips are left out while
+// travel is hidden, see $lib/features.)
+export const fetchSiteTree = async () => ({
+  words: (await fetchMarkdownPosts()).map((p) => p.path.replace(/^\/words\//, ''))
+});
 
 // A post's sort key as an ISO date: its frontmatter `date` when set, else a date read from the
 // `.md` filename stem (`260817` or `2026-08-17`), so a post is ordered correctly whether it's dated
