@@ -32,30 +32,6 @@ test("a note picks up to show its full description and links, and sticks back", 
   expect(errors).toEqual([]);
 });
 
-test("the pile spreads out into the grid and gathers back up", async ({ page }) => {
-  const errors: string[] = [];
-  page.on("pageerror", error => errors.push(error.message));
-  await page.goto("/");
-  const pile = page.getByRole("link", { name: "See all projects" });
-  await pile.scrollIntoViewIfNeeded();
-  const pileBox = (await pile.locator(".pile").boundingBox())!;
-  await pile.click();
-  await expect(page).toHaveURL(/\/projects$/);
-
-  // Mid-flight a piled note is smaller than its spot in the grid, then lands at full size.
-  const grid = page.locator(".note-grid");
-  await expect(grid.locator("button.note")).toHaveCount(projects.length);
-  const lastNote = grid.locator(".note-wrap").last();
-  await page.waitForTimeout(1600);
-  const landed = (await lastNote.boundingBox())!;
-  expect(landed.width).toBeGreaterThan(pileBox.width);
-
-  await page.getByRole("link", { name: "Back to home" }).click();
-  await expect(page).toHaveURL(/\/$/);
-  await expect(page.locator(".featured-notes button.note")).toHaveCount(featured.length);
-  expect(errors).toEqual([]);
-});
-
 test("project notes fit a phone", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/projects");
@@ -64,6 +40,6 @@ test("project notes fit a phone", async ({ page }) => {
   await page.goto("/");
   const section = page.getByRole("region", { name: "Projects", exact: true });
   await section.scrollIntoViewIfNeeded();
-  await expect(section.getByRole("link", { name: "See all projects" })).toBeVisible();
+  await expect(section.getByRole("button", { name: featured[0].name, exact: true })).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
 });

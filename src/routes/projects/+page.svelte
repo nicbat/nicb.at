@@ -6,7 +6,7 @@
 
   let { data }: { data: { projects: Project[] } } = $props();
 
-  // Featured first, so the notes that were stuck up on the home page land in the first row.
+  // Featured first: the notes stuck up on the home page lead the grid here too.
   let projects = $derived([
     ...data.projects.filter((p) => p.featured),
     ...data.projects.filter((p) => !p.featured),

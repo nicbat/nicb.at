@@ -4,17 +4,17 @@
    * top corners, and a gold star when it's featured. Its color comes from its tags (see
    * `$lib/stickyNote`).
    *
-   * Every measurement is in `cqw` of the note's own width, so one note reads the same in the
-   * home-page pile, the /projects grid and picked up in NoteViewer. That's also what lets the
-   * pile → grid flight and the pick-up flight be a plain translate + scale.
+   * Every measurement is in `cqw` of the note's own width, so one note reads the same on the home
+   * page, in the /projects grid and picked up in NoteViewer. That's also what lets the pick-up
+   * flight be a plain translate + scale.
    *
    * - With `onopen`, the note is a button that tilts on the page and straightens on hover, like a
    *   photo print. NoteViewer picks it up.
-   * - Without it, it's inert: the notes in the home-page pile, inside the pile's link.
-   * - `open` is the picked-up note: full description and real links.
+   * - Without it, it's inert: the picked-up copy in NoteViewer, with `open` set, which shows the
+   *   full description and real links.
    */
   import type { Project } from "$lib/types";
-  import { flipId, inlineMarkdown, noteColor, noteStatus } from "$lib/stickyNote";
+  import { inlineMarkdown, noteColor, noteStatus } from "$lib/stickyNote";
 
   let {
     project,
@@ -64,9 +64,9 @@
   </span>
 {/snippet}
 
-<!-- The wrapper carries the Flip id and never animates in CSS, so GSAP can move it between pages
-     while the note inside keeps its own tilt and hover transition. -->
-<div class="note-wrap" data-flip-id={open ? undefined : flipId(project)}>
+<!-- The wrapper holds the note's spot (and the faint mark left while it's picked up); the note
+     inside carries the tilt and hover. -->
+<div class="note-wrap">
   {#if onopen}
     <button
       class="note {color}"

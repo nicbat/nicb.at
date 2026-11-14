@@ -53,7 +53,7 @@ When adding or changing content behavior, follow this chain: `src/assets` → tr
 
 ### Projects (sticky notes)
 
-Each project renders as a sticky note (`StickyNote.svelte`). Its color comes from its tags, and its tilt and pile position are seeded from the record id (`src/lib/stickyNote.ts`). The home page sticks up the `featured` notes and stacks the rest in a pile that links to /projects. Clicking a note picks it up in `NoteViewer.svelte` (a GSAP flight, like PhotoViewer). Between `/` and `/projects`, `+layout.svelte` flies every note to its new spot with GSAP Flip, pairing them by `data-flip-id`. An optional `image` file field on a project record shows a photo taped onto its note.
+Each project renders as a sticky note (`StickyNote.svelte`). Its color comes from its tags, and its tilt and pile position are seeded from the record id (`src/lib/stickyNote.ts`). The home page shows the `featured` notes and links to /projects, which shows them all. Clicking a note picks it up in `NoteViewer.svelte` (a GSAP flight, like PhotoViewer). An optional `image` file field on a project record shows a photo taped onto its note. A pile → grid transition between the two pages was built and shelved because it felt choppy; `docs/project-notes-transition.md` has the code and what to fix if it comes back.
 
 ### Blog posts (mdsvex)
 

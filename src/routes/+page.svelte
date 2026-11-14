@@ -7,7 +7,7 @@
   import PrintTile from "$lib/components/PrintTile.svelte";
   import PhotoViewer from "$lib/components/PhotoViewer.svelte";
   import { tiltOf } from "$lib/polaroid";
-  import { noteTilt, pileOffset } from "$lib/stickyNote";
+  import { noteTilt } from "$lib/stickyNote";
   import type { ImageData } from "$lib/types";
   import type { PageData } from "./$types";
 
@@ -23,11 +23,6 @@
   let meViewer = $state<PhotoViewer>();
   let meTile: HTMLElement | null = null;
 
-  // Featured projects are stuck up front; everything else waits in the pile, which is the link to
-  // /projects (where the same notes spread out into a grid, see the Flip in +layout.svelte).
-  let featured = $derived(data.projects.filter((p) => p.featured));
-  // Reversed so the first of the rest ends up on top of the pile.
-  let pile = $derived(data.projects.filter((p) => !p.featured).reverse());
   let noteViewer = $state<NoteViewer>();
 </script>
 
@@ -91,10 +86,11 @@
   <section aria-labelledby="home-projects" class="mt-16">
     <h2 id="home-projects">Projects</h2>
     <p class="mb-6 text-secondary-text">
-      Here's a few of the things I'm working on in my free time.
+      Here's a few of the things I'm working on in my free time. See my other
+      projects <a href="/projects">here</a>.
     </p>
     <div class="featured-notes">
-      {#each featured as project (project.id)}
+      {#each data.projects as project (project.id)}
         <div class="featured-slot">
           <StickyNote
             {project}
@@ -104,19 +100,6 @@
         </div>
       {/each}
     </div>
-    {#if pile.length}
-      <a class="note-pile" href="/projects" aria-label="See all projects">
-        <span class="pile-label font-mono" aria-hidden="true">see all →</span>
-        <span class="pile" aria-hidden="true">
-          {#each pile as project (project.id)}
-            {@const at = pileOffset(project.id)}
-            <span class="pile-note" style="left: {at.x}px; top: {at.y}px">
-              <StickyNote {project} tilt={noteTilt(project.id, "pile")} />
-            </span>
-          {/each}
-        </span>
-      </a>
-    {/if}
   </section>
 
   <section aria-labelledby="home-photos" class="mt-16 mb-8">
@@ -193,58 +176,12 @@
     width: 232px;
   }
 
-  /* Projects: three featured notes in a row, the pile of the rest below on the right. On phones the
-     featured notes swipe sideways (each 80% wide, snapping) and the pile sits centered below. */
+  /* Projects: the featured notes in a row. On phones they swipe sideways (each 80% wide, snapping)
+     so the next one peeks in. */
   .featured-notes {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1.75rem;
-  }
-
-  .note-pile {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 1.25rem;
-    margin-top: 2.25rem;
-    width: max-content;
-    margin-left: auto;
-    color: var(--color-text-primary);
-    text-decoration: none;
-  }
-
-  .pile-label {
-    font-size: 1rem;
-    transform: rotate(-3deg);
-  }
-
-  .pile {
-    position: relative;
-    display: block;
-    width: 10.5rem;
-    aspect-ratio: 1;
-  }
-
-  .pile-note {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-  }
-
-  /* Only the top note casts a full shadow; thirteen stacked shadows read as a dark smudge. */
-  .pile-note:not(:last-child) :global(.note) {
-    filter: drop-shadow(0 1px 1.5px rgb(0 0 0 / 0.14));
-  }
-
-  .note-pile:hover .pile-label,
-  .note-pile:focus-visible .pile-label {
-    text-decoration: underline;
-    text-underline-offset: 3px;
-  }
-
-  .note-pile:focus-visible {
-    outline: 2px solid var(--color-primary);
-    outline-offset: 8px;
   }
 
   @media (max-width: 639px) {
@@ -266,14 +203,6 @@
     .featured-slot {
       flex: 0 0 80%;
       scroll-snap-align: center;
-    }
-
-    .note-pile {
-      margin: 0.5rem auto 0;
-    }
-
-    .pile {
-      width: 8.5rem;
     }
   }
 

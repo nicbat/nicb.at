@@ -2,8 +2,8 @@ import type { Project } from '$lib/types';
 
 /*
  * Projects are sticky notes. Everything here is derived from a project's own data, so a note never
- * reshuffles between renders or between the home page and /projects: its color comes from its tags,
- * its tilt and its place in the home-page pile from its record id.
+ * reshuffles between renders or between the home page and /projects: its color comes from its tags
+ * and its tilt from its record id.
  */
 
 export type NoteColor = 'yellow' | 'pink' | 'blue' | 'green';
@@ -24,23 +24,15 @@ export function noteStatus(p: Project): string {
   return year ?? '';
 }
 
-/** Matches across pages: GSAP Flip pairs the home-page note with the /projects note by this. */
-export const flipId = (p: Pick<Project, 'id'>) => `note-${p.id}`;
-
 function unit(key: string): number {
   let h = 0;
   for (let i = 0; i < key.length; i++) h = (h * 31 + key.charCodeAt(i)) | 0;
   return ((h >>> 0) % 1000) / 1000;
 }
 
-/** Resting tilt in degrees: about ±2° on the board, barely-there ±2.5° in the pile. */
-export function noteTilt(id: string, place: 'board' | 'pile' = 'board'): number {
-  return (unit(id + place) * 2 - 1) * (place === 'pile' ? 2.5 : 2);
-}
-
-/** A note's small shuffle in the pile, in px, so the stack's edges don't line up. */
-export function pileOffset(id: string): { x: number; y: number } {
-  return { x: Math.round(unit(id + 'px') * 30 - 15), y: Math.round(unit(id + 'py') * 20 - 10) };
+/** Resting tilt in degrees, about ±2°. */
+export function noteTilt(id: string): number {
+  return (unit(id + 'board') * 2 - 1) * 2;
 }
 
 /**
