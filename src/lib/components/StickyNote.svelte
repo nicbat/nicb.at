@@ -4,14 +4,17 @@
    * top corners, and a gold star when it's featured. Its color comes from its tags (see
    * `$lib/stickyNote`).
    *
-   * Every measurement is in `cqw` of the note's own width, so one note reads the same on the home
-   * page, in the /projects grid and picked up in NoteViewer. That's also what lets the pick-up
-   * flight be a plain translate + scale.
+   * Every measurement is in `cqw` of the note's own width, with no rem minimums or maximums, and
+   * the picked-up note shows exactly the same content as the one on the page. So the note in
+   * NoteViewer is the same note scaled up: every line wraps in the same place, and the pick-up flight
+   * is a plain translate + scale with nothing reflowing when it lands. (Same idea as the photo
+   * prints, see `$lib/polaroid`.) Keep it that way: anything that only shows when `open`, or any
+   * size that isn't proportional, makes the text jump when a note is picked up.
    *
    * - With `onopen`, the note is a button that tilts on the page and straightens on hover, like a
    *   photo print. NoteViewer picks it up.
-   * - Without it, it's inert: the picked-up copy in NoteViewer, with `open` set, which shows the
-   *   full description and real links.
+   * - Without it, it's inert: the picked-up copy in NoteViewer, with `open` set. The only
+   *   difference there is that its links are real links rather than text.
    */
   import type { Project } from "$lib/types";
   import { inlineMarkdown, noteColor, noteStatus } from "$lib/stickyNote";
@@ -31,7 +34,6 @@
 
   let color = $derived(noteColor(project));
   let status = $derived(noteStatus(project));
-  let first = $derived(project.links[0]);
 </script>
 
 {#snippet body()}
@@ -51,16 +53,20 @@
     </span>
   {/if}
   <span class="desc">{@html inlineMarkdown(project.description, { links: open })}</span>
-  {#if open && project.links.length}
-    <span class="links">
-      {#each project.links as link (link.url)}
-        <a href={link.url} target="_blank" rel="noopener noreferrer">→ {link.text}</a>
-      {/each}
-    </span>
-  {/if}
+  <!-- Same footer in both states; only `open` turns the link text into real links. -->
   <span class="foot">
     <span>{status}</span>
-    {#if !open && first}<span class="hint">{first.text.toLowerCase()} →</span>{/if}
+    {#if project.links.length}
+      <span class="links">
+        {#each project.links as link (link.url)}
+          {#if open}
+            <a href={link.url} target="_blank" rel="noopener noreferrer">{link.text.toLowerCase()} →</a>
+          {:else}
+            <span>{link.text.toLowerCase()} →</span>
+          {/if}
+        {/each}
+      </span>
+    {/if}
   </span>
 {/snippet}
 
@@ -182,7 +188,7 @@
     padding-right: 12cqw;
     font-family: var(--font-mono);
     font-weight: 600;
-    font-size: clamp(0.92rem, 7.6cqw, 1.9rem);
+    font-size: 7.6cqw;
     line-height: 1.08;
     letter-spacing: -0.02em;
   }
@@ -190,20 +196,16 @@
   .desc {
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 6;
-    line-clamp: 6;
+    -webkit-line-clamp: 7;
+    line-clamp: 7;
     overflow: hidden;
-    font-size: clamp(0.7rem, 5.6cqw, 1.18rem);
+    font-size: 5.6cqw;
     line-height: 1.32;
   }
 
   .has-photo .desc {
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
-  }
-
-  .open .desc {
-    display: block;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
   }
 
   /* A small print taped on at both top corners. */
@@ -217,10 +219,6 @@
     background: #fff;
     box-shadow: 0 1px 3px rgb(0 0 0 / 0.25);
     transform: rotate(-2deg);
-  }
-
-  .open .photo {
-    height: 36cqw;
   }
 
   .photo img {
@@ -250,37 +248,29 @@
     transform: rotate(38deg);
   }
 
-  .links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2cqw 5cqw;
-    font-size: clamp(0.8rem, 5.6cqw, 1.15rem);
-  }
-
-  .links a,
-  .desc :global(a) {
-    color: var(--ink);
-    text-decoration: underline;
-    text-decoration-thickness: 1.5px;
-    text-underline-offset: 3px;
-  }
-
   .foot {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    gap: 2cqw;
+    gap: 3cqw;
     margin-top: auto;
-    font-size: clamp(0.62rem, 4.6cqw, 0.95rem);
+    font-size: 4.6cqw;
     color: var(--ink-soft);
   }
 
-  .hint {
+  /* Text on the page, real links once picked up; styled identically so nothing shifts. */
+  .links {
+    display: flex;
+    gap: 4cqw;
+    white-space: nowrap;
+  }
+
+  .links > *,
+  .desc :global(a) {
     color: var(--ink);
     text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 2px;
-    white-space: nowrap;
+    text-decoration-thickness: 0.3cqw;
+    text-underline-offset: 0.8cqw;
   }
 
   @media (prefers-reduced-motion: reduce) {

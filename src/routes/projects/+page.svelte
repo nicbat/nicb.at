@@ -27,7 +27,7 @@
     </p>
   {:else}
     <p class="mb-8 text-secondary-text">
-      Everything I've made, big and small. Pick one up for the details.
+      Everything I've made, big and small. Pick one up for a closer look.
     </p>
     <div class="note-grid">
       {#each projects as project (project.id)}
@@ -56,10 +56,13 @@
     padding-bottom: 1rem;
   }
 
+  /* One column on phones: note text is sized from the note's width (so it scales cleanly when
+     picked up), and two columns would make it too small to read. */
   @media (max-width: 639px) {
     .note-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1.25rem 1rem;
+      grid-template-columns: minmax(0, 20rem);
+      justify-content: center;
+      gap: 1.75rem;
     }
   }
 </style>
