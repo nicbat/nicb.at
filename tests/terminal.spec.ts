@@ -205,6 +205,24 @@ test("home and section names are commands", async ({ page }) => {
   await expect(page).toHaveURL(/\/$/);
 });
 
+test("socials completes and lists the contact links", async ({ page }) => {
+  await page.goto("/", { waitUntil: "networkidle" });
+  const command = page.getByLabel("Command");
+  await command.fill("soc");
+  await command.press("Tab");
+  await expect(command).toHaveValue("socials");
+  await command.press("Enter");
+  const log = terminal(page).getByRole("log");
+  for (const [name, href] of [
+    ["email", "mailto:nicbatnicko@gmail.com"],
+    ["github", "https://github.com/nicbat"],
+    ["linkedin", "https://www.linkedin.com/in/nicholasbatchelder/"],
+    ["roblox", "https://www.roblox.com/users/35677096/profile"],
+  ]) {
+    await expect(log.getByRole("link", { name, exact: true })).toHaveAttribute("href", href);
+  }
+});
+
 test("copy puts a social link on the clipboard, and its name opens it", async ({ page, context }) => {
   await context.grantPermissions(["clipboard-read", "clipboard-write"]);
   await page.goto("/", { waitUntil: "networkidle" });

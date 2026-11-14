@@ -74,7 +74,7 @@ export interface Suggestion {
 
 export const commands = [
   'cd', 'ls', 'tree', 'help', 'clear', 'back', 'forward', 'theme', 'light', 'dark', 'top', 'bottom', 'up', 'down', 'quote',
-  'contact', 'open', 'copy'
+  'contact', 'socials', 'open', 'copy'
 ];
 
 // Commands that take an argument; completing one adds a space after it.
@@ -221,7 +221,7 @@ const help: OutLine[] = [
   { text: 'theme        toggle light / dark (or theme light|dark)' },
   { text: 'light / dark switch directly to that mode' },
   { text: 'home · photos · projects · words · now' },
-  { text: 'contact      my links; open or copy <link>' },
+  { text: 'socials / contact  my links; open or copy <link>' },
   { text: 'top · bottom · up · down   scroll (up/down: half a screen)' },
   { text: 'quote        a new quote on home' },
   { text: 'tab completes · ↑↓ picks · esc clears', tone: 'muted' }
@@ -298,6 +298,7 @@ export const run = (root: SiteNode, ctx: Context, input: string): RunResult => {
       return { action: { type: 'scroll', by: cmd === 'up' ? -0.5 : 0.5 } };
     case 'quote':
       return { action: { type: 'quote' } };
+    case 'socials':
     case 'contact':
       return {
         lines: [echo, { links: contacts.map((c) => ({ label: c.name, href: c.href, external: true })) }]
