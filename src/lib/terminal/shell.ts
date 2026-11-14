@@ -73,7 +73,7 @@ export interface Suggestion {
 }
 
 export const commands = [
-  'cd', 'ls', 'tree', 'help', 'clear', 'back', 'forward', 'theme', 'top', 'bottom', 'up', 'down', 'quote',
+  'cd', 'ls', 'tree', 'help', 'clear', 'back', 'forward', 'theme', 'light', 'dark', 'top', 'bottom', 'up', 'down', 'quote',
   'contact', 'open', 'copy'
 ];
 
@@ -218,7 +218,8 @@ const help: OutLine[] = [
   { text: '..           same as cd ..' },
   { text: 'back/forward like the browser buttons' },
   { text: 'ls / tree    what is here / everything' },
-  { text: 'theme        light or dark' },
+  { text: 'theme        toggle light / dark (or theme light|dark)' },
+  { text: 'light / dark switch directly to that mode' },
   { text: 'home · photos · projects · words · now' },
   { text: 'contact      my links; open or copy <link>' },
   { text: 'top · bottom · up · down   scroll (up/down: half a screen)' },
@@ -281,6 +282,10 @@ export const run = (root: SiteNode, ctx: Context, input: string): RunResult => {
     case 'theme':
       if (arg && arg !== 'light' && arg !== 'dark') return fail('usage: theme [light|dark]');
       return { action: { type: 'theme', value: (arg as 'light' | 'dark') || undefined } };
+    case 'light':
+    case 'dark':
+      if (arg) return fail(`usage: ${cmd}`);
+      return { action: { type: 'theme', value: cmd } };
     case 'top':
       return { action: { type: 'top' } };
     case 'bottom':
