@@ -8,6 +8,11 @@
    * The same flight as PhotoViewer's prints: the note on the page and the picked-up note are one
    * note at two sizes (everything in it is sized in `cqw`), so it's a plain translate + scale +
    * rotate.
+   *
+   * The picked-up copy is laid out at exactly the width of the note on the page and enlarged with a
+   * transform, rather than laid out at its big size. Text isn't spaced in exact proportion across
+   * font sizes (hinting, and system fonts like SF Pro change their tracking with size), so a copy
+   * set at a bigger font size spaces its letters differently and they visibly shift on pick-up.
    */
   import type { Project } from "$lib/types";
   import { tick } from "svelte";
@@ -18,11 +23,19 @@
   let cardEl = $state<HTMLDivElement>();
   let backdropEl = $state<HTMLDivElement>();
   let backEl = $state<HTMLButtonElement>();
+  /** Layout width of the picked-up copy: the width of the note on the page. */
+  let noteWidth = $state(0);
 
   let tile: HTMLElement | null = null; // the note on the page that was picked up
   let closing = false;
 
   const reducedMotion = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Scale that takes the copy from the note's width to its picked-up size, min(26rem, 100vw - 2rem).
+  function restingScale() {
+    const rem = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
+    return Math.min(26 * rem, window.innerWidth - 2 * rem) / noteWidth;
+  }
 
   // Transform that puts the (untransformed, centred) card exactly over `el`.
   function tileTransform(el: HTMLElement) {
@@ -55,6 +68,7 @@
     if (project) return;
     tile = from;
     closing = false;
+    noteWidth = from.offsetWidth;
     project = p;
     lockScroll(true);
     await tick();
@@ -63,6 +77,7 @@
 
     if (reducedMotion()) {
       from.parentElement?.classList.add("picked");
+      gsap.set(cardEl, { scale: restingScale() });
       gsap.fromTo([backdropEl!, cardEl, backEl!], { opacity: 0 }, { opacity: 1, duration: 0.2 });
       return;
     }
@@ -74,7 +89,7 @@
     gsap.fromTo(
       cardEl,
       { ...start },
-      { x: 0, y: 0, scale: 1, rotation: -1.5, duration: 0.6, ease: "power3.out" },
+      { x: 0, y: 0, scale: restingScale(), rotation: -1.5, duration: 0.6, ease: "power3.out" },
     );
   }
 
@@ -98,10 +113,12 @@
     }
 
     // Measure against the card's resting box: clear the transform, read, restore.
-    const current = gsap.getProperty(cardEl, "rotation") as number;
+    const current = { x: 0, y: 0, scale: 1, rotation: 0 };
+    for (const k of Object.keys(current) as (keyof typeof current)[])
+      current[k] = gsap.getProperty(cardEl, k) as number;
     gsap.set(cardEl, { x: 0, y: 0, scale: 1, rotation: 0 });
     const to = tileTransform(home);
-    gsap.set(cardEl, { rotation: current });
+    gsap.set(cardEl, current);
 
     gsap.to(backEl!, { opacity: 0, duration: 0.15 });
     gsap.to(backdropEl!, { opacity: 0, duration: 0.45, ease: "power2.in" });
@@ -114,6 +131,9 @@
   onkeydown={(e) => {
     if (e.key === "Escape") close();
   }}
+  onresize={() => {
+    if (project && !closing && cardEl) gsap.set(cardEl, { scale: restingScale() });
+  }}
 />
 
 {#if project}
@@ -125,6 +145,7 @@
     <div
       class="card"
       bind:this={cardEl}
+      style="width: {noteWidth}px"
       tabindex="-1"
       onclick={(e) => {
         if (!(e.target as Element).closest("a")) close();
@@ -154,7 +175,7 @@
 
   .card {
     position: relative;
-    width: min(26rem, calc(100vw - 2rem));
+    /* Width is the page note's (inline style); its picked-up size is a transform, see restingScale. */
     outline: none;
     cursor: pointer;
   }
