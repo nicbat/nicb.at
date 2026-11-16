@@ -34,15 +34,16 @@ test("a note picks up with working links, and sticks back", async ({ page }) => 
 
 test("a picked-up note is the same note scaled up: nothing rewraps or moves", async ({ page }) => {
   await page.goto("/projects");
-  // Every part's box, as a fraction of the note's width (rotation set aside).
+  // The note's width and every part's box, in layout px (transforms set aside). The picked-up copy
+  // is laid out at the page note's width and enlarged with a transform, so these match exactly:
+  // text set at another font size would space its letters differently.
   const layout = (note: string) =>
     page.locator(note).evaluate(el => {
       const n = el as HTMLElement;
-      const w = n.offsetWidth;
-      return [".title", ".desc", ".foot", ".links"].map(sel => {
+      return [n.offsetWidth, ...[".title", ".desc", ".foot", ".links"].flatMap(sel => {
         const part = n.querySelector<HTMLElement>(sel);
-        return part ? [part.offsetLeft / w, part.offsetTop / w, part.offsetWidth / w, part.offsetHeight / w] : null;
-      });
+        return part ? [part.offsetLeft, part.offsetTop, part.offsetWidth, part.offsetHeight] : [];
+      })];
     });
   for (const project of projects.filter(p => p.urls?.length).slice(0, 4)) {
     const button = page.getByRole("button", { name: project.name, exact: true });
@@ -50,10 +51,12 @@ test("a picked-up note is the same note scaled up: nothing rewraps or moves", as
     await button.click();
     const dialog = page.getByRole("dialog", { name: project.name });
     await expect(dialog).toBeVisible();
-    const pickedUp = await layout(".viewer .note");
-    onPage.forEach((box, i) =>
-      box!.forEach((v, j) => expect(Math.abs(v - pickedUp[i]![j])).toBeLessThan(0.01)),
-    );
+    expect(await layout(".viewer .note")).toEqual(onPage);
+    // ...and once it lands it shows at its picked-up size, min(26rem, 100vw - 2rem).
+    const viewport = page.viewportSize()!;
+    await expect
+      .poll(() => page.locator(".viewer .card").evaluate(el => el.getBoundingClientRect().height))
+      .toBeGreaterThan(Math.min(416, viewport.width - 32) * 0.98);
     await page.keyboard.press("Escape");
     await expect(dialog).toHaveCount(0);
   }
